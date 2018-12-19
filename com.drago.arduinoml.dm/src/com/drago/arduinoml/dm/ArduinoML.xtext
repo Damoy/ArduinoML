@@ -1,0 +1,9 @@
+grammar com.drago.arduinoml.dm.ArduinoML with org.eclipse.xtext.common.Terminals
+
+generate arduinoML "http://www.drago.com/arduinoml/dm/ArduinoML"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
