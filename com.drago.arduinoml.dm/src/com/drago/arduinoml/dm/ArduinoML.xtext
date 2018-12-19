@@ -2,8 +2,19 @@ grammar com.drago.arduinoml.dm.ArduinoML with org.eclipse.xtext.common.Terminals
 
 generate arduinoML "http://www.drago.com/arduinoml/dm/ArduinoML"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+Domainmodel :
+    (elements+=Type)*;
+  
+Type:
+    DataType | Entity;
+  
+DataType:
+    'datatype' name=ID;
+ 
+Entity:
+    'entity' name=ID ('extends' superType=[Entity])? '{'
+        (features+=Feature)*
+    '}';
+ 
+Feature:
+    (many?='many')? name=ID ':' type=[Type];

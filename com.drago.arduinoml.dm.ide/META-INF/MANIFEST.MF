@@ -8,5 +8,8 @@ Bundle-SymbolicName: com.drago.arduinoml.dm.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.drago.arduinoml.dm,
  org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.drago.arduinoml.dm.ide.contentassist.antlr.internal,
+ com.drago.arduinoml.dm.ide.contentassist.antlr
