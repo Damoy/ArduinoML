@@ -12,11 +12,12 @@ class ArduinoMLDSL {
 	
 	ArduinoMLDSL() {
 		binding = new ArduinoMLBinding()
-		binding.setGroovuinoMLModel(new ArduinoMLModel(binding));
+		binding.setArduinoMLModel(new ArduinoMLModel(binding));
 		configuration = getDSLConfiguration()
-		configuration.setScriptBaseClass("main.groovy.groovuinoml.dsl.GroovuinoMLBasescript")
+		configuration.setScriptBaseClass("com.drago.arduinoml.internal.ArduinoMLBasescript")
 		shell = new GroovyShell(configuration)
 		
+		// binding
 		binding.setVariable("high", SIGNAL.HIGH)
 		binding.setVariable("low", SIGNAL.LOW)
 	}
@@ -56,10 +57,8 @@ class ArduinoMLDSL {
 	
 	void eval(File scriptFile) {
 		Script script = shell.parse(scriptFile)
-		
 		binding.setScript(script)
 		script.setBinding(binding)
-		
 		script.run()
 	}
 }

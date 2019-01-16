@@ -10,13 +10,12 @@ import io.github.mosser.arduinoml.kernel.structural.SIGNAL
 abstract class ArduinoMLBasescript extends Script {
 	// sensor "name" pin n
 	def sensor(String name) {
-		[pin: { n -> ((ArduinoMLBinding)this.getBinding()).getArduinoMLModel().createSensor(name, n) },
-		onPin: { n -> ((ArduinoMLBinding)this.getBinding()).getArduinoMLModel().createSensor(name, n)}]
+		[onPin: { n -> ((ArduinoMLBinding)this.getBinding()).getArduinoMLModel().createSensor(name, n)}]
 	}
 	
 	// actuator "name" pin n
 	def actuator(String name) {
-		[pin: { n -> ((ArduinoMLBinding)this.getBinding()).getArduinoMLModel().createActuator(name, n) }]
+		[onPin: { n -> ((ArduinoMLBinding)this.getBinding()).getArduinoMLModel().createActuator(name, n) }]
 	}
 	
 	// state "name" means actuator becomes signal [and actuator becomes signal]*n
@@ -47,7 +46,7 @@ abstract class ArduinoMLBasescript extends Script {
 		[to: { state2 ->
 			[when: { sensor ->
 				[becomes: { signal ->
-					((ArduinoMLBinding) this.getBinding()).getArduinooMLModel().createTransition(
+					((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().createTransition(
 						state1 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state1) : (State)state1,
 						state2 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state2) : (State)state2,
 						sensor instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor,
