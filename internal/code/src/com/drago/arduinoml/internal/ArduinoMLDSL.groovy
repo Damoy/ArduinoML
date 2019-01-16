@@ -2,17 +2,17 @@ package com.drago.arduinoml.internal;
 
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.customizers.SecureASTCustomizer
-//import io.github.mosser.arduinoml.kernel.structural.SIGNAL
+import io.github.mosser.arduinoml.kernel.structural.SIGNAL
 
-class GroovuinoMLDSL {
+class ArduinoMLDSL {
 	private GroovyShell shell
 	private CompilerConfiguration configuration
-//	private GroovuinoMLBinding binding
-//	private GroovuinoMLBasescript basescript
+	private ArduinoMLBinding binding
+	private ArduinoMLBasescript basescript
 	
-	GroovuinoMLDSL() {
-//		binding = new GroovuinoMLBinding()
-//		binding.setGroovuinoMLModel(new GroovuinoMLModel(binding));
+	ArduinoMLDSL() {
+		binding = new ArduinoMLBinding()
+		binding.setGroovuinoMLModel(new ArduinoMLModel(binding));
 		configuration = getDSLConfiguration()
 		configuration.setScriptBaseClass("main.groovy.groovuinoml.dsl.GroovuinoMLBasescript")
 		shell = new GroovyShell(configuration)

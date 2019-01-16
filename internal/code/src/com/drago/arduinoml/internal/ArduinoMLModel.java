@@ -4,7 +4,7 @@ import java.util.*;
 
 import groovy.lang.Binding;
 
-/*import io.github.mosser.arduinoml.kernel.App;
+import io.github.mosser.arduinoml.kernel.App;
 import io.github.mosser.arduinoml.kernel.behavioral.Action;
 import io.github.mosser.arduinoml.kernel.behavioral.State;
 import io.github.mosser.arduinoml.kernel.behavioral.Transition;
@@ -13,7 +13,7 @@ import io.github.mosser.arduinoml.kernel.generator.Visitor;
 import io.github.mosser.arduinoml.kernel.structural.Actuator;
 import io.github.mosser.arduinoml.kernel.structural.Brick;
 import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
-import io.github.mosser.arduinoml.kernel.structural.Sensor;*/
+import io.github.mosser.arduinoml.kernel.structural.Sensor;
 
 public class ArduinoMLModel {
 	private List<Brick> bricks;
