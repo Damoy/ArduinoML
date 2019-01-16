@@ -1,0 +1,6 @@
+> 16 Jan
+Starting internal dsl basis.
+Tech: groovy / java / eclipse
+
+Main: ArduinoML
+Scripts groovy: *Script.groovy
