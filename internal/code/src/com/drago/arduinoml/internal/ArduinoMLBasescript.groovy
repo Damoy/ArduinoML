@@ -1,12 +1,11 @@
 package com.drago.arduinoml.internal;
 
+import io.github.mosser.arduinoml.kernel.behavioral.Action
 import java.util.List;
-
-/*import io.github.mosser.arduinoml.kernel.behavioral.Action
 import io.github.mosser.arduinoml.kernel.behavioral.State
 import io.github.mosser.arduinoml.kernel.structural.Actuator
 import io.github.mosser.arduinoml.kernel.structural.Sensor
-import io.github.mosser.arduinoml.kernel.structural.SIGNAL*/
+import io.github.mosser.arduinoml.kernel.structural.SIGNAL
 
 abstract class ArduinoMLBasescript extends Script {
 	// sensor "name" pin n
