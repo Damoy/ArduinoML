@@ -25,6 +25,7 @@ public class ArduinoMLBinding extends Binding {
 		this.script = script;
 	}
 	
+	
 	public void setScript(Script script) {
 		this.script = script;
 	}
@@ -33,16 +34,17 @@ public class ArduinoMLBinding extends Binding {
 		this.model = model;
 	}
 	
+	@Override
 	public Object getVariable(String name) {
 		// Easter egg (to show you this trick: seb is now a keyword!)
 		if ("seb".equals(name)) {
 			// could do something else like: ((App) this.getVariable("app")).action();
-			System.out.println("Seb, c'est bien");
 			return script;
 		}
 		return super.getVariable(name);
 	}
 	
+	@Override
 	public void setVariable(String name, Object value) {
 		super.setVariable(name, value);
 	}
