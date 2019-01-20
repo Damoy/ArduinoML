@@ -1,4 +1,4 @@
-package com.drago.arduinoml.internal;
+package com.drago.arduinoml.embedded;
 
 import java.util.Map;
 
@@ -36,11 +36,10 @@ public class ArduinoMLBinding extends Binding {
 	
 	@Override
 	public Object getVariable(String name) {
-		// Easter egg (to show you this trick: seb is now a keyword!)
-		if ("seb".equals(name)) {
-			// could do something else like: ((App) this.getVariable("app")).action();
-			return script;
-		}
+//		if ("seb".equals(name)) {
+//			// could do something else like: ((App) this.getVariable("app")).action();
+//			return script;
+//		}
 		return super.getVariable(name);
 	}
 	

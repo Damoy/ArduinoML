@@ -1,4 +1,4 @@
-package com.drago.arduinoml.internal;
+package com.drago.arduinoml.embedded;
 
 import java.util.*;
 
@@ -74,7 +74,6 @@ public class ArduinoMLModel {
 		app.setInitial(this.initialState);
 		Visitor codeGenerator = new ToWiring();
 		app.accept(codeGenerator);
-		
 		return codeGenerator.getResult();
 	}
 }

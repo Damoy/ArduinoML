@@ -1,4 +1,4 @@
-package com.drago.arduinoml.internal;
+package com.drago.arduinoml.embedded;
 
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.customizers.SecureASTCustomizer
@@ -14,7 +14,7 @@ class ArduinoMLDSL {
 		binding = new ArduinoMLBinding()
 		binding.setArduinoMLModel(new ArduinoMLModel(binding));
 		configuration = getDSLConfiguration()
-		configuration.setScriptBaseClass("com.drago.arduinoml.internal.ArduinoMLBasescript")
+		configuration.setScriptBaseClass("com.drago.arduinoml.embedded.ArduinoMLBasescript")
 		shell = new GroovyShell(configuration)
 		
 		// binding

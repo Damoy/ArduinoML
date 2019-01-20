@@ -1,4 +1,4 @@
-package com.drago.arduinoml.internal;
+package com.drago.arduinoml.embedded;
 
 import io.github.mosser.arduinoml.kernel.behavioral.Action
 import java.util.List;
@@ -6,6 +6,7 @@ import io.github.mosser.arduinoml.kernel.behavioral.State
 import io.github.mosser.arduinoml.kernel.structural.Actuator
 import io.github.mosser.arduinoml.kernel.structural.Sensor
 import io.github.mosser.arduinoml.kernel.structural.SIGNAL
+import static Utils.*
 
 abstract class ArduinoMLBasescript extends Script {
 	// sensor "name" pin n
@@ -58,7 +59,8 @@ abstract class ArduinoMLBasescript extends Script {
 	
 	// export name
 	def export(String name) {
-		println(((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().generateCode(name).toString())
+		String result = ((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().generateCode(name).toString()
+		export(name, result)
 	}
 	
 	// disable run method while running
