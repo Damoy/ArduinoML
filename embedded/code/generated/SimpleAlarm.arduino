@@ -1,10 +1,10 @@
 // Wiring code generated from an ArduinoML model
-// Application name: Switch2
+// Application name: SimpleAlarm
 
 void setup(){
   pinMode(16, INPUT);  // button [Sensor]
-  pinMode(17, OUTPUT); // led1 [Actuator]
-  pinMode(18, OUTPUT); // led2 [Actuator]
+  pinMode(17, OUTPUT); // led [Actuator]
+  pinMode(18, OUTPUT); // buzzer [Actuator]
 }
 
 long time = 0; long debounce = 200;
