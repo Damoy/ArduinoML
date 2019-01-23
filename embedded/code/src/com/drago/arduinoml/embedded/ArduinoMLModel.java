@@ -53,11 +53,10 @@ public class ArduinoMLModel {
 		this.binding.setVariable(name, state);
 	}
 	
-	public void createTransition(State from, State to, Sensor sensor, SIGNAL value) {
+	public void createTransition(State from, State to, Map<Sensor,SIGNAL> sensors) {
 		Transition transition = new Transition();
 		transition.setNext(to);
-		transition.setSensor(sensor);
-		transition.setValue(value);
+		transition.setSensors(sensors);
 		from.setTransition(transition);
 	}
 	
