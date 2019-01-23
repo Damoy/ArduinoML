@@ -48,14 +48,29 @@ abstract class ArduinoMLBasescript extends Script {
 	
 	// from state1 to state2 when sensor becomes signal
 	def from(state1) {
-        [to: { state2 ->
+		Map<Sensor, SIGNAL> transitionConditions = new HashMap<Sensor, SIGNAL>()
+		((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().setupTransition(transitionConditions)
+
+		def closure
+		closure = { sensor ->
+			[becomes: { signal ->
+				((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().setupTransition(
+					null, null,
+					sensor instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor,
+					signal instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal) : (SIGNAL)signal)
+				[and: closure(state1)]
+			}]
+		}
+				
+		[to: { state2 ->
             [when: { sensor ->
                 [becomes: { signal ->
-                    ((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().createTransition(
+                    ((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().setupTransition(
                         state1 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state1) : (State)state1,
                         state2 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state2) : (State)state2,
                         sensor instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor,
                         signal instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal) : (SIGNAL)signal)
+					[and: closure]
                 }]
             }]
         }]

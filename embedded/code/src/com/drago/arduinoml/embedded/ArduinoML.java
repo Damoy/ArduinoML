@@ -13,7 +13,7 @@ public class ArduinoML {
 		File[] files = Utils.getAllScripts();
 
 		for (File file : files) {
-			if(file.getName().contains("Multi")) {
+			if(file.getName().contains("Dual")) {
 				eval(dsl, file);
 			}
 		}

@@ -1,5 +1,9 @@
 package io.github.mosser.arduinoml.kernel.generator;
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import io.github.mosser.arduinoml.kernel.App;
 import io.github.mosser.arduinoml.kernel.behavioral.*;
 import io.github.mosser.arduinoml.kernel.structural.*;
@@ -17,6 +21,10 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	private void w(String s) {
 		result.append(String.format("%s\n",s));
+	}
+	
+	private void wn(String s) {
+		result.append(String.format("%s",s));
 	}
 
 	@Override
@@ -70,15 +78,45 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	}
 
+//	@Override
+//	public void visit(Transition transition) {
+//		w(String.format("  if( digitalRead(%d) == %s && guard ) {",
+//				transition.getSensor().getPin(),transition.getValue()));
+//		w("    time = millis();");
+//		w(String.format("    state_%s();",transition.getNext().getName()));
+//		w("  } else {");
+//		w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
+//		w("  }");
+//	}
+	
 	@Override
 	public void visit(Transition transition) {
-		w(String.format("  if( digitalRead(%d) == %s && guard ) {",
-				transition.getSensor().getPin(),transition.getValue()));
+		visit(transition.getSensors());
 		w("    time = millis();");
 		w(String.format("    state_%s();",transition.getNext().getName()));
 		w("  } else {");
 		w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
 		w("  }");
+	}
+	
+	private void visit(Map<Sensor, SIGNAL> sensors) {
+		Iterator<Entry<Sensor, SIGNAL>> it = sensors.entrySet().iterator();
+		
+		wn("  if( ");
+		
+		while(it.hasNext()) {
+			Entry<Sensor, SIGNAL> entry = it.next();
+			Sensor sensor = entry.getKey();
+			SIGNAL signal = entry.getValue();
+			wn(String.format("digitalRead(%d) == %s", sensor.getPin(), signal));
+			
+			if(it.hasNext()) {
+				wn(" && ");
+			}
+			
+		}
+		
+		w(" && guard ) {");
 	}
 
 	@Override
