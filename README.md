@@ -30,3 +30,5 @@ Produced code available in "generated" folder.
 ..
 <h3>Scenarios</h3>
 ..
+
+# External part
