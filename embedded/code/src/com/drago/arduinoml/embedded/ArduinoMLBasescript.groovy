@@ -2,6 +2,10 @@ package com.drago.arduinoml.embedded;
 
 import io.github.mosser.arduinoml.kernel.behavioral.Action
 import java.util.List;
+
+import com.sun.org.apache.bcel.internal.generic.RETURN
+import com.sun.org.apache.xpath.internal.operations.And
+
 import io.github.mosser.arduinoml.kernel.behavioral.State
 import io.github.mosser.arduinoml.kernel.structural.Actuator
 import io.github.mosser.arduinoml.kernel.structural.Sensor
@@ -44,18 +48,27 @@ abstract class ArduinoMLBasescript extends Script {
 	
 	// from state1 to state2 when sensor becomes signal
 	def from(state1) {
-		[to: { state2 ->
-			[when: { sensor ->
-				[becomes: { signal ->
-					((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().createTransition(
-						state1 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state1) : (State)state1,
-						state2 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state2) : (State)state2,
-						sensor instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor,
-						signal instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal) : (SIGNAL)signal)
-				}]
-			}]
-		}]
-	}
+        [to: { state2 ->
+            [when: { sensor ->
+                [becomes: { signal ->
+                    ((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().createMemoryTransition(
+                        state1 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state1) : (State)state1,
+                        state2 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state2) : (State)state2,
+                        sensor instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor,
+                        signal instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal) : (SIGNAL)signal)
+					[and: {
+						sensor2 ->
+							[becomes: {
+								signal2 ->
+								((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().createTransitionUsingMemory(
+									sensor2 instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor2) : (Sensor)sensor2,
+									signal2 instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal2) : (SIGNAL)signal2)
+						}]
+					}]
+                }]
+            }]
+        }]
+    }
 	
 	// export name
 	def export(String name) {

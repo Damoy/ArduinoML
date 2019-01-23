@@ -15,6 +15,11 @@ public final class Utils {
 	
 	private Utils() {}
 	
+	public static void validate(boolean cond, String errorMsg) {
+		if(!cond)
+			throw new RuntimeException(errorMsg);
+	}
+	
 	/**
 	 * Get all scripts
 	 * @return

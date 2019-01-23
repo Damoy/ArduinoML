@@ -1,3 +1,6 @@
+//Pushing a button activates a LED and a buzzer. Releasing the button switches
+//the actuators off.
+
 sensor "button" onPin 16
 actuator "led" onPin 17
 actuator "buzzer" onPin 18
