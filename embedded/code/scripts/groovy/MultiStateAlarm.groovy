@@ -1,9 +1,9 @@
 // Pushing a button will trigger a buzzer if and only if two buttons are pushed at
 // the very same time. Releasing at least one of the button stop the sound.
 
-sensor "button1" onPin 16
-sensor "button2" onPin 17
-actuator "buzzer" onPin 18
+sensor "button1" onPin 8
+sensor "button2" onPin 9
+actuator "buzzer" onPin 12
 
 //state "on" means "buzzer" becomes "high"
 //state "off" means "buzzer" becomes "low"

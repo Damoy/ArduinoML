@@ -70,7 +70,15 @@ public final class Utils {
 	
 	public static void write(String filePath, String content) {
 		try {
-			PrintWriter pw = new PrintWriter(new FileWriter(new File(filePath), false));
+			File file = new File(filePath);
+			
+			if(file.exists()) {
+				PrintWriter writer = new PrintWriter(file);
+				writer.print("");
+				writer.close();
+			}
+			
+			PrintWriter pw = new PrintWriter(new FileWriter(file));
 			pw.print(content);
 			pw.close();
 		} catch (IOException e) {

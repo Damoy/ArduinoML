@@ -61,20 +61,6 @@ public class ArduinoMLModel {
 		from.setTransition(transition);
 	}
 	
-	private State memoryFrom;
-	private State memoryTo;
-	
-	public void createMemoryTransition(State from, State to, Sensor sensor, SIGNAL value) {
-		memoryFrom = from;
-		memoryTo = to;
-		createTransition(from, to, sensor, value);
-	}
-	
-	public void createTransitionUsingMemory(Sensor sensor, SIGNAL value) {
-		Utils.validate(memoryFrom != null && memoryTo != null, "Invalid memory state.");
-		createTransition(memoryFrom, memoryTo, sensor, value);
-	}
-
 	public void setInitialState(State state) {
 		this.initialState = state;
 	}

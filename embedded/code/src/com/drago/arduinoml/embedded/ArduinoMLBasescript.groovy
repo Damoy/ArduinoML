@@ -56,15 +56,6 @@ abstract class ArduinoMLBasescript extends Script {
                         state2 instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state2) : (State)state2,
                         sensor instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor,
                         signal instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal) : (SIGNAL)signal)
-					[and: {
-						sensor2 ->
-							[becomes: {
-								signal2 ->
-								((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().createTransitionUsingMemory(
-									sensor2 instanceof String ? (Sensor)((ArduinoMLBinding)this.getBinding()).getVariable(sensor2) : (Sensor)sensor2,
-									signal2 instanceof String ? (SIGNAL)((ArduinoMLBinding)this.getBinding()).getVariable(signal2) : (SIGNAL)signal2)
-						}]
-					}]
                 }]
             }]
         }]

@@ -1,8 +1,8 @@
 //Pushing the button once switch the system in a mode where the LED is switched
 //on. Pushing it again switches it off.
 
-sensor "button" onPin 16
-actuator "led" onPin 17
+sensor "button" onPin 8
+actuator "led" onPin 12
 
 state "on" means "led" becomes "high"
 state "off" means "led" becomes "low"

@@ -13,7 +13,9 @@ public class ArduinoML {
 		File[] files = Utils.getAllScripts();
 
 		for (File file : files) {
-			eval(dsl, file);
+			if(file.getName().contains("Simple")) {
+				eval(dsl, file);
+			}
 		}
 	}
 
