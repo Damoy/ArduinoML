@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link arduinoML.impl.TransitionImpl#getNext <em>Next</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getSensor <em>Sensor</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getState <em>State</em>}</li>
+ *   <li>{@link arduinoML.impl.TransitionImpl#getTime <em>Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +76,26 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @ordered
 	 */
 	protected Sensor sensor;
+
+	/**
+	 * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TIME_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected int time = TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +268,29 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 */
 	@Override
+	public int getTime() {
+		return time;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTime(int newTime) {
+		int oldTime = time;
+		time = newTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.TRANSITION__TIME, oldTime, time));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ArduinoMLPackage.TRANSITION__STATE:
@@ -303,6 +347,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				return basicGetSensor();
 			case ArduinoMLPackage.TRANSITION__STATE:
 				return getState();
+			case ArduinoMLPackage.TRANSITION__TIME:
+				return getTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +372,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				return;
 			case ArduinoMLPackage.TRANSITION__STATE:
 				setState((State)newValue);
+				return;
+			case ArduinoMLPackage.TRANSITION__TIME:
+				setTime((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -351,6 +400,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 			case ArduinoMLPackage.TRANSITION__STATE:
 				setState((State)null);
 				return;
+			case ArduinoMLPackage.TRANSITION__TIME:
+				setTime(TIME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -371,6 +423,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				return sensor != null;
 			case ArduinoMLPackage.TRANSITION__STATE:
 				return getState() != null;
+			case ArduinoMLPackage.TRANSITION__TIME:
+				return time != TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -387,6 +441,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", time: ");
+		result.append(time);
 		result.append(')');
 		return result.toString();
 	}

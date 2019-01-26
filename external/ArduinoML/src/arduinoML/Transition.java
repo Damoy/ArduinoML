@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link arduinoML.Transition#getNext <em>Next</em>}</li>
  *   <li>{@link arduinoML.Transition#getSensor <em>Sensor</em>}</li>
  *   <li>{@link arduinoML.Transition#getState <em>State</em>}</li>
+ *   <li>{@link arduinoML.Transition#getTime <em>Time</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getTransition()
@@ -90,7 +91,7 @@ public interface Transition extends EObject {
 	 * @return the value of the '<em>Sensor</em>' reference.
 	 * @see #setSensor(Sensor)
 	 * @see arduinoML.ArduinoMLPackage#getTransition_Sensor()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Sensor getSensor();
@@ -132,5 +133,31 @@ public interface Transition extends EObject {
 	 * @generated
 	 */
 	void setState(State value);
+
+	/**
+	 * Returns the value of the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time</em>' attribute.
+	 * @see #setTime(int)
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Time()
+	 * @model
+	 * @generated
+	 */
+	int getTime();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.Transition#getTime <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time</em>' attribute.
+	 * @see #getTime()
+	 * @generated
+	 */
+	void setTime(int value);
 
 } // Transition

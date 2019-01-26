@@ -42,10 +42,10 @@ Sensor returns Sensor:
 	'Sensor';
 
 Action returns Action:
-	actuator=[Actuator|EString] '<=' value=Signal;
+	'change' actuator=[Actuator|EString] 'to' value=Signal;
 
 Transition returns Transition:
-	sensor=[Sensor|EString] 'is' value=Signal '=>' next=[State|EString];
+    'when' sensor=[Sensor|EString] 'is' value=Signal 'go to'(next=[State|EString]) | 'wait' time=EInt 'then go to' next=[State|EString];
 
 enum Signal returns Signal:
 				HIGH = 'HIGH' | LOW = 'LOW';

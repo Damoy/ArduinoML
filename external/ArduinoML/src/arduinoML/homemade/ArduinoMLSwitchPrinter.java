@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  */
 public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
+	int if_counter;
 	public ArduinoMLSwitchPrinter() {
 		if (modelPackage == null) {
 			modelPackage = ArduinoMLPackage.eINSTANCE;
@@ -111,6 +112,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 * 
 	 */
 	public String caseState(State object) {
+		if_counter = 0;
 		StringBuilder sb = new StringBuilder();
 		 sb.append("void state_"+object.getName()+"() {\n");
 		 for(Action a : object.getActions())
@@ -119,7 +121,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		 for(Transition t : object.getTransitions()) {
 			sb.append(doSwitch(t));
 		 }
-		 sb.append("\telse { state_"+object.getTransitions().get(0).getState().getName()+"(); }\n}");
+		 if (if_counter != 0) {
+			 sb.append("\telse {\n\t\tstate_"+object.getTransitions().get(0).getState().getName()+"(); \n\t}\n");
+		 }
+		 sb.append("}\n");
 		 return sb.toString();
 	}
 
@@ -156,9 +161,24 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 */
 	public String caseTransition(Transition object) {
 		StringBuilder sb = new StringBuilder();
+		if (object.getSensor() != null) {
+		if_counter++;
 		 sb.append("\tif (digitalRead(" + object.getSensor().getPin() + ") == " + object.getValue().getLiteral() + " && guard ) {\n"
-		 		 + "\t\ttime = millis(); state_"+object.getNext().getName()+"();\n"
-		 		 + "}\n");
+		 		 + "\t\ttime = millis();\n\t\tstate_"+object.getNext().getName()+"();\n"
+		 		 + "\t}\n");
+		}
+		else {
+			if(if_counter != 0) {
+				sb.append("\tif (true) {\n"
+						+ "\t\tdelay(" + object.getTime() + ");\n"
+						+ "\t\tstate_" + object.getNext().getName() + "();\n"
+						+ "\t}\n");
+			}
+			else {
+				sb.append("\tdelay(" + object.getTime() + ");\n"
+						+ "\tstate_" + object.getNext().getName() + "();\n");
+			}
+		}
 		 return sb.toString();
 	}
 

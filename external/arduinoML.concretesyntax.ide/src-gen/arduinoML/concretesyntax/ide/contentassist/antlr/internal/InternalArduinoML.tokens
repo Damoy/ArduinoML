@@ -1,16 +1,20 @@
 '-'=20
 ':'=19
-'<='=23
-'=>'=25
 'Actuator'=21
 'HIGH'=11
 'LOW'=12
 'Sensor'=22
 'app'=13
 'bricks'=16
+'change'=23
+'go to'=27
 'initial state'=14
-'is'=24
+'is'=26
 'states'=17
+'then go to'=29
+'to'=24
+'wait'=28
+'when'=25
 '{'=15
 '}'=18
 RULE_ANY_OTHER=10
@@ -35,3 +39,7 @@ T__22=22
 T__23=23
 T__24=24
 T__25=25
+T__26=26
+T__27=27
+T__28=28
+T__29=29

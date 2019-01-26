@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ArduinoML"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/arduinoML.concretesyntax"/>
-	<classpathentry kind="lib" path="C:/Users/T430/.p2/pool/plugins/org.eclipse.emf.common_2.15.0.v20180914-1817.jar" sourcepath="C:/Users/T430/.p2/pool/plugins/org.eclipse.emf.common.source_2.15.0.v20180914-1817.jar">
+	<classpathentry kind="lib" path="C:/Users/sift-/.p2/pool/plugins/org.eclipse.emf.common_2.15.0.v20180914-1817.jar" sourcepath="C:/Users/sift-/.p2/pool/plugins/org.eclipse.emf.common.source_2.15.0.v20180914-1817.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/common/*"/>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/common/archive/*"/>
@@ -15,7 +15,7 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/T430/.p2/pool/plugins/org.eclipse.emf.ecore_2.16.0.v20181124-0637.jar" sourcepath="C:/Users/T430/.p2/pool/plugins/org.eclipse.emf.ecore.source_2.16.0.v20181124-0637.jar">
+	<classpathentry kind="lib" path="C:/Users/sift-/.p2/pool/plugins/org.eclipse.emf.ecore_2.16.0.v20181124-0637.jar" sourcepath="C:/Users/sift-/.p2/pool/plugins/org.eclipse.emf.ecore.source_2.16.0.v20181124-0637.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/*"/>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/impl/*"/>
@@ -33,7 +33,7 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/T430/.p2/pool/plugins/org.eclipse.emf.ecore.xmi_2.15.0.v20180706-1146.jar" sourcepath="C:/Users/T430/.p2/pool/plugins/org.eclipse.emf.ecore.xmi.source_2.15.0.v20180706-1146.jar">
+	<classpathentry kind="lib" path="C:/Users/sift-/.p2/pool/plugins/org.eclipse.emf.ecore.xmi_2.15.0.v20180706-1146.jar" sourcepath="C:/Users/sift-/.p2/pool/plugins/org.eclipse.emf.ecore.xmi.source_2.15.0.v20180706-1146.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/xmi/*"/>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/xmi/impl/*"/>
@@ -41,13 +41,13 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/T430/.p2/pool/plugins/org.eclipse.xtext_2.16.0.v20181203-0514.jar" sourcepath="C:/Users/T430/.p2/pool/plugins/org.eclipse.xtext.source_2.16.0.v20181203-0514.jar">
+	<classpathentry kind="lib" path="C:/Users/sift-/.p2/pool/plugins/org.eclipse.xtext_2.16.0.v20181203-0514.jar" sourcepath="C:/Users/sift-/.p2/pool/plugins/org.eclipse.xtext.source_2.16.0.v20181203-0514.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/resource/*"/>
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/T430/.p2/pool/plugins/com.google.inject_3.0.0.v201312141243.jar" sourcepath="C:/Users/T430/.p2/pool/plugins/com.google.inject_3.0.0.v201312141243.jar">
+	<classpathentry kind="lib" path="C:/Users/sift-/.p2/pool/plugins/com.google.inject_3.0.0.v201312141243.jar" sourcepath="C:/Users/sift-/.p2/pool/plugins/com.google.inject_3.0.0.v201312141243.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="com/google/inject/*"/>
 			<accessrule kind="accessible" pattern="com/google/inject/binder/*"/>

@@ -88,8 +88,8 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.ACTION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getActionAccess().getActuatorActuatorEStringParserRuleCall_0_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.ACTION__ACTUATOR, false));
-		feeder.accept(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getActionAccess().getActuatorActuatorEStringParserRuleCall_1_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.ACTION__ACTUATOR, false));
+		feeder.accept(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -196,22 +196,10 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     (sensor=[Sensor|EString] value=Signal next=[State|EString])
+	 *     ((sensor=[Sensor|EString] value=Signal next=[State|EString]) | (time=EInt next=[State|EString]))
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.TRANSITION__SENSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.TRANSITION__SENSOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.TRANSITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.TRANSITION__VALUE));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.TRANSITION__NEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.TRANSITION__NEXT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTransitionAccess().getSensorSensorEStringParserRuleCall_0_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.TRANSITION__SENSOR, false));
-		feeder.accept(grammarAccess.getTransitionAccess().getValueSignalEnumRuleCall_2_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_4_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.TRANSITION__NEXT, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

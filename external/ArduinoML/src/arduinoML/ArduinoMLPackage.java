@@ -444,13 +444,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int TRANSITION__STATE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__TIME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = 4;
+	int TRANSITION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -675,6 +684,17 @@ public interface ArduinoMLPackage extends EPackage {
 	EReference getTransition_State();
 
 	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Transition#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time</em>'.
+	 * @see arduinoML.Transition#getTime()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EAttribute getTransition_Time();
+
+	/**
 	 * Returns the meta object for class '{@link arduinoML.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -893,6 +913,14 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION__TIME = eINSTANCE.getTransition_Time();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.NamedElementImpl <em>Named Element</em>}' class.
