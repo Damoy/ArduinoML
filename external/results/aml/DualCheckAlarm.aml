@@ -1,17 +1,16 @@
-app DualCheckAlarm initial state off {
-	bricks
+app DualCheckAlarm initial state off :
+
+	bricks :
 		Actuator buzzer : 11
 		Sensor button1 : 8
 		Sensor button2 : 9
 	
-	states
-		off {
+	states :
+		off :
 			change buzzer to LOW
 			when button1 is HIGH and button2 is HIGH go to on
-		}
-		on {
+		
+		on :
 			change buzzer to HIGH
 			when button1 is LOW go to off
 			when button2 is LOW go to off
-		}
-}
