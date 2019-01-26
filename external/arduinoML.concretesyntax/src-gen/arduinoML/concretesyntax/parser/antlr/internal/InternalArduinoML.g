@@ -120,11 +120,11 @@ ruleApp returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='{'
+		otherlv_4=':'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getAppAccess().getLeftCurlyBracketKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getAppAccess().getColonKeyword_4());
 		}
-		otherlv_5='bricks'
+		otherlv_5='bricks :'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getAppAccess().getBricksKeyword_5());
 		}
@@ -166,7 +166,7 @@ ruleApp returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_8='states'
+		otherlv_8='states :'
 		{
 			newLeafNode(otherlv_8, grammarAccess.getAppAccess().getStatesKeyword_8());
 		}
@@ -208,10 +208,6 @@ ruleApp returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_11='}'
-		{
-			newLeafNode(otherlv_11, grammarAccess.getAppAccess().getRightCurlyBracketKeyword_11());
-		}
 	)
 ;
 
@@ -364,9 +360,9 @@ ruleState returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='{'
+		otherlv_1=':'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getStateAccess().getColonKeyword_1());
 		}
 		(
 			(
@@ -444,10 +440,6 @@ ruleState returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_6='}'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_6());
-		}
 	)
 ;
 
