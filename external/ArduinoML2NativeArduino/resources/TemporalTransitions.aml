@@ -1,13 +1,12 @@
-app RedButton initial state off {
+app TemporalTransitions initial state off {
 	bricks
 		Actuator led : 12
 		Sensor button : 8
-		Sensor button2 : 9
 	
 	states
 		off {
 			change led to LOW
-			when button is HIGH and button2 is HIGH go to on
+			when button is HIGH go to on
 		}
 		on {
 			change led to HIGH
