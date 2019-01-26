@@ -408,13 +408,13 @@ public interface ArduinoMLPackage extends EPackage {
 	int TRANSITION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__VALUE = 0;
+	int TRANSITION__VALUES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -426,13 +426,13 @@ public interface ArduinoMLPackage extends EPackage {
 	int TRANSITION__NEXT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * The feature id for the '<em><b>Sensors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__SENSOR = 2;
+	int TRANSITION__SENSORS = 2;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' container reference.
@@ -640,15 +640,15 @@ public interface ArduinoMLPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link arduinoML.Transition#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute list '{@link arduinoML.Transition#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see arduinoML.Transition#getValue()
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see arduinoML.Transition#getValues()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EAttribute getTransition_Value();
+	EAttribute getTransition_Values();
 
 	/**
 	 * Returns the meta object for the reference '{@link arduinoML.Transition#getNext <em>Next</em>}'.
@@ -662,15 +662,15 @@ public interface ArduinoMLPackage extends EPackage {
 	EReference getTransition_Next();
 
 	/**
-	 * Returns the meta object for the reference '{@link arduinoML.Transition#getSensor <em>Sensor</em>}'.
+	 * Returns the meta object for the reference list '{@link arduinoML.Transition#getSensors <em>Sensors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sensor</em>'.
-	 * @see arduinoML.Transition#getSensor()
+	 * @return the meta object for the reference list '<em>Sensors</em>'.
+	 * @see arduinoML.Transition#getSensors()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EReference getTransition_Sensor();
+	EReference getTransition_Sensors();
 
 	/**
 	 * Returns the meta object for the container reference '{@link arduinoML.Transition#getState <em>State</em>}'.
@@ -883,12 +883,12 @@ public interface ArduinoMLPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRANSITION__VALUE = eINSTANCE.getTransition_Value();
+		EAttribute TRANSITION__VALUES = eINSTANCE.getTransition_Values();
 
 		/**
 		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
@@ -899,12 +899,12 @@ public interface ArduinoMLPackage extends EPackage {
 		EReference TRANSITION__NEXT = eINSTANCE.getTransition_Next();
 
 		/**
-		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Sensors</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRANSITION__SENSOR = eINSTANCE.getTransition_Sensor();
+		EReference TRANSITION__SENSORS = eINSTANCE.getTransition_Sensors();
 
 		/**
 		 * The meta object literal for the '<em><b>State</b></em>' container reference feature.

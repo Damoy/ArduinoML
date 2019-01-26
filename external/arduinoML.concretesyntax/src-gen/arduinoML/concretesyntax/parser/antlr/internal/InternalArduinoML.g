@@ -635,7 +635,7 @@ ruleTransition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getSensorSensorCrossReference_0_1_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getSensorsSensorCrossReference_0_1_0());
 					}
 					ruleEString
 					{
@@ -650,25 +650,70 @@ ruleTransition returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getValueSignalEnumRuleCall_0_3_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getValuesSignalEnumRuleCall_0_3_0());
 					}
-					lv_value_3_0=ruleSignal
+					lv_values_3_0=ruleSignal
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTransitionRule());
 						}
-						set(
+						add(
 							$current,
-							"value",
-							lv_value_3_0,
+							"values",
+							lv_values_3_0,
 							"arduinoML.concretesyntax.ArduinoML.Signal");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_4='go to'
+			(
+				otherlv_4='and'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getAndKeyword_0_4_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getTransitionRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getTransitionAccess().getSensorsSensorCrossReference_0_4_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				otherlv_6='is'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getIsKeyword_0_4_2());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTransitionAccess().getValuesSignalEnumRuleCall_0_4_3_0());
+						}
+						lv_values_7_0=ruleSignal
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTransitionRule());
+							}
+							add(
+								$current,
+								"values",
+								lv_values_7_0,
+								"arduinoML.concretesyntax.ArduinoML.Signal");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_8='go to'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getGoToKeyword_0_4());
+				newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getGoToKeyword_0_5());
 			}
 			(
 				(
@@ -678,7 +723,7 @@ ruleTransition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_0_5_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_0_6_0());
 					}
 					ruleEString
 					{
@@ -689,16 +734,16 @@ ruleTransition returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_6='wait'
+			otherlv_10='wait'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getWaitKeyword_1_0());
+				newLeafNode(otherlv_10, grammarAccess.getTransitionAccess().getWaitKeyword_1_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getTransitionAccess().getTimeEIntParserRuleCall_1_1_0());
 					}
-					lv_time_7_0=ruleEInt
+					lv_time_11_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTransitionRule());
@@ -706,15 +751,15 @@ ruleTransition returns [EObject current=null]
 						set(
 							$current,
 							"time",
-							lv_time_7_0,
+							lv_time_11_0,
 							"arduinoML.concretesyntax.ArduinoML.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_8='then go to'
+			otherlv_12='then go to'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getThenGoToKeyword_1_2());
+				newLeafNode(otherlv_12, grammarAccess.getTransitionAccess().getThenGoToKeyword_1_2());
 			}
 			(
 				(

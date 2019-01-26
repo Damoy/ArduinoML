@@ -30,9 +30,11 @@
         eType="#//Actuator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//Signal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        upperBound="-1" eType="#//Signal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" lowerBound="1" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//Sensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" unique="false"
+        upperBound="-1" eType="#//Sensor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
         eOpposite="#//State/transitions"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

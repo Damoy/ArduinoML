@@ -2,6 +2,7 @@
  */
 package arduinoML;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link arduinoML.Transition#getValue <em>Value</em>}</li>
+ *   <li>{@link arduinoML.Transition#getValues <em>Values</em>}</li>
  *   <li>{@link arduinoML.Transition#getNext <em>Next</em>}</li>
- *   <li>{@link arduinoML.Transition#getSensor <em>Sensor</em>}</li>
+ *   <li>{@link arduinoML.Transition#getSensors <em>Sensors</em>}</li>
  *   <li>{@link arduinoML.Transition#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.Transition#getTime <em>Time</em>}</li>
  * </ul>
@@ -26,33 +27,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Transition extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
+	 * The list contents are of type {@link arduinoML.Signal}.
 	 * The literals are from the enumeration {@link arduinoML.Signal}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Values</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
+	 * @return the value of the '<em>Values</em>' attribute list.
 	 * @see arduinoML.Signal
-	 * @see #setValue(Signal)
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Value()
-	 * @model required="true"
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Values()
+	 * @model unique="false"
 	 * @generated
 	 */
-	Signal getValue();
-
-	/**
-	 * Sets the value of the '{@link arduinoML.Transition#getValue <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see arduinoML.Signal
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(Signal value);
+	EList<Signal> getValues();
 
 	/**
 	 * Returns the value of the '<em><b>Next</b></em>' reference.
@@ -81,30 +71,20 @@ public interface Transition extends EObject {
 	void setNext(State value);
 
 	/**
-	 * Returns the value of the '<em><b>Sensor</b></em>' reference.
+	 * Returns the value of the '<em><b>Sensors</b></em>' reference list.
+	 * The list contents are of type {@link arduinoML.Sensor}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sensor</em>' reference isn't clear,
+	 * If the meaning of the '<em>Sensors</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sensor</em>' reference.
-	 * @see #setSensor(Sensor)
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Sensor()
+	 * @return the value of the '<em>Sensors</em>' reference list.
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Sensors()
 	 * @model
 	 * @generated
 	 */
-	Sensor getSensor();
-
-	/**
-	 * Sets the value of the '{@link arduinoML.Transition#getSensor <em>Sensor</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sensor</em>' reference.
-	 * @see #getSensor()
-	 * @generated
-	 */
-	void setSensor(Sensor value);
+	EList<Sensor> getSensors();
 
 	/**
 	 * Returns the value of the '<em><b>State</b></em>' container reference.

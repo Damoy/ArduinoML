@@ -8,15 +8,19 @@ import arduinoML.Signal;
 import arduinoML.State;
 import arduinoML.Transition;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -27,9 +31,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link arduinoML.impl.TransitionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link arduinoML.impl.TransitionImpl#getValues <em>Values</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getNext <em>Next</em>}</li>
- *   <li>{@link arduinoML.impl.TransitionImpl#getSensor <em>Sensor</em>}</li>
+ *   <li>{@link arduinoML.impl.TransitionImpl#getSensors <em>Sensors</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getTime <em>Time</em>}</li>
  * </ul>
@@ -38,24 +42,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class TransitionImpl extends MinimalEObjectImpl.Container implements Transition {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Signal VALUE_EDEFAULT = Signal.HIGH;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Signal value = VALUE_EDEFAULT;
+	protected EList<Signal> values;
 
 	/**
 	 * The cached value of the '{@link #getNext() <em>Next</em>}' reference.
@@ -68,14 +62,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	protected State next;
 
 	/**
-	 * The cached value of the '{@link #getSensor() <em>Sensor</em>}' reference.
+	 * The cached value of the '{@link #getSensors() <em>Sensors</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSensor()
+	 * @see #getSensors()
 	 * @generated
 	 * @ordered
 	 */
-	protected Sensor sensor;
+	protected EList<Sensor> sensors;
 
 	/**
 	 * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
@@ -122,21 +116,11 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 */
 	@Override
-	public Signal getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setValue(Signal newValue) {
-		Signal oldValue = value;
-		value = newValue == null ? VALUE_EDEFAULT : newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.TRANSITION__VALUE, oldValue, value));
+	public EList<Signal> getValues() {
+		if (values == null) {
+			values = new EDataTypeEList<Signal>(Signal.class, this, ArduinoMLPackage.TRANSITION__VALUES);
+		}
+		return values;
 	}
 
 	/**
@@ -185,38 +169,11 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 */
 	@Override
-	public Sensor getSensor() {
-		if (sensor != null && sensor.eIsProxy()) {
-			InternalEObject oldSensor = (InternalEObject)sensor;
-			sensor = (Sensor)eResolveProxy(oldSensor);
-			if (sensor != oldSensor) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoMLPackage.TRANSITION__SENSOR, oldSensor, sensor));
-			}
+	public EList<Sensor> getSensors() {
+		if (sensors == null) {
+			sensors = new EObjectResolvingEList<Sensor>(Sensor.class, this, ArduinoMLPackage.TRANSITION__SENSORS);
 		}
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sensor basicGetSensor() {
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSensor(Sensor newSensor) {
-		Sensor oldSensor = sensor;
-		sensor = newSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.TRANSITION__SENSOR, oldSensor, sensor));
+		return sensors;
 	}
 
 	/**
@@ -337,14 +294,13 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArduinoMLPackage.TRANSITION__VALUE:
-				return getValue();
+			case ArduinoMLPackage.TRANSITION__VALUES:
+				return getValues();
 			case ArduinoMLPackage.TRANSITION__NEXT:
 				if (resolve) return getNext();
 				return basicGetNext();
-			case ArduinoMLPackage.TRANSITION__SENSOR:
-				if (resolve) return getSensor();
-				return basicGetSensor();
+			case ArduinoMLPackage.TRANSITION__SENSORS:
+				return getSensors();
 			case ArduinoMLPackage.TRANSITION__STATE:
 				return getState();
 			case ArduinoMLPackage.TRANSITION__TIME:
@@ -358,17 +314,20 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArduinoMLPackage.TRANSITION__VALUE:
-				setValue((Signal)newValue);
+			case ArduinoMLPackage.TRANSITION__VALUES:
+				getValues().clear();
+				getValues().addAll((Collection<? extends Signal>)newValue);
 				return;
 			case ArduinoMLPackage.TRANSITION__NEXT:
 				setNext((State)newValue);
 				return;
-			case ArduinoMLPackage.TRANSITION__SENSOR:
-				setSensor((Sensor)newValue);
+			case ArduinoMLPackage.TRANSITION__SENSORS:
+				getSensors().clear();
+				getSensors().addAll((Collection<? extends Sensor>)newValue);
 				return;
 			case ArduinoMLPackage.TRANSITION__STATE:
 				setState((State)newValue);
@@ -388,14 +347,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArduinoMLPackage.TRANSITION__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case ArduinoMLPackage.TRANSITION__VALUES:
+				getValues().clear();
 				return;
 			case ArduinoMLPackage.TRANSITION__NEXT:
 				setNext((State)null);
 				return;
-			case ArduinoMLPackage.TRANSITION__SENSOR:
-				setSensor((Sensor)null);
+			case ArduinoMLPackage.TRANSITION__SENSORS:
+				getSensors().clear();
 				return;
 			case ArduinoMLPackage.TRANSITION__STATE:
 				setState((State)null);
@@ -415,12 +374,12 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArduinoMLPackage.TRANSITION__VALUE:
-				return value != VALUE_EDEFAULT;
+			case ArduinoMLPackage.TRANSITION__VALUES:
+				return values != null && !values.isEmpty();
 			case ArduinoMLPackage.TRANSITION__NEXT:
 				return next != null;
-			case ArduinoMLPackage.TRANSITION__SENSOR:
-				return sensor != null;
+			case ArduinoMLPackage.TRANSITION__SENSORS:
+				return sensors != null && !sensors.isEmpty();
 			case ArduinoMLPackage.TRANSITION__STATE:
 				return getState() != null;
 			case ArduinoMLPackage.TRANSITION__TIME:
@@ -439,8 +398,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
+		result.append(" (values: ");
+		result.append(values);
 		result.append(", time: ");
 		result.append(time);
 		result.append(')');

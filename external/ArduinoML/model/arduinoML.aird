@@ -3,7 +3,6 @@
   <viewpoint:DAnalysis uid="_K_HWYGs7EeWiOdAVOgmjaQ" selectedViews="_LOB8IGs7EeWiOdAVOgmjaQ" version="14.1.0.201810161215">
     <semanticResources>arduinoML.ecore</semanticResources>
     <semanticResources>arduinoML.genmodel</semanticResources>
-    <semanticResources>App.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_LOB8IGs7EeWiOdAVOgmjaQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_pMzk8R7rEemqSKKkz80XSA" name="arduinoML" repPath="#_LUB2cGs7EeWiOdAVOgmjaQ">
@@ -560,15 +559,15 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SSFLTSGAEemd3rDXgQLvIQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_et1SnSGGEemd3rDXgQLvIQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8a_MQGwDEeWqCZWCpnXQHg" name="value : Signal = HIGH" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="arduinoML.ecore#//Transition/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="arduinoML.ecore#//Transition/value"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_-F518GwDEeWqCZWCpnXQHg" labelAlignment="LEFT" description="_u0C1cGwDEeWqCZWCpnXQHg">
-          <labelFormat>bold</labelFormat>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8a_MQGwDEeWqCZWCpnXQHg" name="values : Signal" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="arduinoML.ecore#//Transition/values"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="arduinoML.ecore#//Transition/values"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_jmO6ASGIEemd3rDXgQLvIQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
@@ -603,9 +602,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_LsVPYGwEEeWqCZWCpnXQHg" name="[0..1] sensor" sourceNode="_68wTsGwDEeWqCZWCpnXQHg" targetNode="_-BYF4GtAEeWiOdAVOgmjaQ">
-      <target xmi:type="ecore:EReference" href="arduinoML.ecore#//Transition/sensor"/>
-      <semanticElements xmi:type="ecore:EReference" href="arduinoML.ecore#//Transition/sensor"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_LsVPYGwEEeWqCZWCpnXQHg" name="[0..*] sensors" sourceNode="_68wTsGwDEeWqCZWCpnXQHg" targetNode="_-BYF4GtAEeWiOdAVOgmjaQ">
+      <target xmi:type="ecore:EReference" href="arduinoML.ecore#//Transition/sensors"/>
+      <semanticElements xmi:type="ecore:EReference" href="arduinoML.ecore#//Transition/sensors"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_L3BMViGAEemd3rDXgQLvIQ" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_L3BMWCGAEemd3rDXgQLvIQ" showIcon="false"/>

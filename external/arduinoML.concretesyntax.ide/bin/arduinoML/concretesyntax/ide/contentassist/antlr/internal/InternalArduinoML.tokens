@@ -4,6 +4,7 @@
 'HIGH'=11
 'LOW'=12
 'Sensor'=22
+'and'=28
 'app'=13
 'bricks'=16
 'change'=23
@@ -11,9 +12,9 @@
 'initial state'=14
 'is'=26
 'states'=17
-'then go to'=29
+'then go to'=30
 'to'=24
-'wait'=28
+'wait'=29
 'when'=25
 '{'=15
 '}'=18
@@ -43,3 +44,4 @@ T__26=26
 T__27=27
 T__28=28
 T__29=29
+T__30=30

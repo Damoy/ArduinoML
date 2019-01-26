@@ -196,7 +196,7 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     ((sensor=[Sensor|EString] value=Signal next=[State|EString]) | (time=EInt next=[State|EString]))
+	 *     ((sensors+=[Sensor|EString] values+=Signal (sensors+=[Sensor|EString] values+=Signal)* next=[State|EString]) | (time=EInt next=[State|EString]))
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

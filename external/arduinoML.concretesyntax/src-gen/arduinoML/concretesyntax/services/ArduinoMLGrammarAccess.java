@@ -352,16 +352,24 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cWhenKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cSensorAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final CrossReference cSensorSensorCrossReference_0_1_0 = (CrossReference)cSensorAssignment_0_1.eContents().get(0);
-		private final RuleCall cSensorSensorEStringParserRuleCall_0_1_0_1 = (RuleCall)cSensorSensorCrossReference_0_1_0.eContents().get(1);
+		private final Assignment cSensorsAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cSensorsSensorCrossReference_0_1_0 = (CrossReference)cSensorsAssignment_0_1.eContents().get(0);
+		private final RuleCall cSensorsSensorEStringParserRuleCall_0_1_0_1 = (RuleCall)cSensorsSensorCrossReference_0_1_0.eContents().get(1);
 		private final Keyword cIsKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cValueAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final RuleCall cValueSignalEnumRuleCall_0_3_0 = (RuleCall)cValueAssignment_0_3.eContents().get(0);
-		private final Keyword cGoToKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Assignment cNextAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
-		private final CrossReference cNextStateCrossReference_0_5_0 = (CrossReference)cNextAssignment_0_5.eContents().get(0);
-		private final RuleCall cNextStateEStringParserRuleCall_0_5_0_1 = (RuleCall)cNextStateCrossReference_0_5_0.eContents().get(1);
+		private final Assignment cValuesAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cValuesSignalEnumRuleCall_0_3_0 = (RuleCall)cValuesAssignment_0_3.eContents().get(0);
+		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
+		private final Keyword cAndKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
+		private final Assignment cSensorsAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
+		private final CrossReference cSensorsSensorCrossReference_0_4_1_0 = (CrossReference)cSensorsAssignment_0_4_1.eContents().get(0);
+		private final RuleCall cSensorsSensorEStringParserRuleCall_0_4_1_0_1 = (RuleCall)cSensorsSensorCrossReference_0_4_1_0.eContents().get(1);
+		private final Keyword cIsKeyword_0_4_2 = (Keyword)cGroup_0_4.eContents().get(2);
+		private final Assignment cValuesAssignment_0_4_3 = (Assignment)cGroup_0_4.eContents().get(3);
+		private final RuleCall cValuesSignalEnumRuleCall_0_4_3_0 = (RuleCall)cValuesAssignment_0_4_3.eContents().get(0);
+		private final Keyword cGoToKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
+		private final Assignment cNextAssignment_0_6 = (Assignment)cGroup_0.eContents().get(6);
+		private final CrossReference cNextStateCrossReference_0_6_0 = (CrossReference)cNextAssignment_0_6.eContents().get(0);
+		private final RuleCall cNextStateEStringParserRuleCall_0_6_0_1 = (RuleCall)cNextStateCrossReference_0_6_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cWaitKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cTimeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -372,49 +380,74 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNextStateEStringParserRuleCall_1_3_0_1 = (RuleCall)cNextStateCrossReference_1_3_0.eContents().get(1);
 		
 		//Transition:
-		//	'when' sensor=[Sensor|EString] 'is' value=Signal 'go to' next=[State|EString] | 'wait' time=EInt 'then go to'
-		//	next=[State|EString];
+		//	'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
+		//	next=[State|EString] | 'wait' time=EInt 'then go to' next=[State|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'when' sensor=[Sensor|EString] 'is' value=Signal 'go to' next=[State|EString] | 'wait' time=EInt 'then go to'
-		//next=[State|EString]
+		//'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
+		//next=[State|EString] | 'wait' time=EInt 'then go to' next=[State|EString]
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'when' sensor=[Sensor|EString] 'is' value=Signal 'go to' next=[State|EString]
+		//'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
+		//next=[State|EString]
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'when'
 		public Keyword getWhenKeyword_0_0() { return cWhenKeyword_0_0; }
 		
-		//sensor=[Sensor|EString]
-		public Assignment getSensorAssignment_0_1() { return cSensorAssignment_0_1; }
+		//sensors+=[Sensor|EString]
+		public Assignment getSensorsAssignment_0_1() { return cSensorsAssignment_0_1; }
 		
 		//[Sensor|EString]
-		public CrossReference getSensorSensorCrossReference_0_1_0() { return cSensorSensorCrossReference_0_1_0; }
+		public CrossReference getSensorsSensorCrossReference_0_1_0() { return cSensorsSensorCrossReference_0_1_0; }
 		
 		//EString
-		public RuleCall getSensorSensorEStringParserRuleCall_0_1_0_1() { return cSensorSensorEStringParserRuleCall_0_1_0_1; }
+		public RuleCall getSensorsSensorEStringParserRuleCall_0_1_0_1() { return cSensorsSensorEStringParserRuleCall_0_1_0_1; }
 		
 		//'is'
 		public Keyword getIsKeyword_0_2() { return cIsKeyword_0_2; }
 		
-		//value=Signal
-		public Assignment getValueAssignment_0_3() { return cValueAssignment_0_3; }
+		//values+=Signal
+		public Assignment getValuesAssignment_0_3() { return cValuesAssignment_0_3; }
 		
 		//Signal
-		public RuleCall getValueSignalEnumRuleCall_0_3_0() { return cValueSignalEnumRuleCall_0_3_0; }
+		public RuleCall getValuesSignalEnumRuleCall_0_3_0() { return cValuesSignalEnumRuleCall_0_3_0; }
 		
-		//'go to'
-		public Keyword getGoToKeyword_0_4() { return cGoToKeyword_0_4; }
+		//('and' sensors+=[Sensor|EString] 'is' values+=Signal)*
+		public Group getGroup_0_4() { return cGroup_0_4; }
 		
-		//next=[State|EString]
-		public Assignment getNextAssignment_0_5() { return cNextAssignment_0_5; }
+		//'and'
+		public Keyword getAndKeyword_0_4_0() { return cAndKeyword_0_4_0; }
 		
-		//[State|EString]
-		public CrossReference getNextStateCrossReference_0_5_0() { return cNextStateCrossReference_0_5_0; }
+		//sensors+=[Sensor|EString]
+		public Assignment getSensorsAssignment_0_4_1() { return cSensorsAssignment_0_4_1; }
+		
+		//[Sensor|EString]
+		public CrossReference getSensorsSensorCrossReference_0_4_1_0() { return cSensorsSensorCrossReference_0_4_1_0; }
 		
 		//EString
-		public RuleCall getNextStateEStringParserRuleCall_0_5_0_1() { return cNextStateEStringParserRuleCall_0_5_0_1; }
+		public RuleCall getSensorsSensorEStringParserRuleCall_0_4_1_0_1() { return cSensorsSensorEStringParserRuleCall_0_4_1_0_1; }
+		
+		//'is'
+		public Keyword getIsKeyword_0_4_2() { return cIsKeyword_0_4_2; }
+		
+		//values+=Signal
+		public Assignment getValuesAssignment_0_4_3() { return cValuesAssignment_0_4_3; }
+		
+		//Signal
+		public RuleCall getValuesSignalEnumRuleCall_0_4_3_0() { return cValuesSignalEnumRuleCall_0_4_3_0; }
+		
+		//'go to'
+		public Keyword getGoToKeyword_0_5() { return cGoToKeyword_0_5; }
+		
+		//next=[State|EString]
+		public Assignment getNextAssignment_0_6() { return cNextAssignment_0_6; }
+		
+		//[State|EString]
+		public CrossReference getNextStateCrossReference_0_6_0() { return cNextStateCrossReference_0_6_0; }
+		
+		//EString
+		public RuleCall getNextStateEStringParserRuleCall_0_6_0_1() { return cNextStateEStringParserRuleCall_0_6_0_1; }
 		
 		//'wait' time=EInt 'then go to' next=[State|EString]
 		public Group getGroup_1() { return cGroup_1; }
@@ -624,8 +657,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transition:
-	//	'when' sensor=[Sensor|EString] 'is' value=Signal 'go to' next=[State|EString] | 'wait' time=EInt 'then go to'
-	//	next=[State|EString];
+	//	'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
+	//	next=[State|EString] | 'wait' time=EInt 'then go to' next=[State|EString];
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}

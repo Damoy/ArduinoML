@@ -1,0 +1,18 @@
+app VerySimpleAlarm initial state off {
+	bricks
+		Actuator buzzer : 11
+		Actuator led : 12
+		Sensor button : 8
+	
+	states
+		off {
+			change buzzer to LOW
+			change led to LOW
+			when button is HIGH go to on
+		}
+		on {
+			change buzzer to HIGH
+			change led to HIGH
+			when button is LOW go to off
+		}
+}
