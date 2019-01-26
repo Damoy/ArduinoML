@@ -96,7 +96,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		 		+ "long time=0; long debounce = 200;\n\n");
 		 for(State s : object.getStates())
 				sb.append(doSwitch(s));
-		 sb.append("\nvoid loop() {state_"+object.getInitial().getName()+"();} // Entering init state");
+		 sb.append("void loop() {state_"+object.getInitial().getName()+"();} // Entering init state");
 		 return sb.toString();
 	}
 	
@@ -124,7 +124,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		 if (if_counter != 0) {
 			 sb.append("\telse {\n\t\tstate_"+object.getTransitions().get(0).getState().getName()+"(); \n\t}\n");
 		 }
-		 sb.append("}\n");
+		 sb.append("}\n\n");
 		 return sb.toString();
 	}
 
