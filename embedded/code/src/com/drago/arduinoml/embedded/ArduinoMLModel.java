@@ -49,6 +49,7 @@ public class ArduinoMLModel {
 		State state = new State();
 		state.setName(name);
 		state.setActions(actions);
+		state.setTransitions(new ArrayList<>());
 		this.states.add(state);
 		this.binding.setVariable(name, state);
 	}
@@ -69,7 +70,7 @@ public class ArduinoMLModel {
 			this.from = from;
 			this.to = to;
 			transition.setNext(to);
-			from.setTransition(transition);
+			from.addTransition(transition);
 		}
 		
 		transition.addSensor(sensor, signal);

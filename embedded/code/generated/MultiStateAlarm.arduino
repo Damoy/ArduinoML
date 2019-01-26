@@ -15,7 +15,8 @@ void state_buzzerOn() {
   if( digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_ledOn();
-  } else {
+  }
+  else {
     state_buzzerOn();
   }
 }
@@ -27,7 +28,8 @@ void state_ledOn() {
   if( digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_none();
-  } else {
+  }
+  else {
     state_ledOn();
   }
 }
@@ -39,7 +41,8 @@ void state_none() {
   if( digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_buzzerOn();
-  } else {
+  }
+  else {
     state_none();
   }
 }

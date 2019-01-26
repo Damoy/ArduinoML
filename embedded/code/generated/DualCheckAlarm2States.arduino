@@ -1,5 +1,5 @@
 // Wiring code generated from an ArduinoML model
-// Application name: DualCheckAlarm
+// Application name: DualCheckAlarm2States
 
 void setup(){
   pinMode(8, INPUT);  // button1 [Sensor]
@@ -12,33 +12,32 @@ long time = 0; long debounce = 200;
 void state_off() {
   digitalWrite(11,LOW);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == HIGH && guard ) {
+  if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
     time = millis();
-    state_one();
-  } else {
+    state_on();
+  }
+  else {
     state_off();
   }
 }
 
-void state_one() {
-  digitalWrite(11,LOW);
-  boolean guard = millis() - time > debounce;
-  if( digitalRead(9) == HIGH && guard ) {
-    time = millis();
-    state_off();
-  } else {
-    state_one();
-  }
-}
-
-void state_two() {
+void state_on() {
   digitalWrite(11,HIGH);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(9) == LOW && guard ) {
+  if( digitalRead(8) == LOW && digitalRead(9) == HIGH && guard ) {
     time = millis();
-    state_one();
-  } else {
-    state_two();
+    state_off();
+  }
+  if( digitalRead(8) == HIGH && digitalRead(9) == LOW && guard ) {
+    time = millis();
+    state_off();
+  }
+  if( digitalRead(8) == LOW && digitalRead(9) == LOW && guard ) {
+    time = millis();
+    state_off();
+  }
+  else {
+    state_on();
   }
 }
 

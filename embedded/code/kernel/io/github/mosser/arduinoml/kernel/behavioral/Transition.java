@@ -10,10 +10,7 @@ import io.github.mosser.arduinoml.kernel.structural.*;
 public class Transition implements Visitable {
 
 	private State next;
-	//private Sensor sensor;
-	//private SIGNAL value;
 	private Map<Sensor, SIGNAL> sensors = new HashMap<Sensor, SIGNAL>();
-
 
 	public State getNext() {
 		return next;
@@ -37,22 +34,6 @@ public class Transition implements Visitable {
 		}
 		sensors.put(sensor, signal);	
 	}
-//	public Sensor getSensor() {
-//		return sensor;
-//	}
-//
-//	public void setSensor(Sensor sensor) {
-//		this.sensor = sensor;
-//	}
-//
-//	public SIGNAL getValue() {
-//		return value;
-//	}
-//
-//	public void setValue(SIGNAL value) {
-//		this.value = value;
-//	}
-
 
 	@Override
 	public void accept(@SuppressWarnings("rawtypes") Visitor visitor) {

@@ -1,6 +1,7 @@
 package io.github.mosser.arduinoml.kernel.generator;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -68,34 +69,29 @@ public class ToWiring extends Visitor<StringBuffer> {
 		for(Action action: state.getActions()) {
 			action.accept(this);
 		}
-
-		if (state.getTransition() != null) {
+		
+		List<Transition> transitions = state.getTransitions();
+		
+		if(transitions != null && !transitions.isEmpty()) {
 			w("  boolean guard = millis() - time > debounce;");
 			context.put(CURRENT_STATE, state);
-			state.getTransition().accept(this);
+			
+			for(Transition transition : transitions) {
+				transition.accept(this);
+			}
+			
+			w("  else {");
+			w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
+			w("  }");
 			w("}\n");
 		}
-
 	}
 
-//	@Override
-//	public void visit(Transition transition) {
-//		w(String.format("  if( digitalRead(%d) == %s && guard ) {",
-//				transition.getSensor().getPin(),transition.getValue()));
-//		w("    time = millis();");
-//		w(String.format("    state_%s();",transition.getNext().getName()));
-//		w("  } else {");
-//		w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
-//		w("  }");
-//	}
-	
 	@Override
 	public void visit(Transition transition) {
 		visit(transition.getSensors());
 		w("    time = millis();");
 		w(String.format("    state_%s();",transition.getNext().getName()));
-		w("  } else {");
-		w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
 		w("  }");
 	}
 	

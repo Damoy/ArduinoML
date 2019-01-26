@@ -9,13 +9,10 @@ import java.io.File;
 public class ArduinoML {
 	
 	public static void main(String[] args) {
-		ArduinoMLDSL dsl = new ArduinoMLDSL();
-		File[] files = Utils.getAllScripts();
-
-		for (File file : files) {
-			if(file.getName().contains("Dual")) {
-				eval(dsl, file);
-			}
+		for (File file : Utils.getAllScripts()) {
+			Utils.infoln("Processing " + file.getName() + " file...");
+			eval(new ArduinoMLDSL(), file);
+			Utils.infoln("Done.");
 		}
 	}
 

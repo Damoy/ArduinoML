@@ -14,7 +14,8 @@ void state_on() {
   if( digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_off();
-  } else {
+  }
+  else {
     state_on();
   }
 }
@@ -25,7 +26,8 @@ void state_off() {
   if( digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_on();
-  } else {
+  }
+  else {
     state_off();
   }
 }
