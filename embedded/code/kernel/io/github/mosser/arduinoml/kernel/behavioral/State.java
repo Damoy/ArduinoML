@@ -12,7 +12,7 @@ public class State implements NamedElement, Visitable {
 	private String name;
 	private List<Action> actions = new ArrayList<Action>();
 	private List<Transition> transitions;
-
+	
 	@Override
 	public String getName() {
 		return name;

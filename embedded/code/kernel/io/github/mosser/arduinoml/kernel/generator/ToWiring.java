@@ -83,14 +83,20 @@ public class ToWiring extends Visitor<StringBuffer> {
 			w("  else {");
 			w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
 			w("  }");
-			w("}\n");
 		}
+		
+		w("}\n");
 	}
 
 	@Override
 	public void visit(Transition transition) {
 		visit(transition.getSensors());
 		w("    time = millis();");
+
+		if(transition.hasDelay()) {
+			w("    delay(" + transition.getDelay() + ");");
+		}
+		
 		w(String.format("    state_%s();",transition.getNext().getName()));
 		w("  }");
 	}

@@ -11,6 +11,19 @@ public class Transition implements Visitable {
 
 	private State next;
 	private Map<Sensor, SIGNAL> sensors = new HashMap<Sensor, SIGNAL>();
+	private int delay = 0;
+	
+	public int getDelay() {
+		return delay;
+	}
+
+	public void setDelay(int delay) {
+		this.delay = delay;
+	}
+	
+	public boolean hasDelay() {
+		return delay > 0;
+	}
 
 	public State getNext() {
 		return next;

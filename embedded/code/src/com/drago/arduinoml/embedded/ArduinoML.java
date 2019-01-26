@@ -9,10 +9,10 @@ import java.io.File;
 public class ArduinoML {
 	
 	public static void main(String[] args) {
-		for (File file : Utils.getAllScripts()) {
-			Utils.infoln("Processing " + file.getName() + " file...");
+		for (File file : ArduinoMLUtils.getAllScripts()) {
+			ArduinoMLUtils.infoln("Processing " + file.getName() + " file...");
 			eval(new ArduinoMLDSL(), file);
-			Utils.infoln("Done.");
+			ArduinoMLUtils.infoln("Done.");
 		}
 	}
 

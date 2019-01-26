@@ -25,7 +25,6 @@ public class ArduinoMLBinding extends Binding {
 		this.script = script;
 	}
 	
-	
 	public void setScript(Script script) {
 		this.script = script;
 	}
