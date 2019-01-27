@@ -46,13 +46,6 @@ abstract class ArduinoMLBasescript extends Script {
 		((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().setInitialState(state instanceof String ? (State)((ArduinoMLBinding)this.getBinding()).getVariable(state) : (State)state)
 	}
 	
-	def wait(Integer delay) {
-		["on": {
-			state -> 
-			((State)((ArduinoMLBinding)this.getBinding()).getVariable(state)).setDelay(delay);
-		}]
-	}
-	
 	def delay(Integer delay) {
 		Map<Sensor, SIGNAL> transitionConditions = new HashMap<Sensor, SIGNAL>()
 		((ArduinoMLBinding) this.getBinding()).getArduinoMLModel().setupTransitionConditions(transitionConditions)

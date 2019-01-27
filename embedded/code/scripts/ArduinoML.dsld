@@ -27,6 +27,4 @@ contribute(currentType(subType('groovy.lang.Script'))) {
 	
 	// temporal transitions
 	method type: Script, name: 'delay', params: [delayValue:Integer], doc: 'Delay a transition'
-	method type: Script, name: 'wait', params: [delayValue:Integer], doc: 'Delay a state'
-	method type: void, name: 'on', params: [state:String], doc: 'State name to delay'
 }
