@@ -182,12 +182,12 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		else {
 			if(if_counter != 0) {
 				sb.append("\tif (true) {\n"
-						+ "\t\tdelay(" + object.getTime() * object.getUnit().getValue() + ");\n"
+						+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n"
 						+ "\t\tstate_" + object.getNext().getName() + "();\n"
 						+ "\t}\n");
 			}
 			else {
-				sb.append("\tdelay(" + object.getTime() * object.getUnit().getValue() + ");\n"
+				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n"
 						+ "\tstate_" + object.getNext().getName() + "();\n");
 			}
 		}
