@@ -12,7 +12,7 @@ public final class ArduinoMLUtils {
 
 	public final static String INPUT_DIRECTORY_PATH = "./scripts/groovy";
 	public final static String INPUT_EXTENSION = ".groovy";
-	public final static String OUTPUT_DIRECTORY_PATH = "./generated";
+	public final static String OUTPUT_DIRECTORY_PATH = "./scripts/generated";
 	public final static String OUTPUT_ARDUINO_EXTENSION = ".ino";
 
 	private ArduinoMLUtils() {

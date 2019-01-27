@@ -12,7 +12,7 @@ long time = 0; long debounce = 200;
 void state_off() {
   digitalWrite(11,LOW);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
+  if( digitalRead(9) == HIGH && digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_on();
   }
@@ -24,15 +24,15 @@ void state_off() {
 void state_on() {
   digitalWrite(11,HIGH);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == LOW && digitalRead(9) == HIGH && guard ) {
+  if( digitalRead(9) == HIGH && digitalRead(8) == LOW && guard ) {
     time = millis();
     state_off();
   }
-  if( digitalRead(8) == HIGH && digitalRead(9) == LOW && guard ) {
+  if( digitalRead(9) == LOW && digitalRead(8) == HIGH && guard ) {
     time = millis();
     state_off();
   }
-  if( digitalRead(8) == LOW && digitalRead(9) == LOW && guard ) {
+  if( digitalRead(9) == LOW && digitalRead(8) == LOW && guard ) {
     time = millis();
     state_off();
   }
