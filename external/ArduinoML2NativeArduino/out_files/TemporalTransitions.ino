@@ -23,7 +23,7 @@ void state_off() {
 void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
-	delay(3000);
+	delay(800);
 	state_off();
 }
 

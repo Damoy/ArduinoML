@@ -78,6 +78,8 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 		switch (eDataType.getClassifierID()) {
 			case ArduinoMLPackage.SIGNAL:
 				return createSignalFromString(eDataType, initialValue);
+			case ArduinoMLPackage.TIME_UNIT:
+				return createTime_unitFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +95,8 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 		switch (eDataType.getClassifierID()) {
 			case ArduinoMLPackage.SIGNAL:
 				return convertSignalToString(eDataType, instanceValue);
+			case ArduinoMLPackage.TIME_UNIT:
+				return convertTime_unitToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +185,26 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	 * @generated
 	 */
 	public String convertSignalToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Time_unit createTime_unitFromString(EDataType eDataType, String initialValue) {
+		Time_unit result = Time_unit.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTime_unitToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

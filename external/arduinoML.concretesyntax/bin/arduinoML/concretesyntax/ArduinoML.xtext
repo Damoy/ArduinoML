@@ -30,7 +30,7 @@ State returns State:
 	;
 
 EInt returns ecore::EInt:
-	'-'? INT;
+	INT;
 
 Actuator returns Actuator:
 	{Actuator}
@@ -44,7 +44,10 @@ Action returns Action:
 	'change' actuator=[Actuator|EString] 'to' value=Signal;
 
 Transition returns Transition:
-    'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'(next=[State|EString]) | 'wait' time=EInt 'then go to' next=[State|EString];
+    'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'(next=[State|EString]) | 'wait' time=EInt unit=Time_unit 'then go to' next=[State|EString];
 
 enum Signal returns Signal:
 				HIGH = 'HIGH' | LOW = 'LOW';
+				
+enum Time_unit returns Time_unit:
+				ms = 'ms' | s = 's' | min = 'min';

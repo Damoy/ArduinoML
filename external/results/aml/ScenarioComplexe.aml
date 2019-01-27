@@ -24,7 +24,6 @@ app MultiStateAlarm initial state off :
 		green_glow :
 			change red_led to LOW
 			change green_led to HIGH
-			when button is HIGH and button2 is HIGH go to dual_glow
 			when button is HIGH go to off
 			
 		dual_glow :

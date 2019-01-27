@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link arduinoML.Transition#getSensors <em>Sensors</em>}</li>
  *   <li>{@link arduinoML.Transition#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.Transition#getTime <em>Time</em>}</li>
+ *   <li>{@link arduinoML.Transition#getUnit <em>Unit</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getTransition()
@@ -139,5 +140,34 @@ public interface Transition extends EObject {
 	 * @generated
 	 */
 	void setTime(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
+	 * The literals are from the enumeration {@link arduinoML.Time_unit}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unit</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unit</em>' attribute.
+	 * @see arduinoML.Time_unit
+	 * @see #setUnit(Time_unit)
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Unit()
+	 * @model
+	 * @generated
+	 */
+	Time_unit getUnit();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.Transition#getUnit <em>Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit</em>' attribute.
+	 * @see arduinoML.Time_unit
+	 * @see #getUnit()
+	 * @generated
+	 */
+	void setUnit(Time_unit value);
 
 } // Transition

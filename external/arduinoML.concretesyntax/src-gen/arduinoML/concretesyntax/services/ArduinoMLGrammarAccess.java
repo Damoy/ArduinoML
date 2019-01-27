@@ -240,22 +240,14 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.EInt");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//EInt ecore::EInt:
-		//	'-'? INT;
+		//	INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'-'? INT
-		public Group getGroup() { return cGroup; }
-		
-		//'-'?
-		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
-		
 		//INT
-		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
 	}
 	public class ActuatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Actuator");
@@ -363,18 +355,20 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cWaitKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cTimeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cTimeEIntParserRuleCall_1_1_0 = (RuleCall)cTimeAssignment_1_1.eContents().get(0);
-		private final Keyword cThenGoToKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cNextAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final CrossReference cNextStateCrossReference_1_3_0 = (CrossReference)cNextAssignment_1_3.eContents().get(0);
-		private final RuleCall cNextStateEStringParserRuleCall_1_3_0_1 = (RuleCall)cNextStateCrossReference_1_3_0.eContents().get(1);
+		private final Assignment cUnitAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cUnitTime_unitEnumRuleCall_1_2_0 = (RuleCall)cUnitAssignment_1_2.eContents().get(0);
+		private final Keyword cThenGoToKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Assignment cNextAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final CrossReference cNextStateCrossReference_1_4_0 = (CrossReference)cNextAssignment_1_4.eContents().get(0);
+		private final RuleCall cNextStateEStringParserRuleCall_1_4_0_1 = (RuleCall)cNextStateCrossReference_1_4_0.eContents().get(1);
 		
 		//Transition:
 		//	'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
-		//	next=[State|EString] | 'wait' time=EInt 'then go to' next=[State|EString];
+		//	next=[State|EString] | 'wait' time=EInt unit=Time_unit 'then go to' next=[State|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
-		//next=[State|EString] | 'wait' time=EInt 'then go to' next=[State|EString]
+		//next=[State|EString] | 'wait' time=EInt unit=Time_unit 'then go to' next=[State|EString]
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
@@ -438,7 +432,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNextStateEStringParserRuleCall_0_6_0_1() { return cNextStateEStringParserRuleCall_0_6_0_1; }
 		
-		//'wait' time=EInt 'then go to' next=[State|EString]
+		//'wait' time=EInt unit=Time_unit 'then go to' next=[State|EString]
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'wait'
@@ -450,17 +444,23 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getTimeEIntParserRuleCall_1_1_0() { return cTimeEIntParserRuleCall_1_1_0; }
 		
+		//unit=Time_unit
+		public Assignment getUnitAssignment_1_2() { return cUnitAssignment_1_2; }
+		
+		//Time_unit
+		public RuleCall getUnitTime_unitEnumRuleCall_1_2_0() { return cUnitTime_unitEnumRuleCall_1_2_0; }
+		
 		//'then go to'
-		public Keyword getThenGoToKeyword_1_2() { return cThenGoToKeyword_1_2; }
+		public Keyword getThenGoToKeyword_1_3() { return cThenGoToKeyword_1_3; }
 		
 		//next=[State|EString]
-		public Assignment getNextAssignment_1_3() { return cNextAssignment_1_3; }
+		public Assignment getNextAssignment_1_4() { return cNextAssignment_1_4; }
 		
 		//[State|EString]
-		public CrossReference getNextStateCrossReference_1_3_0() { return cNextStateCrossReference_1_3_0; }
+		public CrossReference getNextStateCrossReference_1_4_0() { return cNextStateCrossReference_1_4_0; }
 		
 		//EString
-		public RuleCall getNextStateEStringParserRuleCall_1_3_0_1() { return cNextStateEStringParserRuleCall_1_3_0_1; }
+		public RuleCall getNextStateEStringParserRuleCall_1_4_0_1() { return cNextStateEStringParserRuleCall_1_4_0_1; }
 	}
 	
 	public class SignalElements extends AbstractEnumRuleElementFinder {
@@ -490,6 +490,41 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'LOW'
 		public Keyword getLOWLOWKeyword_1_0() { return cLOWLOWKeyword_1_0; }
 	}
+	public class Time_unitElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Time_unit");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cMsEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cMsMsKeyword_0_0 = (Keyword)cMsEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSSKeyword_1_0 = (Keyword)cSEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cMinEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cMinMinKeyword_2_0 = (Keyword)cMinEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum Time_unit:
+		//	ms | s | min;
+		public EnumRule getRule() { return rule; }
+		
+		//ms | s | min
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ms
+		public EnumLiteralDeclaration getMsEnumLiteralDeclaration_0() { return cMsEnumLiteralDeclaration_0; }
+		
+		//'ms'
+		public Keyword getMsMsKeyword_0_0() { return cMsMsKeyword_0_0; }
+		
+		//s
+		public EnumLiteralDeclaration getSEnumLiteralDeclaration_1() { return cSEnumLiteralDeclaration_1; }
+		
+		//'s'
+		public Keyword getSSKeyword_1_0() { return cSSKeyword_1_0; }
+		
+		//min
+		public EnumLiteralDeclaration getMinEnumLiteralDeclaration_2() { return cMinEnumLiteralDeclaration_2; }
+		
+		//'min'
+		public Keyword getMinMinKeyword_2_0() { return cMinMinKeyword_2_0; }
+	}
 	
 	private final AppElements pApp;
 	private final BrickElements pBrick;
@@ -501,6 +536,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final ActionElements pAction;
 	private final TransitionElements pTransition;
 	private final SignalElements eSignal;
+	private final Time_unitElements eTime_unit;
 	
 	private final Grammar grammar;
 	
@@ -521,6 +557,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAction = new ActionElements();
 		this.pTransition = new TransitionElements();
 		this.eSignal = new SignalElements();
+		this.eTime_unit = new Time_unitElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -601,7 +638,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EInt ecore::EInt:
-	//	'-'? INT;
+	//	INT;
 	public EIntElements getEIntAccess() {
 		return pEInt;
 	}
@@ -644,7 +681,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Transition:
 	//	'when' sensors+=[Sensor|EString] 'is' values+=Signal ('and' sensors+=[Sensor|EString] 'is' values+=Signal)* 'go to'
-	//	next=[State|EString] | 'wait' time=EInt 'then go to' next=[State|EString];
+	//	next=[State|EString] | 'wait' time=EInt unit=Time_unit 'then go to' next=[State|EString];
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -661,6 +698,16 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getSignalRule() {
 		return getSignalAccess().getRule();
+	}
+	
+	//enum Time_unit:
+	//	ms | s | min;
+	public Time_unitElements getTime_unitAccess() {
+		return eTime_unit;
+	}
+	
+	public EnumRule getTime_unitRule() {
+		return getTime_unitAccess().getRule();
 	}
 	
 	//terminal ID:

@@ -453,13 +453,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int TRANSITION__TIME = 4;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__UNIT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = 5;
+	int TRANSITION_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -479,6 +488,17 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	int SIGNAL = 8;
+
+
+	/**
+	 * The meta object id for the '{@link arduinoML.Time_unit <em>Time unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see arduinoML.Time_unit
+	 * @see arduinoML.impl.ArduinoMLPackageImpl#getTime_unit()
+	 * @generated
+	 */
+	int TIME_UNIT = 9;
 
 
 	/**
@@ -695,6 +715,17 @@ public interface ArduinoMLPackage extends EPackage {
 	EAttribute getTransition_Time();
 
 	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Transition#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unit</em>'.
+	 * @see arduinoML.Transition#getUnit()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EAttribute getTransition_Unit();
+
+	/**
 	 * Returns the meta object for class '{@link arduinoML.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,6 +755,16 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSignal();
+
+	/**
+	 * Returns the meta object for enum '{@link arduinoML.Time_unit <em>Time unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Time unit</em>'.
+	 * @see arduinoML.Time_unit
+	 * @generated
+	 */
+	EEnum getTime_unit();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -923,6 +964,14 @@ public interface ArduinoMLPackage extends EPackage {
 		EAttribute TRANSITION__TIME = eINSTANCE.getTransition_Time();
 
 		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION__UNIT = eINSTANCE.getTransition_Unit();
+
+		/**
 		 * The meta object literal for the '{@link arduinoML.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -949,6 +998,16 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SIGNAL = eINSTANCE.getSignal();
+
+		/**
+		 * The meta object literal for the '{@link arduinoML.Time_unit <em>Time unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see arduinoML.Time_unit
+		 * @see arduinoML.impl.ArduinoMLPackageImpl#getTime_unit()
+		 * @generated
+		 */
+		EEnum TIME_UNIT = eINSTANCE.getTime_unit();
 
 	}
 
