@@ -53,6 +53,10 @@ void state_green_glow() {
 	digitalWrite(11, LOW);
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
+	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
+		time = millis();
+		state_dual_glow();
+	}
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_off();
