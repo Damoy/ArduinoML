@@ -240,22 +240,14 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.EInt");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//EInt ecore::EInt:
-		//	'-'? INT;
+		//	INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'-'? INT
-		public Group getGroup() { return cGroup; }
-		
-		//'-'?
-		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
-		
 		//INT
-		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
 	}
 	public class ActuatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Actuator");
@@ -646,7 +638,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EInt ecore::EInt:
-	//	'-'? INT;
+	//	INT;
 	public EIntElements getEIntAccess() {
 		return pEInt;
 	}

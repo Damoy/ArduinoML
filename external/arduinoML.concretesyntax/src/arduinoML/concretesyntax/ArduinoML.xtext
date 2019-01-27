@@ -30,7 +30,7 @@ State returns State:
 	;
 
 EInt returns ecore::EInt:
-	'-'? INT;
+	INT;
 
 Actuator returns Actuator:
 	{Actuator}

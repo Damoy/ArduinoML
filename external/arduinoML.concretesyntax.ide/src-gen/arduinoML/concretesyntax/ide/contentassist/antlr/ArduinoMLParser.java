@@ -39,7 +39,6 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAppAccess().getGroup(), "rule__App__Group__0");
 			builder.put(grammarAccess.getBrickAccess().getGroup(), "rule__Brick__Group__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
-			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getActuatorAccess().getGroup(), "rule__Actuator__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup(), "rule__Sensor__Group__0");
 			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
