@@ -55,7 +55,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 * 
 	 */
 	public String caseActuator(Actuator object) {
-		return "\tpinMode("+object.getPin()+", OUTPUT);\n";
+		if (object.getPin() >= 0 && object.getPin() <= 19) {
+			return "\tpinMode("+object.getPin()+", OUTPUT);\n";
+		}
+		return "\t// ERROR OUTPUT : pin " + object.getPin() + " doesn't exist !\n";
 	}
 
 	/**
@@ -70,7 +73,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 * 
 	 */
 	public String caseSensor(Sensor object) {
-		return "\tpinMode("+object.getPin()+", INPUT);\n";
+		if (object.getPin() >= 0 && object.getPin() <= 19) {
+			return "\tpinMode("+object.getPin()+", INPUT);\n";
+		}
+		return "\\t// ERROR INPUT : pin " + object.getPin() + " doesn't exist !\n";
 	}
 
 	/**
