@@ -18,11 +18,6 @@ public final class ArduinoMLUtils {
 	private ArduinoMLUtils() {
 	}
 
-	public static void validate(boolean cond, String errorMsg) {
-		if (!cond)
-			throw new RuntimeException(errorMsg);
-	}
-
 	/**
 	 * Get all scripts
 	 * 

@@ -32,6 +32,8 @@ public class ArduinoMLModel {
 	}
 	
 	public void createSensor(String name, Integer pinNumber) {
+		ArduinoMLValidator.validateVariableName(name);
+		ArduinoMLValidator.validatePin(pinNumber);
 		Sensor sensor = new Sensor();
 		sensor.setName(name);
 		sensor.setPin(pinNumber);
@@ -40,6 +42,8 @@ public class ArduinoMLModel {
 	}
 	
 	public void createActuator(String name, Integer pinNumber) {
+		ArduinoMLValidator.validateVariableName(name);
+		ArduinoMLValidator.validatePin(pinNumber);
 		Actuator actuator = new Actuator();
 		actuator.setName(name);
 		actuator.setPin(pinNumber);
@@ -48,6 +52,7 @@ public class ArduinoMLModel {
 	}
 	
 	public void createState(int delay, List<Action> actions) {
+		ArduinoMLValidator.validateDelayMilliseconds(delay);
 		State state = new State();
 		state.setActions(actions);
 		state.setTransitions(new ArrayList<>());
@@ -55,6 +60,8 @@ public class ArduinoMLModel {
 	}
 	
 	public void createState(String name, int delay, List<Action> actions) {
+		ArduinoMLValidator.validateVariableName(name);
+		ArduinoMLValidator.validateDelayMilliseconds(delay);
 		State state = new State();
 		state.setName(name);
 		state.setActions(actions);
@@ -64,20 +71,35 @@ public class ArduinoMLModel {
 	}
 	
 	public void setLastStateName(String name) {
+		ArduinoMLValidator.validateVariableName(name);
 		State state = this.states.get(this.states.size() - 1); 
 		state.setName(name);
 		this.binding.setVariable(name, state);
 	}
 	
-	public void setupTransition(Map<Sensor, SIGNAL> transitionConditions) {
+	public void setupTransitionConditions(Map<Sensor, SIGNAL> transitionConditions) {
+		ArduinoMLValidator.validate(transitionConditions != null, "Error occured while creating transitions conditions.");
 		helper.setupTransition(transitionConditions);
 	}
 	
+	public void setupTransitionStates(State from, State to) {
+		ArduinoMLValidator.validate(from != null && to != null, "Error occured while trying to setup transition with null state.");
+		helper.setupTransition(from, to);
+	}
+	
+	public void setupTransitionCondition(Sensor sensor, SIGNAL signal) {
+		ArduinoMLValidator.validate(sensor != null, "Error occured while trying to setup transition with null sensor.");
+		helper.setupTransition(sensor, signal);
+	}
+	
 	public void setupTransition(State from, State to, Sensor sensor, SIGNAL signal) {
+		ArduinoMLValidator.validate(from != null && to != null, "Error occured while trying to setup transition with null state.");
+		ArduinoMLValidator.validate(sensor != null, "Error occured while trying to setup transition with null sensor.");
 		helper.setupTransition(from, to, sensor, signal);
 	}
 	
 	public void setupTransitionDelay(Integer delay) {
+		ArduinoMLValidator.validateDelayMilliseconds(delay);
 		helper.setupTransitionDelay(delay.intValue());
 	}
 	

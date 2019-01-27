@@ -12,6 +12,15 @@ public class State implements NamedElement, Visitable {
 	private String name;
 	private List<Action> actions = new ArrayList<Action>();
 	private List<Transition> transitions;
+	private int delayMs = 0;
+	
+	public void setDelay(int delayMs) {
+		this.delayMs = delayMs;
+	}
+	
+	public int getDelay() {
+		return delayMs;
+	}
 	
 	@Override
 	public String getName() {

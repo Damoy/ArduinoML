@@ -36,6 +36,10 @@ public class Transition implements Visitable {
 	public Map<Sensor, SIGNAL> getSensors() {
 		return sensors;
 	}
+	
+	public boolean hasConditions() {
+		return !sensors.isEmpty();
+	}
 
 	public void setSensors(Map<Sensor, SIGNAL> sensors) {
 		this.sensors = sensors;

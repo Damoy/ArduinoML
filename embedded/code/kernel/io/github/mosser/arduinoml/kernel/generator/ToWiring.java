@@ -2,7 +2,6 @@ package io.github.mosser.arduinoml.kernel.generator;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import io.github.mosser.arduinoml.kernel.App;
@@ -72,17 +71,20 @@ public class ToWiring extends Visitor<StringBuffer> {
 		
 		List<Transition> transitions = state.getTransitions();
 		
+		w("  boolean guard = millis() - time > debounce;");
+		context.put(CURRENT_STATE, state);
+		
 		if(transitions != null && !transitions.isEmpty()) {
-			w("  boolean guard = millis() - time > debounce;");
-			context.put(CURRENT_STATE, state);
 			
 			for(Transition transition : transitions) {
 				transition.accept(this);
 			}
-			
-			w("  else {");
-			w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
-			w("  }");
+
+			if(transitions.parallelStream().anyMatch(t -> t.hasConditions())) {
+				w("  else {");
+				w(String.format("    state_%s();",((State) context.get(CURRENT_STATE)).getName()));
+				w("  }");				
+			}
 		}
 		
 		w("}\n");
@@ -90,19 +92,15 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	@Override
 	public void visit(Transition transition) {
-		visit(transition.getSensors());
-		w("    time = millis();");
-
-		if(transition.hasDelay()) {
-			w("    delay(" + transition.getDelay() + ");");
+		if(transition.hasConditions()) {
+			visitTransitionWithConditions(transition);
+		} else {
+			visitTransitionWithoutConditions(transition);
 		}
-		
-		w(String.format("    state_%s();",transition.getNext().getName()));
-		w("  }");
 	}
 	
-	private void visit(Map<Sensor, SIGNAL> sensors) {
-		Iterator<Entry<Sensor, SIGNAL>> it = sensors.entrySet().iterator();
+	private void visitTransitionWithConditions(Transition transition) {
+		Iterator<Entry<Sensor, SIGNAL>> it = transition.getSensors().entrySet().iterator();
 		
 		wn("  if( ");
 		
@@ -119,8 +117,26 @@ public class ToWiring extends Visitor<StringBuffer> {
 		}
 		
 		w(" && guard ) {");
-	}
+		w("    time = millis();");
 
+		if(transition.hasDelay()) {
+			w("    delay(" + transition.getDelay() + ");");
+		}
+		
+		w(String.format("    state_%s();",transition.getNext().getName()));
+		w("  }");
+	}
+	
+	private void visitTransitionWithoutConditions(Transition transition) {
+		w("  time = millis();");
+
+		if(transition.hasDelay()) {
+			w("  delay(" + transition.getDelay() + ");");
+		}
+		
+		w(String.format("  state_%s();", transition.getNext().getName()));
+	}
+	
 	@Override
 	public void visit(Action action) {
 		w(String.format("  digitalWrite(%d,%s);",action.getActuator().getPin(),action.getValue()));

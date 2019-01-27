@@ -36,10 +36,12 @@ class ArduinoMLDSL {
 			]
 			staticImportsWhitelist = []
 			staticStarImportsWhitelist= []
+			
 			//language tokens disallowed
-//			tokensBlacklist= []
+			tokensBlacklist= ["*", "&", "\"", "~", "'", "{", "(", "[", "-", "|", "`", "\\", "^", "@", ")", "]", "=", "}"]
+			
 			//language tokens allowed
-			tokensWhitelist= []
+			// tokensWhitelist= []
 			//types allowed to be used  (including primitive types)
 			constantTypesClassesWhiteList= [
 				int, Integer, Number, Integer.TYPE, String, Object

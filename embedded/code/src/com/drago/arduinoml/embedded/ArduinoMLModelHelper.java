@@ -26,6 +26,15 @@ public class ArduinoMLModelHelper {
 		this.transition.setSensors(transitionConditions);
 	}
 	
+	public void setupTransition(State from, State to) {
+		if(this.from == null && this.to == null) {
+			this.from = from;
+			this.to = to;
+			transition.setNext(to);
+			from.addTransition(transition);
+		}
+	}
+	
 	public void setupTransition(State from, State to, Sensor sensor, SIGNAL signal) {
 		if(this.from == null && this.to == null && from != null && to != null) {
 			this.from = from;
@@ -35,6 +44,11 @@ public class ArduinoMLModelHelper {
 		}
 		
 		transition.addSensor(sensor, signal);
+	}
+	
+	public void setupTransition(Sensor sensor, SIGNAL signal) {
+		if(transition != null)
+			transition.addSensor(sensor, signal);
 	}
 	
 	public void setupTransitionDelay(int delay) {
