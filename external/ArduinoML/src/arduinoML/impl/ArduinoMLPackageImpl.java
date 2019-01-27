@@ -12,6 +12,7 @@ import arduinoML.NamedElement;
 import arduinoML.Sensor;
 import arduinoML.Signal;
 import arduinoML.State;
+import arduinoML.Time_unit;
 import arduinoML.Transition;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -91,6 +92,13 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	private EEnum signalEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum time_unitEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -359,6 +367,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTransition_Unit() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -381,6 +399,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	@Override
 	public EEnum getSignal() {
 		return signalEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getTime_unit() {
+		return time_unitEEnum;
 	}
 
 	/**
@@ -438,12 +466,14 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		createEReference(transitionEClass, TRANSITION__SENSORS);
 		createEReference(transitionEClass, TRANSITION__STATE);
 		createEAttribute(transitionEClass, TRANSITION__TIME);
+		createEAttribute(transitionEClass, TRANSITION__UNIT);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
+		time_unitEEnum = createEEnum(TIME_UNIT);
 	}
 
 	/**
@@ -507,6 +537,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEReference(getTransition_Sensors(), this.getSensor(), null, "sensors", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransition_State(), this.getState(), this.getState_Transitions(), "state", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransition_Time(), ecorePackage.getEInt(), "time", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Unit(), this.getTime_unit(), "unit", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -515,6 +546,11 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEEnum(signalEEnum, Signal.class, "Signal");
 		addEEnumLiteral(signalEEnum, Signal.HIGH);
 		addEEnumLiteral(signalEEnum, Signal.LOW);
+
+		initEEnum(time_unitEEnum, Time_unit.class, "Time_unit");
+		addEEnumLiteral(time_unitEEnum, Time_unit.MS);
+		addEEnumLiteral(time_unitEEnum, Time_unit.S);
+		addEEnumLiteral(time_unitEEnum, Time_unit.MIN);
 
 		// Create resource
 		createResource(eNS_URI);

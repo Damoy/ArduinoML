@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalArduinoMLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'HIGH'", "'LOW'", "'app'", "'initial state'", "':'", "'bricks :'", "'states :'", "'-'", "'Actuator'", "'Sensor'", "'change'", "'to'", "'when'", "'is'", "'go to'", "'and'", "'wait'", "'then go to'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'HIGH'", "'LOW'", "'ms'", "'s'", "'min'", "'app'", "'initial state'", "':'", "'bricks :'", "'states :'", "'-'", "'Actuator'", "'Sensor'", "'change'", "'to'", "'when'", "'is'", "'go to'", "'and'", "'wait'", "'then go to'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -36,6 +36,8 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
     public static final int RULE_ID=5;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
@@ -43,6 +45,7 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int RULE_INT=6;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -826,21 +829,68 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "ruleSignal"
 
 
+    // $ANTLR start "ruleTime_unit"
+    // InternalArduinoML.g:294:1: ruleTime_unit : ( ( rule__Time_unit__Alternatives ) ) ;
+    public final void ruleTime_unit() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalArduinoML.g:298:1: ( ( ( rule__Time_unit__Alternatives ) ) )
+            // InternalArduinoML.g:299:2: ( ( rule__Time_unit__Alternatives ) )
+            {
+            // InternalArduinoML.g:299:2: ( ( rule__Time_unit__Alternatives ) )
+            // InternalArduinoML.g:300:3: ( rule__Time_unit__Alternatives )
+            {
+             before(grammarAccess.getTime_unitAccess().getAlternatives()); 
+            // InternalArduinoML.g:301:3: ( rule__Time_unit__Alternatives )
+            // InternalArduinoML.g:301:4: rule__Time_unit__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__Time_unit__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTime_unitAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleTime_unit"
+
+
     // $ANTLR start "rule__Brick__Alternatives_0"
-    // InternalArduinoML.g:293:1: rule__Brick__Alternatives_0 : ( ( ruleActuator ) | ( ruleSensor ) );
+    // InternalArduinoML.g:309:1: rule__Brick__Alternatives_0 : ( ( ruleActuator ) | ( ruleSensor ) );
     public final void rule__Brick__Alternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:297:1: ( ( ruleActuator ) | ( ruleSensor ) )
+            // InternalArduinoML.g:313:1: ( ( ruleActuator ) | ( ruleSensor ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==19) ) {
+            if ( (LA1_0==22) ) {
                 alt1=1;
             }
-            else if ( (LA1_0==20) ) {
+            else if ( (LA1_0==23) ) {
                 alt1=2;
             }
             else {
@@ -851,10 +901,10 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             }
             switch (alt1) {
                 case 1 :
-                    // InternalArduinoML.g:298:2: ( ruleActuator )
+                    // InternalArduinoML.g:314:2: ( ruleActuator )
                     {
-                    // InternalArduinoML.g:298:2: ( ruleActuator )
-                    // InternalArduinoML.g:299:3: ruleActuator
+                    // InternalArduinoML.g:314:2: ( ruleActuator )
+                    // InternalArduinoML.g:315:3: ruleActuator
                     {
                      before(grammarAccess.getBrickAccess().getActuatorParserRuleCall_0_0()); 
                     pushFollow(FOLLOW_2);
@@ -870,10 +920,10 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:304:2: ( ruleSensor )
+                    // InternalArduinoML.g:320:2: ( ruleSensor )
                     {
-                    // InternalArduinoML.g:304:2: ( ruleSensor )
-                    // InternalArduinoML.g:305:3: ruleSensor
+                    // InternalArduinoML.g:320:2: ( ruleSensor )
+                    // InternalArduinoML.g:321:3: ruleSensor
                     {
                      before(grammarAccess.getBrickAccess().getSensorParserRuleCall_0_1()); 
                     pushFollow(FOLLOW_2);
@@ -906,13 +956,13 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // InternalArduinoML.g:314:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    // InternalArduinoML.g:330:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:318:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            // InternalArduinoML.g:334:1: ( ( RULE_STRING ) | ( RULE_ID ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -930,10 +980,10 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             }
             switch (alt2) {
                 case 1 :
-                    // InternalArduinoML.g:319:2: ( RULE_STRING )
+                    // InternalArduinoML.g:335:2: ( RULE_STRING )
                     {
-                    // InternalArduinoML.g:319:2: ( RULE_STRING )
-                    // InternalArduinoML.g:320:3: RULE_STRING
+                    // InternalArduinoML.g:335:2: ( RULE_STRING )
+                    // InternalArduinoML.g:336:3: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FOLLOW_2); 
@@ -945,10 +995,10 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:325:2: ( RULE_ID )
+                    // InternalArduinoML.g:341:2: ( RULE_ID )
                     {
-                    // InternalArduinoML.g:325:2: ( RULE_ID )
-                    // InternalArduinoML.g:326:3: RULE_ID
+                    // InternalArduinoML.g:341:2: ( RULE_ID )
+                    // InternalArduinoML.g:342:3: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FOLLOW_2); 
@@ -977,20 +1027,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Alternatives"
-    // InternalArduinoML.g:335:1: rule__Transition__Alternatives : ( ( ( rule__Transition__Group_0__0 ) ) | ( ( rule__Transition__Group_1__0 ) ) );
+    // InternalArduinoML.g:351:1: rule__Transition__Alternatives : ( ( ( rule__Transition__Group_0__0 ) ) | ( ( rule__Transition__Group_1__0 ) ) );
     public final void rule__Transition__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:339:1: ( ( ( rule__Transition__Group_0__0 ) ) | ( ( rule__Transition__Group_1__0 ) ) )
+            // InternalArduinoML.g:355:1: ( ( ( rule__Transition__Group_0__0 ) ) | ( ( rule__Transition__Group_1__0 ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==23) ) {
+            if ( (LA3_0==26) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==27) ) {
+            else if ( (LA3_0==30) ) {
                 alt3=2;
             }
             else {
@@ -1001,14 +1051,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             }
             switch (alt3) {
                 case 1 :
-                    // InternalArduinoML.g:340:2: ( ( rule__Transition__Group_0__0 ) )
+                    // InternalArduinoML.g:356:2: ( ( rule__Transition__Group_0__0 ) )
                     {
-                    // InternalArduinoML.g:340:2: ( ( rule__Transition__Group_0__0 ) )
-                    // InternalArduinoML.g:341:3: ( rule__Transition__Group_0__0 )
+                    // InternalArduinoML.g:356:2: ( ( rule__Transition__Group_0__0 ) )
+                    // InternalArduinoML.g:357:3: ( rule__Transition__Group_0__0 )
                     {
                      before(grammarAccess.getTransitionAccess().getGroup_0()); 
-                    // InternalArduinoML.g:342:3: ( rule__Transition__Group_0__0 )
-                    // InternalArduinoML.g:342:4: rule__Transition__Group_0__0
+                    // InternalArduinoML.g:358:3: ( rule__Transition__Group_0__0 )
+                    // InternalArduinoML.g:358:4: rule__Transition__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Transition__Group_0__0();
@@ -1026,14 +1076,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:346:2: ( ( rule__Transition__Group_1__0 ) )
+                    // InternalArduinoML.g:362:2: ( ( rule__Transition__Group_1__0 ) )
                     {
-                    // InternalArduinoML.g:346:2: ( ( rule__Transition__Group_1__0 ) )
-                    // InternalArduinoML.g:347:3: ( rule__Transition__Group_1__0 )
+                    // InternalArduinoML.g:362:2: ( ( rule__Transition__Group_1__0 ) )
+                    // InternalArduinoML.g:363:3: ( rule__Transition__Group_1__0 )
                     {
                      before(grammarAccess.getTransitionAccess().getGroup_1()); 
-                    // InternalArduinoML.g:348:3: ( rule__Transition__Group_1__0 )
-                    // InternalArduinoML.g:348:4: rule__Transition__Group_1__0
+                    // InternalArduinoML.g:364:3: ( rule__Transition__Group_1__0 )
+                    // InternalArduinoML.g:364:4: rule__Transition__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Transition__Group_1__0();
@@ -1068,13 +1118,13 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Signal__Alternatives"
-    // InternalArduinoML.g:356:1: rule__Signal__Alternatives : ( ( ( 'HIGH' ) ) | ( ( 'LOW' ) ) );
+    // InternalArduinoML.g:372:1: rule__Signal__Alternatives : ( ( ( 'HIGH' ) ) | ( ( 'LOW' ) ) );
     public final void rule__Signal__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:360:1: ( ( ( 'HIGH' ) ) | ( ( 'LOW' ) ) )
+            // InternalArduinoML.g:376:1: ( ( ( 'HIGH' ) ) | ( ( 'LOW' ) ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1092,14 +1142,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             }
             switch (alt4) {
                 case 1 :
-                    // InternalArduinoML.g:361:2: ( ( 'HIGH' ) )
+                    // InternalArduinoML.g:377:2: ( ( 'HIGH' ) )
                     {
-                    // InternalArduinoML.g:361:2: ( ( 'HIGH' ) )
-                    // InternalArduinoML.g:362:3: ( 'HIGH' )
+                    // InternalArduinoML.g:377:2: ( ( 'HIGH' ) )
+                    // InternalArduinoML.g:378:3: ( 'HIGH' )
                     {
                      before(grammarAccess.getSignalAccess().getHIGHEnumLiteralDeclaration_0()); 
-                    // InternalArduinoML.g:363:3: ( 'HIGH' )
-                    // InternalArduinoML.g:363:4: 'HIGH'
+                    // InternalArduinoML.g:379:3: ( 'HIGH' )
+                    // InternalArduinoML.g:379:4: 'HIGH'
                     {
                     match(input,11,FOLLOW_2); 
 
@@ -1113,14 +1163,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:367:2: ( ( 'LOW' ) )
+                    // InternalArduinoML.g:383:2: ( ( 'LOW' ) )
                     {
-                    // InternalArduinoML.g:367:2: ( ( 'LOW' ) )
-                    // InternalArduinoML.g:368:3: ( 'LOW' )
+                    // InternalArduinoML.g:383:2: ( ( 'LOW' ) )
+                    // InternalArduinoML.g:384:3: ( 'LOW' )
                     {
                      before(grammarAccess.getSignalAccess().getLOWEnumLiteralDeclaration_1()); 
-                    // InternalArduinoML.g:369:3: ( 'LOW' )
-                    // InternalArduinoML.g:369:4: 'LOW'
+                    // InternalArduinoML.g:385:3: ( 'LOW' )
+                    // InternalArduinoML.g:385:4: 'LOW'
                     {
                     match(input,12,FOLLOW_2); 
 
@@ -1150,15 +1200,128 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Signal__Alternatives"
 
 
+    // $ANTLR start "rule__Time_unit__Alternatives"
+    // InternalArduinoML.g:393:1: rule__Time_unit__Alternatives : ( ( ( 'ms' ) ) | ( ( 's' ) ) | ( ( 'min' ) ) );
+    public final void rule__Time_unit__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalArduinoML.g:397:1: ( ( ( 'ms' ) ) | ( ( 's' ) ) | ( ( 'min' ) ) )
+            int alt5=3;
+            switch ( input.LA(1) ) {
+            case 13:
+                {
+                alt5=1;
+                }
+                break;
+            case 14:
+                {
+                alt5=2;
+                }
+                break;
+            case 15:
+                {
+                alt5=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt5) {
+                case 1 :
+                    // InternalArduinoML.g:398:2: ( ( 'ms' ) )
+                    {
+                    // InternalArduinoML.g:398:2: ( ( 'ms' ) )
+                    // InternalArduinoML.g:399:3: ( 'ms' )
+                    {
+                     before(grammarAccess.getTime_unitAccess().getMsEnumLiteralDeclaration_0()); 
+                    // InternalArduinoML.g:400:3: ( 'ms' )
+                    // InternalArduinoML.g:400:4: 'ms'
+                    {
+                    match(input,13,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getTime_unitAccess().getMsEnumLiteralDeclaration_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalArduinoML.g:404:2: ( ( 's' ) )
+                    {
+                    // InternalArduinoML.g:404:2: ( ( 's' ) )
+                    // InternalArduinoML.g:405:3: ( 's' )
+                    {
+                     before(grammarAccess.getTime_unitAccess().getSEnumLiteralDeclaration_1()); 
+                    // InternalArduinoML.g:406:3: ( 's' )
+                    // InternalArduinoML.g:406:4: 's'
+                    {
+                    match(input,14,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getTime_unitAccess().getSEnumLiteralDeclaration_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalArduinoML.g:410:2: ( ( 'min' ) )
+                    {
+                    // InternalArduinoML.g:410:2: ( ( 'min' ) )
+                    // InternalArduinoML.g:411:3: ( 'min' )
+                    {
+                     before(grammarAccess.getTime_unitAccess().getMinEnumLiteralDeclaration_2()); 
+                    // InternalArduinoML.g:412:3: ( 'min' )
+                    // InternalArduinoML.g:412:4: 'min'
+                    {
+                    match(input,15,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getTime_unitAccess().getMinEnumLiteralDeclaration_2()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Time_unit__Alternatives"
+
+
     // $ANTLR start "rule__App__Group__0"
-    // InternalArduinoML.g:377:1: rule__App__Group__0 : rule__App__Group__0__Impl rule__App__Group__1 ;
+    // InternalArduinoML.g:420:1: rule__App__Group__0 : rule__App__Group__0__Impl rule__App__Group__1 ;
     public final void rule__App__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:381:1: ( rule__App__Group__0__Impl rule__App__Group__1 )
-            // InternalArduinoML.g:382:2: rule__App__Group__0__Impl rule__App__Group__1
+            // InternalArduinoML.g:424:1: ( rule__App__Group__0__Impl rule__App__Group__1 )
+            // InternalArduinoML.g:425:2: rule__App__Group__0__Impl rule__App__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__App__Group__0__Impl();
@@ -1189,20 +1352,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__0__Impl"
-    // InternalArduinoML.g:389:1: rule__App__Group__0__Impl : ( 'app' ) ;
+    // InternalArduinoML.g:432:1: rule__App__Group__0__Impl : ( 'app' ) ;
     public final void rule__App__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:393:1: ( ( 'app' ) )
-            // InternalArduinoML.g:394:1: ( 'app' )
+            // InternalArduinoML.g:436:1: ( ( 'app' ) )
+            // InternalArduinoML.g:437:1: ( 'app' )
             {
-            // InternalArduinoML.g:394:1: ( 'app' )
-            // InternalArduinoML.g:395:2: 'app'
+            // InternalArduinoML.g:437:1: ( 'app' )
+            // InternalArduinoML.g:438:2: 'app'
             {
              before(grammarAccess.getAppAccess().getAppKeyword_0()); 
-            match(input,13,FOLLOW_2); 
+            match(input,16,FOLLOW_2); 
              after(grammarAccess.getAppAccess().getAppKeyword_0()); 
 
             }
@@ -1226,14 +1389,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__1"
-    // InternalArduinoML.g:404:1: rule__App__Group__1 : rule__App__Group__1__Impl rule__App__Group__2 ;
+    // InternalArduinoML.g:447:1: rule__App__Group__1 : rule__App__Group__1__Impl rule__App__Group__2 ;
     public final void rule__App__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:408:1: ( rule__App__Group__1__Impl rule__App__Group__2 )
-            // InternalArduinoML.g:409:2: rule__App__Group__1__Impl rule__App__Group__2
+            // InternalArduinoML.g:451:1: ( rule__App__Group__1__Impl rule__App__Group__2 )
+            // InternalArduinoML.g:452:2: rule__App__Group__1__Impl rule__App__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__App__Group__1__Impl();
@@ -1264,21 +1427,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__1__Impl"
-    // InternalArduinoML.g:416:1: rule__App__Group__1__Impl : ( ( rule__App__NameAssignment_1 ) ) ;
+    // InternalArduinoML.g:459:1: rule__App__Group__1__Impl : ( ( rule__App__NameAssignment_1 ) ) ;
     public final void rule__App__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:420:1: ( ( ( rule__App__NameAssignment_1 ) ) )
-            // InternalArduinoML.g:421:1: ( ( rule__App__NameAssignment_1 ) )
+            // InternalArduinoML.g:463:1: ( ( ( rule__App__NameAssignment_1 ) ) )
+            // InternalArduinoML.g:464:1: ( ( rule__App__NameAssignment_1 ) )
             {
-            // InternalArduinoML.g:421:1: ( ( rule__App__NameAssignment_1 ) )
-            // InternalArduinoML.g:422:2: ( rule__App__NameAssignment_1 )
+            // InternalArduinoML.g:464:1: ( ( rule__App__NameAssignment_1 ) )
+            // InternalArduinoML.g:465:2: ( rule__App__NameAssignment_1 )
             {
              before(grammarAccess.getAppAccess().getNameAssignment_1()); 
-            // InternalArduinoML.g:423:2: ( rule__App__NameAssignment_1 )
-            // InternalArduinoML.g:423:3: rule__App__NameAssignment_1
+            // InternalArduinoML.g:466:2: ( rule__App__NameAssignment_1 )
+            // InternalArduinoML.g:466:3: rule__App__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__App__NameAssignment_1();
@@ -1311,14 +1474,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__2"
-    // InternalArduinoML.g:431:1: rule__App__Group__2 : rule__App__Group__2__Impl rule__App__Group__3 ;
+    // InternalArduinoML.g:474:1: rule__App__Group__2 : rule__App__Group__2__Impl rule__App__Group__3 ;
     public final void rule__App__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:435:1: ( rule__App__Group__2__Impl rule__App__Group__3 )
-            // InternalArduinoML.g:436:2: rule__App__Group__2__Impl rule__App__Group__3
+            // InternalArduinoML.g:478:1: ( rule__App__Group__2__Impl rule__App__Group__3 )
+            // InternalArduinoML.g:479:2: rule__App__Group__2__Impl rule__App__Group__3
             {
             pushFollow(FOLLOW_3);
             rule__App__Group__2__Impl();
@@ -1349,20 +1512,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__2__Impl"
-    // InternalArduinoML.g:443:1: rule__App__Group__2__Impl : ( 'initial state' ) ;
+    // InternalArduinoML.g:486:1: rule__App__Group__2__Impl : ( 'initial state' ) ;
     public final void rule__App__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:447:1: ( ( 'initial state' ) )
-            // InternalArduinoML.g:448:1: ( 'initial state' )
+            // InternalArduinoML.g:490:1: ( ( 'initial state' ) )
+            // InternalArduinoML.g:491:1: ( 'initial state' )
             {
-            // InternalArduinoML.g:448:1: ( 'initial state' )
-            // InternalArduinoML.g:449:2: 'initial state'
+            // InternalArduinoML.g:491:1: ( 'initial state' )
+            // InternalArduinoML.g:492:2: 'initial state'
             {
              before(grammarAccess.getAppAccess().getInitialStateKeyword_2()); 
-            match(input,14,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getAppAccess().getInitialStateKeyword_2()); 
 
             }
@@ -1386,14 +1549,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__3"
-    // InternalArduinoML.g:458:1: rule__App__Group__3 : rule__App__Group__3__Impl rule__App__Group__4 ;
+    // InternalArduinoML.g:501:1: rule__App__Group__3 : rule__App__Group__3__Impl rule__App__Group__4 ;
     public final void rule__App__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:462:1: ( rule__App__Group__3__Impl rule__App__Group__4 )
-            // InternalArduinoML.g:463:2: rule__App__Group__3__Impl rule__App__Group__4
+            // InternalArduinoML.g:505:1: ( rule__App__Group__3__Impl rule__App__Group__4 )
+            // InternalArduinoML.g:506:2: rule__App__Group__3__Impl rule__App__Group__4
             {
             pushFollow(FOLLOW_5);
             rule__App__Group__3__Impl();
@@ -1424,21 +1587,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__3__Impl"
-    // InternalArduinoML.g:470:1: rule__App__Group__3__Impl : ( ( rule__App__InitialAssignment_3 ) ) ;
+    // InternalArduinoML.g:513:1: rule__App__Group__3__Impl : ( ( rule__App__InitialAssignment_3 ) ) ;
     public final void rule__App__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:474:1: ( ( ( rule__App__InitialAssignment_3 ) ) )
-            // InternalArduinoML.g:475:1: ( ( rule__App__InitialAssignment_3 ) )
+            // InternalArduinoML.g:517:1: ( ( ( rule__App__InitialAssignment_3 ) ) )
+            // InternalArduinoML.g:518:1: ( ( rule__App__InitialAssignment_3 ) )
             {
-            // InternalArduinoML.g:475:1: ( ( rule__App__InitialAssignment_3 ) )
-            // InternalArduinoML.g:476:2: ( rule__App__InitialAssignment_3 )
+            // InternalArduinoML.g:518:1: ( ( rule__App__InitialAssignment_3 ) )
+            // InternalArduinoML.g:519:2: ( rule__App__InitialAssignment_3 )
             {
              before(grammarAccess.getAppAccess().getInitialAssignment_3()); 
-            // InternalArduinoML.g:477:2: ( rule__App__InitialAssignment_3 )
-            // InternalArduinoML.g:477:3: rule__App__InitialAssignment_3
+            // InternalArduinoML.g:520:2: ( rule__App__InitialAssignment_3 )
+            // InternalArduinoML.g:520:3: rule__App__InitialAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__App__InitialAssignment_3();
@@ -1471,14 +1634,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__4"
-    // InternalArduinoML.g:485:1: rule__App__Group__4 : rule__App__Group__4__Impl rule__App__Group__5 ;
+    // InternalArduinoML.g:528:1: rule__App__Group__4 : rule__App__Group__4__Impl rule__App__Group__5 ;
     public final void rule__App__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:489:1: ( rule__App__Group__4__Impl rule__App__Group__5 )
-            // InternalArduinoML.g:490:2: rule__App__Group__4__Impl rule__App__Group__5
+            // InternalArduinoML.g:532:1: ( rule__App__Group__4__Impl rule__App__Group__5 )
+            // InternalArduinoML.g:533:2: rule__App__Group__4__Impl rule__App__Group__5
             {
             pushFollow(FOLLOW_6);
             rule__App__Group__4__Impl();
@@ -1509,20 +1672,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__4__Impl"
-    // InternalArduinoML.g:497:1: rule__App__Group__4__Impl : ( ':' ) ;
+    // InternalArduinoML.g:540:1: rule__App__Group__4__Impl : ( ':' ) ;
     public final void rule__App__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:501:1: ( ( ':' ) )
-            // InternalArduinoML.g:502:1: ( ':' )
+            // InternalArduinoML.g:544:1: ( ( ':' ) )
+            // InternalArduinoML.g:545:1: ( ':' )
             {
-            // InternalArduinoML.g:502:1: ( ':' )
-            // InternalArduinoML.g:503:2: ':'
+            // InternalArduinoML.g:545:1: ( ':' )
+            // InternalArduinoML.g:546:2: ':'
             {
              before(grammarAccess.getAppAccess().getColonKeyword_4()); 
-            match(input,15,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getAppAccess().getColonKeyword_4()); 
 
             }
@@ -1546,14 +1709,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__5"
-    // InternalArduinoML.g:512:1: rule__App__Group__5 : rule__App__Group__5__Impl rule__App__Group__6 ;
+    // InternalArduinoML.g:555:1: rule__App__Group__5 : rule__App__Group__5__Impl rule__App__Group__6 ;
     public final void rule__App__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:516:1: ( rule__App__Group__5__Impl rule__App__Group__6 )
-            // InternalArduinoML.g:517:2: rule__App__Group__5__Impl rule__App__Group__6
+            // InternalArduinoML.g:559:1: ( rule__App__Group__5__Impl rule__App__Group__6 )
+            // InternalArduinoML.g:560:2: rule__App__Group__5__Impl rule__App__Group__6
             {
             pushFollow(FOLLOW_7);
             rule__App__Group__5__Impl();
@@ -1584,20 +1747,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__5__Impl"
-    // InternalArduinoML.g:524:1: rule__App__Group__5__Impl : ( 'bricks :' ) ;
+    // InternalArduinoML.g:567:1: rule__App__Group__5__Impl : ( 'bricks :' ) ;
     public final void rule__App__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:528:1: ( ( 'bricks :' ) )
-            // InternalArduinoML.g:529:1: ( 'bricks :' )
+            // InternalArduinoML.g:571:1: ( ( 'bricks :' ) )
+            // InternalArduinoML.g:572:1: ( 'bricks :' )
             {
-            // InternalArduinoML.g:529:1: ( 'bricks :' )
-            // InternalArduinoML.g:530:2: 'bricks :'
+            // InternalArduinoML.g:572:1: ( 'bricks :' )
+            // InternalArduinoML.g:573:2: 'bricks :'
             {
              before(grammarAccess.getAppAccess().getBricksKeyword_5()); 
-            match(input,16,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getAppAccess().getBricksKeyword_5()); 
 
             }
@@ -1621,14 +1784,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__6"
-    // InternalArduinoML.g:539:1: rule__App__Group__6 : rule__App__Group__6__Impl rule__App__Group__7 ;
+    // InternalArduinoML.g:582:1: rule__App__Group__6 : rule__App__Group__6__Impl rule__App__Group__7 ;
     public final void rule__App__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:543:1: ( rule__App__Group__6__Impl rule__App__Group__7 )
-            // InternalArduinoML.g:544:2: rule__App__Group__6__Impl rule__App__Group__7
+            // InternalArduinoML.g:586:1: ( rule__App__Group__6__Impl rule__App__Group__7 )
+            // InternalArduinoML.g:587:2: rule__App__Group__6__Impl rule__App__Group__7
             {
             pushFollow(FOLLOW_8);
             rule__App__Group__6__Impl();
@@ -1659,21 +1822,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__6__Impl"
-    // InternalArduinoML.g:551:1: rule__App__Group__6__Impl : ( ( rule__App__BricksAssignment_6 ) ) ;
+    // InternalArduinoML.g:594:1: rule__App__Group__6__Impl : ( ( rule__App__BricksAssignment_6 ) ) ;
     public final void rule__App__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:555:1: ( ( ( rule__App__BricksAssignment_6 ) ) )
-            // InternalArduinoML.g:556:1: ( ( rule__App__BricksAssignment_6 ) )
+            // InternalArduinoML.g:598:1: ( ( ( rule__App__BricksAssignment_6 ) ) )
+            // InternalArduinoML.g:599:1: ( ( rule__App__BricksAssignment_6 ) )
             {
-            // InternalArduinoML.g:556:1: ( ( rule__App__BricksAssignment_6 ) )
-            // InternalArduinoML.g:557:2: ( rule__App__BricksAssignment_6 )
+            // InternalArduinoML.g:599:1: ( ( rule__App__BricksAssignment_6 ) )
+            // InternalArduinoML.g:600:2: ( rule__App__BricksAssignment_6 )
             {
              before(grammarAccess.getAppAccess().getBricksAssignment_6()); 
-            // InternalArduinoML.g:558:2: ( rule__App__BricksAssignment_6 )
-            // InternalArduinoML.g:558:3: rule__App__BricksAssignment_6
+            // InternalArduinoML.g:601:2: ( rule__App__BricksAssignment_6 )
+            // InternalArduinoML.g:601:3: rule__App__BricksAssignment_6
             {
             pushFollow(FOLLOW_2);
             rule__App__BricksAssignment_6();
@@ -1706,14 +1869,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__7"
-    // InternalArduinoML.g:566:1: rule__App__Group__7 : rule__App__Group__7__Impl rule__App__Group__8 ;
+    // InternalArduinoML.g:609:1: rule__App__Group__7 : rule__App__Group__7__Impl rule__App__Group__8 ;
     public final void rule__App__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:570:1: ( rule__App__Group__7__Impl rule__App__Group__8 )
-            // InternalArduinoML.g:571:2: rule__App__Group__7__Impl rule__App__Group__8
+            // InternalArduinoML.g:613:1: ( rule__App__Group__7__Impl rule__App__Group__8 )
+            // InternalArduinoML.g:614:2: rule__App__Group__7__Impl rule__App__Group__8
             {
             pushFollow(FOLLOW_8);
             rule__App__Group__7__Impl();
@@ -1744,33 +1907,33 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__7__Impl"
-    // InternalArduinoML.g:578:1: rule__App__Group__7__Impl : ( ( rule__App__BricksAssignment_7 )* ) ;
+    // InternalArduinoML.g:621:1: rule__App__Group__7__Impl : ( ( rule__App__BricksAssignment_7 )* ) ;
     public final void rule__App__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:582:1: ( ( ( rule__App__BricksAssignment_7 )* ) )
-            // InternalArduinoML.g:583:1: ( ( rule__App__BricksAssignment_7 )* )
+            // InternalArduinoML.g:625:1: ( ( ( rule__App__BricksAssignment_7 )* ) )
+            // InternalArduinoML.g:626:1: ( ( rule__App__BricksAssignment_7 )* )
             {
-            // InternalArduinoML.g:583:1: ( ( rule__App__BricksAssignment_7 )* )
-            // InternalArduinoML.g:584:2: ( rule__App__BricksAssignment_7 )*
+            // InternalArduinoML.g:626:1: ( ( rule__App__BricksAssignment_7 )* )
+            // InternalArduinoML.g:627:2: ( rule__App__BricksAssignment_7 )*
             {
              before(grammarAccess.getAppAccess().getBricksAssignment_7()); 
-            // InternalArduinoML.g:585:2: ( rule__App__BricksAssignment_7 )*
-            loop5:
+            // InternalArduinoML.g:628:2: ( rule__App__BricksAssignment_7 )*
+            loop6:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( ((LA5_0>=19 && LA5_0<=20)) ) {
-                    alt5=1;
+                if ( ((LA6_0>=22 && LA6_0<=23)) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt6) {
             	case 1 :
-            	    // InternalArduinoML.g:585:3: rule__App__BricksAssignment_7
+            	    // InternalArduinoML.g:628:3: rule__App__BricksAssignment_7
             	    {
             	    pushFollow(FOLLOW_9);
             	    rule__App__BricksAssignment_7();
@@ -1782,7 +1945,7 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop6;
                 }
             } while (true);
 
@@ -1809,14 +1972,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__8"
-    // InternalArduinoML.g:593:1: rule__App__Group__8 : rule__App__Group__8__Impl rule__App__Group__9 ;
+    // InternalArduinoML.g:636:1: rule__App__Group__8 : rule__App__Group__8__Impl rule__App__Group__9 ;
     public final void rule__App__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:597:1: ( rule__App__Group__8__Impl rule__App__Group__9 )
-            // InternalArduinoML.g:598:2: rule__App__Group__8__Impl rule__App__Group__9
+            // InternalArduinoML.g:640:1: ( rule__App__Group__8__Impl rule__App__Group__9 )
+            // InternalArduinoML.g:641:2: rule__App__Group__8__Impl rule__App__Group__9
             {
             pushFollow(FOLLOW_3);
             rule__App__Group__8__Impl();
@@ -1847,20 +2010,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__8__Impl"
-    // InternalArduinoML.g:605:1: rule__App__Group__8__Impl : ( 'states :' ) ;
+    // InternalArduinoML.g:648:1: rule__App__Group__8__Impl : ( 'states :' ) ;
     public final void rule__App__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:609:1: ( ( 'states :' ) )
-            // InternalArduinoML.g:610:1: ( 'states :' )
+            // InternalArduinoML.g:652:1: ( ( 'states :' ) )
+            // InternalArduinoML.g:653:1: ( 'states :' )
             {
-            // InternalArduinoML.g:610:1: ( 'states :' )
-            // InternalArduinoML.g:611:2: 'states :'
+            // InternalArduinoML.g:653:1: ( 'states :' )
+            // InternalArduinoML.g:654:2: 'states :'
             {
              before(grammarAccess.getAppAccess().getStatesKeyword_8()); 
-            match(input,17,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getAppAccess().getStatesKeyword_8()); 
 
             }
@@ -1884,14 +2047,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__9"
-    // InternalArduinoML.g:620:1: rule__App__Group__9 : rule__App__Group__9__Impl rule__App__Group__10 ;
+    // InternalArduinoML.g:663:1: rule__App__Group__9 : rule__App__Group__9__Impl rule__App__Group__10 ;
     public final void rule__App__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:624:1: ( rule__App__Group__9__Impl rule__App__Group__10 )
-            // InternalArduinoML.g:625:2: rule__App__Group__9__Impl rule__App__Group__10
+            // InternalArduinoML.g:667:1: ( rule__App__Group__9__Impl rule__App__Group__10 )
+            // InternalArduinoML.g:668:2: rule__App__Group__9__Impl rule__App__Group__10
             {
             pushFollow(FOLLOW_3);
             rule__App__Group__9__Impl();
@@ -1922,21 +2085,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__9__Impl"
-    // InternalArduinoML.g:632:1: rule__App__Group__9__Impl : ( ( rule__App__StatesAssignment_9 ) ) ;
+    // InternalArduinoML.g:675:1: rule__App__Group__9__Impl : ( ( rule__App__StatesAssignment_9 ) ) ;
     public final void rule__App__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:636:1: ( ( ( rule__App__StatesAssignment_9 ) ) )
-            // InternalArduinoML.g:637:1: ( ( rule__App__StatesAssignment_9 ) )
+            // InternalArduinoML.g:679:1: ( ( ( rule__App__StatesAssignment_9 ) ) )
+            // InternalArduinoML.g:680:1: ( ( rule__App__StatesAssignment_9 ) )
             {
-            // InternalArduinoML.g:637:1: ( ( rule__App__StatesAssignment_9 ) )
-            // InternalArduinoML.g:638:2: ( rule__App__StatesAssignment_9 )
+            // InternalArduinoML.g:680:1: ( ( rule__App__StatesAssignment_9 ) )
+            // InternalArduinoML.g:681:2: ( rule__App__StatesAssignment_9 )
             {
              before(grammarAccess.getAppAccess().getStatesAssignment_9()); 
-            // InternalArduinoML.g:639:2: ( rule__App__StatesAssignment_9 )
-            // InternalArduinoML.g:639:3: rule__App__StatesAssignment_9
+            // InternalArduinoML.g:682:2: ( rule__App__StatesAssignment_9 )
+            // InternalArduinoML.g:682:3: rule__App__StatesAssignment_9
             {
             pushFollow(FOLLOW_2);
             rule__App__StatesAssignment_9();
@@ -1969,14 +2132,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__10"
-    // InternalArduinoML.g:647:1: rule__App__Group__10 : rule__App__Group__10__Impl ;
+    // InternalArduinoML.g:690:1: rule__App__Group__10 : rule__App__Group__10__Impl ;
     public final void rule__App__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:651:1: ( rule__App__Group__10__Impl )
-            // InternalArduinoML.g:652:2: rule__App__Group__10__Impl
+            // InternalArduinoML.g:694:1: ( rule__App__Group__10__Impl )
+            // InternalArduinoML.g:695:2: rule__App__Group__10__Impl
             {
             pushFollow(FOLLOW_2);
             rule__App__Group__10__Impl();
@@ -2002,33 +2165,33 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__Group__10__Impl"
-    // InternalArduinoML.g:658:1: rule__App__Group__10__Impl : ( ( rule__App__StatesAssignment_10 )* ) ;
+    // InternalArduinoML.g:701:1: rule__App__Group__10__Impl : ( ( rule__App__StatesAssignment_10 )* ) ;
     public final void rule__App__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:662:1: ( ( ( rule__App__StatesAssignment_10 )* ) )
-            // InternalArduinoML.g:663:1: ( ( rule__App__StatesAssignment_10 )* )
+            // InternalArduinoML.g:705:1: ( ( ( rule__App__StatesAssignment_10 )* ) )
+            // InternalArduinoML.g:706:1: ( ( rule__App__StatesAssignment_10 )* )
             {
-            // InternalArduinoML.g:663:1: ( ( rule__App__StatesAssignment_10 )* )
-            // InternalArduinoML.g:664:2: ( rule__App__StatesAssignment_10 )*
+            // InternalArduinoML.g:706:1: ( ( rule__App__StatesAssignment_10 )* )
+            // InternalArduinoML.g:707:2: ( rule__App__StatesAssignment_10 )*
             {
              before(grammarAccess.getAppAccess().getStatesAssignment_10()); 
-            // InternalArduinoML.g:665:2: ( rule__App__StatesAssignment_10 )*
-            loop6:
+            // InternalArduinoML.g:708:2: ( rule__App__StatesAssignment_10 )*
+            loop7:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA6_0>=RULE_STRING && LA6_0<=RULE_ID)) ) {
-                    alt6=1;
+                if ( ((LA7_0>=RULE_STRING && LA7_0<=RULE_ID)) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt7) {
             	case 1 :
-            	    // InternalArduinoML.g:665:3: rule__App__StatesAssignment_10
+            	    // InternalArduinoML.g:708:3: rule__App__StatesAssignment_10
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__App__StatesAssignment_10();
@@ -2040,7 +2203,7 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop7;
                 }
             } while (true);
 
@@ -2067,14 +2230,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__0"
-    // InternalArduinoML.g:674:1: rule__Brick__Group__0 : rule__Brick__Group__0__Impl rule__Brick__Group__1 ;
+    // InternalArduinoML.g:717:1: rule__Brick__Group__0 : rule__Brick__Group__0__Impl rule__Brick__Group__1 ;
     public final void rule__Brick__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:678:1: ( rule__Brick__Group__0__Impl rule__Brick__Group__1 )
-            // InternalArduinoML.g:679:2: rule__Brick__Group__0__Impl rule__Brick__Group__1
+            // InternalArduinoML.g:721:1: ( rule__Brick__Group__0__Impl rule__Brick__Group__1 )
+            // InternalArduinoML.g:722:2: rule__Brick__Group__0__Impl rule__Brick__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Brick__Group__0__Impl();
@@ -2105,21 +2268,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__0__Impl"
-    // InternalArduinoML.g:686:1: rule__Brick__Group__0__Impl : ( ( rule__Brick__Alternatives_0 ) ) ;
+    // InternalArduinoML.g:729:1: rule__Brick__Group__0__Impl : ( ( rule__Brick__Alternatives_0 ) ) ;
     public final void rule__Brick__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:690:1: ( ( ( rule__Brick__Alternatives_0 ) ) )
-            // InternalArduinoML.g:691:1: ( ( rule__Brick__Alternatives_0 ) )
+            // InternalArduinoML.g:733:1: ( ( ( rule__Brick__Alternatives_0 ) ) )
+            // InternalArduinoML.g:734:1: ( ( rule__Brick__Alternatives_0 ) )
             {
-            // InternalArduinoML.g:691:1: ( ( rule__Brick__Alternatives_0 ) )
-            // InternalArduinoML.g:692:2: ( rule__Brick__Alternatives_0 )
+            // InternalArduinoML.g:734:1: ( ( rule__Brick__Alternatives_0 ) )
+            // InternalArduinoML.g:735:2: ( rule__Brick__Alternatives_0 )
             {
              before(grammarAccess.getBrickAccess().getAlternatives_0()); 
-            // InternalArduinoML.g:693:2: ( rule__Brick__Alternatives_0 )
-            // InternalArduinoML.g:693:3: rule__Brick__Alternatives_0
+            // InternalArduinoML.g:736:2: ( rule__Brick__Alternatives_0 )
+            // InternalArduinoML.g:736:3: rule__Brick__Alternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Brick__Alternatives_0();
@@ -2152,14 +2315,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__1"
-    // InternalArduinoML.g:701:1: rule__Brick__Group__1 : rule__Brick__Group__1__Impl rule__Brick__Group__2 ;
+    // InternalArduinoML.g:744:1: rule__Brick__Group__1 : rule__Brick__Group__1__Impl rule__Brick__Group__2 ;
     public final void rule__Brick__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:705:1: ( rule__Brick__Group__1__Impl rule__Brick__Group__2 )
-            // InternalArduinoML.g:706:2: rule__Brick__Group__1__Impl rule__Brick__Group__2
+            // InternalArduinoML.g:748:1: ( rule__Brick__Group__1__Impl rule__Brick__Group__2 )
+            // InternalArduinoML.g:749:2: rule__Brick__Group__1__Impl rule__Brick__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Brick__Group__1__Impl();
@@ -2190,21 +2353,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__1__Impl"
-    // InternalArduinoML.g:713:1: rule__Brick__Group__1__Impl : ( ( rule__Brick__NameAssignment_1 ) ) ;
+    // InternalArduinoML.g:756:1: rule__Brick__Group__1__Impl : ( ( rule__Brick__NameAssignment_1 ) ) ;
     public final void rule__Brick__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:717:1: ( ( ( rule__Brick__NameAssignment_1 ) ) )
-            // InternalArduinoML.g:718:1: ( ( rule__Brick__NameAssignment_1 ) )
+            // InternalArduinoML.g:760:1: ( ( ( rule__Brick__NameAssignment_1 ) ) )
+            // InternalArduinoML.g:761:1: ( ( rule__Brick__NameAssignment_1 ) )
             {
-            // InternalArduinoML.g:718:1: ( ( rule__Brick__NameAssignment_1 ) )
-            // InternalArduinoML.g:719:2: ( rule__Brick__NameAssignment_1 )
+            // InternalArduinoML.g:761:1: ( ( rule__Brick__NameAssignment_1 ) )
+            // InternalArduinoML.g:762:2: ( rule__Brick__NameAssignment_1 )
             {
              before(grammarAccess.getBrickAccess().getNameAssignment_1()); 
-            // InternalArduinoML.g:720:2: ( rule__Brick__NameAssignment_1 )
-            // InternalArduinoML.g:720:3: rule__Brick__NameAssignment_1
+            // InternalArduinoML.g:763:2: ( rule__Brick__NameAssignment_1 )
+            // InternalArduinoML.g:763:3: rule__Brick__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Brick__NameAssignment_1();
@@ -2237,14 +2400,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__2"
-    // InternalArduinoML.g:728:1: rule__Brick__Group__2 : rule__Brick__Group__2__Impl rule__Brick__Group__3 ;
+    // InternalArduinoML.g:771:1: rule__Brick__Group__2 : rule__Brick__Group__2__Impl rule__Brick__Group__3 ;
     public final void rule__Brick__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:732:1: ( rule__Brick__Group__2__Impl rule__Brick__Group__3 )
-            // InternalArduinoML.g:733:2: rule__Brick__Group__2__Impl rule__Brick__Group__3
+            // InternalArduinoML.g:775:1: ( rule__Brick__Group__2__Impl rule__Brick__Group__3 )
+            // InternalArduinoML.g:776:2: rule__Brick__Group__2__Impl rule__Brick__Group__3
             {
             pushFollow(FOLLOW_11);
             rule__Brick__Group__2__Impl();
@@ -2275,20 +2438,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__2__Impl"
-    // InternalArduinoML.g:740:1: rule__Brick__Group__2__Impl : ( ':' ) ;
+    // InternalArduinoML.g:783:1: rule__Brick__Group__2__Impl : ( ':' ) ;
     public final void rule__Brick__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:744:1: ( ( ':' ) )
-            // InternalArduinoML.g:745:1: ( ':' )
+            // InternalArduinoML.g:787:1: ( ( ':' ) )
+            // InternalArduinoML.g:788:1: ( ':' )
             {
-            // InternalArduinoML.g:745:1: ( ':' )
-            // InternalArduinoML.g:746:2: ':'
+            // InternalArduinoML.g:788:1: ( ':' )
+            // InternalArduinoML.g:789:2: ':'
             {
              before(grammarAccess.getBrickAccess().getColonKeyword_2()); 
-            match(input,15,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getBrickAccess().getColonKeyword_2()); 
 
             }
@@ -2312,14 +2475,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__3"
-    // InternalArduinoML.g:755:1: rule__Brick__Group__3 : rule__Brick__Group__3__Impl ;
+    // InternalArduinoML.g:798:1: rule__Brick__Group__3 : rule__Brick__Group__3__Impl ;
     public final void rule__Brick__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:759:1: ( rule__Brick__Group__3__Impl )
-            // InternalArduinoML.g:760:2: rule__Brick__Group__3__Impl
+            // InternalArduinoML.g:802:1: ( rule__Brick__Group__3__Impl )
+            // InternalArduinoML.g:803:2: rule__Brick__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Brick__Group__3__Impl();
@@ -2345,21 +2508,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__Group__3__Impl"
-    // InternalArduinoML.g:766:1: rule__Brick__Group__3__Impl : ( ( rule__Brick__PinAssignment_3 ) ) ;
+    // InternalArduinoML.g:809:1: rule__Brick__Group__3__Impl : ( ( rule__Brick__PinAssignment_3 ) ) ;
     public final void rule__Brick__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:770:1: ( ( ( rule__Brick__PinAssignment_3 ) ) )
-            // InternalArduinoML.g:771:1: ( ( rule__Brick__PinAssignment_3 ) )
+            // InternalArduinoML.g:813:1: ( ( ( rule__Brick__PinAssignment_3 ) ) )
+            // InternalArduinoML.g:814:1: ( ( rule__Brick__PinAssignment_3 ) )
             {
-            // InternalArduinoML.g:771:1: ( ( rule__Brick__PinAssignment_3 ) )
-            // InternalArduinoML.g:772:2: ( rule__Brick__PinAssignment_3 )
+            // InternalArduinoML.g:814:1: ( ( rule__Brick__PinAssignment_3 ) )
+            // InternalArduinoML.g:815:2: ( rule__Brick__PinAssignment_3 )
             {
              before(grammarAccess.getBrickAccess().getPinAssignment_3()); 
-            // InternalArduinoML.g:773:2: ( rule__Brick__PinAssignment_3 )
-            // InternalArduinoML.g:773:3: rule__Brick__PinAssignment_3
+            // InternalArduinoML.g:816:2: ( rule__Brick__PinAssignment_3 )
+            // InternalArduinoML.g:816:3: rule__Brick__PinAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Brick__PinAssignment_3();
@@ -2392,14 +2555,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__0"
-    // InternalArduinoML.g:782:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
+    // InternalArduinoML.g:825:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
     public final void rule__State__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:786:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
-            // InternalArduinoML.g:787:2: rule__State__Group__0__Impl rule__State__Group__1
+            // InternalArduinoML.g:829:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
+            // InternalArduinoML.g:830:2: rule__State__Group__0__Impl rule__State__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__State__Group__0__Impl();
@@ -2430,21 +2593,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__0__Impl"
-    // InternalArduinoML.g:794:1: rule__State__Group__0__Impl : ( ( rule__State__NameAssignment_0 ) ) ;
+    // InternalArduinoML.g:837:1: rule__State__Group__0__Impl : ( ( rule__State__NameAssignment_0 ) ) ;
     public final void rule__State__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:798:1: ( ( ( rule__State__NameAssignment_0 ) ) )
-            // InternalArduinoML.g:799:1: ( ( rule__State__NameAssignment_0 ) )
+            // InternalArduinoML.g:841:1: ( ( ( rule__State__NameAssignment_0 ) ) )
+            // InternalArduinoML.g:842:1: ( ( rule__State__NameAssignment_0 ) )
             {
-            // InternalArduinoML.g:799:1: ( ( rule__State__NameAssignment_0 ) )
-            // InternalArduinoML.g:800:2: ( rule__State__NameAssignment_0 )
+            // InternalArduinoML.g:842:1: ( ( rule__State__NameAssignment_0 ) )
+            // InternalArduinoML.g:843:2: ( rule__State__NameAssignment_0 )
             {
              before(grammarAccess.getStateAccess().getNameAssignment_0()); 
-            // InternalArduinoML.g:801:2: ( rule__State__NameAssignment_0 )
-            // InternalArduinoML.g:801:3: rule__State__NameAssignment_0
+            // InternalArduinoML.g:844:2: ( rule__State__NameAssignment_0 )
+            // InternalArduinoML.g:844:3: rule__State__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__State__NameAssignment_0();
@@ -2477,14 +2640,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__1"
-    // InternalArduinoML.g:809:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
+    // InternalArduinoML.g:852:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
     public final void rule__State__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:813:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
-            // InternalArduinoML.g:814:2: rule__State__Group__1__Impl rule__State__Group__2
+            // InternalArduinoML.g:856:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
+            // InternalArduinoML.g:857:2: rule__State__Group__1__Impl rule__State__Group__2
             {
             pushFollow(FOLLOW_12);
             rule__State__Group__1__Impl();
@@ -2515,20 +2678,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__1__Impl"
-    // InternalArduinoML.g:821:1: rule__State__Group__1__Impl : ( ':' ) ;
+    // InternalArduinoML.g:864:1: rule__State__Group__1__Impl : ( ':' ) ;
     public final void rule__State__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:825:1: ( ( ':' ) )
-            // InternalArduinoML.g:826:1: ( ':' )
+            // InternalArduinoML.g:868:1: ( ( ':' ) )
+            // InternalArduinoML.g:869:1: ( ':' )
             {
-            // InternalArduinoML.g:826:1: ( ':' )
-            // InternalArduinoML.g:827:2: ':'
+            // InternalArduinoML.g:869:1: ( ':' )
+            // InternalArduinoML.g:870:2: ':'
             {
              before(grammarAccess.getStateAccess().getColonKeyword_1()); 
-            match(input,15,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getStateAccess().getColonKeyword_1()); 
 
             }
@@ -2552,14 +2715,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__2"
-    // InternalArduinoML.g:836:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
+    // InternalArduinoML.g:879:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
     public final void rule__State__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:840:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
-            // InternalArduinoML.g:841:2: rule__State__Group__2__Impl rule__State__Group__3
+            // InternalArduinoML.g:883:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
+            // InternalArduinoML.g:884:2: rule__State__Group__2__Impl rule__State__Group__3
             {
             pushFollow(FOLLOW_13);
             rule__State__Group__2__Impl();
@@ -2590,21 +2753,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__2__Impl"
-    // InternalArduinoML.g:848:1: rule__State__Group__2__Impl : ( ( rule__State__ActionsAssignment_2 ) ) ;
+    // InternalArduinoML.g:891:1: rule__State__Group__2__Impl : ( ( rule__State__ActionsAssignment_2 ) ) ;
     public final void rule__State__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:852:1: ( ( ( rule__State__ActionsAssignment_2 ) ) )
-            // InternalArduinoML.g:853:1: ( ( rule__State__ActionsAssignment_2 ) )
+            // InternalArduinoML.g:895:1: ( ( ( rule__State__ActionsAssignment_2 ) ) )
+            // InternalArduinoML.g:896:1: ( ( rule__State__ActionsAssignment_2 ) )
             {
-            // InternalArduinoML.g:853:1: ( ( rule__State__ActionsAssignment_2 ) )
-            // InternalArduinoML.g:854:2: ( rule__State__ActionsAssignment_2 )
+            // InternalArduinoML.g:896:1: ( ( rule__State__ActionsAssignment_2 ) )
+            // InternalArduinoML.g:897:2: ( rule__State__ActionsAssignment_2 )
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_2()); 
-            // InternalArduinoML.g:855:2: ( rule__State__ActionsAssignment_2 )
-            // InternalArduinoML.g:855:3: rule__State__ActionsAssignment_2
+            // InternalArduinoML.g:898:2: ( rule__State__ActionsAssignment_2 )
+            // InternalArduinoML.g:898:3: rule__State__ActionsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__State__ActionsAssignment_2();
@@ -2637,14 +2800,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__3"
-    // InternalArduinoML.g:863:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
+    // InternalArduinoML.g:906:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
     public final void rule__State__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:867:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
-            // InternalArduinoML.g:868:2: rule__State__Group__3__Impl rule__State__Group__4
+            // InternalArduinoML.g:910:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
+            // InternalArduinoML.g:911:2: rule__State__Group__3__Impl rule__State__Group__4
             {
             pushFollow(FOLLOW_13);
             rule__State__Group__3__Impl();
@@ -2675,33 +2838,33 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__3__Impl"
-    // InternalArduinoML.g:875:1: rule__State__Group__3__Impl : ( ( rule__State__ActionsAssignment_3 )* ) ;
+    // InternalArduinoML.g:918:1: rule__State__Group__3__Impl : ( ( rule__State__ActionsAssignment_3 )* ) ;
     public final void rule__State__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:879:1: ( ( ( rule__State__ActionsAssignment_3 )* ) )
-            // InternalArduinoML.g:880:1: ( ( rule__State__ActionsAssignment_3 )* )
+            // InternalArduinoML.g:922:1: ( ( ( rule__State__ActionsAssignment_3 )* ) )
+            // InternalArduinoML.g:923:1: ( ( rule__State__ActionsAssignment_3 )* )
             {
-            // InternalArduinoML.g:880:1: ( ( rule__State__ActionsAssignment_3 )* )
-            // InternalArduinoML.g:881:2: ( rule__State__ActionsAssignment_3 )*
+            // InternalArduinoML.g:923:1: ( ( rule__State__ActionsAssignment_3 )* )
+            // InternalArduinoML.g:924:2: ( rule__State__ActionsAssignment_3 )*
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3()); 
-            // InternalArduinoML.g:882:2: ( rule__State__ActionsAssignment_3 )*
-            loop7:
+            // InternalArduinoML.g:925:2: ( rule__State__ActionsAssignment_3 )*
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA7_0==21) ) {
-                    alt7=1;
+                if ( (LA8_0==24) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
-            	    // InternalArduinoML.g:882:3: rule__State__ActionsAssignment_3
+            	    // InternalArduinoML.g:925:3: rule__State__ActionsAssignment_3
             	    {
             	    pushFollow(FOLLOW_14);
             	    rule__State__ActionsAssignment_3();
@@ -2713,7 +2876,7 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop8;
                 }
             } while (true);
 
@@ -2740,14 +2903,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__4"
-    // InternalArduinoML.g:890:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
+    // InternalArduinoML.g:933:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
     public final void rule__State__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:894:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
-            // InternalArduinoML.g:895:2: rule__State__Group__4__Impl rule__State__Group__5
+            // InternalArduinoML.g:937:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
+            // InternalArduinoML.g:938:2: rule__State__Group__4__Impl rule__State__Group__5
             {
             pushFollow(FOLLOW_13);
             rule__State__Group__4__Impl();
@@ -2778,21 +2941,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__4__Impl"
-    // InternalArduinoML.g:902:1: rule__State__Group__4__Impl : ( ( rule__State__TransitionsAssignment_4 ) ) ;
+    // InternalArduinoML.g:945:1: rule__State__Group__4__Impl : ( ( rule__State__TransitionsAssignment_4 ) ) ;
     public final void rule__State__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:906:1: ( ( ( rule__State__TransitionsAssignment_4 ) ) )
-            // InternalArduinoML.g:907:1: ( ( rule__State__TransitionsAssignment_4 ) )
+            // InternalArduinoML.g:949:1: ( ( ( rule__State__TransitionsAssignment_4 ) ) )
+            // InternalArduinoML.g:950:1: ( ( rule__State__TransitionsAssignment_4 ) )
             {
-            // InternalArduinoML.g:907:1: ( ( rule__State__TransitionsAssignment_4 ) )
-            // InternalArduinoML.g:908:2: ( rule__State__TransitionsAssignment_4 )
+            // InternalArduinoML.g:950:1: ( ( rule__State__TransitionsAssignment_4 ) )
+            // InternalArduinoML.g:951:2: ( rule__State__TransitionsAssignment_4 )
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_4()); 
-            // InternalArduinoML.g:909:2: ( rule__State__TransitionsAssignment_4 )
-            // InternalArduinoML.g:909:3: rule__State__TransitionsAssignment_4
+            // InternalArduinoML.g:952:2: ( rule__State__TransitionsAssignment_4 )
+            // InternalArduinoML.g:952:3: rule__State__TransitionsAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__State__TransitionsAssignment_4();
@@ -2825,14 +2988,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__5"
-    // InternalArduinoML.g:917:1: rule__State__Group__5 : rule__State__Group__5__Impl ;
+    // InternalArduinoML.g:960:1: rule__State__Group__5 : rule__State__Group__5__Impl ;
     public final void rule__State__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:921:1: ( rule__State__Group__5__Impl )
-            // InternalArduinoML.g:922:2: rule__State__Group__5__Impl
+            // InternalArduinoML.g:964:1: ( rule__State__Group__5__Impl )
+            // InternalArduinoML.g:965:2: rule__State__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__State__Group__5__Impl();
@@ -2858,33 +3021,33 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__Group__5__Impl"
-    // InternalArduinoML.g:928:1: rule__State__Group__5__Impl : ( ( rule__State__TransitionsAssignment_5 )* ) ;
+    // InternalArduinoML.g:971:1: rule__State__Group__5__Impl : ( ( rule__State__TransitionsAssignment_5 )* ) ;
     public final void rule__State__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:932:1: ( ( ( rule__State__TransitionsAssignment_5 )* ) )
-            // InternalArduinoML.g:933:1: ( ( rule__State__TransitionsAssignment_5 )* )
+            // InternalArduinoML.g:975:1: ( ( ( rule__State__TransitionsAssignment_5 )* ) )
+            // InternalArduinoML.g:976:1: ( ( rule__State__TransitionsAssignment_5 )* )
             {
-            // InternalArduinoML.g:933:1: ( ( rule__State__TransitionsAssignment_5 )* )
-            // InternalArduinoML.g:934:2: ( rule__State__TransitionsAssignment_5 )*
+            // InternalArduinoML.g:976:1: ( ( rule__State__TransitionsAssignment_5 )* )
+            // InternalArduinoML.g:977:2: ( rule__State__TransitionsAssignment_5 )*
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_5()); 
-            // InternalArduinoML.g:935:2: ( rule__State__TransitionsAssignment_5 )*
-            loop8:
+            // InternalArduinoML.g:978:2: ( rule__State__TransitionsAssignment_5 )*
+            loop9:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA8_0==23||LA8_0==27) ) {
-                    alt8=1;
+                if ( (LA9_0==26||LA9_0==30) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt9) {
             	case 1 :
-            	    // InternalArduinoML.g:935:3: rule__State__TransitionsAssignment_5
+            	    // InternalArduinoML.g:978:3: rule__State__TransitionsAssignment_5
             	    {
             	    pushFollow(FOLLOW_15);
             	    rule__State__TransitionsAssignment_5();
@@ -2896,7 +3059,7 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop9;
                 }
             } while (true);
 
@@ -2923,14 +3086,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalArduinoML.g:944:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalArduinoML.g:987:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:948:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalArduinoML.g:949:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalArduinoML.g:991:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalArduinoML.g:992:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__EInt__Group__0__Impl();
@@ -2961,31 +3124,31 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalArduinoML.g:956:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalArduinoML.g:999:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:960:1: ( ( ( '-' )? ) )
-            // InternalArduinoML.g:961:1: ( ( '-' )? )
+            // InternalArduinoML.g:1003:1: ( ( ( '-' )? ) )
+            // InternalArduinoML.g:1004:1: ( ( '-' )? )
             {
-            // InternalArduinoML.g:961:1: ( ( '-' )? )
-            // InternalArduinoML.g:962:2: ( '-' )?
+            // InternalArduinoML.g:1004:1: ( ( '-' )? )
+            // InternalArduinoML.g:1005:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalArduinoML.g:963:2: ( '-' )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalArduinoML.g:1006:2: ( '-' )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==18) ) {
-                alt9=1;
+            if ( (LA10_0==21) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalArduinoML.g:963:3: '-'
+                    // InternalArduinoML.g:1006:3: '-'
                     {
-                    match(input,18,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
 
                     }
                     break;
@@ -3015,14 +3178,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalArduinoML.g:971:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalArduinoML.g:1014:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:975:1: ( rule__EInt__Group__1__Impl )
-            // InternalArduinoML.g:976:2: rule__EInt__Group__1__Impl
+            // InternalArduinoML.g:1018:1: ( rule__EInt__Group__1__Impl )
+            // InternalArduinoML.g:1019:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -3048,17 +3211,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalArduinoML.g:982:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalArduinoML.g:1025:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:986:1: ( ( RULE_INT ) )
-            // InternalArduinoML.g:987:1: ( RULE_INT )
+            // InternalArduinoML.g:1029:1: ( ( RULE_INT ) )
+            // InternalArduinoML.g:1030:1: ( RULE_INT )
             {
-            // InternalArduinoML.g:987:1: ( RULE_INT )
-            // InternalArduinoML.g:988:2: RULE_INT
+            // InternalArduinoML.g:1030:1: ( RULE_INT )
+            // InternalArduinoML.g:1031:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -3085,14 +3248,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Actuator__Group__0"
-    // InternalArduinoML.g:998:1: rule__Actuator__Group__0 : rule__Actuator__Group__0__Impl rule__Actuator__Group__1 ;
+    // InternalArduinoML.g:1041:1: rule__Actuator__Group__0 : rule__Actuator__Group__0__Impl rule__Actuator__Group__1 ;
     public final void rule__Actuator__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1002:1: ( rule__Actuator__Group__0__Impl rule__Actuator__Group__1 )
-            // InternalArduinoML.g:1003:2: rule__Actuator__Group__0__Impl rule__Actuator__Group__1
+            // InternalArduinoML.g:1045:1: ( rule__Actuator__Group__0__Impl rule__Actuator__Group__1 )
+            // InternalArduinoML.g:1046:2: rule__Actuator__Group__0__Impl rule__Actuator__Group__1
             {
             pushFollow(FOLLOW_16);
             rule__Actuator__Group__0__Impl();
@@ -3123,21 +3286,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Actuator__Group__0__Impl"
-    // InternalArduinoML.g:1010:1: rule__Actuator__Group__0__Impl : ( () ) ;
+    // InternalArduinoML.g:1053:1: rule__Actuator__Group__0__Impl : ( () ) ;
     public final void rule__Actuator__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1014:1: ( ( () ) )
-            // InternalArduinoML.g:1015:1: ( () )
+            // InternalArduinoML.g:1057:1: ( ( () ) )
+            // InternalArduinoML.g:1058:1: ( () )
             {
-            // InternalArduinoML.g:1015:1: ( () )
-            // InternalArduinoML.g:1016:2: ()
+            // InternalArduinoML.g:1058:1: ( () )
+            // InternalArduinoML.g:1059:2: ()
             {
              before(grammarAccess.getActuatorAccess().getActuatorAction_0()); 
-            // InternalArduinoML.g:1017:2: ()
-            // InternalArduinoML.g:1017:3: 
+            // InternalArduinoML.g:1060:2: ()
+            // InternalArduinoML.g:1060:3: 
             {
             }
 
@@ -3160,14 +3323,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Actuator__Group__1"
-    // InternalArduinoML.g:1025:1: rule__Actuator__Group__1 : rule__Actuator__Group__1__Impl ;
+    // InternalArduinoML.g:1068:1: rule__Actuator__Group__1 : rule__Actuator__Group__1__Impl ;
     public final void rule__Actuator__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1029:1: ( rule__Actuator__Group__1__Impl )
-            // InternalArduinoML.g:1030:2: rule__Actuator__Group__1__Impl
+            // InternalArduinoML.g:1072:1: ( rule__Actuator__Group__1__Impl )
+            // InternalArduinoML.g:1073:2: rule__Actuator__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Actuator__Group__1__Impl();
@@ -3193,20 +3356,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Actuator__Group__1__Impl"
-    // InternalArduinoML.g:1036:1: rule__Actuator__Group__1__Impl : ( 'Actuator' ) ;
+    // InternalArduinoML.g:1079:1: rule__Actuator__Group__1__Impl : ( 'Actuator' ) ;
     public final void rule__Actuator__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1040:1: ( ( 'Actuator' ) )
-            // InternalArduinoML.g:1041:1: ( 'Actuator' )
+            // InternalArduinoML.g:1083:1: ( ( 'Actuator' ) )
+            // InternalArduinoML.g:1084:1: ( 'Actuator' )
             {
-            // InternalArduinoML.g:1041:1: ( 'Actuator' )
-            // InternalArduinoML.g:1042:2: 'Actuator'
+            // InternalArduinoML.g:1084:1: ( 'Actuator' )
+            // InternalArduinoML.g:1085:2: 'Actuator'
             {
              before(grammarAccess.getActuatorAccess().getActuatorKeyword_1()); 
-            match(input,19,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getActuatorAccess().getActuatorKeyword_1()); 
 
             }
@@ -3230,14 +3393,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__0"
-    // InternalArduinoML.g:1052:1: rule__Sensor__Group__0 : rule__Sensor__Group__0__Impl rule__Sensor__Group__1 ;
+    // InternalArduinoML.g:1095:1: rule__Sensor__Group__0 : rule__Sensor__Group__0__Impl rule__Sensor__Group__1 ;
     public final void rule__Sensor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1056:1: ( rule__Sensor__Group__0__Impl rule__Sensor__Group__1 )
-            // InternalArduinoML.g:1057:2: rule__Sensor__Group__0__Impl rule__Sensor__Group__1
+            // InternalArduinoML.g:1099:1: ( rule__Sensor__Group__0__Impl rule__Sensor__Group__1 )
+            // InternalArduinoML.g:1100:2: rule__Sensor__Group__0__Impl rule__Sensor__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Sensor__Group__0__Impl();
@@ -3268,21 +3431,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__0__Impl"
-    // InternalArduinoML.g:1064:1: rule__Sensor__Group__0__Impl : ( () ) ;
+    // InternalArduinoML.g:1107:1: rule__Sensor__Group__0__Impl : ( () ) ;
     public final void rule__Sensor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1068:1: ( ( () ) )
-            // InternalArduinoML.g:1069:1: ( () )
+            // InternalArduinoML.g:1111:1: ( ( () ) )
+            // InternalArduinoML.g:1112:1: ( () )
             {
-            // InternalArduinoML.g:1069:1: ( () )
-            // InternalArduinoML.g:1070:2: ()
+            // InternalArduinoML.g:1112:1: ( () )
+            // InternalArduinoML.g:1113:2: ()
             {
              before(grammarAccess.getSensorAccess().getSensorAction_0()); 
-            // InternalArduinoML.g:1071:2: ()
-            // InternalArduinoML.g:1071:3: 
+            // InternalArduinoML.g:1114:2: ()
+            // InternalArduinoML.g:1114:3: 
             {
             }
 
@@ -3305,14 +3468,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__1"
-    // InternalArduinoML.g:1079:1: rule__Sensor__Group__1 : rule__Sensor__Group__1__Impl ;
+    // InternalArduinoML.g:1122:1: rule__Sensor__Group__1 : rule__Sensor__Group__1__Impl ;
     public final void rule__Sensor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1083:1: ( rule__Sensor__Group__1__Impl )
-            // InternalArduinoML.g:1084:2: rule__Sensor__Group__1__Impl
+            // InternalArduinoML.g:1126:1: ( rule__Sensor__Group__1__Impl )
+            // InternalArduinoML.g:1127:2: rule__Sensor__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Sensor__Group__1__Impl();
@@ -3338,20 +3501,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sensor__Group__1__Impl"
-    // InternalArduinoML.g:1090:1: rule__Sensor__Group__1__Impl : ( 'Sensor' ) ;
+    // InternalArduinoML.g:1133:1: rule__Sensor__Group__1__Impl : ( 'Sensor' ) ;
     public final void rule__Sensor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1094:1: ( ( 'Sensor' ) )
-            // InternalArduinoML.g:1095:1: ( 'Sensor' )
+            // InternalArduinoML.g:1137:1: ( ( 'Sensor' ) )
+            // InternalArduinoML.g:1138:1: ( 'Sensor' )
             {
-            // InternalArduinoML.g:1095:1: ( 'Sensor' )
-            // InternalArduinoML.g:1096:2: 'Sensor'
+            // InternalArduinoML.g:1138:1: ( 'Sensor' )
+            // InternalArduinoML.g:1139:2: 'Sensor'
             {
              before(grammarAccess.getSensorAccess().getSensorKeyword_1()); 
-            match(input,20,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getSensorAccess().getSensorKeyword_1()); 
 
             }
@@ -3375,14 +3538,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__0"
-    // InternalArduinoML.g:1106:1: rule__Action__Group__0 : rule__Action__Group__0__Impl rule__Action__Group__1 ;
+    // InternalArduinoML.g:1149:1: rule__Action__Group__0 : rule__Action__Group__0__Impl rule__Action__Group__1 ;
     public final void rule__Action__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1110:1: ( rule__Action__Group__0__Impl rule__Action__Group__1 )
-            // InternalArduinoML.g:1111:2: rule__Action__Group__0__Impl rule__Action__Group__1
+            // InternalArduinoML.g:1153:1: ( rule__Action__Group__0__Impl rule__Action__Group__1 )
+            // InternalArduinoML.g:1154:2: rule__Action__Group__0__Impl rule__Action__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Action__Group__0__Impl();
@@ -3413,20 +3576,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__0__Impl"
-    // InternalArduinoML.g:1118:1: rule__Action__Group__0__Impl : ( 'change' ) ;
+    // InternalArduinoML.g:1161:1: rule__Action__Group__0__Impl : ( 'change' ) ;
     public final void rule__Action__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1122:1: ( ( 'change' ) )
-            // InternalArduinoML.g:1123:1: ( 'change' )
+            // InternalArduinoML.g:1165:1: ( ( 'change' ) )
+            // InternalArduinoML.g:1166:1: ( 'change' )
             {
-            // InternalArduinoML.g:1123:1: ( 'change' )
-            // InternalArduinoML.g:1124:2: 'change'
+            // InternalArduinoML.g:1166:1: ( 'change' )
+            // InternalArduinoML.g:1167:2: 'change'
             {
              before(grammarAccess.getActionAccess().getChangeKeyword_0()); 
-            match(input,21,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getActionAccess().getChangeKeyword_0()); 
 
             }
@@ -3450,14 +3613,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__1"
-    // InternalArduinoML.g:1133:1: rule__Action__Group__1 : rule__Action__Group__1__Impl rule__Action__Group__2 ;
+    // InternalArduinoML.g:1176:1: rule__Action__Group__1 : rule__Action__Group__1__Impl rule__Action__Group__2 ;
     public final void rule__Action__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1137:1: ( rule__Action__Group__1__Impl rule__Action__Group__2 )
-            // InternalArduinoML.g:1138:2: rule__Action__Group__1__Impl rule__Action__Group__2
+            // InternalArduinoML.g:1180:1: ( rule__Action__Group__1__Impl rule__Action__Group__2 )
+            // InternalArduinoML.g:1181:2: rule__Action__Group__1__Impl rule__Action__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__Action__Group__1__Impl();
@@ -3488,21 +3651,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__1__Impl"
-    // InternalArduinoML.g:1145:1: rule__Action__Group__1__Impl : ( ( rule__Action__ActuatorAssignment_1 ) ) ;
+    // InternalArduinoML.g:1188:1: rule__Action__Group__1__Impl : ( ( rule__Action__ActuatorAssignment_1 ) ) ;
     public final void rule__Action__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1149:1: ( ( ( rule__Action__ActuatorAssignment_1 ) ) )
-            // InternalArduinoML.g:1150:1: ( ( rule__Action__ActuatorAssignment_1 ) )
+            // InternalArduinoML.g:1192:1: ( ( ( rule__Action__ActuatorAssignment_1 ) ) )
+            // InternalArduinoML.g:1193:1: ( ( rule__Action__ActuatorAssignment_1 ) )
             {
-            // InternalArduinoML.g:1150:1: ( ( rule__Action__ActuatorAssignment_1 ) )
-            // InternalArduinoML.g:1151:2: ( rule__Action__ActuatorAssignment_1 )
+            // InternalArduinoML.g:1193:1: ( ( rule__Action__ActuatorAssignment_1 ) )
+            // InternalArduinoML.g:1194:2: ( rule__Action__ActuatorAssignment_1 )
             {
              before(grammarAccess.getActionAccess().getActuatorAssignment_1()); 
-            // InternalArduinoML.g:1152:2: ( rule__Action__ActuatorAssignment_1 )
-            // InternalArduinoML.g:1152:3: rule__Action__ActuatorAssignment_1
+            // InternalArduinoML.g:1195:2: ( rule__Action__ActuatorAssignment_1 )
+            // InternalArduinoML.g:1195:3: rule__Action__ActuatorAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Action__ActuatorAssignment_1();
@@ -3535,14 +3698,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__2"
-    // InternalArduinoML.g:1160:1: rule__Action__Group__2 : rule__Action__Group__2__Impl rule__Action__Group__3 ;
+    // InternalArduinoML.g:1203:1: rule__Action__Group__2 : rule__Action__Group__2__Impl rule__Action__Group__3 ;
     public final void rule__Action__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1164:1: ( rule__Action__Group__2__Impl rule__Action__Group__3 )
-            // InternalArduinoML.g:1165:2: rule__Action__Group__2__Impl rule__Action__Group__3
+            // InternalArduinoML.g:1207:1: ( rule__Action__Group__2__Impl rule__Action__Group__3 )
+            // InternalArduinoML.g:1208:2: rule__Action__Group__2__Impl rule__Action__Group__3
             {
             pushFollow(FOLLOW_18);
             rule__Action__Group__2__Impl();
@@ -3573,20 +3736,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__2__Impl"
-    // InternalArduinoML.g:1172:1: rule__Action__Group__2__Impl : ( 'to' ) ;
+    // InternalArduinoML.g:1215:1: rule__Action__Group__2__Impl : ( 'to' ) ;
     public final void rule__Action__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1176:1: ( ( 'to' ) )
-            // InternalArduinoML.g:1177:1: ( 'to' )
+            // InternalArduinoML.g:1219:1: ( ( 'to' ) )
+            // InternalArduinoML.g:1220:1: ( 'to' )
             {
-            // InternalArduinoML.g:1177:1: ( 'to' )
-            // InternalArduinoML.g:1178:2: 'to'
+            // InternalArduinoML.g:1220:1: ( 'to' )
+            // InternalArduinoML.g:1221:2: 'to'
             {
              before(grammarAccess.getActionAccess().getToKeyword_2()); 
-            match(input,22,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getActionAccess().getToKeyword_2()); 
 
             }
@@ -3610,14 +3773,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__3"
-    // InternalArduinoML.g:1187:1: rule__Action__Group__3 : rule__Action__Group__3__Impl ;
+    // InternalArduinoML.g:1230:1: rule__Action__Group__3 : rule__Action__Group__3__Impl ;
     public final void rule__Action__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1191:1: ( rule__Action__Group__3__Impl )
-            // InternalArduinoML.g:1192:2: rule__Action__Group__3__Impl
+            // InternalArduinoML.g:1234:1: ( rule__Action__Group__3__Impl )
+            // InternalArduinoML.g:1235:2: rule__Action__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Action__Group__3__Impl();
@@ -3643,21 +3806,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__Group__3__Impl"
-    // InternalArduinoML.g:1198:1: rule__Action__Group__3__Impl : ( ( rule__Action__ValueAssignment_3 ) ) ;
+    // InternalArduinoML.g:1241:1: rule__Action__Group__3__Impl : ( ( rule__Action__ValueAssignment_3 ) ) ;
     public final void rule__Action__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1202:1: ( ( ( rule__Action__ValueAssignment_3 ) ) )
-            // InternalArduinoML.g:1203:1: ( ( rule__Action__ValueAssignment_3 ) )
+            // InternalArduinoML.g:1245:1: ( ( ( rule__Action__ValueAssignment_3 ) ) )
+            // InternalArduinoML.g:1246:1: ( ( rule__Action__ValueAssignment_3 ) )
             {
-            // InternalArduinoML.g:1203:1: ( ( rule__Action__ValueAssignment_3 ) )
-            // InternalArduinoML.g:1204:2: ( rule__Action__ValueAssignment_3 )
+            // InternalArduinoML.g:1246:1: ( ( rule__Action__ValueAssignment_3 ) )
+            // InternalArduinoML.g:1247:2: ( rule__Action__ValueAssignment_3 )
             {
              before(grammarAccess.getActionAccess().getValueAssignment_3()); 
-            // InternalArduinoML.g:1205:2: ( rule__Action__ValueAssignment_3 )
-            // InternalArduinoML.g:1205:3: rule__Action__ValueAssignment_3
+            // InternalArduinoML.g:1248:2: ( rule__Action__ValueAssignment_3 )
+            // InternalArduinoML.g:1248:3: rule__Action__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Action__ValueAssignment_3();
@@ -3690,14 +3853,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__0"
-    // InternalArduinoML.g:1214:1: rule__Transition__Group_0__0 : rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 ;
+    // InternalArduinoML.g:1257:1: rule__Transition__Group_0__0 : rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 ;
     public final void rule__Transition__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1218:1: ( rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 )
-            // InternalArduinoML.g:1219:2: rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1
+            // InternalArduinoML.g:1261:1: ( rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 )
+            // InternalArduinoML.g:1262:2: rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1
             {
             pushFollow(FOLLOW_3);
             rule__Transition__Group_0__0__Impl();
@@ -3728,20 +3891,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__0__Impl"
-    // InternalArduinoML.g:1226:1: rule__Transition__Group_0__0__Impl : ( 'when' ) ;
+    // InternalArduinoML.g:1269:1: rule__Transition__Group_0__0__Impl : ( 'when' ) ;
     public final void rule__Transition__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1230:1: ( ( 'when' ) )
-            // InternalArduinoML.g:1231:1: ( 'when' )
+            // InternalArduinoML.g:1273:1: ( ( 'when' ) )
+            // InternalArduinoML.g:1274:1: ( 'when' )
             {
-            // InternalArduinoML.g:1231:1: ( 'when' )
-            // InternalArduinoML.g:1232:2: 'when'
+            // InternalArduinoML.g:1274:1: ( 'when' )
+            // InternalArduinoML.g:1275:2: 'when'
             {
              before(grammarAccess.getTransitionAccess().getWhenKeyword_0_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getWhenKeyword_0_0()); 
 
             }
@@ -3765,14 +3928,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__1"
-    // InternalArduinoML.g:1241:1: rule__Transition__Group_0__1 : rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 ;
+    // InternalArduinoML.g:1284:1: rule__Transition__Group_0__1 : rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 ;
     public final void rule__Transition__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1245:1: ( rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 )
-            // InternalArduinoML.g:1246:2: rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2
+            // InternalArduinoML.g:1288:1: ( rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 )
+            // InternalArduinoML.g:1289:2: rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2
             {
             pushFollow(FOLLOW_19);
             rule__Transition__Group_0__1__Impl();
@@ -3803,21 +3966,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__1__Impl"
-    // InternalArduinoML.g:1253:1: rule__Transition__Group_0__1__Impl : ( ( rule__Transition__SensorsAssignment_0_1 ) ) ;
+    // InternalArduinoML.g:1296:1: rule__Transition__Group_0__1__Impl : ( ( rule__Transition__SensorsAssignment_0_1 ) ) ;
     public final void rule__Transition__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1257:1: ( ( ( rule__Transition__SensorsAssignment_0_1 ) ) )
-            // InternalArduinoML.g:1258:1: ( ( rule__Transition__SensorsAssignment_0_1 ) )
+            // InternalArduinoML.g:1300:1: ( ( ( rule__Transition__SensorsAssignment_0_1 ) ) )
+            // InternalArduinoML.g:1301:1: ( ( rule__Transition__SensorsAssignment_0_1 ) )
             {
-            // InternalArduinoML.g:1258:1: ( ( rule__Transition__SensorsAssignment_0_1 ) )
-            // InternalArduinoML.g:1259:2: ( rule__Transition__SensorsAssignment_0_1 )
+            // InternalArduinoML.g:1301:1: ( ( rule__Transition__SensorsAssignment_0_1 ) )
+            // InternalArduinoML.g:1302:2: ( rule__Transition__SensorsAssignment_0_1 )
             {
              before(grammarAccess.getTransitionAccess().getSensorsAssignment_0_1()); 
-            // InternalArduinoML.g:1260:2: ( rule__Transition__SensorsAssignment_0_1 )
-            // InternalArduinoML.g:1260:3: rule__Transition__SensorsAssignment_0_1
+            // InternalArduinoML.g:1303:2: ( rule__Transition__SensorsAssignment_0_1 )
+            // InternalArduinoML.g:1303:3: rule__Transition__SensorsAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__SensorsAssignment_0_1();
@@ -3850,14 +4013,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__2"
-    // InternalArduinoML.g:1268:1: rule__Transition__Group_0__2 : rule__Transition__Group_0__2__Impl rule__Transition__Group_0__3 ;
+    // InternalArduinoML.g:1311:1: rule__Transition__Group_0__2 : rule__Transition__Group_0__2__Impl rule__Transition__Group_0__3 ;
     public final void rule__Transition__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1272:1: ( rule__Transition__Group_0__2__Impl rule__Transition__Group_0__3 )
-            // InternalArduinoML.g:1273:2: rule__Transition__Group_0__2__Impl rule__Transition__Group_0__3
+            // InternalArduinoML.g:1315:1: ( rule__Transition__Group_0__2__Impl rule__Transition__Group_0__3 )
+            // InternalArduinoML.g:1316:2: rule__Transition__Group_0__2__Impl rule__Transition__Group_0__3
             {
             pushFollow(FOLLOW_18);
             rule__Transition__Group_0__2__Impl();
@@ -3888,20 +4051,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__2__Impl"
-    // InternalArduinoML.g:1280:1: rule__Transition__Group_0__2__Impl : ( 'is' ) ;
+    // InternalArduinoML.g:1323:1: rule__Transition__Group_0__2__Impl : ( 'is' ) ;
     public final void rule__Transition__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1284:1: ( ( 'is' ) )
-            // InternalArduinoML.g:1285:1: ( 'is' )
+            // InternalArduinoML.g:1327:1: ( ( 'is' ) )
+            // InternalArduinoML.g:1328:1: ( 'is' )
             {
-            // InternalArduinoML.g:1285:1: ( 'is' )
-            // InternalArduinoML.g:1286:2: 'is'
+            // InternalArduinoML.g:1328:1: ( 'is' )
+            // InternalArduinoML.g:1329:2: 'is'
             {
              before(grammarAccess.getTransitionAccess().getIsKeyword_0_2()); 
-            match(input,24,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getIsKeyword_0_2()); 
 
             }
@@ -3925,14 +4088,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__3"
-    // InternalArduinoML.g:1295:1: rule__Transition__Group_0__3 : rule__Transition__Group_0__3__Impl rule__Transition__Group_0__4 ;
+    // InternalArduinoML.g:1338:1: rule__Transition__Group_0__3 : rule__Transition__Group_0__3__Impl rule__Transition__Group_0__4 ;
     public final void rule__Transition__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1299:1: ( rule__Transition__Group_0__3__Impl rule__Transition__Group_0__4 )
-            // InternalArduinoML.g:1300:2: rule__Transition__Group_0__3__Impl rule__Transition__Group_0__4
+            // InternalArduinoML.g:1342:1: ( rule__Transition__Group_0__3__Impl rule__Transition__Group_0__4 )
+            // InternalArduinoML.g:1343:2: rule__Transition__Group_0__3__Impl rule__Transition__Group_0__4
             {
             pushFollow(FOLLOW_20);
             rule__Transition__Group_0__3__Impl();
@@ -3963,21 +4126,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__3__Impl"
-    // InternalArduinoML.g:1307:1: rule__Transition__Group_0__3__Impl : ( ( rule__Transition__ValuesAssignment_0_3 ) ) ;
+    // InternalArduinoML.g:1350:1: rule__Transition__Group_0__3__Impl : ( ( rule__Transition__ValuesAssignment_0_3 ) ) ;
     public final void rule__Transition__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1311:1: ( ( ( rule__Transition__ValuesAssignment_0_3 ) ) )
-            // InternalArduinoML.g:1312:1: ( ( rule__Transition__ValuesAssignment_0_3 ) )
+            // InternalArduinoML.g:1354:1: ( ( ( rule__Transition__ValuesAssignment_0_3 ) ) )
+            // InternalArduinoML.g:1355:1: ( ( rule__Transition__ValuesAssignment_0_3 ) )
             {
-            // InternalArduinoML.g:1312:1: ( ( rule__Transition__ValuesAssignment_0_3 ) )
-            // InternalArduinoML.g:1313:2: ( rule__Transition__ValuesAssignment_0_3 )
+            // InternalArduinoML.g:1355:1: ( ( rule__Transition__ValuesAssignment_0_3 ) )
+            // InternalArduinoML.g:1356:2: ( rule__Transition__ValuesAssignment_0_3 )
             {
              before(grammarAccess.getTransitionAccess().getValuesAssignment_0_3()); 
-            // InternalArduinoML.g:1314:2: ( rule__Transition__ValuesAssignment_0_3 )
-            // InternalArduinoML.g:1314:3: rule__Transition__ValuesAssignment_0_3
+            // InternalArduinoML.g:1357:2: ( rule__Transition__ValuesAssignment_0_3 )
+            // InternalArduinoML.g:1357:3: rule__Transition__ValuesAssignment_0_3
             {
             pushFollow(FOLLOW_2);
             rule__Transition__ValuesAssignment_0_3();
@@ -4010,14 +4173,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__4"
-    // InternalArduinoML.g:1322:1: rule__Transition__Group_0__4 : rule__Transition__Group_0__4__Impl rule__Transition__Group_0__5 ;
+    // InternalArduinoML.g:1365:1: rule__Transition__Group_0__4 : rule__Transition__Group_0__4__Impl rule__Transition__Group_0__5 ;
     public final void rule__Transition__Group_0__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1326:1: ( rule__Transition__Group_0__4__Impl rule__Transition__Group_0__5 )
-            // InternalArduinoML.g:1327:2: rule__Transition__Group_0__4__Impl rule__Transition__Group_0__5
+            // InternalArduinoML.g:1369:1: ( rule__Transition__Group_0__4__Impl rule__Transition__Group_0__5 )
+            // InternalArduinoML.g:1370:2: rule__Transition__Group_0__4__Impl rule__Transition__Group_0__5
             {
             pushFollow(FOLLOW_20);
             rule__Transition__Group_0__4__Impl();
@@ -4048,33 +4211,33 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__4__Impl"
-    // InternalArduinoML.g:1334:1: rule__Transition__Group_0__4__Impl : ( ( rule__Transition__Group_0_4__0 )* ) ;
+    // InternalArduinoML.g:1377:1: rule__Transition__Group_0__4__Impl : ( ( rule__Transition__Group_0_4__0 )* ) ;
     public final void rule__Transition__Group_0__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1338:1: ( ( ( rule__Transition__Group_0_4__0 )* ) )
-            // InternalArduinoML.g:1339:1: ( ( rule__Transition__Group_0_4__0 )* )
+            // InternalArduinoML.g:1381:1: ( ( ( rule__Transition__Group_0_4__0 )* ) )
+            // InternalArduinoML.g:1382:1: ( ( rule__Transition__Group_0_4__0 )* )
             {
-            // InternalArduinoML.g:1339:1: ( ( rule__Transition__Group_0_4__0 )* )
-            // InternalArduinoML.g:1340:2: ( rule__Transition__Group_0_4__0 )*
+            // InternalArduinoML.g:1382:1: ( ( rule__Transition__Group_0_4__0 )* )
+            // InternalArduinoML.g:1383:2: ( rule__Transition__Group_0_4__0 )*
             {
              before(grammarAccess.getTransitionAccess().getGroup_0_4()); 
-            // InternalArduinoML.g:1341:2: ( rule__Transition__Group_0_4__0 )*
-            loop10:
+            // InternalArduinoML.g:1384:2: ( rule__Transition__Group_0_4__0 )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==26) ) {
-                    alt10=1;
+                if ( (LA11_0==29) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalArduinoML.g:1341:3: rule__Transition__Group_0_4__0
+            	    // InternalArduinoML.g:1384:3: rule__Transition__Group_0_4__0
             	    {
             	    pushFollow(FOLLOW_21);
             	    rule__Transition__Group_0_4__0();
@@ -4086,7 +4249,7 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -4113,14 +4276,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__5"
-    // InternalArduinoML.g:1349:1: rule__Transition__Group_0__5 : rule__Transition__Group_0__5__Impl rule__Transition__Group_0__6 ;
+    // InternalArduinoML.g:1392:1: rule__Transition__Group_0__5 : rule__Transition__Group_0__5__Impl rule__Transition__Group_0__6 ;
     public final void rule__Transition__Group_0__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1353:1: ( rule__Transition__Group_0__5__Impl rule__Transition__Group_0__6 )
-            // InternalArduinoML.g:1354:2: rule__Transition__Group_0__5__Impl rule__Transition__Group_0__6
+            // InternalArduinoML.g:1396:1: ( rule__Transition__Group_0__5__Impl rule__Transition__Group_0__6 )
+            // InternalArduinoML.g:1397:2: rule__Transition__Group_0__5__Impl rule__Transition__Group_0__6
             {
             pushFollow(FOLLOW_3);
             rule__Transition__Group_0__5__Impl();
@@ -4151,20 +4314,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__5__Impl"
-    // InternalArduinoML.g:1361:1: rule__Transition__Group_0__5__Impl : ( 'go to' ) ;
+    // InternalArduinoML.g:1404:1: rule__Transition__Group_0__5__Impl : ( 'go to' ) ;
     public final void rule__Transition__Group_0__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1365:1: ( ( 'go to' ) )
-            // InternalArduinoML.g:1366:1: ( 'go to' )
+            // InternalArduinoML.g:1408:1: ( ( 'go to' ) )
+            // InternalArduinoML.g:1409:1: ( 'go to' )
             {
-            // InternalArduinoML.g:1366:1: ( 'go to' )
-            // InternalArduinoML.g:1367:2: 'go to'
+            // InternalArduinoML.g:1409:1: ( 'go to' )
+            // InternalArduinoML.g:1410:2: 'go to'
             {
              before(grammarAccess.getTransitionAccess().getGoToKeyword_0_5()); 
-            match(input,25,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getGoToKeyword_0_5()); 
 
             }
@@ -4188,14 +4351,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__6"
-    // InternalArduinoML.g:1376:1: rule__Transition__Group_0__6 : rule__Transition__Group_0__6__Impl ;
+    // InternalArduinoML.g:1419:1: rule__Transition__Group_0__6 : rule__Transition__Group_0__6__Impl ;
     public final void rule__Transition__Group_0__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1380:1: ( rule__Transition__Group_0__6__Impl )
-            // InternalArduinoML.g:1381:2: rule__Transition__Group_0__6__Impl
+            // InternalArduinoML.g:1423:1: ( rule__Transition__Group_0__6__Impl )
+            // InternalArduinoML.g:1424:2: rule__Transition__Group_0__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group_0__6__Impl();
@@ -4221,21 +4384,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0__6__Impl"
-    // InternalArduinoML.g:1387:1: rule__Transition__Group_0__6__Impl : ( ( rule__Transition__NextAssignment_0_6 ) ) ;
+    // InternalArduinoML.g:1430:1: rule__Transition__Group_0__6__Impl : ( ( rule__Transition__NextAssignment_0_6 ) ) ;
     public final void rule__Transition__Group_0__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1391:1: ( ( ( rule__Transition__NextAssignment_0_6 ) ) )
-            // InternalArduinoML.g:1392:1: ( ( rule__Transition__NextAssignment_0_6 ) )
+            // InternalArduinoML.g:1434:1: ( ( ( rule__Transition__NextAssignment_0_6 ) ) )
+            // InternalArduinoML.g:1435:1: ( ( rule__Transition__NextAssignment_0_6 ) )
             {
-            // InternalArduinoML.g:1392:1: ( ( rule__Transition__NextAssignment_0_6 ) )
-            // InternalArduinoML.g:1393:2: ( rule__Transition__NextAssignment_0_6 )
+            // InternalArduinoML.g:1435:1: ( ( rule__Transition__NextAssignment_0_6 ) )
+            // InternalArduinoML.g:1436:2: ( rule__Transition__NextAssignment_0_6 )
             {
              before(grammarAccess.getTransitionAccess().getNextAssignment_0_6()); 
-            // InternalArduinoML.g:1394:2: ( rule__Transition__NextAssignment_0_6 )
-            // InternalArduinoML.g:1394:3: rule__Transition__NextAssignment_0_6
+            // InternalArduinoML.g:1437:2: ( rule__Transition__NextAssignment_0_6 )
+            // InternalArduinoML.g:1437:3: rule__Transition__NextAssignment_0_6
             {
             pushFollow(FOLLOW_2);
             rule__Transition__NextAssignment_0_6();
@@ -4268,14 +4431,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__0"
-    // InternalArduinoML.g:1403:1: rule__Transition__Group_0_4__0 : rule__Transition__Group_0_4__0__Impl rule__Transition__Group_0_4__1 ;
+    // InternalArduinoML.g:1446:1: rule__Transition__Group_0_4__0 : rule__Transition__Group_0_4__0__Impl rule__Transition__Group_0_4__1 ;
     public final void rule__Transition__Group_0_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1407:1: ( rule__Transition__Group_0_4__0__Impl rule__Transition__Group_0_4__1 )
-            // InternalArduinoML.g:1408:2: rule__Transition__Group_0_4__0__Impl rule__Transition__Group_0_4__1
+            // InternalArduinoML.g:1450:1: ( rule__Transition__Group_0_4__0__Impl rule__Transition__Group_0_4__1 )
+            // InternalArduinoML.g:1451:2: rule__Transition__Group_0_4__0__Impl rule__Transition__Group_0_4__1
             {
             pushFollow(FOLLOW_3);
             rule__Transition__Group_0_4__0__Impl();
@@ -4306,20 +4469,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__0__Impl"
-    // InternalArduinoML.g:1415:1: rule__Transition__Group_0_4__0__Impl : ( 'and' ) ;
+    // InternalArduinoML.g:1458:1: rule__Transition__Group_0_4__0__Impl : ( 'and' ) ;
     public final void rule__Transition__Group_0_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1419:1: ( ( 'and' ) )
-            // InternalArduinoML.g:1420:1: ( 'and' )
+            // InternalArduinoML.g:1462:1: ( ( 'and' ) )
+            // InternalArduinoML.g:1463:1: ( 'and' )
             {
-            // InternalArduinoML.g:1420:1: ( 'and' )
-            // InternalArduinoML.g:1421:2: 'and'
+            // InternalArduinoML.g:1463:1: ( 'and' )
+            // InternalArduinoML.g:1464:2: 'and'
             {
              before(grammarAccess.getTransitionAccess().getAndKeyword_0_4_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getAndKeyword_0_4_0()); 
 
             }
@@ -4343,14 +4506,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__1"
-    // InternalArduinoML.g:1430:1: rule__Transition__Group_0_4__1 : rule__Transition__Group_0_4__1__Impl rule__Transition__Group_0_4__2 ;
+    // InternalArduinoML.g:1473:1: rule__Transition__Group_0_4__1 : rule__Transition__Group_0_4__1__Impl rule__Transition__Group_0_4__2 ;
     public final void rule__Transition__Group_0_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1434:1: ( rule__Transition__Group_0_4__1__Impl rule__Transition__Group_0_4__2 )
-            // InternalArduinoML.g:1435:2: rule__Transition__Group_0_4__1__Impl rule__Transition__Group_0_4__2
+            // InternalArduinoML.g:1477:1: ( rule__Transition__Group_0_4__1__Impl rule__Transition__Group_0_4__2 )
+            // InternalArduinoML.g:1478:2: rule__Transition__Group_0_4__1__Impl rule__Transition__Group_0_4__2
             {
             pushFollow(FOLLOW_19);
             rule__Transition__Group_0_4__1__Impl();
@@ -4381,21 +4544,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__1__Impl"
-    // InternalArduinoML.g:1442:1: rule__Transition__Group_0_4__1__Impl : ( ( rule__Transition__SensorsAssignment_0_4_1 ) ) ;
+    // InternalArduinoML.g:1485:1: rule__Transition__Group_0_4__1__Impl : ( ( rule__Transition__SensorsAssignment_0_4_1 ) ) ;
     public final void rule__Transition__Group_0_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1446:1: ( ( ( rule__Transition__SensorsAssignment_0_4_1 ) ) )
-            // InternalArduinoML.g:1447:1: ( ( rule__Transition__SensorsAssignment_0_4_1 ) )
+            // InternalArduinoML.g:1489:1: ( ( ( rule__Transition__SensorsAssignment_0_4_1 ) ) )
+            // InternalArduinoML.g:1490:1: ( ( rule__Transition__SensorsAssignment_0_4_1 ) )
             {
-            // InternalArduinoML.g:1447:1: ( ( rule__Transition__SensorsAssignment_0_4_1 ) )
-            // InternalArduinoML.g:1448:2: ( rule__Transition__SensorsAssignment_0_4_1 )
+            // InternalArduinoML.g:1490:1: ( ( rule__Transition__SensorsAssignment_0_4_1 ) )
+            // InternalArduinoML.g:1491:2: ( rule__Transition__SensorsAssignment_0_4_1 )
             {
              before(grammarAccess.getTransitionAccess().getSensorsAssignment_0_4_1()); 
-            // InternalArduinoML.g:1449:2: ( rule__Transition__SensorsAssignment_0_4_1 )
-            // InternalArduinoML.g:1449:3: rule__Transition__SensorsAssignment_0_4_1
+            // InternalArduinoML.g:1492:2: ( rule__Transition__SensorsAssignment_0_4_1 )
+            // InternalArduinoML.g:1492:3: rule__Transition__SensorsAssignment_0_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__SensorsAssignment_0_4_1();
@@ -4428,14 +4591,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__2"
-    // InternalArduinoML.g:1457:1: rule__Transition__Group_0_4__2 : rule__Transition__Group_0_4__2__Impl rule__Transition__Group_0_4__3 ;
+    // InternalArduinoML.g:1500:1: rule__Transition__Group_0_4__2 : rule__Transition__Group_0_4__2__Impl rule__Transition__Group_0_4__3 ;
     public final void rule__Transition__Group_0_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1461:1: ( rule__Transition__Group_0_4__2__Impl rule__Transition__Group_0_4__3 )
-            // InternalArduinoML.g:1462:2: rule__Transition__Group_0_4__2__Impl rule__Transition__Group_0_4__3
+            // InternalArduinoML.g:1504:1: ( rule__Transition__Group_0_4__2__Impl rule__Transition__Group_0_4__3 )
+            // InternalArduinoML.g:1505:2: rule__Transition__Group_0_4__2__Impl rule__Transition__Group_0_4__3
             {
             pushFollow(FOLLOW_18);
             rule__Transition__Group_0_4__2__Impl();
@@ -4466,20 +4629,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__2__Impl"
-    // InternalArduinoML.g:1469:1: rule__Transition__Group_0_4__2__Impl : ( 'is' ) ;
+    // InternalArduinoML.g:1512:1: rule__Transition__Group_0_4__2__Impl : ( 'is' ) ;
     public final void rule__Transition__Group_0_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1473:1: ( ( 'is' ) )
-            // InternalArduinoML.g:1474:1: ( 'is' )
+            // InternalArduinoML.g:1516:1: ( ( 'is' ) )
+            // InternalArduinoML.g:1517:1: ( 'is' )
             {
-            // InternalArduinoML.g:1474:1: ( 'is' )
-            // InternalArduinoML.g:1475:2: 'is'
+            // InternalArduinoML.g:1517:1: ( 'is' )
+            // InternalArduinoML.g:1518:2: 'is'
             {
              before(grammarAccess.getTransitionAccess().getIsKeyword_0_4_2()); 
-            match(input,24,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getIsKeyword_0_4_2()); 
 
             }
@@ -4503,14 +4666,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__3"
-    // InternalArduinoML.g:1484:1: rule__Transition__Group_0_4__3 : rule__Transition__Group_0_4__3__Impl ;
+    // InternalArduinoML.g:1527:1: rule__Transition__Group_0_4__3 : rule__Transition__Group_0_4__3__Impl ;
     public final void rule__Transition__Group_0_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1488:1: ( rule__Transition__Group_0_4__3__Impl )
-            // InternalArduinoML.g:1489:2: rule__Transition__Group_0_4__3__Impl
+            // InternalArduinoML.g:1531:1: ( rule__Transition__Group_0_4__3__Impl )
+            // InternalArduinoML.g:1532:2: rule__Transition__Group_0_4__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group_0_4__3__Impl();
@@ -4536,21 +4699,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_0_4__3__Impl"
-    // InternalArduinoML.g:1495:1: rule__Transition__Group_0_4__3__Impl : ( ( rule__Transition__ValuesAssignment_0_4_3 ) ) ;
+    // InternalArduinoML.g:1538:1: rule__Transition__Group_0_4__3__Impl : ( ( rule__Transition__ValuesAssignment_0_4_3 ) ) ;
     public final void rule__Transition__Group_0_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1499:1: ( ( ( rule__Transition__ValuesAssignment_0_4_3 ) ) )
-            // InternalArduinoML.g:1500:1: ( ( rule__Transition__ValuesAssignment_0_4_3 ) )
+            // InternalArduinoML.g:1542:1: ( ( ( rule__Transition__ValuesAssignment_0_4_3 ) ) )
+            // InternalArduinoML.g:1543:1: ( ( rule__Transition__ValuesAssignment_0_4_3 ) )
             {
-            // InternalArduinoML.g:1500:1: ( ( rule__Transition__ValuesAssignment_0_4_3 ) )
-            // InternalArduinoML.g:1501:2: ( rule__Transition__ValuesAssignment_0_4_3 )
+            // InternalArduinoML.g:1543:1: ( ( rule__Transition__ValuesAssignment_0_4_3 ) )
+            // InternalArduinoML.g:1544:2: ( rule__Transition__ValuesAssignment_0_4_3 )
             {
              before(grammarAccess.getTransitionAccess().getValuesAssignment_0_4_3()); 
-            // InternalArduinoML.g:1502:2: ( rule__Transition__ValuesAssignment_0_4_3 )
-            // InternalArduinoML.g:1502:3: rule__Transition__ValuesAssignment_0_4_3
+            // InternalArduinoML.g:1545:2: ( rule__Transition__ValuesAssignment_0_4_3 )
+            // InternalArduinoML.g:1545:3: rule__Transition__ValuesAssignment_0_4_3
             {
             pushFollow(FOLLOW_2);
             rule__Transition__ValuesAssignment_0_4_3();
@@ -4583,14 +4746,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__0"
-    // InternalArduinoML.g:1511:1: rule__Transition__Group_1__0 : rule__Transition__Group_1__0__Impl rule__Transition__Group_1__1 ;
+    // InternalArduinoML.g:1554:1: rule__Transition__Group_1__0 : rule__Transition__Group_1__0__Impl rule__Transition__Group_1__1 ;
     public final void rule__Transition__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1515:1: ( rule__Transition__Group_1__0__Impl rule__Transition__Group_1__1 )
-            // InternalArduinoML.g:1516:2: rule__Transition__Group_1__0__Impl rule__Transition__Group_1__1
+            // InternalArduinoML.g:1558:1: ( rule__Transition__Group_1__0__Impl rule__Transition__Group_1__1 )
+            // InternalArduinoML.g:1559:2: rule__Transition__Group_1__0__Impl rule__Transition__Group_1__1
             {
             pushFollow(FOLLOW_11);
             rule__Transition__Group_1__0__Impl();
@@ -4621,20 +4784,20 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__0__Impl"
-    // InternalArduinoML.g:1523:1: rule__Transition__Group_1__0__Impl : ( 'wait' ) ;
+    // InternalArduinoML.g:1566:1: rule__Transition__Group_1__0__Impl : ( 'wait' ) ;
     public final void rule__Transition__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1527:1: ( ( 'wait' ) )
-            // InternalArduinoML.g:1528:1: ( 'wait' )
+            // InternalArduinoML.g:1570:1: ( ( 'wait' ) )
+            // InternalArduinoML.g:1571:1: ( 'wait' )
             {
-            // InternalArduinoML.g:1528:1: ( 'wait' )
-            // InternalArduinoML.g:1529:2: 'wait'
+            // InternalArduinoML.g:1571:1: ( 'wait' )
+            // InternalArduinoML.g:1572:2: 'wait'
             {
              before(grammarAccess.getTransitionAccess().getWaitKeyword_1_0()); 
-            match(input,27,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getTransitionAccess().getWaitKeyword_1_0()); 
 
             }
@@ -4658,14 +4821,14 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__1"
-    // InternalArduinoML.g:1538:1: rule__Transition__Group_1__1 : rule__Transition__Group_1__1__Impl rule__Transition__Group_1__2 ;
+    // InternalArduinoML.g:1581:1: rule__Transition__Group_1__1 : rule__Transition__Group_1__1__Impl rule__Transition__Group_1__2 ;
     public final void rule__Transition__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1542:1: ( rule__Transition__Group_1__1__Impl rule__Transition__Group_1__2 )
-            // InternalArduinoML.g:1543:2: rule__Transition__Group_1__1__Impl rule__Transition__Group_1__2
+            // InternalArduinoML.g:1585:1: ( rule__Transition__Group_1__1__Impl rule__Transition__Group_1__2 )
+            // InternalArduinoML.g:1586:2: rule__Transition__Group_1__1__Impl rule__Transition__Group_1__2
             {
             pushFollow(FOLLOW_22);
             rule__Transition__Group_1__1__Impl();
@@ -4696,21 +4859,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__1__Impl"
-    // InternalArduinoML.g:1550:1: rule__Transition__Group_1__1__Impl : ( ( rule__Transition__TimeAssignment_1_1 ) ) ;
+    // InternalArduinoML.g:1593:1: rule__Transition__Group_1__1__Impl : ( ( rule__Transition__TimeAssignment_1_1 ) ) ;
     public final void rule__Transition__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1554:1: ( ( ( rule__Transition__TimeAssignment_1_1 ) ) )
-            // InternalArduinoML.g:1555:1: ( ( rule__Transition__TimeAssignment_1_1 ) )
+            // InternalArduinoML.g:1597:1: ( ( ( rule__Transition__TimeAssignment_1_1 ) ) )
+            // InternalArduinoML.g:1598:1: ( ( rule__Transition__TimeAssignment_1_1 ) )
             {
-            // InternalArduinoML.g:1555:1: ( ( rule__Transition__TimeAssignment_1_1 ) )
-            // InternalArduinoML.g:1556:2: ( rule__Transition__TimeAssignment_1_1 )
+            // InternalArduinoML.g:1598:1: ( ( rule__Transition__TimeAssignment_1_1 ) )
+            // InternalArduinoML.g:1599:2: ( rule__Transition__TimeAssignment_1_1 )
             {
              before(grammarAccess.getTransitionAccess().getTimeAssignment_1_1()); 
-            // InternalArduinoML.g:1557:2: ( rule__Transition__TimeAssignment_1_1 )
-            // InternalArduinoML.g:1557:3: rule__Transition__TimeAssignment_1_1
+            // InternalArduinoML.g:1600:2: ( rule__Transition__TimeAssignment_1_1 )
+            // InternalArduinoML.g:1600:3: rule__Transition__TimeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__TimeAssignment_1_1();
@@ -4743,16 +4906,16 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__2"
-    // InternalArduinoML.g:1565:1: rule__Transition__Group_1__2 : rule__Transition__Group_1__2__Impl rule__Transition__Group_1__3 ;
+    // InternalArduinoML.g:1608:1: rule__Transition__Group_1__2 : rule__Transition__Group_1__2__Impl rule__Transition__Group_1__3 ;
     public final void rule__Transition__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1569:1: ( rule__Transition__Group_1__2__Impl rule__Transition__Group_1__3 )
-            // InternalArduinoML.g:1570:2: rule__Transition__Group_1__2__Impl rule__Transition__Group_1__3
+            // InternalArduinoML.g:1612:1: ( rule__Transition__Group_1__2__Impl rule__Transition__Group_1__3 )
+            // InternalArduinoML.g:1613:2: rule__Transition__Group_1__2__Impl rule__Transition__Group_1__3
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_23);
             rule__Transition__Group_1__2__Impl();
 
             state._fsp--;
@@ -4781,21 +4944,31 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__2__Impl"
-    // InternalArduinoML.g:1577:1: rule__Transition__Group_1__2__Impl : ( 'then go to' ) ;
+    // InternalArduinoML.g:1620:1: rule__Transition__Group_1__2__Impl : ( ( rule__Transition__UnitAssignment_1_2 ) ) ;
     public final void rule__Transition__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1581:1: ( ( 'then go to' ) )
-            // InternalArduinoML.g:1582:1: ( 'then go to' )
+            // InternalArduinoML.g:1624:1: ( ( ( rule__Transition__UnitAssignment_1_2 ) ) )
+            // InternalArduinoML.g:1625:1: ( ( rule__Transition__UnitAssignment_1_2 ) )
             {
-            // InternalArduinoML.g:1582:1: ( 'then go to' )
-            // InternalArduinoML.g:1583:2: 'then go to'
+            // InternalArduinoML.g:1625:1: ( ( rule__Transition__UnitAssignment_1_2 ) )
+            // InternalArduinoML.g:1626:2: ( rule__Transition__UnitAssignment_1_2 )
             {
-             before(grammarAccess.getTransitionAccess().getThenGoToKeyword_1_2()); 
-            match(input,28,FOLLOW_2); 
-             after(grammarAccess.getTransitionAccess().getThenGoToKeyword_1_2()); 
+             before(grammarAccess.getTransitionAccess().getUnitAssignment_1_2()); 
+            // InternalArduinoML.g:1627:2: ( rule__Transition__UnitAssignment_1_2 )
+            // InternalArduinoML.g:1627:3: rule__Transition__UnitAssignment_1_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__Transition__UnitAssignment_1_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTransitionAccess().getUnitAssignment_1_2()); 
 
             }
 
@@ -4818,17 +4991,22 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__3"
-    // InternalArduinoML.g:1592:1: rule__Transition__Group_1__3 : rule__Transition__Group_1__3__Impl ;
+    // InternalArduinoML.g:1635:1: rule__Transition__Group_1__3 : rule__Transition__Group_1__3__Impl rule__Transition__Group_1__4 ;
     public final void rule__Transition__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1596:1: ( rule__Transition__Group_1__3__Impl )
-            // InternalArduinoML.g:1597:2: rule__Transition__Group_1__3__Impl
+            // InternalArduinoML.g:1639:1: ( rule__Transition__Group_1__3__Impl rule__Transition__Group_1__4 )
+            // InternalArduinoML.g:1640:2: rule__Transition__Group_1__3__Impl rule__Transition__Group_1__4
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_3);
             rule__Transition__Group_1__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Transition__Group_1__4();
 
             state._fsp--;
 
@@ -4851,31 +5029,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__Group_1__3__Impl"
-    // InternalArduinoML.g:1603:1: rule__Transition__Group_1__3__Impl : ( ( rule__Transition__NextAssignment_1_3 ) ) ;
+    // InternalArduinoML.g:1647:1: rule__Transition__Group_1__3__Impl : ( 'then go to' ) ;
     public final void rule__Transition__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1607:1: ( ( ( rule__Transition__NextAssignment_1_3 ) ) )
-            // InternalArduinoML.g:1608:1: ( ( rule__Transition__NextAssignment_1_3 ) )
+            // InternalArduinoML.g:1651:1: ( ( 'then go to' ) )
+            // InternalArduinoML.g:1652:1: ( 'then go to' )
             {
-            // InternalArduinoML.g:1608:1: ( ( rule__Transition__NextAssignment_1_3 ) )
-            // InternalArduinoML.g:1609:2: ( rule__Transition__NextAssignment_1_3 )
+            // InternalArduinoML.g:1652:1: ( 'then go to' )
+            // InternalArduinoML.g:1653:2: 'then go to'
             {
-             before(grammarAccess.getTransitionAccess().getNextAssignment_1_3()); 
-            // InternalArduinoML.g:1610:2: ( rule__Transition__NextAssignment_1_3 )
-            // InternalArduinoML.g:1610:3: rule__Transition__NextAssignment_1_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Transition__NextAssignment_1_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTransitionAccess().getNextAssignment_1_3()); 
+             before(grammarAccess.getTransitionAccess().getThenGoToKeyword_1_3()); 
+            match(input,31,FOLLOW_2); 
+             after(grammarAccess.getTransitionAccess().getThenGoToKeyword_1_3()); 
 
             }
 
@@ -4897,18 +5065,98 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Transition__Group_1__3__Impl"
 
 
+    // $ANTLR start "rule__Transition__Group_1__4"
+    // InternalArduinoML.g:1662:1: rule__Transition__Group_1__4 : rule__Transition__Group_1__4__Impl ;
+    public final void rule__Transition__Group_1__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalArduinoML.g:1666:1: ( rule__Transition__Group_1__4__Impl )
+            // InternalArduinoML.g:1667:2: rule__Transition__Group_1__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Transition__Group_1__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Transition__Group_1__4"
+
+
+    // $ANTLR start "rule__Transition__Group_1__4__Impl"
+    // InternalArduinoML.g:1673:1: rule__Transition__Group_1__4__Impl : ( ( rule__Transition__NextAssignment_1_4 ) ) ;
+    public final void rule__Transition__Group_1__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalArduinoML.g:1677:1: ( ( ( rule__Transition__NextAssignment_1_4 ) ) )
+            // InternalArduinoML.g:1678:1: ( ( rule__Transition__NextAssignment_1_4 ) )
+            {
+            // InternalArduinoML.g:1678:1: ( ( rule__Transition__NextAssignment_1_4 ) )
+            // InternalArduinoML.g:1679:2: ( rule__Transition__NextAssignment_1_4 )
+            {
+             before(grammarAccess.getTransitionAccess().getNextAssignment_1_4()); 
+            // InternalArduinoML.g:1680:2: ( rule__Transition__NextAssignment_1_4 )
+            // InternalArduinoML.g:1680:3: rule__Transition__NextAssignment_1_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__Transition__NextAssignment_1_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTransitionAccess().getNextAssignment_1_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Transition__Group_1__4__Impl"
+
+
     // $ANTLR start "rule__App__NameAssignment_1"
-    // InternalArduinoML.g:1619:1: rule__App__NameAssignment_1 : ( ruleEString ) ;
+    // InternalArduinoML.g:1689:1: rule__App__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__App__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1623:1: ( ( ruleEString ) )
-            // InternalArduinoML.g:1624:2: ( ruleEString )
+            // InternalArduinoML.g:1693:1: ( ( ruleEString ) )
+            // InternalArduinoML.g:1694:2: ( ruleEString )
             {
-            // InternalArduinoML.g:1624:2: ( ruleEString )
-            // InternalArduinoML.g:1625:3: ruleEString
+            // InternalArduinoML.g:1694:2: ( ruleEString )
+            // InternalArduinoML.g:1695:3: ruleEString
             {
              before(grammarAccess.getAppAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4939,21 +5187,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__InitialAssignment_3"
-    // InternalArduinoML.g:1634:1: rule__App__InitialAssignment_3 : ( ( ruleEString ) ) ;
+    // InternalArduinoML.g:1704:1: rule__App__InitialAssignment_3 : ( ( ruleEString ) ) ;
     public final void rule__App__InitialAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1638:1: ( ( ( ruleEString ) ) )
-            // InternalArduinoML.g:1639:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1708:1: ( ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1709:2: ( ( ruleEString ) )
             {
-            // InternalArduinoML.g:1639:2: ( ( ruleEString ) )
-            // InternalArduinoML.g:1640:3: ( ruleEString )
+            // InternalArduinoML.g:1709:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1710:3: ( ruleEString )
             {
              before(grammarAccess.getAppAccess().getInitialStateCrossReference_3_0()); 
-            // InternalArduinoML.g:1641:3: ( ruleEString )
-            // InternalArduinoML.g:1642:4: ruleEString
+            // InternalArduinoML.g:1711:3: ( ruleEString )
+            // InternalArduinoML.g:1712:4: ruleEString
             {
              before(grammarAccess.getAppAccess().getInitialStateEStringParserRuleCall_3_0_1()); 
             pushFollow(FOLLOW_2);
@@ -4988,17 +5236,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__BricksAssignment_6"
-    // InternalArduinoML.g:1653:1: rule__App__BricksAssignment_6 : ( ruleBrick ) ;
+    // InternalArduinoML.g:1723:1: rule__App__BricksAssignment_6 : ( ruleBrick ) ;
     public final void rule__App__BricksAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1657:1: ( ( ruleBrick ) )
-            // InternalArduinoML.g:1658:2: ( ruleBrick )
+            // InternalArduinoML.g:1727:1: ( ( ruleBrick ) )
+            // InternalArduinoML.g:1728:2: ( ruleBrick )
             {
-            // InternalArduinoML.g:1658:2: ( ruleBrick )
-            // InternalArduinoML.g:1659:3: ruleBrick
+            // InternalArduinoML.g:1728:2: ( ruleBrick )
+            // InternalArduinoML.g:1729:3: ruleBrick
             {
              before(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -5029,17 +5277,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__BricksAssignment_7"
-    // InternalArduinoML.g:1668:1: rule__App__BricksAssignment_7 : ( ruleBrick ) ;
+    // InternalArduinoML.g:1738:1: rule__App__BricksAssignment_7 : ( ruleBrick ) ;
     public final void rule__App__BricksAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1672:1: ( ( ruleBrick ) )
-            // InternalArduinoML.g:1673:2: ( ruleBrick )
+            // InternalArduinoML.g:1742:1: ( ( ruleBrick ) )
+            // InternalArduinoML.g:1743:2: ( ruleBrick )
             {
-            // InternalArduinoML.g:1673:2: ( ruleBrick )
-            // InternalArduinoML.g:1674:3: ruleBrick
+            // InternalArduinoML.g:1743:2: ( ruleBrick )
+            // InternalArduinoML.g:1744:3: ruleBrick
             {
              before(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -5070,17 +5318,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__StatesAssignment_9"
-    // InternalArduinoML.g:1683:1: rule__App__StatesAssignment_9 : ( ruleState ) ;
+    // InternalArduinoML.g:1753:1: rule__App__StatesAssignment_9 : ( ruleState ) ;
     public final void rule__App__StatesAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1687:1: ( ( ruleState ) )
-            // InternalArduinoML.g:1688:2: ( ruleState )
+            // InternalArduinoML.g:1757:1: ( ( ruleState ) )
+            // InternalArduinoML.g:1758:2: ( ruleState )
             {
-            // InternalArduinoML.g:1688:2: ( ruleState )
-            // InternalArduinoML.g:1689:3: ruleState
+            // InternalArduinoML.g:1758:2: ( ruleState )
+            // InternalArduinoML.g:1759:3: ruleState
             {
              before(grammarAccess.getAppAccess().getStatesStateParserRuleCall_9_0()); 
             pushFollow(FOLLOW_2);
@@ -5111,17 +5359,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__App__StatesAssignment_10"
-    // InternalArduinoML.g:1698:1: rule__App__StatesAssignment_10 : ( ruleState ) ;
+    // InternalArduinoML.g:1768:1: rule__App__StatesAssignment_10 : ( ruleState ) ;
     public final void rule__App__StatesAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1702:1: ( ( ruleState ) )
-            // InternalArduinoML.g:1703:2: ( ruleState )
+            // InternalArduinoML.g:1772:1: ( ( ruleState ) )
+            // InternalArduinoML.g:1773:2: ( ruleState )
             {
-            // InternalArduinoML.g:1703:2: ( ruleState )
-            // InternalArduinoML.g:1704:3: ruleState
+            // InternalArduinoML.g:1773:2: ( ruleState )
+            // InternalArduinoML.g:1774:3: ruleState
             {
              before(grammarAccess.getAppAccess().getStatesStateParserRuleCall_10_0()); 
             pushFollow(FOLLOW_2);
@@ -5152,17 +5400,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__NameAssignment_1"
-    // InternalArduinoML.g:1713:1: rule__Brick__NameAssignment_1 : ( ruleEString ) ;
+    // InternalArduinoML.g:1783:1: rule__Brick__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__Brick__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1717:1: ( ( ruleEString ) )
-            // InternalArduinoML.g:1718:2: ( ruleEString )
+            // InternalArduinoML.g:1787:1: ( ( ruleEString ) )
+            // InternalArduinoML.g:1788:2: ( ruleEString )
             {
-            // InternalArduinoML.g:1718:2: ( ruleEString )
-            // InternalArduinoML.g:1719:3: ruleEString
+            // InternalArduinoML.g:1788:2: ( ruleEString )
+            // InternalArduinoML.g:1789:3: ruleEString
             {
              before(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5193,17 +5441,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Brick__PinAssignment_3"
-    // InternalArduinoML.g:1728:1: rule__Brick__PinAssignment_3 : ( ruleEInt ) ;
+    // InternalArduinoML.g:1798:1: rule__Brick__PinAssignment_3 : ( ruleEInt ) ;
     public final void rule__Brick__PinAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1732:1: ( ( ruleEInt ) )
-            // InternalArduinoML.g:1733:2: ( ruleEInt )
+            // InternalArduinoML.g:1802:1: ( ( ruleEInt ) )
+            // InternalArduinoML.g:1803:2: ( ruleEInt )
             {
-            // InternalArduinoML.g:1733:2: ( ruleEInt )
-            // InternalArduinoML.g:1734:3: ruleEInt
+            // InternalArduinoML.g:1803:2: ( ruleEInt )
+            // InternalArduinoML.g:1804:3: ruleEInt
             {
              before(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5234,17 +5482,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__NameAssignment_0"
-    // InternalArduinoML.g:1743:1: rule__State__NameAssignment_0 : ( ruleEString ) ;
+    // InternalArduinoML.g:1813:1: rule__State__NameAssignment_0 : ( ruleEString ) ;
     public final void rule__State__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1747:1: ( ( ruleEString ) )
-            // InternalArduinoML.g:1748:2: ( ruleEString )
+            // InternalArduinoML.g:1817:1: ( ( ruleEString ) )
+            // InternalArduinoML.g:1818:2: ( ruleEString )
             {
-            // InternalArduinoML.g:1748:2: ( ruleEString )
-            // InternalArduinoML.g:1749:3: ruleEString
+            // InternalArduinoML.g:1818:2: ( ruleEString )
+            // InternalArduinoML.g:1819:3: ruleEString
             {
              before(grammarAccess.getStateAccess().getNameEStringParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -5275,17 +5523,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__ActionsAssignment_2"
-    // InternalArduinoML.g:1758:1: rule__State__ActionsAssignment_2 : ( ruleAction ) ;
+    // InternalArduinoML.g:1828:1: rule__State__ActionsAssignment_2 : ( ruleAction ) ;
     public final void rule__State__ActionsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1762:1: ( ( ruleAction ) )
-            // InternalArduinoML.g:1763:2: ( ruleAction )
+            // InternalArduinoML.g:1832:1: ( ( ruleAction ) )
+            // InternalArduinoML.g:1833:2: ( ruleAction )
             {
-            // InternalArduinoML.g:1763:2: ( ruleAction )
-            // InternalArduinoML.g:1764:3: ruleAction
+            // InternalArduinoML.g:1833:2: ( ruleAction )
+            // InternalArduinoML.g:1834:3: ruleAction
             {
              before(grammarAccess.getStateAccess().getActionsActionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5316,17 +5564,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__ActionsAssignment_3"
-    // InternalArduinoML.g:1773:1: rule__State__ActionsAssignment_3 : ( ruleAction ) ;
+    // InternalArduinoML.g:1843:1: rule__State__ActionsAssignment_3 : ( ruleAction ) ;
     public final void rule__State__ActionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1777:1: ( ( ruleAction ) )
-            // InternalArduinoML.g:1778:2: ( ruleAction )
+            // InternalArduinoML.g:1847:1: ( ( ruleAction ) )
+            // InternalArduinoML.g:1848:2: ( ruleAction )
             {
-            // InternalArduinoML.g:1778:2: ( ruleAction )
-            // InternalArduinoML.g:1779:3: ruleAction
+            // InternalArduinoML.g:1848:2: ( ruleAction )
+            // InternalArduinoML.g:1849:3: ruleAction
             {
              before(grammarAccess.getStateAccess().getActionsActionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5357,17 +5605,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_4"
-    // InternalArduinoML.g:1788:1: rule__State__TransitionsAssignment_4 : ( ruleTransition ) ;
+    // InternalArduinoML.g:1858:1: rule__State__TransitionsAssignment_4 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1792:1: ( ( ruleTransition ) )
-            // InternalArduinoML.g:1793:2: ( ruleTransition )
+            // InternalArduinoML.g:1862:1: ( ( ruleTransition ) )
+            // InternalArduinoML.g:1863:2: ( ruleTransition )
             {
-            // InternalArduinoML.g:1793:2: ( ruleTransition )
-            // InternalArduinoML.g:1794:3: ruleTransition
+            // InternalArduinoML.g:1863:2: ( ruleTransition )
+            // InternalArduinoML.g:1864:3: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -5398,17 +5646,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_5"
-    // InternalArduinoML.g:1803:1: rule__State__TransitionsAssignment_5 : ( ruleTransition ) ;
+    // InternalArduinoML.g:1873:1: rule__State__TransitionsAssignment_5 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1807:1: ( ( ruleTransition ) )
-            // InternalArduinoML.g:1808:2: ( ruleTransition )
+            // InternalArduinoML.g:1877:1: ( ( ruleTransition ) )
+            // InternalArduinoML.g:1878:2: ( ruleTransition )
             {
-            // InternalArduinoML.g:1808:2: ( ruleTransition )
-            // InternalArduinoML.g:1809:3: ruleTransition
+            // InternalArduinoML.g:1878:2: ( ruleTransition )
+            // InternalArduinoML.g:1879:3: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -5439,21 +5687,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__ActuatorAssignment_1"
-    // InternalArduinoML.g:1818:1: rule__Action__ActuatorAssignment_1 : ( ( ruleEString ) ) ;
+    // InternalArduinoML.g:1888:1: rule__Action__ActuatorAssignment_1 : ( ( ruleEString ) ) ;
     public final void rule__Action__ActuatorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1822:1: ( ( ( ruleEString ) ) )
-            // InternalArduinoML.g:1823:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1892:1: ( ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1893:2: ( ( ruleEString ) )
             {
-            // InternalArduinoML.g:1823:2: ( ( ruleEString ) )
-            // InternalArduinoML.g:1824:3: ( ruleEString )
+            // InternalArduinoML.g:1893:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1894:3: ( ruleEString )
             {
              before(grammarAccess.getActionAccess().getActuatorActuatorCrossReference_1_0()); 
-            // InternalArduinoML.g:1825:3: ( ruleEString )
-            // InternalArduinoML.g:1826:4: ruleEString
+            // InternalArduinoML.g:1895:3: ( ruleEString )
+            // InternalArduinoML.g:1896:4: ruleEString
             {
              before(grammarAccess.getActionAccess().getActuatorActuatorEStringParserRuleCall_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -5488,17 +5736,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Action__ValueAssignment_3"
-    // InternalArduinoML.g:1837:1: rule__Action__ValueAssignment_3 : ( ruleSignal ) ;
+    // InternalArduinoML.g:1907:1: rule__Action__ValueAssignment_3 : ( ruleSignal ) ;
     public final void rule__Action__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1841:1: ( ( ruleSignal ) )
-            // InternalArduinoML.g:1842:2: ( ruleSignal )
+            // InternalArduinoML.g:1911:1: ( ( ruleSignal ) )
+            // InternalArduinoML.g:1912:2: ( ruleSignal )
             {
-            // InternalArduinoML.g:1842:2: ( ruleSignal )
-            // InternalArduinoML.g:1843:3: ruleSignal
+            // InternalArduinoML.g:1912:2: ( ruleSignal )
+            // InternalArduinoML.g:1913:3: ruleSignal
             {
              before(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5529,21 +5777,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__SensorsAssignment_0_1"
-    // InternalArduinoML.g:1852:1: rule__Transition__SensorsAssignment_0_1 : ( ( ruleEString ) ) ;
+    // InternalArduinoML.g:1922:1: rule__Transition__SensorsAssignment_0_1 : ( ( ruleEString ) ) ;
     public final void rule__Transition__SensorsAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1856:1: ( ( ( ruleEString ) ) )
-            // InternalArduinoML.g:1857:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1926:1: ( ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1927:2: ( ( ruleEString ) )
             {
-            // InternalArduinoML.g:1857:2: ( ( ruleEString ) )
-            // InternalArduinoML.g:1858:3: ( ruleEString )
+            // InternalArduinoML.g:1927:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1928:3: ( ruleEString )
             {
              before(grammarAccess.getTransitionAccess().getSensorsSensorCrossReference_0_1_0()); 
-            // InternalArduinoML.g:1859:3: ( ruleEString )
-            // InternalArduinoML.g:1860:4: ruleEString
+            // InternalArduinoML.g:1929:3: ( ruleEString )
+            // InternalArduinoML.g:1930:4: ruleEString
             {
              before(grammarAccess.getTransitionAccess().getSensorsSensorEStringParserRuleCall_0_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -5578,17 +5826,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__ValuesAssignment_0_3"
-    // InternalArduinoML.g:1871:1: rule__Transition__ValuesAssignment_0_3 : ( ruleSignal ) ;
+    // InternalArduinoML.g:1941:1: rule__Transition__ValuesAssignment_0_3 : ( ruleSignal ) ;
     public final void rule__Transition__ValuesAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1875:1: ( ( ruleSignal ) )
-            // InternalArduinoML.g:1876:2: ( ruleSignal )
+            // InternalArduinoML.g:1945:1: ( ( ruleSignal ) )
+            // InternalArduinoML.g:1946:2: ( ruleSignal )
             {
-            // InternalArduinoML.g:1876:2: ( ruleSignal )
-            // InternalArduinoML.g:1877:3: ruleSignal
+            // InternalArduinoML.g:1946:2: ( ruleSignal )
+            // InternalArduinoML.g:1947:3: ruleSignal
             {
              before(grammarAccess.getTransitionAccess().getValuesSignalEnumRuleCall_0_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5619,21 +5867,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__SensorsAssignment_0_4_1"
-    // InternalArduinoML.g:1886:1: rule__Transition__SensorsAssignment_0_4_1 : ( ( ruleEString ) ) ;
+    // InternalArduinoML.g:1956:1: rule__Transition__SensorsAssignment_0_4_1 : ( ( ruleEString ) ) ;
     public final void rule__Transition__SensorsAssignment_0_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1890:1: ( ( ( ruleEString ) ) )
-            // InternalArduinoML.g:1891:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1960:1: ( ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1961:2: ( ( ruleEString ) )
             {
-            // InternalArduinoML.g:1891:2: ( ( ruleEString ) )
-            // InternalArduinoML.g:1892:3: ( ruleEString )
+            // InternalArduinoML.g:1961:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1962:3: ( ruleEString )
             {
              before(grammarAccess.getTransitionAccess().getSensorsSensorCrossReference_0_4_1_0()); 
-            // InternalArduinoML.g:1893:3: ( ruleEString )
-            // InternalArduinoML.g:1894:4: ruleEString
+            // InternalArduinoML.g:1963:3: ( ruleEString )
+            // InternalArduinoML.g:1964:4: ruleEString
             {
              before(grammarAccess.getTransitionAccess().getSensorsSensorEStringParserRuleCall_0_4_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -5668,17 +5916,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__ValuesAssignment_0_4_3"
-    // InternalArduinoML.g:1905:1: rule__Transition__ValuesAssignment_0_4_3 : ( ruleSignal ) ;
+    // InternalArduinoML.g:1975:1: rule__Transition__ValuesAssignment_0_4_3 : ( ruleSignal ) ;
     public final void rule__Transition__ValuesAssignment_0_4_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1909:1: ( ( ruleSignal ) )
-            // InternalArduinoML.g:1910:2: ( ruleSignal )
+            // InternalArduinoML.g:1979:1: ( ( ruleSignal ) )
+            // InternalArduinoML.g:1980:2: ( ruleSignal )
             {
-            // InternalArduinoML.g:1910:2: ( ruleSignal )
-            // InternalArduinoML.g:1911:3: ruleSignal
+            // InternalArduinoML.g:1980:2: ( ruleSignal )
+            // InternalArduinoML.g:1981:3: ruleSignal
             {
              before(grammarAccess.getTransitionAccess().getValuesSignalEnumRuleCall_0_4_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5709,21 +5957,21 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__NextAssignment_0_6"
-    // InternalArduinoML.g:1920:1: rule__Transition__NextAssignment_0_6 : ( ( ruleEString ) ) ;
+    // InternalArduinoML.g:1990:1: rule__Transition__NextAssignment_0_6 : ( ( ruleEString ) ) ;
     public final void rule__Transition__NextAssignment_0_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1924:1: ( ( ( ruleEString ) ) )
-            // InternalArduinoML.g:1925:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1994:1: ( ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1995:2: ( ( ruleEString ) )
             {
-            // InternalArduinoML.g:1925:2: ( ( ruleEString ) )
-            // InternalArduinoML.g:1926:3: ( ruleEString )
+            // InternalArduinoML.g:1995:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:1996:3: ( ruleEString )
             {
              before(grammarAccess.getTransitionAccess().getNextStateCrossReference_0_6_0()); 
-            // InternalArduinoML.g:1927:3: ( ruleEString )
-            // InternalArduinoML.g:1928:4: ruleEString
+            // InternalArduinoML.g:1997:3: ( ruleEString )
+            // InternalArduinoML.g:1998:4: ruleEString
             {
              before(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_0_6_0_1()); 
             pushFollow(FOLLOW_2);
@@ -5758,17 +6006,17 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Transition__TimeAssignment_1_1"
-    // InternalArduinoML.g:1939:1: rule__Transition__TimeAssignment_1_1 : ( ruleEInt ) ;
+    // InternalArduinoML.g:2009:1: rule__Transition__TimeAssignment_1_1 : ( ruleEInt ) ;
     public final void rule__Transition__TimeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1943:1: ( ( ruleEInt ) )
-            // InternalArduinoML.g:1944:2: ( ruleEInt )
+            // InternalArduinoML.g:2013:1: ( ( ruleEInt ) )
+            // InternalArduinoML.g:2014:2: ( ruleEInt )
             {
-            // InternalArduinoML.g:1944:2: ( ruleEInt )
-            // InternalArduinoML.g:1945:3: ruleEInt
+            // InternalArduinoML.g:2014:2: ( ruleEInt )
+            // InternalArduinoML.g:2015:3: ruleEInt
             {
              before(grammarAccess.getTransitionAccess().getTimeEIntParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5798,34 +6046,26 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Transition__TimeAssignment_1_1"
 
 
-    // $ANTLR start "rule__Transition__NextAssignment_1_3"
-    // InternalArduinoML.g:1954:1: rule__Transition__NextAssignment_1_3 : ( ( ruleEString ) ) ;
-    public final void rule__Transition__NextAssignment_1_3() throws RecognitionException {
+    // $ANTLR start "rule__Transition__UnitAssignment_1_2"
+    // InternalArduinoML.g:2024:1: rule__Transition__UnitAssignment_1_2 : ( ruleTime_unit ) ;
+    public final void rule__Transition__UnitAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalArduinoML.g:1958:1: ( ( ( ruleEString ) ) )
-            // InternalArduinoML.g:1959:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:2028:1: ( ( ruleTime_unit ) )
+            // InternalArduinoML.g:2029:2: ( ruleTime_unit )
             {
-            // InternalArduinoML.g:1959:2: ( ( ruleEString ) )
-            // InternalArduinoML.g:1960:3: ( ruleEString )
+            // InternalArduinoML.g:2029:2: ( ruleTime_unit )
+            // InternalArduinoML.g:2030:3: ruleTime_unit
             {
-             before(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_3_0()); 
-            // InternalArduinoML.g:1961:3: ( ruleEString )
-            // InternalArduinoML.g:1962:4: ruleEString
-            {
-             before(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_1_3_0_1()); 
+             before(grammarAccess.getTransitionAccess().getUnitTime_unitEnumRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
-            ruleEString();
+            ruleTime_unit();
 
             state._fsp--;
 
-             after(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_1_3_0_1()); 
-
-            }
-
-             after(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_3_0()); 
+             after(grammarAccess.getTransitionAccess().getUnitTime_unitEnumRuleCall_1_2_0()); 
 
             }
 
@@ -5844,7 +6084,56 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Transition__NextAssignment_1_3"
+    // $ANTLR end "rule__Transition__UnitAssignment_1_2"
+
+
+    // $ANTLR start "rule__Transition__NextAssignment_1_4"
+    // InternalArduinoML.g:2039:1: rule__Transition__NextAssignment_1_4 : ( ( ruleEString ) ) ;
+    public final void rule__Transition__NextAssignment_1_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalArduinoML.g:2043:1: ( ( ( ruleEString ) ) )
+            // InternalArduinoML.g:2044:2: ( ( ruleEString ) )
+            {
+            // InternalArduinoML.g:2044:2: ( ( ruleEString ) )
+            // InternalArduinoML.g:2045:3: ( ruleEString )
+            {
+             before(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_4_0()); 
+            // InternalArduinoML.g:2046:3: ( ruleEString )
+            // InternalArduinoML.g:2047:4: ruleEString
+            {
+             before(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_1_4_0_1()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_1_4_0_1()); 
+
+            }
+
+             after(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Transition__NextAssignment_1_4"
 
     // Delegated rules
 
@@ -5854,24 +6143,25 @@ public class InternalArduinoMLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000001A0000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000180002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000D00000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000C00002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000032L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040040L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000008A00000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000008A00002L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200040L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000045000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000045000002L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000006000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000030000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000000000000E000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000080000000L});
 
 }

@@ -11,4 +11,4 @@ app TemporalTransitions initial state off :
 
 		on :
 			change led to HIGH
-			wait 3000 then go to off
+			wait 800ms then go to off

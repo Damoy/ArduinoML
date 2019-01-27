@@ -9,6 +9,11 @@
       <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Signal/HIGH"/>
       <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Signal/LOW"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arduinoML.ecore#//Time_unit">
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Time_unit/ms"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Time_unit/s"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Time_unit/min"/>
+    </genEnums>
     <genClasses ecoreClass="arduinoML.ecore#//Brick">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Brick/pin"/>
     </genClasses>
@@ -33,6 +38,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/sensors"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Transition/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Transition/unit"/>
     </genClasses>
     <genClasses ecoreClass="arduinoML.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//NamedElement/name"/>

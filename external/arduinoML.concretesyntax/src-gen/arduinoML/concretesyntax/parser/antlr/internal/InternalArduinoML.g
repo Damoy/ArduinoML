@@ -749,9 +749,28 @@ ruleTransition returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_12='then go to'
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTransitionAccess().getUnitTime_unitEnumRuleCall_1_2_0());
+					}
+					lv_unit_12_0=ruleTime_unit
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTransitionRule());
+						}
+						set(
+							$current,
+							"unit",
+							lv_unit_12_0,
+							"arduinoML.concretesyntax.ArduinoML.Time_unit");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_13='then go to'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getTransitionAccess().getThenGoToKeyword_1_2());
+				newLeafNode(otherlv_13, grammarAccess.getTransitionAccess().getThenGoToKeyword_1_3());
 			}
 			(
 				(
@@ -761,7 +780,7 @@ ruleTransition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_3_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_4_0());
 					}
 					ruleEString
 					{
@@ -795,6 +814,41 @@ ruleSignal returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getSignalAccess().getLOWEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getSignalAccess().getLOWEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule Time_unit
+ruleTime_unit returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='ms'
+			{
+				$current = grammarAccess.getTime_unitAccess().getMsEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getTime_unitAccess().getMsEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='s'
+			{
+				$current = grammarAccess.getTime_unitAccess().getSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getTime_unitAccess().getSEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='min'
+			{
+				$current = grammarAccess.getTime_unitAccess().getMinEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getTime_unitAccess().getMinEnumLiteralDeclaration_2());
 			}
 		)
 	)
