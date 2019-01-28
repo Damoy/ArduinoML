@@ -25,7 +25,7 @@ void state_on() {
   boolean guard = millis() - time > debounce;
   if( digitalRead(8) == LOW && guard ) {
     time = millis();
-    delay(2000);
+    delay(800);
     state_off();
   }
   else {
