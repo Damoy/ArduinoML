@@ -100,9 +100,13 @@ ruleApp returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='initial state'
+		otherlv_2='initial'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAppAccess().getInitialStateKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getAppAccess().getInitialKeyword_2());
+		}
+		otherlv_3='state'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAppAccess().getStateKeyword_3());
 		}
 		(
 			(
@@ -112,7 +116,7 @@ ruleApp returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getAppAccess().getInitialStateCrossReference_3_0());
+					newCompositeNode(grammarAccess.getAppAccess().getInitialStateCrossReference_4_0());
 				}
 				ruleEString
 				{
@@ -120,20 +124,24 @@ ruleApp returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4=':'
+		otherlv_5=':'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getAppAccess().getColonKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getAppAccess().getColonKeyword_5());
 		}
-		otherlv_5='bricks :'
+		otherlv_6='bricks'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getAppAccess().getBricksKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getAppAccess().getBricksKeyword_6());
+		}
+		otherlv_7=':'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getAppAccess().getColonKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_8_0());
 				}
-				lv_bricks_6_0=ruleBrick
+				lv_bricks_8_0=ruleBrick
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppRule());
@@ -141,7 +149,7 @@ ruleApp returns [EObject current=null]
 					add(
 						$current,
 						"bricks",
-						lv_bricks_6_0,
+						lv_bricks_8_0,
 						"arduinoML.concretesyntax.ArduinoML.Brick");
 					afterParserOrEnumRuleCall();
 				}
@@ -150,9 +158,9 @@ ruleApp returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_9_0());
 				}
-				lv_bricks_7_0=ruleBrick
+				lv_bricks_9_0=ruleBrick
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppRule());
@@ -160,22 +168,26 @@ ruleApp returns [EObject current=null]
 					add(
 						$current,
 						"bricks",
-						lv_bricks_7_0,
+						lv_bricks_9_0,
 						"arduinoML.concretesyntax.ArduinoML.Brick");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8='states :'
+		otherlv_10='states'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getAppAccess().getStatesKeyword_8());
+			newLeafNode(otherlv_10, grammarAccess.getAppAccess().getStatesKeyword_10());
+		}
+		otherlv_11=':'
+		{
+			newLeafNode(otherlv_11, grammarAccess.getAppAccess().getColonKeyword_11());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_12_0());
 				}
-				lv_states_9_0=ruleState
+				lv_states_12_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppRule());
@@ -183,7 +195,7 @@ ruleApp returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_9_0,
+						lv_states_12_0,
 						"arduinoML.concretesyntax.ArduinoML.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -192,9 +204,9 @@ ruleApp returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_13_0());
 				}
-				lv_states_10_0=ruleState
+				lv_states_13_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppRule());
@@ -202,7 +214,7 @@ ruleApp returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_10_0,
+						lv_states_13_0,
 						"arduinoML.concretesyntax.ArduinoML.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -694,9 +706,13 @@ ruleTransition returns [EObject current=null]
 					)
 				)
 			)*
-			otherlv_8='go to'
+			otherlv_8='go'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getGoToKeyword_0_5());
+				newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getGoKeyword_0_5());
+			}
+			otherlv_9='to'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getToKeyword_0_6());
 			}
 			(
 				(
@@ -706,7 +722,7 @@ ruleTransition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_0_6_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_0_7_0());
 					}
 					ruleEString
 					{
@@ -717,16 +733,16 @@ ruleTransition returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_10='wait'
+			otherlv_11='wait'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getTransitionAccess().getWaitKeyword_1_0());
+				newLeafNode(otherlv_11, grammarAccess.getTransitionAccess().getWaitKeyword_1_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getTransitionAccess().getTimeEIntParserRuleCall_1_1_0());
 					}
-					lv_time_11_0=ruleEInt
+					lv_time_12_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTransitionRule());
@@ -734,7 +750,7 @@ ruleTransition returns [EObject current=null]
 						set(
 							$current,
 							"time",
-							lv_time_11_0,
+							lv_time_12_0,
 							"arduinoML.concretesyntax.ArduinoML.EInt");
 						afterParserOrEnumRuleCall();
 					}
@@ -745,7 +761,7 @@ ruleTransition returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getTransitionAccess().getUnitTime_unitEnumRuleCall_1_2_0());
 					}
-					lv_unit_12_0=ruleTime_unit
+					lv_unit_13_0=ruleTime_unit
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTransitionRule());
@@ -753,15 +769,23 @@ ruleTransition returns [EObject current=null]
 						set(
 							$current,
 							"unit",
-							lv_unit_12_0,
+							lv_unit_13_0,
 							"arduinoML.concretesyntax.ArduinoML.Time_unit");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_13='then go to'
+			otherlv_14='then'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getTransitionAccess().getThenGoToKeyword_1_3());
+				newLeafNode(otherlv_14, grammarAccess.getTransitionAccess().getThenKeyword_1_3());
+			}
+			otherlv_15='go'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getTransitionAccess().getGoKeyword_1_4());
+			}
+			otherlv_16='to'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getTransitionAccess().getToKeyword_1_5());
 			}
 			(
 				(
@@ -771,7 +795,7 @@ ruleTransition returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_4_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_1_6_0());
 					}
 					ruleEString
 					{
