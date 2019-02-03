@@ -76,7 +76,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		if (object.getPin() >= 0 && object.getPin() <= 19) {
 			return "\tpinMode("+object.getPin()+", INPUT);\n";
 		}
-		return "\\t// ERROR INPUT : pin " + object.getPin() + " doesn't exist !\n";
+		return "\t// ERROR INPUT : pin " + object.getPin() + " doesn't exist !\n";
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		if (object.getPin() >= 0 && object.getPin() <= 19) {
 			return "\tpinMode("+object.getPin()+", INPUT);\n";
 		}
-		return "\\t// ERROR INPUT : pin " + object.getPin() + " doesn't exist !\n";
+		return "\t// ERROR INPUT : pin " + object.getPin() + " doesn't exist !\n";
 	}
 
 	/**
@@ -119,9 +119,42 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		sb.append("}\n\n"
 				+ "//Behavioral concepts\n"
 				+ "long time=0; long debounce = 200;\n\n");
-		for(State s : object.getStates())
+		if (!object.getStates().isEmpty()) {
+			for(State s : object.getStates())
+				sb.append(doSwitch(s));
+			sb.append("void loop() {state_"+object.getInitial_state().getName()+"();} // Entering init state");
+		} else {
+			for(Mode m : object.getModes())
+				sb.append(doSwitch(m));
+			sb.append("void loop() {mode_"+object.getInitial_mode().getName()+"();} // Entering init mode");
+		}
+		return sb.toString();
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * 
+	 */
+	public String caseMode(Mode object) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("void mode_"+object.getName()+"() {\n");
+		sb.append("\t//setup bricks\n");
+		for(Brick b : object.getBricks()) {
+			sb.append(doSwitch(b));
+		}
+		sb.append("\t//initial state\n");
+		sb.append("\tstate_" + object.getInitial().getName() + "();\n");
+		sb.append("}\n");
+		for(State s : object.getStates()) {
 			sb.append(doSwitch(s));
-		sb.append("void loop() {state_"+object.getInitial_state().getName()+"();} // Entering init state");
+		}
 		return sb.toString();
 	}
 
@@ -217,21 +250,33 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			if(object.getUnit() != null) {
 				sb.append("\t\tdelay("+ Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
 			}
-			sb.append("\t\ttime = millis();\n\t\tstate_"+object.getNext_state().getName()+"();\n"
-					+ "\t}\n");
+			if (object.getNext_state() != null) {
+				sb.append("\t\ttime = millis();\n\t\tstate_"+object.getNext_state().getName()+"();\n\t}\n");
+			}
+			else {
+				sb.append("\t\ttime = millis();\n\t\tmode_"+object.getNext_mode().getName()+"();\n\t}\n");
+			}
 			
 			
 		}
 		else {
 			if(if_counter != 0) {
-				sb.append("\tif (true) {\n"
-						+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n"
-						+ "\t\tstate_" + object.getNext_state().getName() + "();\n"
-						+ "\t}\n");
+				sb.append("\tif (true) {\n"	+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				if (object.getNext_state() != null) {
+					sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
+				}
+				else {
+					sb.append("\t\tmode_" + object.getNext_mode().getName() + "();\n\t}\n");
+				}
 			}
 			else {
-				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n"
-						+ "\tstate_" + object.getNext_state().getName() + "();\n");
+				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				if (object.getNext_state() != null) {
+					sb.append("\tstate_" + object.getNext_state().getName() + "();\n");
+				}
+				else {
+					sb.append("\tmode_" + object.getNext_mode().getName() + "();\n");
+				}
 			}
 		}
 		return sb.toString();
