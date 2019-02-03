@@ -81,11 +81,11 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ArduinoMLPackage.SENSOR: {
-				Sensor sensor = (Sensor)theEObject;
-				T result = caseSensor(sensor);
-				if (result == null) result = caseBrick(sensor);
-				if (result == null) result = caseNamedElement(sensor);
+			case ArduinoMLPackage.DIGITAL: {
+				Digital digital = (Digital)theEObject;
+				T result = caseDigital(digital);
+				if (result == null) result = caseBrick(digital);
+				if (result == null) result = caseNamedElement(digital);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,6 +118,21 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 			case ArduinoMLPackage.NAMED_ELEMENT: {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoMLPackage.ANALOG: {
+				Analog analog = (Analog)theEObject;
+				T result = caseAnalog(analog);
+				if (result == null) result = caseBrick(analog);
+				if (result == null) result = caseNamedElement(analog);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoMLPackage.MODE: {
+				Mode mode = (Mode)theEObject;
+				T result = caseMode(mode);
+				if (result == null) result = caseNamedElement(mode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,17 +171,17 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Digital</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Digital</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSensor(Sensor object) {
+	public T caseDigital(Digital object) {
 		return null;
 	}
 
@@ -242,6 +257,36 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Analog</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Analog</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalog(Analog object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMode(Mode object) {
 		return null;
 	}
 

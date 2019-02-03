@@ -76,8 +76,8 @@ public class ArduinoMLAdapterFactory extends AdapterFactoryImpl {
 				return createActuatorAdapter();
 			}
 			@Override
-			public Adapter caseSensor(Sensor object) {
-				return createSensorAdapter();
+			public Adapter caseDigital(Digital object) {
+				return createDigitalAdapter();
 			}
 			@Override
 			public Adapter caseApp(App object) {
@@ -98,6 +98,14 @@ public class ArduinoMLAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseAnalog(Analog object) {
+				return createAnalogAdapter();
+			}
+			@Override
+			public Adapter caseMode(Mode object) {
+				return createModeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -148,16 +156,16 @@ public class ArduinoMLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link arduinoML.Sensor <em>Sensor</em>}'.
+	 * Creates a new adapter for an object of class '{@link arduinoML.Digital <em>Digital</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see arduinoML.Sensor
+	 * @see arduinoML.Digital
 	 * @generated
 	 */
-	public Adapter createSensorAdapter() {
+	public Adapter createDigitalAdapter() {
 		return null;
 	}
 
@@ -228,6 +236,34 @@ public class ArduinoMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link arduinoML.Analog <em>Analog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see arduinoML.Analog
+	 * @generated
+	 */
+	public Adapter createAnalogAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link arduinoML.Mode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see arduinoML.Mode
+	 * @generated
+	 */
+	public Adapter createModeAdapter() {
 		return null;
 	}
 

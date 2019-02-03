@@ -1,0 +1,13 @@
+app AnalogTest initial state off :
+
+	bricks :
+		Analog potentiometre : 0
+		Actuator led : 12
+	
+	states :
+		off :
+			change led to LOW
+			when potentiometre esup 500 go to state on
+		on :
+			change led to HIGH
+			when potentiometre inf 500 go to state off

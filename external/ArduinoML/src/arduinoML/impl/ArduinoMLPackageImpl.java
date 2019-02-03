@@ -4,12 +4,15 @@ package arduinoML.impl;
 
 import arduinoML.Action;
 import arduinoML.Actuator;
+import arduinoML.Analog;
 import arduinoML.App;
 import arduinoML.ArduinoMLFactory;
 import arduinoML.ArduinoMLPackage;
 import arduinoML.Brick;
+import arduinoML.Compare;
+import arduinoML.Digital;
+import arduinoML.Mode;
 import arduinoML.NamedElement;
-import arduinoML.Sensor;
 import arduinoML.Signal;
 import arduinoML.State;
 import arduinoML.Time_unit;
@@ -49,7 +52,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sensorEClass = null;
+	private EClass digitalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,6 +94,20 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass analogEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum signalEEnum = null;
 
 	/**
@@ -99,6 +116,13 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	private EEnum time_unitEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum compareEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -197,8 +221,8 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getSensor() {
-		return sensorEClass;
+	public EClass getDigital() {
+		return digitalEClass;
 	}
 
 	/**
@@ -237,8 +261,28 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getApp_Initial() {
+	public EReference getApp_Modes() {
 		return (EReference)appEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApp_Initial_state() {
+		return (EReference)appEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApp_Initial_mode() {
+		return (EReference)appEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -317,7 +361,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTransition_Values() {
+	public EAttribute getTransition_D_values() {
 		return (EAttribute)transitionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -327,7 +371,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTransition_Next() {
+	public EReference getTransition_Next_state() {
 		return (EReference)transitionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -337,7 +381,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTransition_Sensors() {
+	public EReference getTransition_Digitals() {
 		return (EReference)transitionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -377,6 +421,46 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getTransition_Analogs() {
+		return (EReference)transitionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransition_A_values() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransition_Comp() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTransition_Next_mode() {
+		return (EReference)transitionEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -397,6 +481,56 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getAnalog() {
+		return analogEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMode() {
+		return modeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMode_Bricks() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMode_States() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMode_Initial() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getSignal() {
 		return signalEEnum;
 	}
@@ -409,6 +543,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	@Override
 	public EEnum getTime_unit() {
 		return time_unitEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getCompare() {
+		return compareEEnum;
 	}
 
 	/**
@@ -445,12 +589,14 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 
 		actuatorEClass = createEClass(ACTUATOR);
 
-		sensorEClass = createEClass(SENSOR);
+		digitalEClass = createEClass(DIGITAL);
 
 		appEClass = createEClass(APP);
 		createEReference(appEClass, APP__BRICKS);
 		createEReference(appEClass, APP__STATES);
-		createEReference(appEClass, APP__INITIAL);
+		createEReference(appEClass, APP__MODES);
+		createEReference(appEClass, APP__INITIAL_STATE);
+		createEReference(appEClass, APP__INITIAL_MODE);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__ACTIONS);
@@ -461,19 +607,31 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		createEReference(actionEClass, ACTION__ACTUATOR);
 
 		transitionEClass = createEClass(TRANSITION);
-		createEAttribute(transitionEClass, TRANSITION__VALUES);
-		createEReference(transitionEClass, TRANSITION__NEXT);
-		createEReference(transitionEClass, TRANSITION__SENSORS);
+		createEAttribute(transitionEClass, TRANSITION__DVALUES);
+		createEReference(transitionEClass, TRANSITION__NEXT_STATE);
+		createEReference(transitionEClass, TRANSITION__DIGITALS);
 		createEReference(transitionEClass, TRANSITION__STATE);
 		createEAttribute(transitionEClass, TRANSITION__TIME);
 		createEAttribute(transitionEClass, TRANSITION__UNIT);
+		createEReference(transitionEClass, TRANSITION__ANALOGS);
+		createEAttribute(transitionEClass, TRANSITION__AVALUES);
+		createEAttribute(transitionEClass, TRANSITION__COMP);
+		createEReference(transitionEClass, TRANSITION__NEXT_MODE);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
+		analogEClass = createEClass(ANALOG);
+
+		modeEClass = createEClass(MODE);
+		createEReference(modeEClass, MODE__BRICKS);
+		createEReference(modeEClass, MODE__STATES);
+		createEReference(modeEClass, MODE__INITIAL);
+
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
 		time_unitEEnum = createEEnum(TIME_UNIT);
+		compareEEnum = createEEnum(COMPARE);
 	}
 
 	/**
@@ -506,9 +664,11 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		// Add supertypes to classes
 		brickEClass.getESuperTypes().add(this.getNamedElement());
 		actuatorEClass.getESuperTypes().add(this.getBrick());
-		sensorEClass.getESuperTypes().add(this.getBrick());
+		digitalEClass.getESuperTypes().add(this.getBrick());
 		appEClass.getESuperTypes().add(this.getNamedElement());
 		stateEClass.getESuperTypes().add(this.getNamedElement());
+		analogEClass.getESuperTypes().add(this.getBrick());
+		modeEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(brickEClass, Brick.class, "Brick", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -516,12 +676,14 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(digitalEClass, Digital.class, "Digital", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(appEClass, App.class, "App", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApp_Bricks(), this.getBrick(), null, "bricks", null, 1, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApp_States(), this.getState(), null, "states", null, 1, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getApp_Initial(), this.getState(), null, "initial", null, 1, 1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApp_States(), this.getState(), null, "states", null, 0, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApp_Modes(), this.getMode(), null, "modes", null, 0, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApp_Initial_state(), this.getState(), null, "initial_state", null, 0, 1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApp_Initial_mode(), this.getMode(), null, "initial_mode", null, 0, 1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_Actions(), this.getAction(), null, "actions", null, 1, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -532,15 +694,26 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEReference(getAction_Actuator(), this.getActuator(), null, "actuator", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTransition_Values(), this.getSignal(), "values", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransition_Next(), this.getState(), null, "next", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransition_Sensors(), this.getSensor(), null, "sensors", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_D_values(), this.getSignal(), "d_values", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_Next_state(), this.getState(), null, "next_state", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_Digitals(), this.getDigital(), null, "digitals", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransition_State(), this.getState(), this.getState_Transitions(), "state", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransition_Time(), ecorePackage.getEInt(), "time", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Time(), ecorePackage.getEInt(), "time", "0", 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransition_Unit(), this.getTime_unit(), "unit", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_Analogs(), this.getAnalog(), null, "analogs", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_A_values(), ecorePackage.getEInt(), "a_values", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Comp(), this.getCompare(), "comp", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_Next_mode(), this.getMode(), null, "next_mode", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(analogEClass, Analog.class, "Analog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMode_Bricks(), this.getBrick(), null, "bricks", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_States(), this.getState(), null, "states", null, 1, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_Initial(), this.getState(), null, "initial", null, 1, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(signalEEnum, Signal.class, "Signal");
@@ -551,6 +724,13 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		addEEnumLiteral(time_unitEEnum, Time_unit.MS);
 		addEEnumLiteral(time_unitEEnum, Time_unit.S);
 		addEEnumLiteral(time_unitEEnum, Time_unit.MIN);
+
+		initEEnum(compareEEnum, Compare.class, "Compare");
+		addEEnumLiteral(compareEEnum, Compare.INF);
+		addEEnumLiteral(compareEEnum, Compare.EINF);
+		addEEnumLiteral(compareEEnum, Compare.EQUAL);
+		addEEnumLiteral(compareEEnum, Compare.ESUP);
+		addEEnumLiteral(compareEEnum, Compare.SUP);
 
 		// Create resource
 		createResource(eNS_URI);

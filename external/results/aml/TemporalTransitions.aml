@@ -2,13 +2,13 @@ app TemporalTransitions initial state off :
 
 	bricks :
 		Actuator led : 12
-		Sensor button : 8
+		Digital button : 8
 	
 	states :
 		off :
 			change led to LOW
-			when button is HIGH go to on
+			when button is HIGH go to state on
 
 		on :
 			change led to HIGH
-			wait 800ms then go to off
+			wait 800ms then go to state off

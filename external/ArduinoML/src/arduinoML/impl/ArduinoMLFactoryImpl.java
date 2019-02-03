@@ -58,11 +58,13 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ArduinoMLPackage.ACTUATOR: return createActuator();
-			case ArduinoMLPackage.SENSOR: return createSensor();
+			case ArduinoMLPackage.DIGITAL: return createDigital();
 			case ArduinoMLPackage.APP: return createApp();
 			case ArduinoMLPackage.STATE: return createState();
 			case ArduinoMLPackage.ACTION: return createAction();
 			case ArduinoMLPackage.TRANSITION: return createTransition();
+			case ArduinoMLPackage.ANALOG: return createAnalog();
+			case ArduinoMLPackage.MODE: return createMode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,6 +82,8 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 				return createSignalFromString(eDataType, initialValue);
 			case ArduinoMLPackage.TIME_UNIT:
 				return createTime_unitFromString(eDataType, initialValue);
+			case ArduinoMLPackage.COMPARE:
+				return createCompareFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -97,6 +101,8 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 				return convertSignalToString(eDataType, instanceValue);
 			case ArduinoMLPackage.TIME_UNIT:
 				return convertTime_unitToString(eDataType, instanceValue);
+			case ArduinoMLPackage.COMPARE:
+				return convertCompareToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -119,9 +125,9 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	 * @generated
 	 */
 	@Override
-	public Sensor createSensor() {
-		SensorImpl sensor = new SensorImpl();
-		return sensor;
+	public Digital createDigital() {
+		DigitalImpl digital = new DigitalImpl();
+		return digital;
 	}
 
 	/**
@@ -173,6 +179,28 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Analog createAnalog() {
+		AnalogImpl analog = new AnalogImpl();
+		return analog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Mode createMode() {
+		ModeImpl mode = new ModeImpl();
+		return mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Signal createSignalFromString(EDataType eDataType, String initialValue) {
 		Signal result = Signal.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -205,6 +233,26 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	 * @generated
 	 */
 	public String convertTime_unitToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Compare createCompareFromString(EDataType eDataType, String initialValue) {
+		Compare result = Compare.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCompareToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

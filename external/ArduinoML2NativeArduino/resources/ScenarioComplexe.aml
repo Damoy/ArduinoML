@@ -4,41 +4,41 @@ app MultiStateAlarm initial state off :
 		Actuator buzzer : 12
 		Actuator red_led : 11
 		Actuator green_led : 10
-		Sensor button : 8
-		Sensor button2 : 9
+		Digital button : 8
+		Digital button2 : 9
 	
 	states :
 		off :
 			change buzzer to LOW
 			change red_led to LOW
 			change green_led to LOW
-			when button is HIGH and button2 is HIGH go to dual_glow
-			when button is HIGH go to red_glow
-			when button2 is HIGH go to snooze
+			when button is HIGH and button2 is HIGH go to state dual_glow
+			when button is HIGH go to state red_glow
+			when button2 is HIGH go to state snooze
 			
 		red_glow :
 			change red_led to HIGH
-			when button is HIGH and button2 is HIGH go to dual_glow
-			when button is HIGH go to green_glow
+			when button is HIGH and button2 is HIGH go to state dual_glow
+			when button is HIGH go to state green_glow
 			
 		green_glow :
 			change red_led to LOW
 			change green_led to HIGH
-			when button is HIGH and button2 is HIGH go to dual_glow
-			when button is HIGH go to off
+			when button is HIGH and button2 is HIGH go to state dual_glow
+			when button is HIGH go to state off
 			
 		dual_glow :
 			change red_led to HIGH
 			change green_led to HIGH
-			when button is LOW and button2 is LOW go to bip
+			when button is LOW and button2 is LOW go to state bip
 			
 		bip:
 			change buzzer to HIGH
 			change red_led to LOW
 			change green_led to LOW
-			wait 2s then go to off
+			wait 2s then go to state off
 			
 		snooze:
 			change buzzer to HIGH
-			when button is HIGH and button2 is HIGH go to dual_glow
-			when button2 is LOW go to off
+			when button is HIGH and button2 is HIGH go to state dual_glow
+			when button2 is LOW go to state off
