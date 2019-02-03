@@ -653,7 +653,6 @@ public interface ArduinoMLPackage extends EPackage {
 	 */
 	int SIGNAL = 10;
 
-
 	/**
 	 * The meta object id for the '{@link arduinoML.Time_unit <em>Time unit</em>}' enum.
 	 * <!-- begin-user-doc -->
@@ -663,7 +662,6 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	int TIME_UNIT = 11;
-
 
 	/**
 	 * The meta object id for the '{@link arduinoML.Compare <em>Compare</em>}' enum.
