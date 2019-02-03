@@ -62,17 +62,35 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Analog</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Analog</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * 
 	 */
-	public String caseSensor(Sensor object) {
+	public String caseAnalog(Analog object) {
+		if (object.getPin() >= 0 && object.getPin() <= 19) {
+			return "\tpinMode("+object.getPin()+", INPUT);\n";
+		}
+		return "\\t// ERROR INPUT : pin " + object.getPin() + " doesn't exist !\n";
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Digital</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Digital</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * 
+	 */
+	public String caseDigital(Digital object) {
 		if (object.getPin() >= 0 && object.getPin() <= 19) {
 			return "\tpinMode("+object.getPin()+", INPUT);\n";
 		}
@@ -102,7 +120,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				+ "long time=0; long debounce = 200;\n\n");
 		for(State s : object.getStates())
 			sb.append(doSwitch(s));
-		sb.append("void loop() {state_"+object.getInitial().getName()+"();} // Entering init state");
+		sb.append("void loop() {state_"+object.getInitial_state().getName()+"();} // Entering init state");
 		return sb.toString();
 	}
 
@@ -167,31 +185,47 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 */
 	public String caseTransition(Transition object) {
 		StringBuilder sb = new StringBuilder();
-		if (!object.getSensors().isEmpty()) {
+		if (!object.getDigitals().isEmpty() || !object.getAnalogs().isEmpty()) {
 			if_counter++;
-			sb.append("\tif( digitalRead(" + object.getSensors().get(0).getPin() + ") == " + object.getValues().get(0).getLiteral());
-			if (object.getSensors().size() > 1 && object.getSensors().size() > 1) {
-				for (int i = 1; i < object.getValues().size(); i++) {
-					sb.append(" && digitalRead(" + object.getSensors().get(i).getPin() + ") == " + object.getValues().get(i).getLiteral());
+			
+			if (!object.getDigitals().isEmpty()) {
+				sb.append("\tif( digitalRead(" + object.getDigitals().get(0).getPin() + ") == " + object.getD_values().get(0).getLiteral());
+			
+				if (object.getDigitals().size() > 1) {
+					for (int i = 1; i < object.getDigitals().size(); i++) {
+						sb.append(" && digitalRead(" + object.getDigitals().get(i).getPin() + ") == " + object.getD_values().get(i).getLiteral());
+					}
 				}
+				
+				if (object.getAnalogs().size() > 0) {
+					for (int i = 0; i < object.getAnalogs().size(); i++) {
+						sb.append(" && analogRead(" + object.getAnalogs().get(i).getPin() + " " +  comparateur(object.getComp().get(i).getValue()) + " " +  object.getA_values().get(i));
+					}
+				}
+				
+			}
+			else {
+				
 			}
 			sb.append(" && guard ) {\n");
 			if(object.getUnit() != null) {
 				sb.append("\t\tdelay("+ Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
 			}
-			sb.append("\t\ttime = millis();\n\t\tstate_"+object.getNext().getName()+"();\n"
+			sb.append("\t\ttime = millis();\n\t\tstate_"+object.getNext_state().getName()+"();\n"
 					+ "\t}\n");
+			
+			
 		}
 		else {
 			if(if_counter != 0) {
 				sb.append("\tif (true) {\n"
 						+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n"
-						+ "\t\tstate_" + object.getNext().getName() + "();\n"
+						+ "\t\tstate_" + object.getNext_state().getName() + "();\n"
 						+ "\t}\n");
 			}
 			else {
 				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n"
-						+ "\tstate_" + object.getNext().getName() + "();\n");
+						+ "\tstate_" + object.getNext_state().getName() + "();\n");
 			}
 		}
 		return sb.toString();
@@ -211,6 +245,24 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	@Override
 	public String defaultCase(EObject object) {
 		return "";
+	}
+	
+	private String comparateur(int comp) {
+		String res = "ERROR";
+		switch (comp) {
+			case 0: res = "<";
+					break;
+			case 1: res = "<=";
+					break;
+			case 2: res = "==";
+					break;
+			case 3: res = ">=";
+					break;
+			case 4: res = ">";
+					break;
+			default: break;
+		}
+		return res;
 	}
 
 } //ArduinoMLSwitch
