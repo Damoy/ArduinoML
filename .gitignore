@@ -25,3 +25,5 @@ hs_err_pid*
 
 # xtext
 **/*.xtendbin
+**/bin/*
+**/test-bin/*
