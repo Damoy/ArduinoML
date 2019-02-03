@@ -31,13 +31,13 @@ public interface ArduinoMLFactory extends EFactory {
 	Actuator createActuator();
 
 	/**
-	 * Returns a new object of class '<em>Sensor</em>'.
+	 * Returns a new object of class '<em>Digital</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor</em>'.
+	 * @return a new object of class '<em>Digital</em>'.
 	 * @generated
 	 */
-	Sensor createSensor();
+	Digital createDigital();
 
 	/**
 	 * Returns a new object of class '<em>App</em>'.
@@ -74,6 +74,24 @@ public interface ArduinoMLFactory extends EFactory {
 	 * @generated
 	 */
 	Transition createTransition();
+
+	/**
+	 * Returns a new object of class '<em>Analog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Analog</em>'.
+	 * @generated
+	 */
+	Analog createAnalog();
+
+	/**
+	 * Returns a new object of class '<em>Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode</em>'.
+	 * @generated
+	 */
+	Mode createMode();
 
 	/**
 	 * Returns the package supported by this factory.

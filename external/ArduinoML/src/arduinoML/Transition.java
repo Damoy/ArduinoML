@@ -14,12 +14,15 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link arduinoML.Transition#getValues <em>Values</em>}</li>
+ *   <li>{@link arduinoML.Transition#getD_values <em>Dvalues</em>}</li>
  *   <li>{@link arduinoML.Transition#getNext <em>Next</em>}</li>
- *   <li>{@link arduinoML.Transition#getSensors <em>Sensors</em>}</li>
+ *   <li>{@link arduinoML.Transition#getDigitals <em>Digitals</em>}</li>
  *   <li>{@link arduinoML.Transition#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.Transition#getTime <em>Time</em>}</li>
  *   <li>{@link arduinoML.Transition#getUnit <em>Unit</em>}</li>
+ *   <li>{@link arduinoML.Transition#getAnalogs <em>Analogs</em>}</li>
+ *   <li>{@link arduinoML.Transition#getA_values <em>Avalues</em>}</li>
+ *   <li>{@link arduinoML.Transition#getComp <em>Comp</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getTransition()
@@ -28,22 +31,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Transition extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Dvalues</b></em>' attribute list.
 	 * The list contents are of type {@link arduinoML.Signal}.
 	 * The literals are from the enumeration {@link arduinoML.Signal}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Values</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Dvalues</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' attribute list.
+	 * @return the value of the '<em>Dvalues</em>' attribute list.
 	 * @see arduinoML.Signal
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Values()
+	 * @see arduinoML.ArduinoMLPackage#getTransition_D_values()
 	 * @model unique="false"
 	 * @generated
 	 */
-	EList<Signal> getValues();
+	EList<Signal> getD_values();
 
 	/**
 	 * Returns the value of the '<em><b>Next</b></em>' reference.
@@ -72,20 +75,20 @@ public interface Transition extends EObject {
 	void setNext(State value);
 
 	/**
-	 * Returns the value of the '<em><b>Sensors</b></em>' reference list.
-	 * The list contents are of type {@link arduinoML.Sensor}.
+	 * Returns the value of the '<em><b>Digitals</b></em>' reference list.
+	 * The list contents are of type {@link arduinoML.Digital}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sensors</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Digitals</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sensors</em>' reference list.
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Sensors()
+	 * @return the value of the '<em>Digitals</em>' reference list.
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Digitals()
 	 * @model
 	 * @generated
 	 */
-	EList<Sensor> getSensors();
+	EList<Digital> getDigitals();
 
 	/**
 	 * Returns the value of the '<em><b>State</b></em>' container reference.
@@ -117,6 +120,7 @@ public interface Transition extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Time</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Time</em>' attribute isn't clear,
@@ -126,7 +130,7 @@ public interface Transition extends EObject {
 	 * @return the value of the '<em>Time</em>' attribute.
 	 * @see #setTime(int)
 	 * @see arduinoML.ArduinoMLPackage#getTransition_Time()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	int getTime();
@@ -169,5 +173,55 @@ public interface Transition extends EObject {
 	 * @generated
 	 */
 	void setUnit(Time_unit value);
+
+	/**
+	 * Returns the value of the '<em><b>Analogs</b></em>' reference list.
+	 * The list contents are of type {@link arduinoML.Analog}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Analogs</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Analogs</em>' reference list.
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Analogs()
+	 * @model
+	 * @generated
+	 */
+	EList<Analog> getAnalogs();
+
+	/**
+	 * Returns the value of the '<em><b>Avalues</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Long}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Avalues</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Avalues</em>' attribute list.
+	 * @see arduinoML.ArduinoMLPackage#getTransition_A_values()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<Long> getA_values();
+
+	/**
+	 * Returns the value of the '<em><b>Comp</b></em>' attribute list.
+	 * The list contents are of type {@link arduinoML.Compare}.
+	 * The literals are from the enumeration {@link arduinoML.Compare}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Comp</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comp</em>' attribute list.
+	 * @see arduinoML.Compare
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Comp()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<Compare> getComp();
 
 } // Transition

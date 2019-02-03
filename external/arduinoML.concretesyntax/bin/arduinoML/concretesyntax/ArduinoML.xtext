@@ -16,7 +16,7 @@ App returns App:
 	;
 
 Brick returns Brick:
-	(Actuator | Sensor) name=EString ':' pin=EInt;
+	(Actuator | Digital | Analog) name=EString ':' pin=EInt;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -36,9 +36,13 @@ Actuator returns Actuator:
 	{Actuator}
 	'Actuator';
 
-Sensor returns Sensor:
-	{Sensor}
-	'Sensor';
+Digital returns Digital:
+	{Digital}
+	'Digital';
+	
+Analog returns Analog:
+	{Analog}
+	'Analog';
 
 Action returns Action:
 	'change' actuator=[Actuator|EString] 'to' value=Signal;

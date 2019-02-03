@@ -14,6 +14,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
         eType="#//Mode" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initial_state" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initial_mode" eType="#//Mode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" lowerBound="1"
@@ -59,11 +60,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Analog" eSuperTypes="#//Brick"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Compare">
-    <eLiterals name="&lt;"/>
-    <eLiterals name="&lt;=" value="1"/>
-    <eLiterals name="==" value="2"/>
-    <eLiterals name=">=" value="3"/>
-    <eLiterals name=">" value="4"/>
+    <eLiterals name="inf"/>
+    <eLiterals name="einf" value="1"/>
+    <eLiterals name="equal" value="2"/>
+    <eLiterals name="esup" value="3"/>
+    <eLiterals name="sup" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mode" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bricks" lowerBound="1"

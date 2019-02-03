@@ -15,11 +15,11 @@
       <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Time_unit/min"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="arduinoML.ecore#//Compare">
-      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/%3C"/>
-      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/%3C="/>
-      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/=="/>
-      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/%3E="/>
-      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/%3E"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/inf"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/einf"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/esup"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoML.ecore#//Compare/sup"/>
     </genEnums>
     <genClasses ecoreClass="arduinoML.ecore#//Brick">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Brick/pin"/>
@@ -31,6 +31,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/modes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/initial_state"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/initial_mode"/>
     </genClasses>
     <genClasses ecoreClass="arduinoML.ecore#//State">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//State/actions"/>
