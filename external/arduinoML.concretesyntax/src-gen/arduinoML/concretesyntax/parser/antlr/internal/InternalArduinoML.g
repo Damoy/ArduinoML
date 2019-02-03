@@ -557,64 +557,66 @@ ruleMode returns [EObject current=null]
 		{
 			newLeafNode(otherlv_4, grammarAccess.getModeAccess().getColonKeyword_4());
 		}
-		otherlv_5='bricks'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getModeAccess().getBricksKeyword_5());
-		}
-		otherlv_6=':'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getModeAccess().getColonKeyword_6());
-		}
 		(
+			otherlv_5='bricks'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getModeAccess().getBricksKeyword_5_0());
+			}
+			otherlv_6=':'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getModeAccess().getColonKeyword_5_1());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getModeAccess().getBricksBrickParserRuleCall_7_0());
-				}
-				lv_bricks_7_0=ruleBrick
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getModeRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getModeAccess().getBricksBrickParserRuleCall_5_2_0());
 					}
-					add(
-						$current,
-						"bricks",
-						lv_bricks_7_0,
-						"arduinoML.concretesyntax.ArduinoML.Brick");
-					afterParserOrEnumRuleCall();
-				}
+					lv_bricks_7_0=ruleBrick
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getModeRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_7_0,
+							"arduinoML.concretesyntax.ArduinoML.Brick");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getModeAccess().getBricksBrickParserRuleCall_8_0());
-				}
-				lv_bricks_8_0=ruleBrick
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getModeRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getModeAccess().getBricksBrickParserRuleCall_5_3_0());
 					}
-					add(
-						$current,
-						"bricks",
-						lv_bricks_8_0,
-						"arduinoML.concretesyntax.ArduinoML.Brick");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
+					lv_bricks_8_0=ruleBrick
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getModeRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_8_0,
+							"arduinoML.concretesyntax.ArduinoML.Brick");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
 		otherlv_9='states'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getModeAccess().getStatesKeyword_9());
+			newLeafNode(otherlv_9, grammarAccess.getModeAccess().getStatesKeyword_6());
 		}
 		otherlv_10=':'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getModeAccess().getColonKeyword_10());
+			newLeafNode(otherlv_10, grammarAccess.getModeAccess().getColonKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModeAccess().getStatesStateParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getModeAccess().getStatesStateParserRuleCall_8_0());
 				}
 				lv_states_11_0=ruleState
 				{
@@ -633,7 +635,7 @@ ruleMode returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModeAccess().getStatesStateParserRuleCall_12_0());
+					newCompositeNode(grammarAccess.getModeAccess().getStatesStateParserRuleCall_9_0());
 				}
 				lv_states_12_0=ruleState
 				{

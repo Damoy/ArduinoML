@@ -45,6 +45,7 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAppAccess().getGroup_1(), "rule__App__Group_1__0");
 			builder.put(grammarAccess.getBrickAccess().getGroup(), "rule__Brick__Group__0");
 			builder.put(grammarAccess.getModeAccess().getGroup(), "rule__Mode__Group__0");
+			builder.put(grammarAccess.getModeAccess().getGroup_5(), "rule__Mode__Group_5__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 			builder.put(grammarAccess.getActuatorAccess().getGroup(), "rule__Actuator__Group__0");
 			builder.put(grammarAccess.getDigitalAccess().getGroup(), "rule__Digital__Group__0");
@@ -77,10 +78,10 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBrickAccess().getPinAssignment_3(), "rule__Brick__PinAssignment_3");
 			builder.put(grammarAccess.getModeAccess().getNameAssignment_0(), "rule__Mode__NameAssignment_0");
 			builder.put(grammarAccess.getModeAccess().getInitialAssignment_3(), "rule__Mode__InitialAssignment_3");
-			builder.put(grammarAccess.getModeAccess().getBricksAssignment_7(), "rule__Mode__BricksAssignment_7");
-			builder.put(grammarAccess.getModeAccess().getBricksAssignment_8(), "rule__Mode__BricksAssignment_8");
-			builder.put(grammarAccess.getModeAccess().getStatesAssignment_11(), "rule__Mode__StatesAssignment_11");
-			builder.put(grammarAccess.getModeAccess().getStatesAssignment_12(), "rule__Mode__StatesAssignment_12");
+			builder.put(grammarAccess.getModeAccess().getBricksAssignment_5_2(), "rule__Mode__BricksAssignment_5_2");
+			builder.put(grammarAccess.getModeAccess().getBricksAssignment_5_3(), "rule__Mode__BricksAssignment_5_3");
+			builder.put(grammarAccess.getModeAccess().getStatesAssignment_8(), "rule__Mode__StatesAssignment_8");
+			builder.put(grammarAccess.getModeAccess().getStatesAssignment_9(), "rule__Mode__StatesAssignment_9");
 			builder.put(grammarAccess.getStateAccess().getNameAssignment_0(), "rule__State__NameAssignment_0");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_2(), "rule__State__ActionsAssignment_2");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_3(), "rule__State__ActionsAssignment_3");

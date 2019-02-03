@@ -34,7 +34,7 @@ public interface Mode extends NamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bricks</em>' containment reference list.
 	 * @see arduinoML.ArduinoMLPackage#getMode_Bricks()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Brick> getBricks();

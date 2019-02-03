@@ -68,8 +68,8 @@
     <eLiterals name="sup" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mode" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bricks" lowerBound="1"
-        upperBound="-1" eType="#//Brick" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bricks" upperBound="-1"
+        eType="#//Brick" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
         upperBound="-1" eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initial" lowerBound="1"

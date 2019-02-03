@@ -32,9 +32,9 @@ EString returns ecore::EString:
 	
 Mode returns Mode:
 	name=EString 'initial' 'state' initial=[State|EString] ':'
-		'bricks' ':'
+		('bricks' ':'
 		bricks+=Brick
-		(bricks+=Brick)*
+		(bricks+=Brick)*)?
 		 
 		'states' ':'
 		states+=State

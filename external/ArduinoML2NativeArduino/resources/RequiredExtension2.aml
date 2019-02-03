@@ -1,0 +1,29 @@
+app RequiredExtension2 initial mode jour :
+
+	bricks :
+		Analog light : 0
+		Digital button : 8
+		Actuator led : 12
+	
+	modes :
+		jour initial state off :
+			states :
+				off :
+					change led to LOW
+					when light inf 500 go to mode nuit
+					when button is HIGH go to state on
+				on :
+					change led to HIGH
+					when light inf 500 go to mode nuit
+					when button is LOW go to state off
+					
+		nuit initial state off2 :
+			states :
+				off2 :
+					change led to LOW
+					when light esup 500 go to mode jour
+					when button is HIGH go to state on2
+				on2 :
+					change led to HIGH
+					when light esup 500 go to mode jour
+					when button is HIGH go to state off2

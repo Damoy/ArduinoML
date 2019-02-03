@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	String etat = "";
+	Boolean hasBrick = false;
 	int if_counter;
 	public ArduinoMLSwitchPrinter() {
 		if (modelPackage == null) {
@@ -149,20 +150,26 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		StringBuilder sb = new StringBuilder();
 		sb.append("void mode_"+object.getName()+"() {\n");
 		sb.append("\t//setup bricks\n");
-		for(Brick b : object.getBricks()) {
-			sb.append(doSwitch(b));
+		hasBrick = !object.getBricks().isEmpty();
+		
+		if (hasBrick) {
+			for(Brick b : object.getBricks()) {
+				sb.append(doSwitch(b));
+			}
 		}
 		sb.append("\t//initial state\n");
 		sb.append("\tstate_" + object.getInitial().getName() + "();\n");
 		sb.append("}\n\n");
 		
-		sb.append("void reset_" + object.getName() + "() {\n"); 
-		for (Brick b : object.getBricks()) {
-			if(b instanceof Actuator){
-			    sb.append("\tdigitalWrite(" + b.getPin() + ", LOW);\n"); 
+		if (hasBrick) {
+			sb.append("void reset_" + object.getName() + "() {\n"); 
+			for (Brick b : object.getBricks()) {
+				if(b instanceof Actuator){
+					sb.append("\tdigitalWrite(" + b.getPin() + ", LOW);\n"); 
+				}
 			}
+			sb.append("}\n\n");
 		}
-		sb.append("}\n\n");
 		
 		for(State s : object.getStates()) {
 			sb.append(doSwitch(s));
@@ -266,7 +273,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				sb.append("\t\ttime = millis();\n\t\tstate_"+object.getNext_state().getName()+"();\n\t}\n");
 			}
 			else {
-				sb.append("\t\treset_" + etat + "();\n");
+				if (hasBrick) {
+					sb.append("\t\treset_" + etat + "();\n");
+				}
 				sb.append("\t\ttime = millis();\n\t\tmode_"+object.getNext_mode().getName()+"();\n\t}\n");
 			}
 			
@@ -279,7 +288,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 					sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
 				}
 				else {
-					sb.append("\t\treset_" + etat + "();\n");
+					if (hasBrick) {
+						sb.append("\t\treset_" + etat + "();\n");
+					}
 					sb.append("\t\tmode_" + object.getNext_mode().getName() + "();\n\t}\n");
 				}
 			}
@@ -289,7 +300,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 					sb.append("\tstate_" + object.getNext_state().getName() + "();\n");
 				}
 				else {
-					sb.append("\t\treset_" + etat + "();\n");
+					if (hasBrick) {
+						sb.append("\t\treset_" + etat + "();\n");
+					}
 					sb.append("\tmode_" + object.getNext_mode().getName() + "();\n");
 				}
 			}

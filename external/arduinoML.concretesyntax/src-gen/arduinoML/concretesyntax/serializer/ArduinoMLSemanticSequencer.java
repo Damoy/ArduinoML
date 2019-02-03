@@ -242,14 +242,7 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Mode returns Mode
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         initial=[State|EString] 
-	 *         bricks+=Brick 
-	 *         bricks+=Brick* 
-	 *         states+=State 
-	 *         states+=State*
-	 *     )
+	 *     (name=EString initial=[State|EString] (bricks+=Brick bricks+=Brick*)? states+=State states+=State*)
 	 */
 	protected void sequence_Mode(ISerializationContext context, Mode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

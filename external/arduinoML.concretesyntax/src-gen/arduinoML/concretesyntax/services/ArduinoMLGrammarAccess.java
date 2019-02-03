@@ -307,30 +307,30 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cInitialStateCrossReference_3_0 = (CrossReference)cInitialAssignment_3.eContents().get(0);
 		private final RuleCall cInitialStateEStringParserRuleCall_3_0_1 = (RuleCall)cInitialStateCrossReference_3_0.eContents().get(1);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cBricksKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cBricksAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cBricksBrickParserRuleCall_7_0 = (RuleCall)cBricksAssignment_7.eContents().get(0);
-		private final Assignment cBricksAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cBricksBrickParserRuleCall_8_0 = (RuleCall)cBricksAssignment_8.eContents().get(0);
-		private final Keyword cStatesKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cStatesAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cStatesStateParserRuleCall_11_0 = (RuleCall)cStatesAssignment_11.eContents().get(0);
-		private final Assignment cStatesAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cStatesStateParserRuleCall_12_0 = (RuleCall)cStatesAssignment_12.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cBricksKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cColonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cBricksAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cBricksBrickParserRuleCall_5_2_0 = (RuleCall)cBricksAssignment_5_2.eContents().get(0);
+		private final Assignment cBricksAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cBricksBrickParserRuleCall_5_3_0 = (RuleCall)cBricksAssignment_5_3.eContents().get(0);
+		private final Keyword cStatesKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStatesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cStatesStateParserRuleCall_8_0 = (RuleCall)cStatesAssignment_8.eContents().get(0);
+		private final Assignment cStatesAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cStatesStateParserRuleCall_9_0 = (RuleCall)cStatesAssignment_9.eContents().get(0);
 		
 		//Mode:
-		//	name=EString 'initial' 'state' initial=[State|EString] ':'
-		//	'bricks' ':'
+		//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':'
 		//	bricks+=Brick
-		//	bricks+=Brick*
+		//	bricks+=Brick*)?
 		//	'states' ':'
 		//	states+=State
 		//	states+=State*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=EString 'initial' 'state' initial=[State|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'states' ':'
+		//name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
 		//states+=State states+=State*
 		public Group getGroup() { return cGroup; }
 		
@@ -358,41 +358,44 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
+		//('bricks' ':' bricks+=Brick bricks+=Brick*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
 		//'bricks'
-		public Keyword getBricksKeyword_5() { return cBricksKeyword_5; }
+		public Keyword getBricksKeyword_5_0() { return cBricksKeyword_5_0; }
 		
 		//':'
-		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+		public Keyword getColonKeyword_5_1() { return cColonKeyword_5_1; }
 		
 		//bricks+=Brick
-		public Assignment getBricksAssignment_7() { return cBricksAssignment_7; }
+		public Assignment getBricksAssignment_5_2() { return cBricksAssignment_5_2; }
 		
 		//Brick
-		public RuleCall getBricksBrickParserRuleCall_7_0() { return cBricksBrickParserRuleCall_7_0; }
+		public RuleCall getBricksBrickParserRuleCall_5_2_0() { return cBricksBrickParserRuleCall_5_2_0; }
 		
 		//bricks+=Brick*
-		public Assignment getBricksAssignment_8() { return cBricksAssignment_8; }
+		public Assignment getBricksAssignment_5_3() { return cBricksAssignment_5_3; }
 		
 		//Brick
-		public RuleCall getBricksBrickParserRuleCall_8_0() { return cBricksBrickParserRuleCall_8_0; }
+		public RuleCall getBricksBrickParserRuleCall_5_3_0() { return cBricksBrickParserRuleCall_5_3_0; }
 		
 		//'states'
-		public Keyword getStatesKeyword_9() { return cStatesKeyword_9; }
+		public Keyword getStatesKeyword_6() { return cStatesKeyword_6; }
 		
 		//':'
-		public Keyword getColonKeyword_10() { return cColonKeyword_10; }
+		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
 		
 		//states+=State
-		public Assignment getStatesAssignment_11() { return cStatesAssignment_11; }
+		public Assignment getStatesAssignment_8() { return cStatesAssignment_8; }
 		
 		//State
-		public RuleCall getStatesStateParserRuleCall_11_0() { return cStatesStateParserRuleCall_11_0; }
+		public RuleCall getStatesStateParserRuleCall_8_0() { return cStatesStateParserRuleCall_8_0; }
 		
 		//states+=State*
-		public Assignment getStatesAssignment_12() { return cStatesAssignment_12; }
+		public Assignment getStatesAssignment_9() { return cStatesAssignment_9; }
 		
 		//State
-		public RuleCall getStatesStateParserRuleCall_12_0() { return cStatesStateParserRuleCall_12_0; }
+		public RuleCall getStatesStateParserRuleCall_9_0() { return cStatesStateParserRuleCall_9_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.State");
@@ -1065,10 +1068,9 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Mode:
-	//	name=EString 'initial' 'state' initial=[State|EString] ':'
-	//	'bricks' ':'
+	//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':'
 	//	bricks+=Brick
-	//	bricks+=Brick*
+	//	bricks+=Brick*)?
 	//	'states' ':'
 	//	states+=State
 	//	states+=State*;
