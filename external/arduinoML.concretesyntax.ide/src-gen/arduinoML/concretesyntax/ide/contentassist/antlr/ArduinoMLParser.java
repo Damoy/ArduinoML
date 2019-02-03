@@ -33,7 +33,7 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, ArduinoMLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getBrickAccess().getAlternatives_0(), "rule__Brick__Alternatives_0");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
-			builder.put(grammarAccess.getTransitionAccess().getAlternatives(), "rule__Transition__Alternatives");
+			builder.put(grammarAccess.getTransitionAccess().getAlternatives_0(), "rule__Transition__Alternatives_0");
 			builder.put(grammarAccess.getSignalAccess().getAlternatives(), "rule__Signal__Alternatives");
 			builder.put(grammarAccess.getTime_unitAccess().getAlternatives(), "rule__Time_unit__Alternatives");
 			builder.put(grammarAccess.getAppAccess().getGroup(), "rule__App__Group__0");
@@ -42,9 +42,11 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getActuatorAccess().getGroup(), "rule__Actuator__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup(), "rule__Sensor__Group__0");
 			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
-			builder.put(grammarAccess.getTransitionAccess().getGroup_0(), "rule__Transition__Group_0__0");
-			builder.put(grammarAccess.getTransitionAccess().getGroup_0_4(), "rule__Transition__Group_0_4__0");
-			builder.put(grammarAccess.getTransitionAccess().getGroup_1(), "rule__Transition__Group_1__0");
+			builder.put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
+			builder.put(grammarAccess.getTransitionAccess().getGroup_0_0(), "rule__Transition__Group_0_0__0");
+			builder.put(grammarAccess.getTransitionAccess().getGroup_0_0_4(), "rule__Transition__Group_0_0_4__0");
+			builder.put(grammarAccess.getTransitionAccess().getGroup_0_0_5(), "rule__Transition__Group_0_0_5__0");
+			builder.put(grammarAccess.getTransitionAccess().getGroup_0_1(), "rule__Transition__Group_0_1__0");
 			builder.put(grammarAccess.getAppAccess().getNameAssignment_1(), "rule__App__NameAssignment_1");
 			builder.put(grammarAccess.getAppAccess().getInitialAssignment_4(), "rule__App__InitialAssignment_4");
 			builder.put(grammarAccess.getAppAccess().getBricksAssignment_8(), "rule__App__BricksAssignment_8");
@@ -60,14 +62,15 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStateAccess().getTransitionsAssignment_5(), "rule__State__TransitionsAssignment_5");
 			builder.put(grammarAccess.getActionAccess().getActuatorAssignment_1(), "rule__Action__ActuatorAssignment_1");
 			builder.put(grammarAccess.getActionAccess().getValueAssignment_3(), "rule__Action__ValueAssignment_3");
-			builder.put(grammarAccess.getTransitionAccess().getSensorsAssignment_0_1(), "rule__Transition__SensorsAssignment_0_1");
-			builder.put(grammarAccess.getTransitionAccess().getValuesAssignment_0_3(), "rule__Transition__ValuesAssignment_0_3");
-			builder.put(grammarAccess.getTransitionAccess().getSensorsAssignment_0_4_1(), "rule__Transition__SensorsAssignment_0_4_1");
-			builder.put(grammarAccess.getTransitionAccess().getValuesAssignment_0_4_3(), "rule__Transition__ValuesAssignment_0_4_3");
-			builder.put(grammarAccess.getTransitionAccess().getNextAssignment_0_7(), "rule__Transition__NextAssignment_0_7");
-			builder.put(grammarAccess.getTransitionAccess().getTimeAssignment_1_1(), "rule__Transition__TimeAssignment_1_1");
-			builder.put(grammarAccess.getTransitionAccess().getUnitAssignment_1_2(), "rule__Transition__UnitAssignment_1_2");
-			builder.put(grammarAccess.getTransitionAccess().getNextAssignment_1_6(), "rule__Transition__NextAssignment_1_6");
+			builder.put(grammarAccess.getTransitionAccess().getSensorsAssignment_0_0_1(), "rule__Transition__SensorsAssignment_0_0_1");
+			builder.put(grammarAccess.getTransitionAccess().getValuesAssignment_0_0_3(), "rule__Transition__ValuesAssignment_0_0_3");
+			builder.put(grammarAccess.getTransitionAccess().getSensorsAssignment_0_0_4_1(), "rule__Transition__SensorsAssignment_0_0_4_1");
+			builder.put(grammarAccess.getTransitionAccess().getValuesAssignment_0_0_4_3(), "rule__Transition__ValuesAssignment_0_0_4_3");
+			builder.put(grammarAccess.getTransitionAccess().getTimeAssignment_0_0_5_1(), "rule__Transition__TimeAssignment_0_0_5_1");
+			builder.put(grammarAccess.getTransitionAccess().getUnitAssignment_0_0_5_2(), "rule__Transition__UnitAssignment_0_0_5_2");
+			builder.put(grammarAccess.getTransitionAccess().getTimeAssignment_0_1_1(), "rule__Transition__TimeAssignment_0_1_1");
+			builder.put(grammarAccess.getTransitionAccess().getUnitAssignment_0_1_2(), "rule__Transition__UnitAssignment_0_1_2");
+			builder.put(grammarAccess.getTransitionAccess().getNextAssignment_3(), "rule__Transition__NextAssignment_3");
 		}
 	}
 	
