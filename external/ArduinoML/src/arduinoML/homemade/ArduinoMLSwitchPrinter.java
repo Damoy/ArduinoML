@@ -1,10 +1,10 @@
 package arduinoML.homemade;
 
 import arduinoML.*;
+
 import arduinoML.util.ArduinoMLSwitch;
 
 import org.eclipse.emf.ecore.EObject;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  */
 public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
+	String etat = "";
 	int if_counter;
 	public ArduinoMLSwitchPrinter() {
 		if (modelPackage == null) {
@@ -124,8 +125,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				sb.append(doSwitch(s));
 			sb.append("void loop() {state_"+object.getInitial_state().getName()+"();} // Entering init state");
 		} else {
-			for(Mode m : object.getModes())
+			for(Mode m : object.getModes()) {
+				etat = m.getName();
 				sb.append(doSwitch(m));
+			}
 			sb.append("void loop() {mode_"+object.getInitial_mode().getName()+"();} // Entering init mode");
 		}
 		return sb.toString();
@@ -151,7 +154,16 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		}
 		sb.append("\t//initial state\n");
 		sb.append("\tstate_" + object.getInitial().getName() + "();\n");
-		sb.append("}\n");
+		sb.append("}\n\n");
+		
+		sb.append("void reset_" + object.getName() + "() {\n"); 
+		for (Brick b : object.getBricks()) {
+			if(b instanceof Actuator){
+			    sb.append("\tdigitalWrite(" + b.getPin() + ", LOW);\n"); 
+			}
+		}
+		sb.append("}\n\n");
+		
 		for(State s : object.getStates()) {
 			sb.append(doSwitch(s));
 		}
@@ -254,6 +266,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				sb.append("\t\ttime = millis();\n\t\tstate_"+object.getNext_state().getName()+"();\n\t}\n");
 			}
 			else {
+				sb.append("\t\treset_" + etat + "();\n");
 				sb.append("\t\ttime = millis();\n\t\tmode_"+object.getNext_mode().getName()+"();\n\t}\n");
 			}
 			
@@ -266,6 +279,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 					sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
 				}
 				else {
+					sb.append("\t\treset_" + etat + "();\n");
 					sb.append("\t\tmode_" + object.getNext_mode().getName() + "();\n\t}\n");
 				}
 			}
@@ -275,6 +289,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 					sb.append("\tstate_" + object.getNext_state().getName() + "();\n");
 				}
 				else {
+					sb.append("\t\treset_" + etat + "();\n");
 					sb.append("\tmode_" + object.getNext_mode().getName() + "();\n");
 				}
 			}

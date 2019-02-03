@@ -15,12 +15,18 @@ void mode_jour() {
 	//initial state
 	state_off();
 }
+
+void reset_jour() {
+	digitalWrite(10, LOW);
+}
+
 void state_off() {
 	digitalWrite(10, LOW);
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(0) < 500 && guard ) {
 		delay(0);
+		reset_jour();
 		time = millis();
 		mode_nuit();
 	}
@@ -39,6 +45,7 @@ void state_on() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(0) < 500 && guard ) {
 		delay(0);
+		reset_jour();
 		time = millis();
 		mode_nuit();
 	}
@@ -59,12 +66,18 @@ void mode_nuit() {
 	//initial state
 	state_nuit_off();
 }
+
+void reset_nuit() {
+	digitalWrite(11, LOW);
+}
+
 void state_nuit_off() {
 	digitalWrite(11, LOW);
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(0) >= 500 && guard ) {
 		delay(0);
+		reset_nuit();
 		time = millis();
 		mode_jour();
 	}
@@ -83,6 +96,7 @@ void state_nuit_on() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(0) >= 500 && guard ) {
 		delay(0);
+		reset_nuit();
 		time = millis();
 		mode_jour();
 	}
