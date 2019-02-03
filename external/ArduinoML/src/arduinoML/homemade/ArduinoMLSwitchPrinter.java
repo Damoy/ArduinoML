@@ -200,16 +200,16 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				
 				if (object.getAnalogs().size() > 0) {
 					for (int i = 0; i < object.getAnalogs().size(); i++) {
-						sb.append(" && analogRead(" + object.getAnalogs().get(i).getPin() + " " +  comparateur(object.getComp().get(i).getValue()) + " " +  object.getA_values().get(i));
+						sb.append(" && analogRead(" + object.getAnalogs().get(i).getPin() + ") " +  comparateur(object.getComp().get(i).getValue()) + " " +  object.getA_values().get(i));
 					}
 				}
 				
 			}
 			else {
-				sb.append("\tif( analogRead(" + object.getAnalogs().get(0).getPin() + " " +  comparateur(object.getComp().get(0).getValue()) + " " + object.getA_values().get(0));
+				sb.append("\tif( analogRead(" + object.getAnalogs().get(0).getPin() + ") " +  comparateur(object.getComp().get(0).getValue()) + " " + object.getA_values().get(0));
 				if (object.getAnalogs().size() > 1) {
 					for (int i = 1; i < object.getAnalogs().size(); i++) {
-						sb.append(" && analogRead(" + object.getAnalogs().get(i).getPin() + " " +  comparateur(object.getComp().get(i).getValue()) + " " +  object.getA_values().get(i));
+						sb.append(" && analogRead(" + object.getAnalogs().get(i).getPin() + ") " +  comparateur(object.getComp().get(i).getValue()) + " " +  object.getA_values().get(i));
 					}
 				}
 			}

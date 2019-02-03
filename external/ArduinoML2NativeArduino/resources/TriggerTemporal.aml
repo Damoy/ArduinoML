@@ -1,0 +1,18 @@
+app TriggerTemporal initial state off :
+
+	bricks :
+		Digital button : 8
+		Digital button2 : 9
+		Actuator led1 : 10
+		Actuator led2 : 11
+	
+	states :
+		off :
+			change led1 to LOW
+			change led2 to LOW
+			when button is HIGH go to state on
+		on :
+			change led1 to HIGH
+			change led2 to HIGH
+			when button is HIGH go to state off
+			when button2 is HIGH wait 3s then go to state off
