@@ -1,7 +1,7 @@
 app AnalogTest initial state off :
 
 	bricks :
-		Analog potentiometre : 0
+		Analog potentiometre : 1
 		Actuator led : 12
 	
 	states :

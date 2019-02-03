@@ -1,7 +1,7 @@
 app ModeComplexe initial mode jour :
 
 	bricks :
-		Analog light : 0
+		Analog light : 1
 		Actuator led3 : 12
 	
 	modes :
