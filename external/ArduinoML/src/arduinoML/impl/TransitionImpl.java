@@ -6,6 +6,7 @@ import arduinoML.Analog;
 import arduinoML.ArduinoMLPackage;
 import arduinoML.Compare;
 import arduinoML.Digital;
+import arduinoML.Mode;
 import arduinoML.Signal;
 import arduinoML.State;
 import arduinoML.Time_unit;
@@ -35,7 +36,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link arduinoML.impl.TransitionImpl#getD_values <em>Dvalues</em>}</li>
- *   <li>{@link arduinoML.impl.TransitionImpl#getNext <em>Next</em>}</li>
+ *   <li>{@link arduinoML.impl.TransitionImpl#getNext_state <em>Next state</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getDigitals <em>Digitals</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getTime <em>Time</em>}</li>
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link arduinoML.impl.TransitionImpl#getAnalogs <em>Analogs</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getA_values <em>Avalues</em>}</li>
  *   <li>{@link arduinoML.impl.TransitionImpl#getComp <em>Comp</em>}</li>
+ *   <li>{@link arduinoML.impl.TransitionImpl#getNext_mode <em>Next mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,14 +61,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	protected EList<Signal> d_values;
 
 	/**
-	 * The cached value of the '{@link #getNext() <em>Next</em>}' reference.
+	 * The cached value of the '{@link #getNext_state() <em>Next state</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNext()
+	 * @see #getNext_state()
 	 * @generated
 	 * @ordered
 	 */
-	protected State next;
+	protected State next_state;
 
 	/**
 	 * The cached value of the '{@link #getDigitals() <em>Digitals</em>}' reference list.
@@ -136,7 +138,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Long> a_values;
+	protected EList<Integer> a_values;
 
 	/**
 	 * The cached value of the '{@link #getComp() <em>Comp</em>}' attribute list.
@@ -147,6 +149,16 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @ordered
 	 */
 	protected EList<Compare> comp;
+
+	/**
+	 * The cached value of the '{@link #getNext_mode() <em>Next mode</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNext_mode()
+	 * @generated
+	 * @ordered
+	 */
+	protected Mode next_mode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,16 +198,16 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 */
 	@Override
-	public State getNext() {
-		if (next != null && next.eIsProxy()) {
-			InternalEObject oldNext = (InternalEObject)next;
-			next = (State)eResolveProxy(oldNext);
-			if (next != oldNext) {
+	public State getNext_state() {
+		if (next_state != null && next_state.eIsProxy()) {
+			InternalEObject oldNext_state = (InternalEObject)next_state;
+			next_state = (State)eResolveProxy(oldNext_state);
+			if (next_state != oldNext_state) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoMLPackage.TRANSITION__NEXT, oldNext, next));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoMLPackage.TRANSITION__NEXT_STATE, oldNext_state, next_state));
 			}
 		}
-		return next;
+		return next_state;
 	}
 
 	/**
@@ -203,8 +215,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State basicGetNext() {
-		return next;
+	public State basicGetNext_state() {
+		return next_state;
 	}
 
 	/**
@@ -213,11 +225,11 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 */
 	@Override
-	public void setNext(State newNext) {
-		State oldNext = next;
-		next = newNext;
+	public void setNext_state(State newNext_state) {
+		State oldNext_state = next_state;
+		next_state = newNext_state;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.TRANSITION__NEXT, oldNext, next));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.TRANSITION__NEXT_STATE, oldNext_state, next_state));
 	}
 
 	/**
@@ -341,9 +353,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * @generated
 	 */
 	@Override
-	public EList<Long> getA_values() {
+	public EList<Integer> getA_values() {
 		if (a_values == null) {
-			a_values = new EDataTypeEList<Long>(Long.class, this, ArduinoMLPackage.TRANSITION__AVALUES);
+			a_values = new EDataTypeEList<Integer>(Integer.class, this, ArduinoMLPackage.TRANSITION__AVALUES);
 		}
 		return a_values;
 	}
@@ -359,6 +371,46 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 			comp = new EDataTypeEList<Compare>(Compare.class, this, ArduinoMLPackage.TRANSITION__COMP);
 		}
 		return comp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Mode getNext_mode() {
+		if (next_mode != null && next_mode.eIsProxy()) {
+			InternalEObject oldNext_mode = (InternalEObject)next_mode;
+			next_mode = (Mode)eResolveProxy(oldNext_mode);
+			if (next_mode != oldNext_mode) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArduinoMLPackage.TRANSITION__NEXT_MODE, oldNext_mode, next_mode));
+			}
+		}
+		return next_mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Mode basicGetNext_mode() {
+		return next_mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNext_mode(Mode newNext_mode) {
+		Mode oldNext_mode = next_mode;
+		next_mode = newNext_mode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.TRANSITION__NEXT_MODE, oldNext_mode, next_mode));
 	}
 
 	/**
@@ -415,9 +467,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 		switch (featureID) {
 			case ArduinoMLPackage.TRANSITION__DVALUES:
 				return getD_values();
-			case ArduinoMLPackage.TRANSITION__NEXT:
-				if (resolve) return getNext();
-				return basicGetNext();
+			case ArduinoMLPackage.TRANSITION__NEXT_STATE:
+				if (resolve) return getNext_state();
+				return basicGetNext_state();
 			case ArduinoMLPackage.TRANSITION__DIGITALS:
 				return getDigitals();
 			case ArduinoMLPackage.TRANSITION__STATE:
@@ -432,6 +484,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				return getA_values();
 			case ArduinoMLPackage.TRANSITION__COMP:
 				return getComp();
+			case ArduinoMLPackage.TRANSITION__NEXT_MODE:
+				if (resolve) return getNext_mode();
+				return basicGetNext_mode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -449,8 +504,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				getD_values().clear();
 				getD_values().addAll((Collection<? extends Signal>)newValue);
 				return;
-			case ArduinoMLPackage.TRANSITION__NEXT:
-				setNext((State)newValue);
+			case ArduinoMLPackage.TRANSITION__NEXT_STATE:
+				setNext_state((State)newValue);
 				return;
 			case ArduinoMLPackage.TRANSITION__DIGITALS:
 				getDigitals().clear();
@@ -471,11 +526,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				return;
 			case ArduinoMLPackage.TRANSITION__AVALUES:
 				getA_values().clear();
-				getA_values().addAll((Collection<? extends Long>)newValue);
+				getA_values().addAll((Collection<? extends Integer>)newValue);
 				return;
 			case ArduinoMLPackage.TRANSITION__COMP:
 				getComp().clear();
 				getComp().addAll((Collection<? extends Compare>)newValue);
+				return;
+			case ArduinoMLPackage.TRANSITION__NEXT_MODE:
+				setNext_mode((Mode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -492,8 +550,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 			case ArduinoMLPackage.TRANSITION__DVALUES:
 				getD_values().clear();
 				return;
-			case ArduinoMLPackage.TRANSITION__NEXT:
-				setNext((State)null);
+			case ArduinoMLPackage.TRANSITION__NEXT_STATE:
+				setNext_state((State)null);
 				return;
 			case ArduinoMLPackage.TRANSITION__DIGITALS:
 				getDigitals().clear();
@@ -516,6 +574,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 			case ArduinoMLPackage.TRANSITION__COMP:
 				getComp().clear();
 				return;
+			case ArduinoMLPackage.TRANSITION__NEXT_MODE:
+				setNext_mode((Mode)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -530,8 +591,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 		switch (featureID) {
 			case ArduinoMLPackage.TRANSITION__DVALUES:
 				return d_values != null && !d_values.isEmpty();
-			case ArduinoMLPackage.TRANSITION__NEXT:
-				return next != null;
+			case ArduinoMLPackage.TRANSITION__NEXT_STATE:
+				return next_state != null;
 			case ArduinoMLPackage.TRANSITION__DIGITALS:
 				return digitals != null && !digitals.isEmpty();
 			case ArduinoMLPackage.TRANSITION__STATE:
@@ -546,6 +607,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 				return a_values != null && !a_values.isEmpty();
 			case ArduinoMLPackage.TRANSITION__COMP:
 				return comp != null && !comp.isEmpty();
+			case ArduinoMLPackage.TRANSITION__NEXT_MODE:
+				return next_mode != null;
 		}
 		return super.eIsSet(featureID);
 	}

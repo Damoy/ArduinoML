@@ -4,9 +4,11 @@
 package arduinoML.concretesyntax.serializer;
 
 import arduinoML.Actuator;
+import arduinoML.Analog;
 import arduinoML.App;
 import arduinoML.ArduinoMLPackage;
-import arduinoML.Sensor;
+import arduinoML.Digital;
+import arduinoML.Mode;
 import arduinoML.State;
 import arduinoML.Transition;
 import arduinoML.concretesyntax.services.ArduinoMLGrammarAccess;
@@ -49,19 +51,32 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
-			case ArduinoMLPackage.APP:
-				sequence_App(context, (App) semanticObject); 
-				return; 
-			case ArduinoMLPackage.SENSOR:
-				if (rule == grammarAccess.getBrickRule()) {
-					sequence_Brick_Sensor(context, (Sensor) semanticObject); 
+			case ArduinoMLPackage.ANALOG:
+				if (rule == grammarAccess.getAnalogRule()) {
+					sequence_Analog(context, (Analog) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getSensorRule()) {
-					sequence_Sensor(context, (Sensor) semanticObject); 
+				else if (rule == grammarAccess.getBrickRule()) {
+					sequence_Analog_Brick(context, (Analog) semanticObject); 
 					return; 
 				}
 				else break;
+			case ArduinoMLPackage.APP:
+				sequence_App(context, (App) semanticObject); 
+				return; 
+			case ArduinoMLPackage.DIGITAL:
+				if (rule == grammarAccess.getBrickRule()) {
+					sequence_Brick_Digital(context, (Digital) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getDigitalRule()) {
+					sequence_Digital(context, (Digital) semanticObject); 
+					return; 
+				}
+				else break;
+			case ArduinoMLPackage.MODE:
+				sequence_Mode(context, (Mode) semanticObject); 
+				return; 
 			case ArduinoMLPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
 				return; 
@@ -129,31 +144,24 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     App returns App
+	 *     Analog returns Analog
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         initial=[State|EString] 
-	 *         bricks+=Brick 
-	 *         bricks+=Brick* 
-	 *         states+=State 
-	 *         states+=State*
-	 *     )
+	 *     {Analog}
 	 */
-	protected void sequence_App(ISerializationContext context, App semanticObject) {
+	protected void sequence_Analog(ISerializationContext context, Analog semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Brick returns Sensor
+	 *     Brick returns Analog
 	 *
 	 * Constraint:
 	 *     (name=EString pin=EInt)
 	 */
-	protected void sequence_Brick_Sensor(ISerializationContext context, Sensor semanticObject) {
+	protected void sequence_Analog_Brick(ISerializationContext context, Analog semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME));
@@ -169,12 +177,81 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Sensor returns Sensor
+	 *     App returns App
 	 *
 	 * Constraint:
-	 *     {Sensor}
+	 *     (
+	 *         (
+	 *             name=EString 
+	 *             initial_state=[State|EString] 
+	 *             bricks+=Brick 
+	 *             bricks+=Brick* 
+	 *             states+=State 
+	 *             states+=State*
+	 *         ) | 
+	 *         (
+	 *             name=EString 
+	 *             initial_mode=[Mode|EString] 
+	 *             bricks+=Brick 
+	 *             bricks+=Brick* 
+	 *             modes+=Mode 
+	 *             modes+=Mode*
+	 *         )
+	 *     )
 	 */
-	protected void sequence_Sensor(ISerializationContext context, Sensor semanticObject) {
+	protected void sequence_App(ISerializationContext context, App semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Brick returns Digital
+	 *
+	 * Constraint:
+	 *     (name=EString pin=EInt)
+	 */
+	protected void sequence_Brick_Digital(ISerializationContext context, Digital semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Digital returns Digital
+	 *
+	 * Constraint:
+	 *     {Digital}
+	 */
+	protected void sequence_Digital(ISerializationContext context, Digital semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Mode returns Mode
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         initial=[State|EString] 
+	 *         bricks+=Brick 
+	 *         bricks+=Brick* 
+	 *         states+=State 
+	 *         states+=State*
+	 *     )
+	 */
+	protected void sequence_Mode(ISerializationContext context, Mode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -197,8 +274,15 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         ((sensors+=[Sensor|EString] values+=Signal (sensors+=[Sensor|EString] values+=Signal)* (time=EInt unit=Time_unit)?) | (time=EInt unit=Time_unit)) 
-	 *         next=[State|EString]
+	 *         (
+	 *             (
+	 *                 ((digitals+=[Digital|EString] d_values+=Signal) | (analogs+=[Analog|EString] comp+=Compare a_values+=EInt)) 
+	 *                 ((digitals+=[Digital|EString] d_values+=Signal)? (analogs+=[Analog|EString] comp+=Compare a_values+=EInt)?)+ 
+	 *                 (time=EInt unit=Time_unit)?
+	 *             ) | 
+	 *             (time=EInt unit=Time_unit)
+	 *         ) 
+	 *         (next_state=[State|EString] | next_mode=[Mode|EString])
 	 *     )
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {

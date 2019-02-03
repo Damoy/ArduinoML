@@ -34,7 +34,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="d_values" unique="false"
         upperBound="-1" eType="#//Signal"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" lowerBound="1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next_state" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="digitals" unique="false"
         upperBound="-1" eType="#//Digital"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
@@ -45,9 +45,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="analogs" upperBound="-1"
         eType="#//Analog"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="a_values" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comp" unique="false" upperBound="-1"
         eType="#//Compare"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next_mode" eType="#//Mode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

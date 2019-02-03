@@ -43,7 +43,7 @@
     </genClasses>
     <genClasses ecoreClass="arduinoML.ecore#//Transition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Transition/d_values"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/next_state"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/digitals"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Transition/time"/>
@@ -51,6 +51,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/analogs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Transition/a_values"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Transition/comp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Transition/next_mode"/>
     </genClasses>
     <genClasses ecoreClass="arduinoML.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//NamedElement/name"/>

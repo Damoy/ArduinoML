@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link arduinoML.Transition#getD_values <em>Dvalues</em>}</li>
- *   <li>{@link arduinoML.Transition#getNext <em>Next</em>}</li>
+ *   <li>{@link arduinoML.Transition#getNext_state <em>Next state</em>}</li>
  *   <li>{@link arduinoML.Transition#getDigitals <em>Digitals</em>}</li>
  *   <li>{@link arduinoML.Transition#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.Transition#getTime <em>Time</em>}</li>
@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link arduinoML.Transition#getAnalogs <em>Analogs</em>}</li>
  *   <li>{@link arduinoML.Transition#getA_values <em>Avalues</em>}</li>
  *   <li>{@link arduinoML.Transition#getComp <em>Comp</em>}</li>
+ *   <li>{@link arduinoML.Transition#getNext_mode <em>Next mode</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getTransition()
@@ -49,30 +50,30 @@ public interface Transition extends EObject {
 	EList<Signal> getD_values();
 
 	/**
-	 * Returns the value of the '<em><b>Next</b></em>' reference.
+	 * Returns the value of the '<em><b>Next state</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Next</em>' reference isn't clear,
+	 * If the meaning of the '<em>Next state</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next</em>' reference.
-	 * @see #setNext(State)
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Next()
-	 * @model required="true"
+	 * @return the value of the '<em>Next state</em>' reference.
+	 * @see #setNext_state(State)
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Next_state()
+	 * @model
 	 * @generated
 	 */
-	State getNext();
+	State getNext_state();
 
 	/**
-	 * Sets the value of the '{@link arduinoML.Transition#getNext <em>Next</em>}' reference.
+	 * Sets the value of the '{@link arduinoML.Transition#getNext_state <em>Next state</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next</em>' reference.
-	 * @see #getNext()
+	 * @param value the new value of the '<em>Next state</em>' reference.
+	 * @see #getNext_state()
 	 * @generated
 	 */
-	void setNext(State value);
+	void setNext_state(State value);
 
 	/**
 	 * Returns the value of the '<em><b>Digitals</b></em>' reference list.
@@ -192,7 +193,7 @@ public interface Transition extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Avalues</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Long}.
+	 * The list contents are of type {@link java.lang.Integer}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Avalues</em>' attribute list isn't clear,
@@ -204,7 +205,7 @@ public interface Transition extends EObject {
 	 * @model unique="false"
 	 * @generated
 	 */
-	EList<Long> getA_values();
+	EList<Integer> getA_values();
 
 	/**
 	 * Returns the value of the '<em><b>Comp</b></em>' attribute list.
@@ -223,5 +224,31 @@ public interface Transition extends EObject {
 	 * @generated
 	 */
 	EList<Compare> getComp();
+
+	/**
+	 * Returns the value of the '<em><b>Next mode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next mode</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next mode</em>' reference.
+	 * @see #setNext_mode(Mode)
+	 * @see arduinoML.ArduinoMLPackage#getTransition_Next_mode()
+	 * @model
+	 * @generated
+	 */
+	Mode getNext_mode();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.Transition#getNext_mode <em>Next mode</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next mode</em>' reference.
+	 * @see #getNext_mode()
+	 * @generated
+	 */
+	void setNext_mode(Mode value);
 
 } // Transition
