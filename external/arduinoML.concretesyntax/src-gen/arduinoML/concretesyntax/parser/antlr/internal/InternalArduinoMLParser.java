@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'app'", "'initial'", "'state'", "':'", "'bricks'", "'states'", "'mode'", "'modes'", "'Actuator'", "'Digital'", "'Analog'", "'change'", "'to'", "'when'", "'is'", "'and'", "'wait'", "'then'", "'go'", "'HIGH'", "'LOW'", "'ms'", "'s'", "'min'", "'inf'", "'einf'", "'equal'", "'esup'", "'sup'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'app'", "'initial'", "'state'", "':'", "'bricks'", "'states'", "'mode'", "'modes'", "'transitions'", "'Actuator'", "'Digital'", "'Analog'", "'change'", "'to'", "'when'", "'is'", "'and'", "'wait'", "'then'", "'go'", "'HIGH'", "'LOW'", "'ms'", "'s'", "'min'", "'inf'", "'einf'", "'equal'", "'esup'", "'sup'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -59,6 +59,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
+    public static final int T__40=40;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -385,7 +386,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                         int alt1=2;
                         int LA1_0 = input.LA(1);
 
-                        if ( ((LA1_0>=19 && LA1_0<=21)) ) {
+                        if ( ((LA1_0>=20 && LA1_0<=22)) ) {
                             alt1=1;
                         }
 
@@ -648,7 +649,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                         int alt3=2;
                         int LA3_0 = input.LA(1);
 
-                        if ( ((LA3_0>=19 && LA3_0<=21)) ) {
+                        if ( ((LA3_0>=20 && LA3_0<=22)) ) {
                             alt3=1;
                         }
 
@@ -873,17 +874,17 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
             // InternalArduinoML.g:390:3: (this_Actuator_0= ruleActuator | this_Digital_1= ruleDigital | this_Analog_2= ruleAnalog )
             int alt6=3;
             switch ( input.LA(1) ) {
-            case 19:
+            case 20:
                 {
                 alt6=1;
                 }
                 break;
-            case 20:
+            case 21:
                 {
                 alt6=2;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt6=3;
                 }
@@ -1194,7 +1195,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMode"
-    // InternalArduinoML.g:505:1: ruleMode returns [EObject current=null] : ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* ) ;
+    // InternalArduinoML.g:505:1: ruleMode returns [EObject current=null] : ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* otherlv_13= 'transitions' otherlv_14= ':' ( (lv_transitions_mode_15_0= ruleTransitionMode ) ) ( (lv_transitions_mode_16_0= ruleTransitionMode ) )* ) ;
     public final EObject ruleMode() throws RecognitionException {
         EObject current = null;
 
@@ -1205,6 +1206,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
+        Token otherlv_13=null;
+        Token otherlv_14=null;
         AntlrDatatypeRuleToken lv_name_0_0 = null;
 
         EObject lv_bricks_7_0 = null;
@@ -1215,16 +1218,20 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
         EObject lv_states_12_0 = null;
 
+        EObject lv_transitions_mode_15_0 = null;
+
+        EObject lv_transitions_mode_16_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalArduinoML.g:511:2: ( ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* ) )
-            // InternalArduinoML.g:512:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* )
+            // InternalArduinoML.g:511:2: ( ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* otherlv_13= 'transitions' otherlv_14= ':' ( (lv_transitions_mode_15_0= ruleTransitionMode ) ) ( (lv_transitions_mode_16_0= ruleTransitionMode ) )* ) )
+            // InternalArduinoML.g:512:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* otherlv_13= 'transitions' otherlv_14= ':' ( (lv_transitions_mode_15_0= ruleTransitionMode ) ) ( (lv_transitions_mode_16_0= ruleTransitionMode ) )* )
             {
-            // InternalArduinoML.g:512:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* )
-            // InternalArduinoML.g:513:3: ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )*
+            // InternalArduinoML.g:512:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* otherlv_13= 'transitions' otherlv_14= ':' ( (lv_transitions_mode_15_0= ruleTransitionMode ) ) ( (lv_transitions_mode_16_0= ruleTransitionMode ) )* )
+            // InternalArduinoML.g:513:3: ( (lv_name_0_0= ruleEString ) ) otherlv_1= 'initial' otherlv_2= 'state' ( ( ruleEString ) ) otherlv_4= ':' (otherlv_5= 'bricks' otherlv_6= ':' ( (lv_bricks_7_0= ruleBrick ) ) ( (lv_bricks_8_0= ruleBrick ) )* )? otherlv_9= 'states' otherlv_10= ':' ( (lv_states_11_0= ruleState ) ) ( (lv_states_12_0= ruleState ) )* otherlv_13= 'transitions' otherlv_14= ':' ( (lv_transitions_mode_15_0= ruleTransitionMode ) ) ( (lv_transitions_mode_16_0= ruleTransitionMode ) )*
             {
             // InternalArduinoML.g:513:3: ( (lv_name_0_0= ruleEString ) )
             // InternalArduinoML.g:514:4: (lv_name_0_0= ruleEString )
@@ -1353,7 +1360,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                         int alt8=2;
                         int LA8_0 = input.LA(1);
 
-                        if ( ((LA8_0>=19 && LA8_0<=21)) ) {
+                        if ( ((LA8_0>=20 && LA8_0<=22)) ) {
                             alt8=1;
                         }
 
@@ -1419,7 +1426,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getModeAccess().getStatesStateParserRuleCall_8_0());
             				
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_15);
             lv_states_11_0=ruleState();
 
             state._fsp--;
@@ -1447,23 +1454,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_STRING) ) {
-                    int LA10_1 = input.LA(2);
-
-                    if ( (LA10_1==14) ) {
-                        alt10=1;
-                    }
-
-
-                }
-                else if ( (LA10_0==RULE_ID) ) {
-                    int LA10_2 = input.LA(2);
-
-                    if ( (LA10_2==14) ) {
-                        alt10=1;
-                    }
-
-
+                if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)) ) {
+                    alt10=1;
                 }
 
 
@@ -1477,7 +1469,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getModeAccess().getStatesStateParserRuleCall_9_0());
             	    				
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_15);
             	    lv_states_12_0=ruleState();
 
             	    state._fsp--;
@@ -1505,6 +1497,94 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
+            otherlv_13=(Token)match(input,19,FOLLOW_6); 
+
+            			newLeafNode(otherlv_13, grammarAccess.getModeAccess().getTransitionsKeyword_10());
+            		
+            otherlv_14=(Token)match(input,14,FOLLOW_16); 
+
+            			newLeafNode(otherlv_14, grammarAccess.getModeAccess().getColonKeyword_11());
+            		
+            // InternalArduinoML.g:662:3: ( (lv_transitions_mode_15_0= ruleTransitionMode ) )
+            // InternalArduinoML.g:663:4: (lv_transitions_mode_15_0= ruleTransitionMode )
+            {
+            // InternalArduinoML.g:663:4: (lv_transitions_mode_15_0= ruleTransitionMode )
+            // InternalArduinoML.g:664:5: lv_transitions_mode_15_0= ruleTransitionMode
+            {
+
+            					newCompositeNode(grammarAccess.getModeAccess().getTransitions_modeTransitionModeParserRuleCall_12_0());
+            				
+            pushFollow(FOLLOW_17);
+            lv_transitions_mode_15_0=ruleTransitionMode();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getModeRule());
+            					}
+            					add(
+            						current,
+            						"transitions_mode",
+            						lv_transitions_mode_15_0,
+            						"arduinoML.concretesyntax.ArduinoML.TransitionMode");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalArduinoML.g:681:3: ( (lv_transitions_mode_16_0= ruleTransitionMode ) )*
+            loop11:
+            do {
+                int alt11=2;
+                int LA11_0 = input.LA(1);
+
+                if ( (LA11_0==25||LA11_0==28) ) {
+                    alt11=1;
+                }
+
+
+                switch (alt11) {
+            	case 1 :
+            	    // InternalArduinoML.g:682:4: (lv_transitions_mode_16_0= ruleTransitionMode )
+            	    {
+            	    // InternalArduinoML.g:682:4: (lv_transitions_mode_16_0= ruleTransitionMode )
+            	    // InternalArduinoML.g:683:5: lv_transitions_mode_16_0= ruleTransitionMode
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getModeAccess().getTransitions_modeTransitionModeParserRuleCall_13_0());
+            	    				
+            	    pushFollow(FOLLOW_17);
+            	    lv_transitions_mode_16_0=ruleTransitionMode();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getModeRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"transitions_mode",
+            	    						lv_transitions_mode_16_0,
+            	    						"arduinoML.concretesyntax.ArduinoML.TransitionMode");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop11;
+                }
+            } while (true);
+
 
             }
 
@@ -1528,7 +1608,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalArduinoML.g:658:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalArduinoML.g:704:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -1536,8 +1616,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalArduinoML.g:658:46: (iv_ruleState= ruleState EOF )
-            // InternalArduinoML.g:659:2: iv_ruleState= ruleState EOF
+            // InternalArduinoML.g:704:46: (iv_ruleState= ruleState EOF )
+            // InternalArduinoML.g:705:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -1564,7 +1644,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalArduinoML.g:665:1: ruleState returns [EObject current=null] : ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_4_0= ruleTransition ) ) ( (lv_transitions_5_0= ruleTransition ) )* ) ;
+    // InternalArduinoML.g:711:1: ruleState returns [EObject current=null] : ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_state_4_0= ruleTransitionState ) ) ( (lv_transitions_state_5_0= ruleTransitionState ) )* ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -1575,26 +1655,26 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
         EObject lv_actions_3_0 = null;
 
-        EObject lv_transitions_4_0 = null;
+        EObject lv_transitions_state_4_0 = null;
 
-        EObject lv_transitions_5_0 = null;
+        EObject lv_transitions_state_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalArduinoML.g:671:2: ( ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_4_0= ruleTransition ) ) ( (lv_transitions_5_0= ruleTransition ) )* ) )
-            // InternalArduinoML.g:672:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_4_0= ruleTransition ) ) ( (lv_transitions_5_0= ruleTransition ) )* )
+            // InternalArduinoML.g:717:2: ( ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_state_4_0= ruleTransitionState ) ) ( (lv_transitions_state_5_0= ruleTransitionState ) )* ) )
+            // InternalArduinoML.g:718:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_state_4_0= ruleTransitionState ) ) ( (lv_transitions_state_5_0= ruleTransitionState ) )* )
             {
-            // InternalArduinoML.g:672:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_4_0= ruleTransition ) ) ( (lv_transitions_5_0= ruleTransition ) )* )
-            // InternalArduinoML.g:673:3: ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_4_0= ruleTransition ) ) ( (lv_transitions_5_0= ruleTransition ) )*
+            // InternalArduinoML.g:718:2: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_state_4_0= ruleTransitionState ) ) ( (lv_transitions_state_5_0= ruleTransitionState ) )* )
+            // InternalArduinoML.g:719:3: ( (lv_name_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_actions_2_0= ruleAction ) ) ( (lv_actions_3_0= ruleAction ) )* ( (lv_transitions_state_4_0= ruleTransitionState ) ) ( (lv_transitions_state_5_0= ruleTransitionState ) )*
             {
-            // InternalArduinoML.g:673:3: ( (lv_name_0_0= ruleEString ) )
-            // InternalArduinoML.g:674:4: (lv_name_0_0= ruleEString )
+            // InternalArduinoML.g:719:3: ( (lv_name_0_0= ruleEString ) )
+            // InternalArduinoML.g:720:4: (lv_name_0_0= ruleEString )
             {
-            // InternalArduinoML.g:674:4: (lv_name_0_0= ruleEString )
-            // InternalArduinoML.g:675:5: lv_name_0_0= ruleEString
+            // InternalArduinoML.g:720:4: (lv_name_0_0= ruleEString )
+            // InternalArduinoML.g:721:5: lv_name_0_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getStateAccess().getNameEStringParserRuleCall_0_0());
@@ -1621,20 +1701,20 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_15); 
+            otherlv_1=(Token)match(input,14,FOLLOW_18); 
 
             			newLeafNode(otherlv_1, grammarAccess.getStateAccess().getColonKeyword_1());
             		
-            // InternalArduinoML.g:696:3: ( (lv_actions_2_0= ruleAction ) )
-            // InternalArduinoML.g:697:4: (lv_actions_2_0= ruleAction )
+            // InternalArduinoML.g:742:3: ( (lv_actions_2_0= ruleAction ) )
+            // InternalArduinoML.g:743:4: (lv_actions_2_0= ruleAction )
             {
-            // InternalArduinoML.g:697:4: (lv_actions_2_0= ruleAction )
-            // InternalArduinoML.g:698:5: lv_actions_2_0= ruleAction
+            // InternalArduinoML.g:743:4: (lv_actions_2_0= ruleAction )
+            // InternalArduinoML.g:744:5: lv_actions_2_0= ruleAction
             {
 
             					newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_19);
             lv_actions_2_0=ruleAction();
 
             state._fsp--;
@@ -1656,28 +1736,28 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalArduinoML.g:715:3: ( (lv_actions_3_0= ruleAction ) )*
-            loop11:
+            // InternalArduinoML.g:761:3: ( (lv_actions_3_0= ruleAction ) )*
+            loop12:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA11_0==22) ) {
-                    alt11=1;
+                if ( (LA12_0==23) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalArduinoML.g:716:4: (lv_actions_3_0= ruleAction )
+            	    // InternalArduinoML.g:762:4: (lv_actions_3_0= ruleAction )
             	    {
-            	    // InternalArduinoML.g:716:4: (lv_actions_3_0= ruleAction )
-            	    // InternalArduinoML.g:717:5: lv_actions_3_0= ruleAction
+            	    // InternalArduinoML.g:762:4: (lv_actions_3_0= ruleAction )
+            	    // InternalArduinoML.g:763:5: lv_actions_3_0= ruleAction
             	    {
 
             	    					newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_19);
             	    lv_actions_3_0=ruleAction();
 
             	    state._fsp--;
@@ -1701,21 +1781,21 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop12;
                 }
             } while (true);
 
-            // InternalArduinoML.g:734:3: ( (lv_transitions_4_0= ruleTransition ) )
-            // InternalArduinoML.g:735:4: (lv_transitions_4_0= ruleTransition )
+            // InternalArduinoML.g:780:3: ( (lv_transitions_state_4_0= ruleTransitionState ) )
+            // InternalArduinoML.g:781:4: (lv_transitions_state_4_0= ruleTransitionState )
             {
-            // InternalArduinoML.g:735:4: (lv_transitions_4_0= ruleTransition )
-            // InternalArduinoML.g:736:5: lv_transitions_4_0= ruleTransition
+            // InternalArduinoML.g:781:4: (lv_transitions_state_4_0= ruleTransitionState )
+            // InternalArduinoML.g:782:5: lv_transitions_state_4_0= ruleTransitionState
             {
 
-            					newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getStateAccess().getTransitions_stateTransitionStateParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_17);
-            lv_transitions_4_0=ruleTransition();
+            pushFollow(FOLLOW_20);
+            lv_transitions_state_4_0=ruleTransitionState();
 
             state._fsp--;
 
@@ -1725,9 +1805,9 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
             					}
             					add(
             						current,
-            						"transitions",
-            						lv_transitions_4_0,
-            						"arduinoML.concretesyntax.ArduinoML.Transition");
+            						"transitions_state",
+            						lv_transitions_state_4_0,
+            						"arduinoML.concretesyntax.ArduinoML.TransitionState");
             					afterParserOrEnumRuleCall();
             				
 
@@ -1736,29 +1816,29 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalArduinoML.g:753:3: ( (lv_transitions_5_0= ruleTransition ) )*
-            loop12:
+            // InternalArduinoML.g:799:3: ( (lv_transitions_state_5_0= ruleTransitionState ) )*
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA12_0==24||LA12_0==27) ) {
-                    alt12=1;
+                if ( (LA13_0==25||LA13_0==28) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalArduinoML.g:754:4: (lv_transitions_5_0= ruleTransition )
+            	    // InternalArduinoML.g:800:4: (lv_transitions_state_5_0= ruleTransitionState )
             	    {
-            	    // InternalArduinoML.g:754:4: (lv_transitions_5_0= ruleTransition )
-            	    // InternalArduinoML.g:755:5: lv_transitions_5_0= ruleTransition
+            	    // InternalArduinoML.g:800:4: (lv_transitions_state_5_0= ruleTransitionState )
+            	    // InternalArduinoML.g:801:5: lv_transitions_state_5_0= ruleTransitionState
             	    {
 
-            	    					newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_0());
+            	    					newCompositeNode(grammarAccess.getStateAccess().getTransitions_stateTransitionStateParserRuleCall_5_0());
             	    				
-            	    pushFollow(FOLLOW_17);
-            	    lv_transitions_5_0=ruleTransition();
+            	    pushFollow(FOLLOW_20);
+            	    lv_transitions_state_5_0=ruleTransitionState();
 
             	    state._fsp--;
 
@@ -1768,9 +1848,9 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"transitions",
-            	    						lv_transitions_5_0,
-            	    						"arduinoML.concretesyntax.ArduinoML.Transition");
+            	    						"transitions_state",
+            	    						lv_transitions_state_5_0,
+            	    						"arduinoML.concretesyntax.ArduinoML.TransitionState");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -1781,7 +1861,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
@@ -1808,7 +1888,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalArduinoML.g:776:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalArduinoML.g:822:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -1816,8 +1896,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalArduinoML.g:776:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalArduinoML.g:777:2: iv_ruleEInt= ruleEInt EOF
+            // InternalArduinoML.g:822:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalArduinoML.g:823:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -1844,7 +1924,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalArduinoML.g:783:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_INT_0= RULE_INT ;
+    // InternalArduinoML.g:829:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_INT_0= RULE_INT ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1854,8 +1934,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:789:2: (this_INT_0= RULE_INT )
-            // InternalArduinoML.g:790:2: this_INT_0= RULE_INT
+            // InternalArduinoML.g:835:2: (this_INT_0= RULE_INT )
+            // InternalArduinoML.g:836:2: this_INT_0= RULE_INT
             {
             this_INT_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -1884,7 +1964,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleActuator"
-    // InternalArduinoML.g:800:1: entryRuleActuator returns [EObject current=null] : iv_ruleActuator= ruleActuator EOF ;
+    // InternalArduinoML.g:846:1: entryRuleActuator returns [EObject current=null] : iv_ruleActuator= ruleActuator EOF ;
     public final EObject entryRuleActuator() throws RecognitionException {
         EObject current = null;
 
@@ -1892,8 +1972,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalArduinoML.g:800:49: (iv_ruleActuator= ruleActuator EOF )
-            // InternalArduinoML.g:801:2: iv_ruleActuator= ruleActuator EOF
+            // InternalArduinoML.g:846:49: (iv_ruleActuator= ruleActuator EOF )
+            // InternalArduinoML.g:847:2: iv_ruleActuator= ruleActuator EOF
             {
              newCompositeNode(grammarAccess.getActuatorRule()); 
             pushFollow(FOLLOW_1);
@@ -1920,7 +2000,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActuator"
-    // InternalArduinoML.g:807:1: ruleActuator returns [EObject current=null] : ( () otherlv_1= 'Actuator' ) ;
+    // InternalArduinoML.g:853:1: ruleActuator returns [EObject current=null] : ( () otherlv_1= 'Actuator' ) ;
     public final EObject ruleActuator() throws RecognitionException {
         EObject current = null;
 
@@ -1930,14 +2010,14 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:813:2: ( ( () otherlv_1= 'Actuator' ) )
-            // InternalArduinoML.g:814:2: ( () otherlv_1= 'Actuator' )
+            // InternalArduinoML.g:859:2: ( ( () otherlv_1= 'Actuator' ) )
+            // InternalArduinoML.g:860:2: ( () otherlv_1= 'Actuator' )
             {
-            // InternalArduinoML.g:814:2: ( () otherlv_1= 'Actuator' )
-            // InternalArduinoML.g:815:3: () otherlv_1= 'Actuator'
+            // InternalArduinoML.g:860:2: ( () otherlv_1= 'Actuator' )
+            // InternalArduinoML.g:861:3: () otherlv_1= 'Actuator'
             {
-            // InternalArduinoML.g:815:3: ()
-            // InternalArduinoML.g:816:4: 
+            // InternalArduinoML.g:861:3: ()
+            // InternalArduinoML.g:862:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1947,7 +2027,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,19,FOLLOW_2); 
+            otherlv_1=(Token)match(input,20,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getActuatorAccess().getActuatorKeyword_1());
             		
@@ -1974,7 +2054,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDigital"
-    // InternalArduinoML.g:830:1: entryRuleDigital returns [EObject current=null] : iv_ruleDigital= ruleDigital EOF ;
+    // InternalArduinoML.g:876:1: entryRuleDigital returns [EObject current=null] : iv_ruleDigital= ruleDigital EOF ;
     public final EObject entryRuleDigital() throws RecognitionException {
         EObject current = null;
 
@@ -1982,8 +2062,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalArduinoML.g:830:48: (iv_ruleDigital= ruleDigital EOF )
-            // InternalArduinoML.g:831:2: iv_ruleDigital= ruleDigital EOF
+            // InternalArduinoML.g:876:48: (iv_ruleDigital= ruleDigital EOF )
+            // InternalArduinoML.g:877:2: iv_ruleDigital= ruleDigital EOF
             {
              newCompositeNode(grammarAccess.getDigitalRule()); 
             pushFollow(FOLLOW_1);
@@ -2010,7 +2090,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDigital"
-    // InternalArduinoML.g:837:1: ruleDigital returns [EObject current=null] : ( () otherlv_1= 'Digital' ) ;
+    // InternalArduinoML.g:883:1: ruleDigital returns [EObject current=null] : ( () otherlv_1= 'Digital' ) ;
     public final EObject ruleDigital() throws RecognitionException {
         EObject current = null;
 
@@ -2020,14 +2100,14 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:843:2: ( ( () otherlv_1= 'Digital' ) )
-            // InternalArduinoML.g:844:2: ( () otherlv_1= 'Digital' )
+            // InternalArduinoML.g:889:2: ( ( () otherlv_1= 'Digital' ) )
+            // InternalArduinoML.g:890:2: ( () otherlv_1= 'Digital' )
             {
-            // InternalArduinoML.g:844:2: ( () otherlv_1= 'Digital' )
-            // InternalArduinoML.g:845:3: () otherlv_1= 'Digital'
+            // InternalArduinoML.g:890:2: ( () otherlv_1= 'Digital' )
+            // InternalArduinoML.g:891:3: () otherlv_1= 'Digital'
             {
-            // InternalArduinoML.g:845:3: ()
-            // InternalArduinoML.g:846:4: 
+            // InternalArduinoML.g:891:3: ()
+            // InternalArduinoML.g:892:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2037,7 +2117,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,20,FOLLOW_2); 
+            otherlv_1=(Token)match(input,21,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDigitalAccess().getDigitalKeyword_1());
             		
@@ -2064,7 +2144,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAnalog"
-    // InternalArduinoML.g:860:1: entryRuleAnalog returns [EObject current=null] : iv_ruleAnalog= ruleAnalog EOF ;
+    // InternalArduinoML.g:906:1: entryRuleAnalog returns [EObject current=null] : iv_ruleAnalog= ruleAnalog EOF ;
     public final EObject entryRuleAnalog() throws RecognitionException {
         EObject current = null;
 
@@ -2072,8 +2152,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalArduinoML.g:860:47: (iv_ruleAnalog= ruleAnalog EOF )
-            // InternalArduinoML.g:861:2: iv_ruleAnalog= ruleAnalog EOF
+            // InternalArduinoML.g:906:47: (iv_ruleAnalog= ruleAnalog EOF )
+            // InternalArduinoML.g:907:2: iv_ruleAnalog= ruleAnalog EOF
             {
              newCompositeNode(grammarAccess.getAnalogRule()); 
             pushFollow(FOLLOW_1);
@@ -2100,7 +2180,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnalog"
-    // InternalArduinoML.g:867:1: ruleAnalog returns [EObject current=null] : ( () otherlv_1= 'Analog' ) ;
+    // InternalArduinoML.g:913:1: ruleAnalog returns [EObject current=null] : ( () otherlv_1= 'Analog' ) ;
     public final EObject ruleAnalog() throws RecognitionException {
         EObject current = null;
 
@@ -2110,14 +2190,14 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:873:2: ( ( () otherlv_1= 'Analog' ) )
-            // InternalArduinoML.g:874:2: ( () otherlv_1= 'Analog' )
+            // InternalArduinoML.g:919:2: ( ( () otherlv_1= 'Analog' ) )
+            // InternalArduinoML.g:920:2: ( () otherlv_1= 'Analog' )
             {
-            // InternalArduinoML.g:874:2: ( () otherlv_1= 'Analog' )
-            // InternalArduinoML.g:875:3: () otherlv_1= 'Analog'
+            // InternalArduinoML.g:920:2: ( () otherlv_1= 'Analog' )
+            // InternalArduinoML.g:921:3: () otherlv_1= 'Analog'
             {
-            // InternalArduinoML.g:875:3: ()
-            // InternalArduinoML.g:876:4: 
+            // InternalArduinoML.g:921:3: ()
+            // InternalArduinoML.g:922:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2127,7 +2207,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_2); 
+            otherlv_1=(Token)match(input,22,FOLLOW_2); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAnalogAccess().getAnalogKeyword_1());
             		
@@ -2154,7 +2234,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAction"
-    // InternalArduinoML.g:890:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // InternalArduinoML.g:936:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -2162,8 +2242,8 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalArduinoML.g:890:47: (iv_ruleAction= ruleAction EOF )
-            // InternalArduinoML.g:891:2: iv_ruleAction= ruleAction EOF
+            // InternalArduinoML.g:936:47: (iv_ruleAction= ruleAction EOF )
+            // InternalArduinoML.g:937:2: iv_ruleAction= ruleAction EOF
             {
              newCompositeNode(grammarAccess.getActionRule()); 
             pushFollow(FOLLOW_1);
@@ -2190,7 +2270,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalArduinoML.g:897:1: ruleAction returns [EObject current=null] : (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) ) ;
+    // InternalArduinoML.g:943:1: ruleAction returns [EObject current=null] : (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -2203,21 +2283,21 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:903:2: ( (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) ) )
-            // InternalArduinoML.g:904:2: (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) )
+            // InternalArduinoML.g:949:2: ( (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) ) )
+            // InternalArduinoML.g:950:2: (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) )
             {
-            // InternalArduinoML.g:904:2: (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) )
-            // InternalArduinoML.g:905:3: otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) )
+            // InternalArduinoML.g:950:2: (otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) ) )
+            // InternalArduinoML.g:951:3: otherlv_0= 'change' ( ( ruleEString ) ) otherlv_2= 'to' ( (lv_value_3_0= ruleSignal ) )
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_3); 
+            otherlv_0=(Token)match(input,23,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getActionAccess().getChangeKeyword_0());
             		
-            // InternalArduinoML.g:909:3: ( ( ruleEString ) )
-            // InternalArduinoML.g:910:4: ( ruleEString )
+            // InternalArduinoML.g:955:3: ( ( ruleEString ) )
+            // InternalArduinoML.g:956:4: ( ruleEString )
             {
-            // InternalArduinoML.g:910:4: ( ruleEString )
-            // InternalArduinoML.g:911:5: ruleEString
+            // InternalArduinoML.g:956:4: ( ruleEString )
+            // InternalArduinoML.g:957:5: ruleEString
             {
 
             					if (current==null) {
@@ -2227,7 +2307,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getActionAccess().getActuatorActuatorCrossReference_1_0());
             				
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_21);
             ruleEString();
 
             state._fsp--;
@@ -2241,15 +2321,15 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,23,FOLLOW_19); 
+            otherlv_2=(Token)match(input,24,FOLLOW_22); 
 
             			newLeafNode(otherlv_2, grammarAccess.getActionAccess().getToKeyword_2());
             		
-            // InternalArduinoML.g:929:3: ( (lv_value_3_0= ruleSignal ) )
-            // InternalArduinoML.g:930:4: (lv_value_3_0= ruleSignal )
+            // InternalArduinoML.g:975:3: ( (lv_value_3_0= ruleSignal ) )
+            // InternalArduinoML.g:976:4: (lv_value_3_0= ruleSignal )
             {
-            // InternalArduinoML.g:930:4: (lv_value_3_0= ruleSignal )
-            // InternalArduinoML.g:931:5: lv_value_3_0= ruleSignal
+            // InternalArduinoML.g:976:4: (lv_value_3_0= ruleSignal )
+            // InternalArduinoML.g:977:5: lv_value_3_0= ruleSignal
             {
 
             					newCompositeNode(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_3_0());
@@ -2298,25 +2378,25 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleAction"
 
 
-    // $ANTLR start "entryRuleTransition"
-    // InternalArduinoML.g:952:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
-    public final EObject entryRuleTransition() throws RecognitionException {
+    // $ANTLR start "entryRuleTransitionState"
+    // InternalArduinoML.g:998:1: entryRuleTransitionState returns [EObject current=null] : iv_ruleTransitionState= ruleTransitionState EOF ;
+    public final EObject entryRuleTransitionState() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleTransition = null;
+        EObject iv_ruleTransitionState = null;
 
 
         try {
-            // InternalArduinoML.g:952:51: (iv_ruleTransition= ruleTransition EOF )
-            // InternalArduinoML.g:953:2: iv_ruleTransition= ruleTransition EOF
+            // InternalArduinoML.g:998:56: (iv_ruleTransitionState= ruleTransitionState EOF )
+            // InternalArduinoML.g:999:2: iv_ruleTransitionState= ruleTransitionState EOF
             {
-             newCompositeNode(grammarAccess.getTransitionRule()); 
+             newCompositeNode(grammarAccess.getTransitionStateRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleTransition=ruleTransition();
+            iv_ruleTransitionState=ruleTransitionState();
 
             state._fsp--;
 
-             current =iv_ruleTransition; 
+             current =iv_ruleTransitionState; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2331,12 +2411,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleTransition"
+    // $ANTLR end "entryRuleTransitionState"
 
 
-    // $ANTLR start "ruleTransition"
-    // InternalArduinoML.g:959:1: ruleTransition returns [EObject current=null] : ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' ( (otherlv_24= 'state' ( ( ruleEString ) ) ) | (otherlv_26= 'mode' ( ( ruleEString ) ) ) ) ) ;
-    public final EObject ruleTransition() throws RecognitionException {
+    // $ANTLR start "ruleTransitionState"
+    // InternalArduinoML.g:1005:1: ruleTransitionState returns [EObject current=null] : ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'state' ( ( ruleEString ) ) ) ;
+    public final EObject ruleTransitionState() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -2350,7 +2430,6 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         Token otherlv_22=null;
         Token otherlv_23=null;
         Token otherlv_24=null;
-        Token otherlv_26=null;
         Enumerator lv_d_values_3_0 = null;
 
         Enumerator lv_comp_5_0 = null;
@@ -2376,103 +2455,103 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:965:2: ( ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' ( (otherlv_24= 'state' ( ( ruleEString ) ) ) | (otherlv_26= 'mode' ( ( ruleEString ) ) ) ) ) )
-            // InternalArduinoML.g:966:2: ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' ( (otherlv_24= 'state' ( ( ruleEString ) ) ) | (otherlv_26= 'mode' ( ( ruleEString ) ) ) ) )
+            // InternalArduinoML.g:1011:2: ( ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'state' ( ( ruleEString ) ) ) )
+            // InternalArduinoML.g:1012:2: ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'state' ( ( ruleEString ) ) )
             {
-            // InternalArduinoML.g:966:2: ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' ( (otherlv_24= 'state' ( ( ruleEString ) ) ) | (otherlv_26= 'mode' ( ( ruleEString ) ) ) ) )
-            // InternalArduinoML.g:967:3: ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' ( (otherlv_24= 'state' ( ( ruleEString ) ) ) | (otherlv_26= 'mode' ( ( ruleEString ) ) ) )
+            // InternalArduinoML.g:1012:2: ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'state' ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1013:3: ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'state' ( ( ruleEString ) )
             {
-            // InternalArduinoML.g:967:3: ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) )
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalArduinoML.g:1013:3: ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) )
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==24) ) {
-                alt17=1;
+            if ( (LA18_0==25) ) {
+                alt18=1;
             }
-            else if ( (LA17_0==27) ) {
-                alt17=2;
+            else if ( (LA18_0==28) ) {
+                alt18=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 17, 0, input);
+                    new NoViableAltException("", 18, 0, input);
 
                 throw nvae;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalArduinoML.g:968:4: (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? )
+                    // InternalArduinoML.g:1014:4: (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? )
                     {
-                    // InternalArduinoML.g:968:4: (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? )
-                    // InternalArduinoML.g:969:5: otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )?
+                    // InternalArduinoML.g:1014:4: (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? )
+                    // InternalArduinoML.g:1015:5: otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )?
                     {
-                    otherlv_0=(Token)match(input,24,FOLLOW_3); 
+                    otherlv_0=(Token)match(input,25,FOLLOW_3); 
 
-                    					newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getWhenKeyword_0_0_0());
+                    					newLeafNode(otherlv_0, grammarAccess.getTransitionStateAccess().getWhenKeyword_0_0_0());
                     				
-                    // InternalArduinoML.g:973:5: ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) )
-                    int alt13=2;
-                    int LA13_0 = input.LA(1);
+                    // InternalArduinoML.g:1019:5: ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) )
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
 
-                    if ( (LA13_0==RULE_STRING) ) {
-                        int LA13_1 = input.LA(2);
+                    if ( (LA14_0==RULE_STRING) ) {
+                        int LA14_1 = input.LA(2);
 
-                        if ( (LA13_1==25) ) {
-                            alt13=1;
+                        if ( ((LA14_1>=36 && LA14_1<=40)) ) {
+                            alt14=2;
                         }
-                        else if ( ((LA13_1>=35 && LA13_1<=39)) ) {
-                            alt13=2;
+                        else if ( (LA14_1==26) ) {
+                            alt14=1;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 13, 1, input);
+                                new NoViableAltException("", 14, 1, input);
 
                             throw nvae;
                         }
                     }
-                    else if ( (LA13_0==RULE_ID) ) {
-                        int LA13_2 = input.LA(2);
+                    else if ( (LA14_0==RULE_ID) ) {
+                        int LA14_2 = input.LA(2);
 
-                        if ( ((LA13_2>=35 && LA13_2<=39)) ) {
-                            alt13=2;
+                        if ( ((LA14_2>=36 && LA14_2<=40)) ) {
+                            alt14=2;
                         }
-                        else if ( (LA13_2==25) ) {
-                            alt13=1;
+                        else if ( (LA14_2==26) ) {
+                            alt14=1;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 13, 2, input);
+                                new NoViableAltException("", 14, 2, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 13, 0, input);
+                            new NoViableAltException("", 14, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt13) {
+                    switch (alt14) {
                         case 1 :
-                            // InternalArduinoML.g:974:6: ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) )
+                            // InternalArduinoML.g:1020:6: ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) )
                             {
-                            // InternalArduinoML.g:974:6: ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) )
-                            // InternalArduinoML.g:975:7: ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) )
+                            // InternalArduinoML.g:1020:6: ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) )
+                            // InternalArduinoML.g:1021:7: ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) )
                             {
-                            // InternalArduinoML.g:975:7: ( ( ruleEString ) )
-                            // InternalArduinoML.g:976:8: ( ruleEString )
+                            // InternalArduinoML.g:1021:7: ( ( ruleEString ) )
+                            // InternalArduinoML.g:1022:8: ( ruleEString )
                             {
-                            // InternalArduinoML.g:976:8: ( ruleEString )
-                            // InternalArduinoML.g:977:9: ruleEString
+                            // InternalArduinoML.g:1022:8: ( ruleEString )
+                            // InternalArduinoML.g:1023:9: ruleEString
                             {
 
                             									if (current==null) {
-                            										current = createModelElement(grammarAccess.getTransitionRule());
+                            										current = createModelElement(grammarAccess.getTransitionStateRule());
                             									}
                             								
 
-                            									newCompositeNode(grammarAccess.getTransitionAccess().getDigitalsDigitalCrossReference_0_0_1_0_0_0());
+                            									newCompositeNode(grammarAccess.getTransitionStateAccess().getDigitalsDigitalCrossReference_0_0_1_0_0_0());
                             								
-                            pushFollow(FOLLOW_20);
+                            pushFollow(FOLLOW_23);
                             ruleEString();
 
                             state._fsp--;
@@ -2486,27 +2565,27 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_2=(Token)match(input,25,FOLLOW_19); 
+                            otherlv_2=(Token)match(input,26,FOLLOW_22); 
 
-                            							newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getIsKeyword_0_0_1_0_1());
+                            							newLeafNode(otherlv_2, grammarAccess.getTransitionStateAccess().getIsKeyword_0_0_1_0_1());
                             						
-                            // InternalArduinoML.g:995:7: ( (lv_d_values_3_0= ruleSignal ) )
-                            // InternalArduinoML.g:996:8: (lv_d_values_3_0= ruleSignal )
+                            // InternalArduinoML.g:1041:7: ( (lv_d_values_3_0= ruleSignal ) )
+                            // InternalArduinoML.g:1042:8: (lv_d_values_3_0= ruleSignal )
                             {
-                            // InternalArduinoML.g:996:8: (lv_d_values_3_0= ruleSignal )
-                            // InternalArduinoML.g:997:9: lv_d_values_3_0= ruleSignal
+                            // InternalArduinoML.g:1042:8: (lv_d_values_3_0= ruleSignal )
+                            // InternalArduinoML.g:1043:9: lv_d_values_3_0= ruleSignal
                             {
 
-                            									newCompositeNode(grammarAccess.getTransitionAccess().getD_valuesSignalEnumRuleCall_0_0_1_0_2_0());
+                            									newCompositeNode(grammarAccess.getTransitionStateAccess().getD_valuesSignalEnumRuleCall_0_0_1_0_2_0());
                             								
-                            pushFollow(FOLLOW_21);
+                            pushFollow(FOLLOW_24);
                             lv_d_values_3_0=ruleSignal();
 
                             state._fsp--;
 
 
                             									if (current==null) {
-                            										current = createModelElementForParent(grammarAccess.getTransitionRule());
+                            										current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                             									}
                             									add(
                             										current,
@@ -2528,26 +2607,26 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalArduinoML.g:1016:6: ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) )
+                            // InternalArduinoML.g:1062:6: ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) )
                             {
-                            // InternalArduinoML.g:1016:6: ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) )
-                            // InternalArduinoML.g:1017:7: ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) )
+                            // InternalArduinoML.g:1062:6: ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) )
+                            // InternalArduinoML.g:1063:7: ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) )
                             {
-                            // InternalArduinoML.g:1017:7: ( ( ruleEString ) )
-                            // InternalArduinoML.g:1018:8: ( ruleEString )
+                            // InternalArduinoML.g:1063:7: ( ( ruleEString ) )
+                            // InternalArduinoML.g:1064:8: ( ruleEString )
                             {
-                            // InternalArduinoML.g:1018:8: ( ruleEString )
-                            // InternalArduinoML.g:1019:9: ruleEString
+                            // InternalArduinoML.g:1064:8: ( ruleEString )
+                            // InternalArduinoML.g:1065:9: ruleEString
                             {
 
                             									if (current==null) {
-                            										current = createModelElement(grammarAccess.getTransitionRule());
+                            										current = createModelElement(grammarAccess.getTransitionStateRule());
                             									}
                             								
 
-                            									newCompositeNode(grammarAccess.getTransitionAccess().getAnalogsAnalogCrossReference_0_0_1_1_0_0());
+                            									newCompositeNode(grammarAccess.getTransitionStateAccess().getAnalogsAnalogCrossReference_0_0_1_1_0_0());
                             								
-                            pushFollow(FOLLOW_22);
+                            pushFollow(FOLLOW_25);
                             ruleEString();
 
                             state._fsp--;
@@ -2561,14 +2640,14 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalArduinoML.g:1033:7: ( (lv_comp_5_0= ruleCompare ) )
-                            // InternalArduinoML.g:1034:8: (lv_comp_5_0= ruleCompare )
+                            // InternalArduinoML.g:1079:7: ( (lv_comp_5_0= ruleCompare ) )
+                            // InternalArduinoML.g:1080:8: (lv_comp_5_0= ruleCompare )
                             {
-                            // InternalArduinoML.g:1034:8: (lv_comp_5_0= ruleCompare )
-                            // InternalArduinoML.g:1035:9: lv_comp_5_0= ruleCompare
+                            // InternalArduinoML.g:1080:8: (lv_comp_5_0= ruleCompare )
+                            // InternalArduinoML.g:1081:9: lv_comp_5_0= ruleCompare
                             {
 
-                            									newCompositeNode(grammarAccess.getTransitionAccess().getCompCompareEnumRuleCall_0_0_1_1_1_0());
+                            									newCompositeNode(grammarAccess.getTransitionStateAccess().getCompCompareEnumRuleCall_0_0_1_1_1_0());
                             								
                             pushFollow(FOLLOW_13);
                             lv_comp_5_0=ruleCompare();
@@ -2577,7 +2656,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
                             									if (current==null) {
-                            										current = createModelElementForParent(grammarAccess.getTransitionRule());
+                            										current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                             									}
                             									add(
                             										current,
@@ -2592,23 +2671,23 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalArduinoML.g:1052:7: ( (lv_a_values_6_0= ruleEInt ) )
-                            // InternalArduinoML.g:1053:8: (lv_a_values_6_0= ruleEInt )
+                            // InternalArduinoML.g:1098:7: ( (lv_a_values_6_0= ruleEInt ) )
+                            // InternalArduinoML.g:1099:8: (lv_a_values_6_0= ruleEInt )
                             {
-                            // InternalArduinoML.g:1053:8: (lv_a_values_6_0= ruleEInt )
-                            // InternalArduinoML.g:1054:9: lv_a_values_6_0= ruleEInt
+                            // InternalArduinoML.g:1099:8: (lv_a_values_6_0= ruleEInt )
+                            // InternalArduinoML.g:1100:9: lv_a_values_6_0= ruleEInt
                             {
 
-                            									newCompositeNode(grammarAccess.getTransitionAccess().getA_valuesEIntParserRuleCall_0_0_1_1_2_0());
+                            									newCompositeNode(grammarAccess.getTransitionStateAccess().getA_valuesEIntParserRuleCall_0_0_1_1_2_0());
                             								
-                            pushFollow(FOLLOW_21);
+                            pushFollow(FOLLOW_24);
                             lv_a_values_6_0=ruleEInt();
 
                             state._fsp--;
 
 
                             									if (current==null) {
-                            										current = createModelElementForParent(grammarAccess.getTransitionRule());
+                            										current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                             									}
                             									add(
                             										current,
@@ -2632,89 +2711,89 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalArduinoML.g:1073:5: (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )*
-                    loop15:
+                    // InternalArduinoML.g:1119:5: (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )*
+                    loop16:
                     do {
-                        int alt15=2;
-                        int LA15_0 = input.LA(1);
+                        int alt16=2;
+                        int LA16_0 = input.LA(1);
 
-                        if ( (LA15_0==26) ) {
-                            alt15=1;
+                        if ( (LA16_0==27) ) {
+                            alt16=1;
                         }
 
 
-                        switch (alt15) {
+                        switch (alt16) {
                     	case 1 :
-                    	    // InternalArduinoML.g:1074:6: otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) )
+                    	    // InternalArduinoML.g:1120:6: otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) )
                     	    {
-                    	    otherlv_7=(Token)match(input,26,FOLLOW_3); 
+                    	    otherlv_7=(Token)match(input,27,FOLLOW_3); 
 
-                    	    						newLeafNode(otherlv_7, grammarAccess.getTransitionAccess().getAndKeyword_0_0_2_0());
+                    	    						newLeafNode(otherlv_7, grammarAccess.getTransitionStateAccess().getAndKeyword_0_0_2_0());
                     	    					
-                    	    // InternalArduinoML.g:1078:6: ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) )
-                    	    int alt14=2;
-                    	    int LA14_0 = input.LA(1);
+                    	    // InternalArduinoML.g:1124:6: ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) )
+                    	    int alt15=2;
+                    	    int LA15_0 = input.LA(1);
 
-                    	    if ( (LA14_0==RULE_STRING) ) {
-                    	        int LA14_1 = input.LA(2);
+                    	    if ( (LA15_0==RULE_STRING) ) {
+                    	        int LA15_1 = input.LA(2);
 
-                    	        if ( ((LA14_1>=35 && LA14_1<=39)) ) {
-                    	            alt14=2;
+                    	        if ( (LA15_1==26) ) {
+                    	            alt15=1;
                     	        }
-                    	        else if ( (LA14_1==25) ) {
-                    	            alt14=1;
+                    	        else if ( ((LA15_1>=36 && LA15_1<=40)) ) {
+                    	            alt15=2;
                     	        }
                     	        else {
                     	            NoViableAltException nvae =
-                    	                new NoViableAltException("", 14, 1, input);
+                    	                new NoViableAltException("", 15, 1, input);
 
                     	            throw nvae;
                     	        }
                     	    }
-                    	    else if ( (LA14_0==RULE_ID) ) {
-                    	        int LA14_2 = input.LA(2);
+                    	    else if ( (LA15_0==RULE_ID) ) {
+                    	        int LA15_2 = input.LA(2);
 
-                    	        if ( (LA14_2==25) ) {
-                    	            alt14=1;
+                    	        if ( ((LA15_2>=36 && LA15_2<=40)) ) {
+                    	            alt15=2;
                     	        }
-                    	        else if ( ((LA14_2>=35 && LA14_2<=39)) ) {
-                    	            alt14=2;
+                    	        else if ( (LA15_2==26) ) {
+                    	            alt15=1;
                     	        }
                     	        else {
                     	            NoViableAltException nvae =
-                    	                new NoViableAltException("", 14, 2, input);
+                    	                new NoViableAltException("", 15, 2, input);
 
                     	            throw nvae;
                     	        }
                     	    }
                     	    else {
                     	        NoViableAltException nvae =
-                    	            new NoViableAltException("", 14, 0, input);
+                    	            new NoViableAltException("", 15, 0, input);
 
                     	        throw nvae;
                     	    }
-                    	    switch (alt14) {
+                    	    switch (alt15) {
                     	        case 1 :
-                    	            // InternalArduinoML.g:1079:7: ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) )
+                    	            // InternalArduinoML.g:1125:7: ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) )
                     	            {
-                    	            // InternalArduinoML.g:1079:7: ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) )
-                    	            // InternalArduinoML.g:1080:8: ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) )
+                    	            // InternalArduinoML.g:1125:7: ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) )
+                    	            // InternalArduinoML.g:1126:8: ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) )
                     	            {
-                    	            // InternalArduinoML.g:1080:8: ( ( ruleEString ) )
-                    	            // InternalArduinoML.g:1081:9: ( ruleEString )
+                    	            // InternalArduinoML.g:1126:8: ( ( ruleEString ) )
+                    	            // InternalArduinoML.g:1127:9: ( ruleEString )
                     	            {
-                    	            // InternalArduinoML.g:1081:9: ( ruleEString )
-                    	            // InternalArduinoML.g:1082:10: ruleEString
+                    	            // InternalArduinoML.g:1127:9: ( ruleEString )
+                    	            // InternalArduinoML.g:1128:10: ruleEString
                     	            {
 
                     	            										if (current==null) {
-                    	            											current = createModelElement(grammarAccess.getTransitionRule());
+                    	            											current = createModelElement(grammarAccess.getTransitionStateRule());
                     	            										}
                     	            									
 
-                    	            										newCompositeNode(grammarAccess.getTransitionAccess().getDigitalsDigitalCrossReference_0_0_2_1_0_0_0());
+                    	            										newCompositeNode(grammarAccess.getTransitionStateAccess().getDigitalsDigitalCrossReference_0_0_2_1_0_0_0());
                     	            									
-                    	            pushFollow(FOLLOW_20);
+                    	            pushFollow(FOLLOW_23);
                     	            ruleEString();
 
                     	            state._fsp--;
@@ -2728,27 +2807,27 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     	            }
 
-                    	            otherlv_9=(Token)match(input,25,FOLLOW_19); 
+                    	            otherlv_9=(Token)match(input,26,FOLLOW_22); 
 
-                    	            								newLeafNode(otherlv_9, grammarAccess.getTransitionAccess().getIsKeyword_0_0_2_1_0_1());
+                    	            								newLeafNode(otherlv_9, grammarAccess.getTransitionStateAccess().getIsKeyword_0_0_2_1_0_1());
                     	            							
-                    	            // InternalArduinoML.g:1100:8: ( (lv_d_values_10_0= ruleSignal ) )
-                    	            // InternalArduinoML.g:1101:9: (lv_d_values_10_0= ruleSignal )
+                    	            // InternalArduinoML.g:1146:8: ( (lv_d_values_10_0= ruleSignal ) )
+                    	            // InternalArduinoML.g:1147:9: (lv_d_values_10_0= ruleSignal )
                     	            {
-                    	            // InternalArduinoML.g:1101:9: (lv_d_values_10_0= ruleSignal )
-                    	            // InternalArduinoML.g:1102:10: lv_d_values_10_0= ruleSignal
+                    	            // InternalArduinoML.g:1147:9: (lv_d_values_10_0= ruleSignal )
+                    	            // InternalArduinoML.g:1148:10: lv_d_values_10_0= ruleSignal
                     	            {
 
-                    	            										newCompositeNode(grammarAccess.getTransitionAccess().getD_valuesSignalEnumRuleCall_0_0_2_1_0_2_0());
+                    	            										newCompositeNode(grammarAccess.getTransitionStateAccess().getD_valuesSignalEnumRuleCall_0_0_2_1_0_2_0());
                     	            									
-                    	            pushFollow(FOLLOW_21);
+                    	            pushFollow(FOLLOW_24);
                     	            lv_d_values_10_0=ruleSignal();
 
                     	            state._fsp--;
 
 
                     	            										if (current==null) {
-                    	            											current = createModelElementForParent(grammarAccess.getTransitionRule());
+                    	            											current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                     	            										}
                     	            										add(
                     	            											current,
@@ -2770,26 +2849,26 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     	            }
                     	            break;
                     	        case 2 :
-                    	            // InternalArduinoML.g:1121:7: ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) )
+                    	            // InternalArduinoML.g:1167:7: ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) )
                     	            {
-                    	            // InternalArduinoML.g:1121:7: ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) )
-                    	            // InternalArduinoML.g:1122:8: ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) )
+                    	            // InternalArduinoML.g:1167:7: ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) )
+                    	            // InternalArduinoML.g:1168:8: ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) )
                     	            {
-                    	            // InternalArduinoML.g:1122:8: ( ( ruleEString ) )
-                    	            // InternalArduinoML.g:1123:9: ( ruleEString )
+                    	            // InternalArduinoML.g:1168:8: ( ( ruleEString ) )
+                    	            // InternalArduinoML.g:1169:9: ( ruleEString )
                     	            {
-                    	            // InternalArduinoML.g:1123:9: ( ruleEString )
-                    	            // InternalArduinoML.g:1124:10: ruleEString
+                    	            // InternalArduinoML.g:1169:9: ( ruleEString )
+                    	            // InternalArduinoML.g:1170:10: ruleEString
                     	            {
 
                     	            										if (current==null) {
-                    	            											current = createModelElement(grammarAccess.getTransitionRule());
+                    	            											current = createModelElement(grammarAccess.getTransitionStateRule());
                     	            										}
                     	            									
 
-                    	            										newCompositeNode(grammarAccess.getTransitionAccess().getAnalogsAnalogCrossReference_0_0_2_1_1_0_0());
+                    	            										newCompositeNode(grammarAccess.getTransitionStateAccess().getAnalogsAnalogCrossReference_0_0_2_1_1_0_0());
                     	            									
-                    	            pushFollow(FOLLOW_22);
+                    	            pushFollow(FOLLOW_25);
                     	            ruleEString();
 
                     	            state._fsp--;
@@ -2803,14 +2882,14 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     	            }
 
-                    	            // InternalArduinoML.g:1138:8: ( (lv_comp_12_0= ruleCompare ) )
-                    	            // InternalArduinoML.g:1139:9: (lv_comp_12_0= ruleCompare )
+                    	            // InternalArduinoML.g:1184:8: ( (lv_comp_12_0= ruleCompare ) )
+                    	            // InternalArduinoML.g:1185:9: (lv_comp_12_0= ruleCompare )
                     	            {
-                    	            // InternalArduinoML.g:1139:9: (lv_comp_12_0= ruleCompare )
-                    	            // InternalArduinoML.g:1140:10: lv_comp_12_0= ruleCompare
+                    	            // InternalArduinoML.g:1185:9: (lv_comp_12_0= ruleCompare )
+                    	            // InternalArduinoML.g:1186:10: lv_comp_12_0= ruleCompare
                     	            {
 
-                    	            										newCompositeNode(grammarAccess.getTransitionAccess().getCompCompareEnumRuleCall_0_0_2_1_1_1_0());
+                    	            										newCompositeNode(grammarAccess.getTransitionStateAccess().getCompCompareEnumRuleCall_0_0_2_1_1_1_0());
                     	            									
                     	            pushFollow(FOLLOW_13);
                     	            lv_comp_12_0=ruleCompare();
@@ -2819,7 +2898,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
                     	            										if (current==null) {
-                    	            											current = createModelElementForParent(grammarAccess.getTransitionRule());
+                    	            											current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                     	            										}
                     	            										add(
                     	            											current,
@@ -2834,23 +2913,23 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     	            }
 
-                    	            // InternalArduinoML.g:1157:8: ( (lv_a_values_13_0= ruleEInt ) )
-                    	            // InternalArduinoML.g:1158:9: (lv_a_values_13_0= ruleEInt )
+                    	            // InternalArduinoML.g:1203:8: ( (lv_a_values_13_0= ruleEInt ) )
+                    	            // InternalArduinoML.g:1204:9: (lv_a_values_13_0= ruleEInt )
                     	            {
-                    	            // InternalArduinoML.g:1158:9: (lv_a_values_13_0= ruleEInt )
-                    	            // InternalArduinoML.g:1159:10: lv_a_values_13_0= ruleEInt
+                    	            // InternalArduinoML.g:1204:9: (lv_a_values_13_0= ruleEInt )
+                    	            // InternalArduinoML.g:1205:10: lv_a_values_13_0= ruleEInt
                     	            {
 
-                    	            										newCompositeNode(grammarAccess.getTransitionAccess().getA_valuesEIntParserRuleCall_0_0_2_1_1_2_0());
+                    	            										newCompositeNode(grammarAccess.getTransitionStateAccess().getA_valuesEIntParserRuleCall_0_0_2_1_1_2_0());
                     	            									
-                    	            pushFollow(FOLLOW_21);
+                    	            pushFollow(FOLLOW_24);
                     	            lv_a_values_13_0=ruleEInt();
 
                     	            state._fsp--;
 
 
                     	            										if (current==null) {
-                    	            											current = createModelElementForParent(grammarAccess.getTransitionRule());
+                    	            											current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                     	            										}
                     	            										add(
                     	            											current,
@@ -2879,42 +2958,42 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop15;
+                    	    break loop16;
                         }
                     } while (true);
 
-                    // InternalArduinoML.g:1179:5: (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )?
-                    int alt16=2;
-                    int LA16_0 = input.LA(1);
+                    // InternalArduinoML.g:1225:5: (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )?
+                    int alt17=2;
+                    int LA17_0 = input.LA(1);
 
-                    if ( (LA16_0==27) ) {
-                        alt16=1;
+                    if ( (LA17_0==28) ) {
+                        alt17=1;
                     }
-                    switch (alt16) {
+                    switch (alt17) {
                         case 1 :
-                            // InternalArduinoML.g:1180:6: otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then'
+                            // InternalArduinoML.g:1226:6: otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then'
                             {
-                            otherlv_14=(Token)match(input,27,FOLLOW_13); 
+                            otherlv_14=(Token)match(input,28,FOLLOW_13); 
 
-                            						newLeafNode(otherlv_14, grammarAccess.getTransitionAccess().getWaitKeyword_0_0_3_0());
+                            						newLeafNode(otherlv_14, grammarAccess.getTransitionStateAccess().getWaitKeyword_0_0_3_0());
                             					
-                            // InternalArduinoML.g:1184:6: ( (lv_time_15_0= ruleEInt ) )
-                            // InternalArduinoML.g:1185:7: (lv_time_15_0= ruleEInt )
+                            // InternalArduinoML.g:1230:6: ( (lv_time_15_0= ruleEInt ) )
+                            // InternalArduinoML.g:1231:7: (lv_time_15_0= ruleEInt )
                             {
-                            // InternalArduinoML.g:1185:7: (lv_time_15_0= ruleEInt )
-                            // InternalArduinoML.g:1186:8: lv_time_15_0= ruleEInt
+                            // InternalArduinoML.g:1231:7: (lv_time_15_0= ruleEInt )
+                            // InternalArduinoML.g:1232:8: lv_time_15_0= ruleEInt
                             {
 
-                            								newCompositeNode(grammarAccess.getTransitionAccess().getTimeEIntParserRuleCall_0_0_3_1_0());
+                            								newCompositeNode(grammarAccess.getTransitionStateAccess().getTimeEIntParserRuleCall_0_0_3_1_0());
                             							
-                            pushFollow(FOLLOW_23);
+                            pushFollow(FOLLOW_26);
                             lv_time_15_0=ruleEInt();
 
                             state._fsp--;
 
 
                             								if (current==null) {
-                            									current = createModelElementForParent(grammarAccess.getTransitionRule());
+                            									current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                             								}
                             								set(
                             									current,
@@ -2929,23 +3008,23 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalArduinoML.g:1203:6: ( (lv_unit_16_0= ruleTime_unit ) )
-                            // InternalArduinoML.g:1204:7: (lv_unit_16_0= ruleTime_unit )
+                            // InternalArduinoML.g:1249:6: ( (lv_unit_16_0= ruleTime_unit ) )
+                            // InternalArduinoML.g:1250:7: (lv_unit_16_0= ruleTime_unit )
                             {
-                            // InternalArduinoML.g:1204:7: (lv_unit_16_0= ruleTime_unit )
-                            // InternalArduinoML.g:1205:8: lv_unit_16_0= ruleTime_unit
+                            // InternalArduinoML.g:1250:7: (lv_unit_16_0= ruleTime_unit )
+                            // InternalArduinoML.g:1251:8: lv_unit_16_0= ruleTime_unit
                             {
 
-                            								newCompositeNode(grammarAccess.getTransitionAccess().getUnitTime_unitEnumRuleCall_0_0_3_2_0());
+                            								newCompositeNode(grammarAccess.getTransitionStateAccess().getUnitTime_unitEnumRuleCall_0_0_3_2_0());
                             							
-                            pushFollow(FOLLOW_24);
+                            pushFollow(FOLLOW_27);
                             lv_unit_16_0=ruleTime_unit();
 
                             state._fsp--;
 
 
                             								if (current==null) {
-                            									current = createModelElementForParent(grammarAccess.getTransitionRule());
+                            									current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                             								}
                             								set(
                             									current,
@@ -2960,9 +3039,9 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_17=(Token)match(input,28,FOLLOW_25); 
+                            otherlv_17=(Token)match(input,29,FOLLOW_28); 
 
-                            						newLeafNode(otherlv_17, grammarAccess.getTransitionAccess().getThenKeyword_0_0_3_3());
+                            						newLeafNode(otherlv_17, grammarAccess.getTransitionStateAccess().getThenKeyword_0_0_3_3());
                             					
 
                             }
@@ -2977,32 +3056,32 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:1229:4: (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' )
+                    // InternalArduinoML.g:1275:4: (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' )
                     {
-                    // InternalArduinoML.g:1229:4: (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' )
-                    // InternalArduinoML.g:1230:5: otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then'
+                    // InternalArduinoML.g:1275:4: (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' )
+                    // InternalArduinoML.g:1276:5: otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then'
                     {
-                    otherlv_18=(Token)match(input,27,FOLLOW_13); 
+                    otherlv_18=(Token)match(input,28,FOLLOW_13); 
 
-                    					newLeafNode(otherlv_18, grammarAccess.getTransitionAccess().getWaitKeyword_0_1_0());
+                    					newLeafNode(otherlv_18, grammarAccess.getTransitionStateAccess().getWaitKeyword_0_1_0());
                     				
-                    // InternalArduinoML.g:1234:5: ( (lv_time_19_0= ruleEInt ) )
-                    // InternalArduinoML.g:1235:6: (lv_time_19_0= ruleEInt )
+                    // InternalArduinoML.g:1280:5: ( (lv_time_19_0= ruleEInt ) )
+                    // InternalArduinoML.g:1281:6: (lv_time_19_0= ruleEInt )
                     {
-                    // InternalArduinoML.g:1235:6: (lv_time_19_0= ruleEInt )
-                    // InternalArduinoML.g:1236:7: lv_time_19_0= ruleEInt
+                    // InternalArduinoML.g:1281:6: (lv_time_19_0= ruleEInt )
+                    // InternalArduinoML.g:1282:7: lv_time_19_0= ruleEInt
                     {
 
-                    							newCompositeNode(grammarAccess.getTransitionAccess().getTimeEIntParserRuleCall_0_1_1_0());
+                    							newCompositeNode(grammarAccess.getTransitionStateAccess().getTimeEIntParserRuleCall_0_1_1_0());
                     						
-                    pushFollow(FOLLOW_23);
+                    pushFollow(FOLLOW_26);
                     lv_time_19_0=ruleEInt();
 
                     state._fsp--;
 
 
                     							if (current==null) {
-                    								current = createModelElementForParent(grammarAccess.getTransitionRule());
+                    								current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                     							}
                     							set(
                     								current,
@@ -3017,23 +3096,23 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalArduinoML.g:1253:5: ( (lv_unit_20_0= ruleTime_unit ) )
-                    // InternalArduinoML.g:1254:6: (lv_unit_20_0= ruleTime_unit )
+                    // InternalArduinoML.g:1299:5: ( (lv_unit_20_0= ruleTime_unit ) )
+                    // InternalArduinoML.g:1300:6: (lv_unit_20_0= ruleTime_unit )
                     {
-                    // InternalArduinoML.g:1254:6: (lv_unit_20_0= ruleTime_unit )
-                    // InternalArduinoML.g:1255:7: lv_unit_20_0= ruleTime_unit
+                    // InternalArduinoML.g:1300:6: (lv_unit_20_0= ruleTime_unit )
+                    // InternalArduinoML.g:1301:7: lv_unit_20_0= ruleTime_unit
                     {
 
-                    							newCompositeNode(grammarAccess.getTransitionAccess().getUnitTime_unitEnumRuleCall_0_1_2_0());
+                    							newCompositeNode(grammarAccess.getTransitionStateAccess().getUnitTime_unitEnumRuleCall_0_1_2_0());
                     						
-                    pushFollow(FOLLOW_24);
+                    pushFollow(FOLLOW_27);
                     lv_unit_20_0=ruleTime_unit();
 
                     state._fsp--;
 
 
                     							if (current==null) {
-                    								current = createModelElementForParent(grammarAccess.getTransitionRule());
+                    								current = createModelElementForParent(grammarAccess.getTransitionStateRule());
                     							}
                     							set(
                     								current,
@@ -3048,9 +3127,9 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_21=(Token)match(input,28,FOLLOW_25); 
+                    otherlv_21=(Token)match(input,29,FOLLOW_28); 
 
-                    					newLeafNode(otherlv_21, grammarAccess.getTransitionAccess().getThenKeyword_0_1_3());
+                    					newLeafNode(otherlv_21, grammarAccess.getTransitionStateAccess().getThenKeyword_0_1_3());
                     				
 
                     }
@@ -3061,119 +3140,43 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_22=(Token)match(input,29,FOLLOW_18); 
+            otherlv_22=(Token)match(input,30,FOLLOW_21); 
 
-            			newLeafNode(otherlv_22, grammarAccess.getTransitionAccess().getGoKeyword_1());
+            			newLeafNode(otherlv_22, grammarAccess.getTransitionStateAccess().getGoKeyword_1());
             		
-            otherlv_23=(Token)match(input,23,FOLLOW_26); 
+            otherlv_23=(Token)match(input,24,FOLLOW_5); 
 
-            			newLeafNode(otherlv_23, grammarAccess.getTransitionAccess().getToKeyword_2());
+            			newLeafNode(otherlv_23, grammarAccess.getTransitionStateAccess().getToKeyword_2());
             		
-            // InternalArduinoML.g:1286:3: ( (otherlv_24= 'state' ( ( ruleEString ) ) ) | (otherlv_26= 'mode' ( ( ruleEString ) ) ) )
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            otherlv_24=(Token)match(input,13,FOLLOW_3); 
 
-            if ( (LA18_0==13) ) {
-                alt18=1;
+            			newLeafNode(otherlv_24, grammarAccess.getTransitionStateAccess().getStateKeyword_3());
+            		
+            // InternalArduinoML.g:1336:3: ( ( ruleEString ) )
+            // InternalArduinoML.g:1337:4: ( ruleEString )
+            {
+            // InternalArduinoML.g:1337:4: ( ruleEString )
+            // InternalArduinoML.g:1338:5: ruleEString
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getTransitionStateRule());
+            					}
+            				
+
+            					newCompositeNode(grammarAccess.getTransitionStateAccess().getNext_stateStateCrossReference_4_0());
+            				
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+
+            					afterParserOrEnumRuleCall();
+            				
+
             }
-            else if ( (LA18_0==17) ) {
-                alt18=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 18, 0, input);
 
-                throw nvae;
-            }
-            switch (alt18) {
-                case 1 :
-                    // InternalArduinoML.g:1287:4: (otherlv_24= 'state' ( ( ruleEString ) ) )
-                    {
-                    // InternalArduinoML.g:1287:4: (otherlv_24= 'state' ( ( ruleEString ) ) )
-                    // InternalArduinoML.g:1288:5: otherlv_24= 'state' ( ( ruleEString ) )
-                    {
-                    otherlv_24=(Token)match(input,13,FOLLOW_3); 
-
-                    					newLeafNode(otherlv_24, grammarAccess.getTransitionAccess().getStateKeyword_3_0_0());
-                    				
-                    // InternalArduinoML.g:1292:5: ( ( ruleEString ) )
-                    // InternalArduinoML.g:1293:6: ( ruleEString )
-                    {
-                    // InternalArduinoML.g:1293:6: ( ruleEString )
-                    // InternalArduinoML.g:1294:7: ruleEString
-                    {
-
-                    							if (current==null) {
-                    								current = createModelElement(grammarAccess.getTransitionRule());
-                    							}
-                    						
-
-                    							newCompositeNode(grammarAccess.getTransitionAccess().getNext_stateStateCrossReference_3_0_1_0());
-                    						
-                    pushFollow(FOLLOW_2);
-                    ruleEString();
-
-                    state._fsp--;
-
-
-                    							afterParserOrEnumRuleCall();
-                    						
-
-                    }
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalArduinoML.g:1310:4: (otherlv_26= 'mode' ( ( ruleEString ) ) )
-                    {
-                    // InternalArduinoML.g:1310:4: (otherlv_26= 'mode' ( ( ruleEString ) ) )
-                    // InternalArduinoML.g:1311:5: otherlv_26= 'mode' ( ( ruleEString ) )
-                    {
-                    otherlv_26=(Token)match(input,17,FOLLOW_3); 
-
-                    					newLeafNode(otherlv_26, grammarAccess.getTransitionAccess().getModeKeyword_3_1_0());
-                    				
-                    // InternalArduinoML.g:1315:5: ( ( ruleEString ) )
-                    // InternalArduinoML.g:1316:6: ( ruleEString )
-                    {
-                    // InternalArduinoML.g:1316:6: ( ruleEString )
-                    // InternalArduinoML.g:1317:7: ruleEString
-                    {
-
-                    							if (current==null) {
-                    								current = createModelElement(grammarAccess.getTransitionRule());
-                    							}
-                    						
-
-                    							newCompositeNode(grammarAccess.getTransitionAccess().getNext_modeModeCrossReference_3_1_1_0());
-                    						
-                    pushFollow(FOLLOW_2);
-                    ruleEString();
-
-                    state._fsp--;
-
-
-                    							afterParserOrEnumRuleCall();
-                    						
-
-                    }
-
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -3196,11 +3199,835 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleTransition"
+    // $ANTLR end "ruleTransitionState"
+
+
+    // $ANTLR start "entryRuleTransitionMode"
+    // InternalArduinoML.g:1356:1: entryRuleTransitionMode returns [EObject current=null] : iv_ruleTransitionMode= ruleTransitionMode EOF ;
+    public final EObject entryRuleTransitionMode() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleTransitionMode = null;
+
+
+        try {
+            // InternalArduinoML.g:1356:55: (iv_ruleTransitionMode= ruleTransitionMode EOF )
+            // InternalArduinoML.g:1357:2: iv_ruleTransitionMode= ruleTransitionMode EOF
+            {
+             newCompositeNode(grammarAccess.getTransitionModeRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleTransitionMode=ruleTransitionMode();
+
+            state._fsp--;
+
+             current =iv_ruleTransitionMode; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTransitionMode"
+
+
+    // $ANTLR start "ruleTransitionMode"
+    // InternalArduinoML.g:1363:1: ruleTransitionMode returns [EObject current=null] : ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'mode' ( ( ruleEString ) ) ) ;
+    public final EObject ruleTransitionMode() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_2=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        Token otherlv_14=null;
+        Token otherlv_17=null;
+        Token otherlv_18=null;
+        Token otherlv_21=null;
+        Token otherlv_22=null;
+        Token otherlv_23=null;
+        Token otherlv_24=null;
+        Enumerator lv_d_values_3_0 = null;
+
+        Enumerator lv_comp_5_0 = null;
+
+        AntlrDatatypeRuleToken lv_a_values_6_0 = null;
+
+        Enumerator lv_d_values_10_0 = null;
+
+        Enumerator lv_comp_12_0 = null;
+
+        AntlrDatatypeRuleToken lv_a_values_13_0 = null;
+
+        AntlrDatatypeRuleToken lv_time_15_0 = null;
+
+        Enumerator lv_unit_16_0 = null;
+
+        AntlrDatatypeRuleToken lv_time_19_0 = null;
+
+        Enumerator lv_unit_20_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalArduinoML.g:1369:2: ( ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'mode' ( ( ruleEString ) ) ) )
+            // InternalArduinoML.g:1370:2: ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'mode' ( ( ruleEString ) ) )
+            {
+            // InternalArduinoML.g:1370:2: ( ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'mode' ( ( ruleEString ) ) )
+            // InternalArduinoML.g:1371:3: ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) ) otherlv_22= 'go' otherlv_23= 'to' otherlv_24= 'mode' ( ( ruleEString ) )
+            {
+            // InternalArduinoML.g:1371:3: ( (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? ) | (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' ) )
+            int alt23=2;
+            int LA23_0 = input.LA(1);
+
+            if ( (LA23_0==25) ) {
+                alt23=1;
+            }
+            else if ( (LA23_0==28) ) {
+                alt23=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 23, 0, input);
+
+                throw nvae;
+            }
+            switch (alt23) {
+                case 1 :
+                    // InternalArduinoML.g:1372:4: (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? )
+                    {
+                    // InternalArduinoML.g:1372:4: (otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )? )
+                    // InternalArduinoML.g:1373:5: otherlv_0= 'when' ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) ) (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )* (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )?
+                    {
+                    otherlv_0=(Token)match(input,25,FOLLOW_3); 
+
+                    					newLeafNode(otherlv_0, grammarAccess.getTransitionModeAccess().getWhenKeyword_0_0_0());
+                    				
+                    // InternalArduinoML.g:1377:5: ( ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) ) )
+                    int alt19=2;
+                    int LA19_0 = input.LA(1);
+
+                    if ( (LA19_0==RULE_STRING) ) {
+                        int LA19_1 = input.LA(2);
+
+                        if ( (LA19_1==26) ) {
+                            alt19=1;
+                        }
+                        else if ( ((LA19_1>=36 && LA19_1<=40)) ) {
+                            alt19=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 19, 1, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else if ( (LA19_0==RULE_ID) ) {
+                        int LA19_2 = input.LA(2);
+
+                        if ( ((LA19_2>=36 && LA19_2<=40)) ) {
+                            alt19=2;
+                        }
+                        else if ( (LA19_2==26) ) {
+                            alt19=1;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 19, 2, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 19, 0, input);
+
+                        throw nvae;
+                    }
+                    switch (alt19) {
+                        case 1 :
+                            // InternalArduinoML.g:1378:6: ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) )
+                            {
+                            // InternalArduinoML.g:1378:6: ( ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) ) )
+                            // InternalArduinoML.g:1379:7: ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_d_values_3_0= ruleSignal ) )
+                            {
+                            // InternalArduinoML.g:1379:7: ( ( ruleEString ) )
+                            // InternalArduinoML.g:1380:8: ( ruleEString )
+                            {
+                            // InternalArduinoML.g:1380:8: ( ruleEString )
+                            // InternalArduinoML.g:1381:9: ruleEString
+                            {
+
+                            									if (current==null) {
+                            										current = createModelElement(grammarAccess.getTransitionModeRule());
+                            									}
+                            								
+
+                            									newCompositeNode(grammarAccess.getTransitionModeAccess().getDigitalsDigitalCrossReference_0_0_1_0_0_0());
+                            								
+                            pushFollow(FOLLOW_23);
+                            ruleEString();
+
+                            state._fsp--;
+
+
+                            									afterParserOrEnumRuleCall();
+                            								
+
+                            }
+
+
+                            }
+
+                            otherlv_2=(Token)match(input,26,FOLLOW_22); 
+
+                            							newLeafNode(otherlv_2, grammarAccess.getTransitionModeAccess().getIsKeyword_0_0_1_0_1());
+                            						
+                            // InternalArduinoML.g:1399:7: ( (lv_d_values_3_0= ruleSignal ) )
+                            // InternalArduinoML.g:1400:8: (lv_d_values_3_0= ruleSignal )
+                            {
+                            // InternalArduinoML.g:1400:8: (lv_d_values_3_0= ruleSignal )
+                            // InternalArduinoML.g:1401:9: lv_d_values_3_0= ruleSignal
+                            {
+
+                            									newCompositeNode(grammarAccess.getTransitionModeAccess().getD_valuesSignalEnumRuleCall_0_0_1_0_2_0());
+                            								
+                            pushFollow(FOLLOW_24);
+                            lv_d_values_3_0=ruleSignal();
+
+                            state._fsp--;
+
+
+                            									if (current==null) {
+                            										current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                            									}
+                            									add(
+                            										current,
+                            										"d_values",
+                            										lv_d_values_3_0,
+                            										"arduinoML.concretesyntax.ArduinoML.Signal");
+                            									afterParserOrEnumRuleCall();
+                            								
+
+                            }
+
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+                        case 2 :
+                            // InternalArduinoML.g:1420:6: ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) )
+                            {
+                            // InternalArduinoML.g:1420:6: ( ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) ) )
+                            // InternalArduinoML.g:1421:7: ( ( ruleEString ) ) ( (lv_comp_5_0= ruleCompare ) ) ( (lv_a_values_6_0= ruleEInt ) )
+                            {
+                            // InternalArduinoML.g:1421:7: ( ( ruleEString ) )
+                            // InternalArduinoML.g:1422:8: ( ruleEString )
+                            {
+                            // InternalArduinoML.g:1422:8: ( ruleEString )
+                            // InternalArduinoML.g:1423:9: ruleEString
+                            {
+
+                            									if (current==null) {
+                            										current = createModelElement(grammarAccess.getTransitionModeRule());
+                            									}
+                            								
+
+                            									newCompositeNode(grammarAccess.getTransitionModeAccess().getAnalogsAnalogCrossReference_0_0_1_1_0_0());
+                            								
+                            pushFollow(FOLLOW_25);
+                            ruleEString();
+
+                            state._fsp--;
+
+
+                            									afterParserOrEnumRuleCall();
+                            								
+
+                            }
+
+
+                            }
+
+                            // InternalArduinoML.g:1437:7: ( (lv_comp_5_0= ruleCompare ) )
+                            // InternalArduinoML.g:1438:8: (lv_comp_5_0= ruleCompare )
+                            {
+                            // InternalArduinoML.g:1438:8: (lv_comp_5_0= ruleCompare )
+                            // InternalArduinoML.g:1439:9: lv_comp_5_0= ruleCompare
+                            {
+
+                            									newCompositeNode(grammarAccess.getTransitionModeAccess().getCompCompareEnumRuleCall_0_0_1_1_1_0());
+                            								
+                            pushFollow(FOLLOW_13);
+                            lv_comp_5_0=ruleCompare();
+
+                            state._fsp--;
+
+
+                            									if (current==null) {
+                            										current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                            									}
+                            									add(
+                            										current,
+                            										"comp",
+                            										lv_comp_5_0,
+                            										"arduinoML.concretesyntax.ArduinoML.Compare");
+                            									afterParserOrEnumRuleCall();
+                            								
+
+                            }
+
+
+                            }
+
+                            // InternalArduinoML.g:1456:7: ( (lv_a_values_6_0= ruleEInt ) )
+                            // InternalArduinoML.g:1457:8: (lv_a_values_6_0= ruleEInt )
+                            {
+                            // InternalArduinoML.g:1457:8: (lv_a_values_6_0= ruleEInt )
+                            // InternalArduinoML.g:1458:9: lv_a_values_6_0= ruleEInt
+                            {
+
+                            									newCompositeNode(grammarAccess.getTransitionModeAccess().getA_valuesEIntParserRuleCall_0_0_1_1_2_0());
+                            								
+                            pushFollow(FOLLOW_24);
+                            lv_a_values_6_0=ruleEInt();
+
+                            state._fsp--;
+
+
+                            									if (current==null) {
+                            										current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                            									}
+                            									add(
+                            										current,
+                            										"a_values",
+                            										lv_a_values_6_0,
+                            										"arduinoML.concretesyntax.ArduinoML.EInt");
+                            									afterParserOrEnumRuleCall();
+                            								
+
+                            }
+
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalArduinoML.g:1477:5: (otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) ) )*
+                    loop21:
+                    do {
+                        int alt21=2;
+                        int LA21_0 = input.LA(1);
+
+                        if ( (LA21_0==27) ) {
+                            alt21=1;
+                        }
+
+
+                        switch (alt21) {
+                    	case 1 :
+                    	    // InternalArduinoML.g:1478:6: otherlv_7= 'and' ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) )
+                    	    {
+                    	    otherlv_7=(Token)match(input,27,FOLLOW_3); 
+
+                    	    						newLeafNode(otherlv_7, grammarAccess.getTransitionModeAccess().getAndKeyword_0_0_2_0());
+                    	    					
+                    	    // InternalArduinoML.g:1482:6: ( ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) ) | ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) ) )
+                    	    int alt20=2;
+                    	    int LA20_0 = input.LA(1);
+
+                    	    if ( (LA20_0==RULE_STRING) ) {
+                    	        int LA20_1 = input.LA(2);
+
+                    	        if ( (LA20_1==26) ) {
+                    	            alt20=1;
+                    	        }
+                    	        else if ( ((LA20_1>=36 && LA20_1<=40)) ) {
+                    	            alt20=2;
+                    	        }
+                    	        else {
+                    	            NoViableAltException nvae =
+                    	                new NoViableAltException("", 20, 1, input);
+
+                    	            throw nvae;
+                    	        }
+                    	    }
+                    	    else if ( (LA20_0==RULE_ID) ) {
+                    	        int LA20_2 = input.LA(2);
+
+                    	        if ( ((LA20_2>=36 && LA20_2<=40)) ) {
+                    	            alt20=2;
+                    	        }
+                    	        else if ( (LA20_2==26) ) {
+                    	            alt20=1;
+                    	        }
+                    	        else {
+                    	            NoViableAltException nvae =
+                    	                new NoViableAltException("", 20, 2, input);
+
+                    	            throw nvae;
+                    	        }
+                    	    }
+                    	    else {
+                    	        NoViableAltException nvae =
+                    	            new NoViableAltException("", 20, 0, input);
+
+                    	        throw nvae;
+                    	    }
+                    	    switch (alt20) {
+                    	        case 1 :
+                    	            // InternalArduinoML.g:1483:7: ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) )
+                    	            {
+                    	            // InternalArduinoML.g:1483:7: ( ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) ) )
+                    	            // InternalArduinoML.g:1484:8: ( ( ruleEString ) ) otherlv_9= 'is' ( (lv_d_values_10_0= ruleSignal ) )
+                    	            {
+                    	            // InternalArduinoML.g:1484:8: ( ( ruleEString ) )
+                    	            // InternalArduinoML.g:1485:9: ( ruleEString )
+                    	            {
+                    	            // InternalArduinoML.g:1485:9: ( ruleEString )
+                    	            // InternalArduinoML.g:1486:10: ruleEString
+                    	            {
+
+                    	            										if (current==null) {
+                    	            											current = createModelElement(grammarAccess.getTransitionModeRule());
+                    	            										}
+                    	            									
+
+                    	            										newCompositeNode(grammarAccess.getTransitionModeAccess().getDigitalsDigitalCrossReference_0_0_2_1_0_0_0());
+                    	            									
+                    	            pushFollow(FOLLOW_23);
+                    	            ruleEString();
+
+                    	            state._fsp--;
+
+
+                    	            										afterParserOrEnumRuleCall();
+                    	            									
+
+                    	            }
+
+
+                    	            }
+
+                    	            otherlv_9=(Token)match(input,26,FOLLOW_22); 
+
+                    	            								newLeafNode(otherlv_9, grammarAccess.getTransitionModeAccess().getIsKeyword_0_0_2_1_0_1());
+                    	            							
+                    	            // InternalArduinoML.g:1504:8: ( (lv_d_values_10_0= ruleSignal ) )
+                    	            // InternalArduinoML.g:1505:9: (lv_d_values_10_0= ruleSignal )
+                    	            {
+                    	            // InternalArduinoML.g:1505:9: (lv_d_values_10_0= ruleSignal )
+                    	            // InternalArduinoML.g:1506:10: lv_d_values_10_0= ruleSignal
+                    	            {
+
+                    	            										newCompositeNode(grammarAccess.getTransitionModeAccess().getD_valuesSignalEnumRuleCall_0_0_2_1_0_2_0());
+                    	            									
+                    	            pushFollow(FOLLOW_24);
+                    	            lv_d_values_10_0=ruleSignal();
+
+                    	            state._fsp--;
+
+
+                    	            										if (current==null) {
+                    	            											current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                    	            										}
+                    	            										add(
+                    	            											current,
+                    	            											"d_values",
+                    	            											lv_d_values_10_0,
+                    	            											"arduinoML.concretesyntax.ArduinoML.Signal");
+                    	            										afterParserOrEnumRuleCall();
+                    	            									
+
+                    	            }
+
+
+                    	            }
+
+
+                    	            }
+
+
+                    	            }
+                    	            break;
+                    	        case 2 :
+                    	            // InternalArduinoML.g:1525:7: ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) )
+                    	            {
+                    	            // InternalArduinoML.g:1525:7: ( ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) ) )
+                    	            // InternalArduinoML.g:1526:8: ( ( ruleEString ) ) ( (lv_comp_12_0= ruleCompare ) ) ( (lv_a_values_13_0= ruleEInt ) )
+                    	            {
+                    	            // InternalArduinoML.g:1526:8: ( ( ruleEString ) )
+                    	            // InternalArduinoML.g:1527:9: ( ruleEString )
+                    	            {
+                    	            // InternalArduinoML.g:1527:9: ( ruleEString )
+                    	            // InternalArduinoML.g:1528:10: ruleEString
+                    	            {
+
+                    	            										if (current==null) {
+                    	            											current = createModelElement(grammarAccess.getTransitionModeRule());
+                    	            										}
+                    	            									
+
+                    	            										newCompositeNode(grammarAccess.getTransitionModeAccess().getAnalogsAnalogCrossReference_0_0_2_1_1_0_0());
+                    	            									
+                    	            pushFollow(FOLLOW_25);
+                    	            ruleEString();
+
+                    	            state._fsp--;
+
+
+                    	            										afterParserOrEnumRuleCall();
+                    	            									
+
+                    	            }
+
+
+                    	            }
+
+                    	            // InternalArduinoML.g:1542:8: ( (lv_comp_12_0= ruleCompare ) )
+                    	            // InternalArduinoML.g:1543:9: (lv_comp_12_0= ruleCompare )
+                    	            {
+                    	            // InternalArduinoML.g:1543:9: (lv_comp_12_0= ruleCompare )
+                    	            // InternalArduinoML.g:1544:10: lv_comp_12_0= ruleCompare
+                    	            {
+
+                    	            										newCompositeNode(grammarAccess.getTransitionModeAccess().getCompCompareEnumRuleCall_0_0_2_1_1_1_0());
+                    	            									
+                    	            pushFollow(FOLLOW_13);
+                    	            lv_comp_12_0=ruleCompare();
+
+                    	            state._fsp--;
+
+
+                    	            										if (current==null) {
+                    	            											current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                    	            										}
+                    	            										add(
+                    	            											current,
+                    	            											"comp",
+                    	            											lv_comp_12_0,
+                    	            											"arduinoML.concretesyntax.ArduinoML.Compare");
+                    	            										afterParserOrEnumRuleCall();
+                    	            									
+
+                    	            }
+
+
+                    	            }
+
+                    	            // InternalArduinoML.g:1561:8: ( (lv_a_values_13_0= ruleEInt ) )
+                    	            // InternalArduinoML.g:1562:9: (lv_a_values_13_0= ruleEInt )
+                    	            {
+                    	            // InternalArduinoML.g:1562:9: (lv_a_values_13_0= ruleEInt )
+                    	            // InternalArduinoML.g:1563:10: lv_a_values_13_0= ruleEInt
+                    	            {
+
+                    	            										newCompositeNode(grammarAccess.getTransitionModeAccess().getA_valuesEIntParserRuleCall_0_0_2_1_1_2_0());
+                    	            									
+                    	            pushFollow(FOLLOW_24);
+                    	            lv_a_values_13_0=ruleEInt();
+
+                    	            state._fsp--;
+
+
+                    	            										if (current==null) {
+                    	            											current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                    	            										}
+                    	            										add(
+                    	            											current,
+                    	            											"a_values",
+                    	            											lv_a_values_13_0,
+                    	            											"arduinoML.concretesyntax.ArduinoML.EInt");
+                    	            										afterParserOrEnumRuleCall();
+                    	            									
+
+                    	            }
+
+
+                    	            }
+
+
+                    	            }
+
+
+                    	            }
+                    	            break;
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop21;
+                        }
+                    } while (true);
+
+                    // InternalArduinoML.g:1583:5: (otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then' )?
+                    int alt22=2;
+                    int LA22_0 = input.LA(1);
+
+                    if ( (LA22_0==28) ) {
+                        alt22=1;
+                    }
+                    switch (alt22) {
+                        case 1 :
+                            // InternalArduinoML.g:1584:6: otherlv_14= 'wait' ( (lv_time_15_0= ruleEInt ) ) ( (lv_unit_16_0= ruleTime_unit ) ) otherlv_17= 'then'
+                            {
+                            otherlv_14=(Token)match(input,28,FOLLOW_13); 
+
+                            						newLeafNode(otherlv_14, grammarAccess.getTransitionModeAccess().getWaitKeyword_0_0_3_0());
+                            					
+                            // InternalArduinoML.g:1588:6: ( (lv_time_15_0= ruleEInt ) )
+                            // InternalArduinoML.g:1589:7: (lv_time_15_0= ruleEInt )
+                            {
+                            // InternalArduinoML.g:1589:7: (lv_time_15_0= ruleEInt )
+                            // InternalArduinoML.g:1590:8: lv_time_15_0= ruleEInt
+                            {
+
+                            								newCompositeNode(grammarAccess.getTransitionModeAccess().getTimeEIntParserRuleCall_0_0_3_1_0());
+                            							
+                            pushFollow(FOLLOW_26);
+                            lv_time_15_0=ruleEInt();
+
+                            state._fsp--;
+
+
+                            								if (current==null) {
+                            									current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                            								}
+                            								set(
+                            									current,
+                            									"time",
+                            									lv_time_15_0,
+                            									"arduinoML.concretesyntax.ArduinoML.EInt");
+                            								afterParserOrEnumRuleCall();
+                            							
+
+                            }
+
+
+                            }
+
+                            // InternalArduinoML.g:1607:6: ( (lv_unit_16_0= ruleTime_unit ) )
+                            // InternalArduinoML.g:1608:7: (lv_unit_16_0= ruleTime_unit )
+                            {
+                            // InternalArduinoML.g:1608:7: (lv_unit_16_0= ruleTime_unit )
+                            // InternalArduinoML.g:1609:8: lv_unit_16_0= ruleTime_unit
+                            {
+
+                            								newCompositeNode(grammarAccess.getTransitionModeAccess().getUnitTime_unitEnumRuleCall_0_0_3_2_0());
+                            							
+                            pushFollow(FOLLOW_27);
+                            lv_unit_16_0=ruleTime_unit();
+
+                            state._fsp--;
+
+
+                            								if (current==null) {
+                            									current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                            								}
+                            								set(
+                            									current,
+                            									"unit",
+                            									lv_unit_16_0,
+                            									"arduinoML.concretesyntax.ArduinoML.Time_unit");
+                            								afterParserOrEnumRuleCall();
+                            							
+
+                            }
+
+
+                            }
+
+                            otherlv_17=(Token)match(input,29,FOLLOW_28); 
+
+                            						newLeafNode(otherlv_17, grammarAccess.getTransitionModeAccess().getThenKeyword_0_0_3_3());
+                            					
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalArduinoML.g:1633:4: (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' )
+                    {
+                    // InternalArduinoML.g:1633:4: (otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then' )
+                    // InternalArduinoML.g:1634:5: otherlv_18= 'wait' ( (lv_time_19_0= ruleEInt ) ) ( (lv_unit_20_0= ruleTime_unit ) ) otherlv_21= 'then'
+                    {
+                    otherlv_18=(Token)match(input,28,FOLLOW_13); 
+
+                    					newLeafNode(otherlv_18, grammarAccess.getTransitionModeAccess().getWaitKeyword_0_1_0());
+                    				
+                    // InternalArduinoML.g:1638:5: ( (lv_time_19_0= ruleEInt ) )
+                    // InternalArduinoML.g:1639:6: (lv_time_19_0= ruleEInt )
+                    {
+                    // InternalArduinoML.g:1639:6: (lv_time_19_0= ruleEInt )
+                    // InternalArduinoML.g:1640:7: lv_time_19_0= ruleEInt
+                    {
+
+                    							newCompositeNode(grammarAccess.getTransitionModeAccess().getTimeEIntParserRuleCall_0_1_1_0());
+                    						
+                    pushFollow(FOLLOW_26);
+                    lv_time_19_0=ruleEInt();
+
+                    state._fsp--;
+
+
+                    							if (current==null) {
+                    								current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                    							}
+                    							set(
+                    								current,
+                    								"time",
+                    								lv_time_19_0,
+                    								"arduinoML.concretesyntax.ArduinoML.EInt");
+                    							afterParserOrEnumRuleCall();
+                    						
+
+                    }
+
+
+                    }
+
+                    // InternalArduinoML.g:1657:5: ( (lv_unit_20_0= ruleTime_unit ) )
+                    // InternalArduinoML.g:1658:6: (lv_unit_20_0= ruleTime_unit )
+                    {
+                    // InternalArduinoML.g:1658:6: (lv_unit_20_0= ruleTime_unit )
+                    // InternalArduinoML.g:1659:7: lv_unit_20_0= ruleTime_unit
+                    {
+
+                    							newCompositeNode(grammarAccess.getTransitionModeAccess().getUnitTime_unitEnumRuleCall_0_1_2_0());
+                    						
+                    pushFollow(FOLLOW_27);
+                    lv_unit_20_0=ruleTime_unit();
+
+                    state._fsp--;
+
+
+                    							if (current==null) {
+                    								current = createModelElementForParent(grammarAccess.getTransitionModeRule());
+                    							}
+                    							set(
+                    								current,
+                    								"unit",
+                    								lv_unit_20_0,
+                    								"arduinoML.concretesyntax.ArduinoML.Time_unit");
+                    							afterParserOrEnumRuleCall();
+                    						
+
+                    }
+
+
+                    }
+
+                    otherlv_21=(Token)match(input,29,FOLLOW_28); 
+
+                    					newLeafNode(otherlv_21, grammarAccess.getTransitionModeAccess().getThenKeyword_0_1_3());
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_22=(Token)match(input,30,FOLLOW_21); 
+
+            			newLeafNode(otherlv_22, grammarAccess.getTransitionModeAccess().getGoKeyword_1());
+            		
+            otherlv_23=(Token)match(input,24,FOLLOW_11); 
+
+            			newLeafNode(otherlv_23, grammarAccess.getTransitionModeAccess().getToKeyword_2());
+            		
+            otherlv_24=(Token)match(input,17,FOLLOW_3); 
+
+            			newLeafNode(otherlv_24, grammarAccess.getTransitionModeAccess().getModeKeyword_3());
+            		
+            // InternalArduinoML.g:1694:3: ( ( ruleEString ) )
+            // InternalArduinoML.g:1695:4: ( ruleEString )
+            {
+            // InternalArduinoML.g:1695:4: ( ruleEString )
+            // InternalArduinoML.g:1696:5: ruleEString
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getTransitionModeRule());
+            					}
+            				
+
+            					newCompositeNode(grammarAccess.getTransitionModeAccess().getNext_modeModeCrossReference_4_0());
+            				
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleTransitionMode"
 
 
     // $ANTLR start "ruleSignal"
-    // InternalArduinoML.g:1337:1: ruleSignal returns [Enumerator current=null] : ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) ;
+    // InternalArduinoML.g:1714:1: ruleSignal returns [Enumerator current=null] : ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) ;
     public final Enumerator ruleSignal() throws RecognitionException {
         Enumerator current = null;
 
@@ -3211,33 +4038,33 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:1343:2: ( ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) )
-            // InternalArduinoML.g:1344:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
+            // InternalArduinoML.g:1720:2: ( ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) )
+            // InternalArduinoML.g:1721:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
             {
-            // InternalArduinoML.g:1344:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalArduinoML.g:1721:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA19_0==30) ) {
-                alt19=1;
+            if ( (LA24_0==31) ) {
+                alt24=1;
             }
-            else if ( (LA19_0==31) ) {
-                alt19=2;
+            else if ( (LA24_0==32) ) {
+                alt24=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 24, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt24) {
                 case 1 :
-                    // InternalArduinoML.g:1345:3: (enumLiteral_0= 'HIGH' )
+                    // InternalArduinoML.g:1722:3: (enumLiteral_0= 'HIGH' )
                     {
-                    // InternalArduinoML.g:1345:3: (enumLiteral_0= 'HIGH' )
-                    // InternalArduinoML.g:1346:4: enumLiteral_0= 'HIGH'
+                    // InternalArduinoML.g:1722:3: (enumLiteral_0= 'HIGH' )
+                    // InternalArduinoML.g:1723:4: enumLiteral_0= 'HIGH'
                     {
-                    enumLiteral_0=(Token)match(input,30,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,31,FOLLOW_2); 
 
                     				current = grammarAccess.getSignalAccess().getHIGHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getSignalAccess().getHIGHEnumLiteralDeclaration_0());
@@ -3249,12 +4076,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:1353:3: (enumLiteral_1= 'LOW' )
+                    // InternalArduinoML.g:1730:3: (enumLiteral_1= 'LOW' )
                     {
-                    // InternalArduinoML.g:1353:3: (enumLiteral_1= 'LOW' )
-                    // InternalArduinoML.g:1354:4: enumLiteral_1= 'LOW'
+                    // InternalArduinoML.g:1730:3: (enumLiteral_1= 'LOW' )
+                    // InternalArduinoML.g:1731:4: enumLiteral_1= 'LOW'
                     {
-                    enumLiteral_1=(Token)match(input,31,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,32,FOLLOW_2); 
 
                     				current = grammarAccess.getSignalAccess().getLOWEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getSignalAccess().getLOWEnumLiteralDeclaration_1());
@@ -3288,7 +4115,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTime_unit"
-    // InternalArduinoML.g:1364:1: ruleTime_unit returns [Enumerator current=null] : ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) ) ;
+    // InternalArduinoML.g:1741:1: ruleTime_unit returns [Enumerator current=null] : ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) ) ;
     public final Enumerator ruleTime_unit() throws RecognitionException {
         Enumerator current = null;
 
@@ -3300,42 +4127,42 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:1370:2: ( ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) ) )
-            // InternalArduinoML.g:1371:2: ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) )
+            // InternalArduinoML.g:1747:2: ( ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) ) )
+            // InternalArduinoML.g:1748:2: ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) )
             {
-            // InternalArduinoML.g:1371:2: ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) )
-            int alt20=3;
+            // InternalArduinoML.g:1748:2: ( (enumLiteral_0= 'ms' ) | (enumLiteral_1= 's' ) | (enumLiteral_2= 'min' ) )
+            int alt25=3;
             switch ( input.LA(1) ) {
-            case 32:
-                {
-                alt20=1;
-                }
-                break;
             case 33:
                 {
-                alt20=2;
+                alt25=1;
                 }
                 break;
             case 34:
                 {
-                alt20=3;
+                alt25=2;
+                }
+                break;
+            case 35:
+                {
+                alt25=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 25, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt20) {
+            switch (alt25) {
                 case 1 :
-                    // InternalArduinoML.g:1372:3: (enumLiteral_0= 'ms' )
+                    // InternalArduinoML.g:1749:3: (enumLiteral_0= 'ms' )
                     {
-                    // InternalArduinoML.g:1372:3: (enumLiteral_0= 'ms' )
-                    // InternalArduinoML.g:1373:4: enumLiteral_0= 'ms'
+                    // InternalArduinoML.g:1749:3: (enumLiteral_0= 'ms' )
+                    // InternalArduinoML.g:1750:4: enumLiteral_0= 'ms'
                     {
-                    enumLiteral_0=(Token)match(input,32,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,33,FOLLOW_2); 
 
                     				current = grammarAccess.getTime_unitAccess().getMsEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getTime_unitAccess().getMsEnumLiteralDeclaration_0());
@@ -3347,12 +4174,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:1380:3: (enumLiteral_1= 's' )
+                    // InternalArduinoML.g:1757:3: (enumLiteral_1= 's' )
                     {
-                    // InternalArduinoML.g:1380:3: (enumLiteral_1= 's' )
-                    // InternalArduinoML.g:1381:4: enumLiteral_1= 's'
+                    // InternalArduinoML.g:1757:3: (enumLiteral_1= 's' )
+                    // InternalArduinoML.g:1758:4: enumLiteral_1= 's'
                     {
-                    enumLiteral_1=(Token)match(input,33,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,34,FOLLOW_2); 
 
                     				current = grammarAccess.getTime_unitAccess().getSEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getTime_unitAccess().getSEnumLiteralDeclaration_1());
@@ -3364,12 +4191,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalArduinoML.g:1388:3: (enumLiteral_2= 'min' )
+                    // InternalArduinoML.g:1765:3: (enumLiteral_2= 'min' )
                     {
-                    // InternalArduinoML.g:1388:3: (enumLiteral_2= 'min' )
-                    // InternalArduinoML.g:1389:4: enumLiteral_2= 'min'
+                    // InternalArduinoML.g:1765:3: (enumLiteral_2= 'min' )
+                    // InternalArduinoML.g:1766:4: enumLiteral_2= 'min'
                     {
-                    enumLiteral_2=(Token)match(input,34,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,35,FOLLOW_2); 
 
                     				current = grammarAccess.getTime_unitAccess().getMinEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getTime_unitAccess().getMinEnumLiteralDeclaration_2());
@@ -3403,7 +4230,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCompare"
-    // InternalArduinoML.g:1399:1: ruleCompare returns [Enumerator current=null] : ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) ) ;
+    // InternalArduinoML.g:1776:1: ruleCompare returns [Enumerator current=null] : ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) ) ;
     public final Enumerator ruleCompare() throws RecognitionException {
         Enumerator current = null;
 
@@ -3417,52 +4244,52 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:1405:2: ( ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) ) )
-            // InternalArduinoML.g:1406:2: ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) )
+            // InternalArduinoML.g:1782:2: ( ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) ) )
+            // InternalArduinoML.g:1783:2: ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) )
             {
-            // InternalArduinoML.g:1406:2: ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) )
-            int alt21=5;
+            // InternalArduinoML.g:1783:2: ( (enumLiteral_0= 'inf' ) | (enumLiteral_1= 'einf' ) | (enumLiteral_2= 'equal' ) | (enumLiteral_3= 'esup' ) | (enumLiteral_4= 'sup' ) )
+            int alt26=5;
             switch ( input.LA(1) ) {
-            case 35:
-                {
-                alt21=1;
-                }
-                break;
             case 36:
                 {
-                alt21=2;
+                alt26=1;
                 }
                 break;
             case 37:
                 {
-                alt21=3;
+                alt26=2;
                 }
                 break;
             case 38:
                 {
-                alt21=4;
+                alt26=3;
                 }
                 break;
             case 39:
                 {
-                alt21=5;
+                alt26=4;
+                }
+                break;
+            case 40:
+                {
+                alt26=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 26, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt21) {
+            switch (alt26) {
                 case 1 :
-                    // InternalArduinoML.g:1407:3: (enumLiteral_0= 'inf' )
+                    // InternalArduinoML.g:1784:3: (enumLiteral_0= 'inf' )
                     {
-                    // InternalArduinoML.g:1407:3: (enumLiteral_0= 'inf' )
-                    // InternalArduinoML.g:1408:4: enumLiteral_0= 'inf'
+                    // InternalArduinoML.g:1784:3: (enumLiteral_0= 'inf' )
+                    // InternalArduinoML.g:1785:4: enumLiteral_0= 'inf'
                     {
-                    enumLiteral_0=(Token)match(input,35,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,36,FOLLOW_2); 
 
                     				current = grammarAccess.getCompareAccess().getInfEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getCompareAccess().getInfEnumLiteralDeclaration_0());
@@ -3474,12 +4301,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:1415:3: (enumLiteral_1= 'einf' )
+                    // InternalArduinoML.g:1792:3: (enumLiteral_1= 'einf' )
                     {
-                    // InternalArduinoML.g:1415:3: (enumLiteral_1= 'einf' )
-                    // InternalArduinoML.g:1416:4: enumLiteral_1= 'einf'
+                    // InternalArduinoML.g:1792:3: (enumLiteral_1= 'einf' )
+                    // InternalArduinoML.g:1793:4: enumLiteral_1= 'einf'
                     {
-                    enumLiteral_1=(Token)match(input,36,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,37,FOLLOW_2); 
 
                     				current = grammarAccess.getCompareAccess().getEinfEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getCompareAccess().getEinfEnumLiteralDeclaration_1());
@@ -3491,12 +4318,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalArduinoML.g:1423:3: (enumLiteral_2= 'equal' )
+                    // InternalArduinoML.g:1800:3: (enumLiteral_2= 'equal' )
                     {
-                    // InternalArduinoML.g:1423:3: (enumLiteral_2= 'equal' )
-                    // InternalArduinoML.g:1424:4: enumLiteral_2= 'equal'
+                    // InternalArduinoML.g:1800:3: (enumLiteral_2= 'equal' )
+                    // InternalArduinoML.g:1801:4: enumLiteral_2= 'equal'
                     {
-                    enumLiteral_2=(Token)match(input,37,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,38,FOLLOW_2); 
 
                     				current = grammarAccess.getCompareAccess().getEqualEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getCompareAccess().getEqualEnumLiteralDeclaration_2());
@@ -3508,12 +4335,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalArduinoML.g:1431:3: (enumLiteral_3= 'esup' )
+                    // InternalArduinoML.g:1808:3: (enumLiteral_3= 'esup' )
                     {
-                    // InternalArduinoML.g:1431:3: (enumLiteral_3= 'esup' )
-                    // InternalArduinoML.g:1432:4: enumLiteral_3= 'esup'
+                    // InternalArduinoML.g:1808:3: (enumLiteral_3= 'esup' )
+                    // InternalArduinoML.g:1809:4: enumLiteral_3= 'esup'
                     {
-                    enumLiteral_3=(Token)match(input,38,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,39,FOLLOW_2); 
 
                     				current = grammarAccess.getCompareAccess().getEsupEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getCompareAccess().getEsupEnumLiteralDeclaration_3());
@@ -3525,12 +4352,12 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalArduinoML.g:1439:3: (enumLiteral_4= 'sup' )
+                    // InternalArduinoML.g:1816:3: (enumLiteral_4= 'sup' )
                     {
-                    // InternalArduinoML.g:1439:3: (enumLiteral_4= 'sup' )
-                    // InternalArduinoML.g:1440:4: enumLiteral_4= 'sup'
+                    // InternalArduinoML.g:1816:3: (enumLiteral_4= 'sup' )
+                    // InternalArduinoML.g:1817:4: enumLiteral_4= 'sup'
                     {
-                    enumLiteral_4=(Token)match(input,39,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,40,FOLLOW_2); 
 
                     				current = grammarAccess.getCompareAccess().getSupEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getCompareAccess().getSupEnumLiteralDeclaration_4());
@@ -3574,24 +4401,26 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000380000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000390000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000700000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000710000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000032L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000000003C0000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000740000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000009400000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000009400002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000080030L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000012000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000012000002L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00000000C0000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x000000002C000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000000F800000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000700000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000022000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000012800000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000012800002L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000180000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000058000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x000001F000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000E00000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000040000000L});
 
 }

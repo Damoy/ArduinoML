@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link arduinoML.Mode#getBricks <em>Bricks</em>}</li>
  *   <li>{@link arduinoML.Mode#getStates <em>States</em>}</li>
  *   <li>{@link arduinoML.Mode#getInitial <em>Initial</em>}</li>
+ *   <li>{@link arduinoML.Mode#getTransitions_mode <em>Transitions mode</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getMode()
@@ -80,5 +81,23 @@ public interface Mode extends NamedElement {
 	 * @generated
 	 */
 	void setInitial(State value);
+
+	/**
+	 * Returns the value of the '<em><b>Transitions mode</b></em>' containment reference list.
+	 * The list contents are of type {@link arduinoML.TransitionMode}.
+	 * It is bidirectional and its opposite is '{@link arduinoML.TransitionMode#getMode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Transitions mode</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Transitions mode</em>' containment reference list.
+	 * @see arduinoML.ArduinoMLPackage#getMode_Transitions_mode()
+	 * @see arduinoML.TransitionMode#getMode
+	 * @model opposite="mode" containment="true" required="true"
+	 * @generated
+	 */
+	EList<TransitionMode> getTransitions_mode();
 
 } // Mode

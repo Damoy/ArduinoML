@@ -29,7 +29,7 @@ class ArduinoMLFormatter extends AbstractFormatter2 {
 		for (action : state.actions) {
 			action.format
 		}
-		for (transition : state.transitions) {
+		for (transition : state.transitions_state) {
 			transition.format
 		}
 	}

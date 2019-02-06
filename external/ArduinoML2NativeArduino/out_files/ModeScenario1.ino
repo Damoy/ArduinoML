@@ -27,17 +27,17 @@ void state_off() {
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
 		reset_jour();
-		time = millis();
-		mode_nuit();
-	}
-	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_on();
-	}
 	else {
 		state_off(); 
 	}
+}
+
+void state_nuit() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button() {
+	boolean guard = millis() - time > debounce;
 }
 
 void state_on() {
@@ -46,68 +46,80 @@ void state_on() {
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
 		reset_jour();
-		time = millis();
-		mode_nuit();
-	}
-	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_off();
-	}
 	else {
 		state_on(); 
 	}
 }
 
-void mode_nuit() {
-	//setup bricks
-	pinMode(9, INPUT);
-	pinMode(11, OUTPUT);
-	//initial state
-	state_nuit_off();
+void state_nuit() {
+	boolean guard = millis() - time > debounce;
 }
 
-void reset_nuit() {
-	digitalWrite(11, LOW);
+void state_button() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_off() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_nuit() {
+	boolean guard = millis() - time > debounce;
 }
 
 void state_nuit_off() {
-	digitalWrite(11, LOW);
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button2() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_led2() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_nuit_off() {
+	digitalWrite(0, LOW);
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
 		delay(0);
-		reset_nuit();
-		time = millis();
-		mode_jour();
-	}
-	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_nuit_on();
-	}
+		reset_jour();
 	else {
 		state_nuit_off(); 
 	}
 }
 
+void state_jour() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button2() {
+	boolean guard = millis() - time > debounce;
+}
+
 void state_nuit_on() {
-	digitalWrite(11, HIGH);
+	digitalWrite(0, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
 		delay(0);
-		reset_nuit();
-		time = millis();
-		mode_jour();
-	}
-	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_nuit_off();
-	}
+		reset_jour();
 	else {
 		state_nuit_on(); 
 	}
+}
+
+void state_jour() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button2() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_nuit_off() {
+	boolean guard = millis() - time > debounce;
 }
 
 void loop() {mode_jour();} // Entering init mode

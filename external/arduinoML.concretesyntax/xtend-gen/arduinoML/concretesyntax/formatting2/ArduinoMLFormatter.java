@@ -7,7 +7,7 @@ import arduinoML.Action;
 import arduinoML.App;
 import arduinoML.Brick;
 import arduinoML.State;
-import arduinoML.Transition;
+import arduinoML.TransitionState;
 import arduinoML.concretesyntax.services.ArduinoMLGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Arrays;
@@ -40,9 +40,9 @@ public class ArduinoMLFormatter extends AbstractFormatter2 {
     for (final Action action : _actions) {
       document.<Action>format(action);
     }
-    EList<Transition> _transitions = state.getTransitions();
-    for (final Transition transition : _transitions) {
-      document.<Transition>format(transition);
+    EList<TransitionState> _transitions_state = state.getTransitions_state();
+    for (final TransitionState transition : _transitions_state) {
+      document.<TransitionState>format(transition);
     }
   }
   

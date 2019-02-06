@@ -76,19 +76,9 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cModesModeParserRuleCall_1_13_0 = (RuleCall)cModesAssignment_1_13.eContents().get(0);
 		
 		//App:
-		//	'app' name=EString 'initial' 'state' initial_state=[State|EString] ':'
-		//	'bricks' ':'
-		//	bricks+=Brick
-		//	bricks+=Brick*
-		//	'states' ':'
-		//	states+=State
-		//	states+=State* | 'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
-		//	'bricks' ':'
-		//	bricks+=Brick
-		//	bricks+=Brick*
-		//	'modes' ':'
-		//	modes+=Mode
-		//	modes+=Mode*;
+		//	'app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick*
+		//	'states' ':' states+=State states+=State* | 'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
+		//	'bricks' ':' bricks+=Brick bricks+=Brick* 'modes' ':' modes+=Mode modes+=Mode*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick*
@@ -320,18 +310,20 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatesStateParserRuleCall_8_0 = (RuleCall)cStatesAssignment_8.eContents().get(0);
 		private final Assignment cStatesAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cStatesStateParserRuleCall_9_0 = (RuleCall)cStatesAssignment_9.eContents().get(0);
+		private final Keyword cTransitionsKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cColonKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cTransitions_modeAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_12_0 = (RuleCall)cTransitions_modeAssignment_12.eContents().get(0);
+		private final Assignment cTransitions_modeAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_13_0 = (RuleCall)cTransitions_modeAssignment_13.eContents().get(0);
 		
 		//Mode:
-		//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':'
-		//	bricks+=Brick
-		//	bricks+=Brick*)?
-		//	'states' ':'
-		//	states+=State
-		//	states+=State*;
+		//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
+		//	states+=State states+=State* 'transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
-		//states+=State states+=State*
+		//states+=State states+=State* 'transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -396,6 +388,24 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//State
 		public RuleCall getStatesStateParserRuleCall_9_0() { return cStatesStateParserRuleCall_9_0; }
+		
+		//'transitions'
+		public Keyword getTransitionsKeyword_10() { return cTransitionsKeyword_10; }
+		
+		//':'
+		public Keyword getColonKeyword_11() { return cColonKeyword_11; }
+		
+		//transitions_mode+=TransitionMode
+		public Assignment getTransitions_modeAssignment_12() { return cTransitions_modeAssignment_12; }
+		
+		//TransitionMode
+		public RuleCall getTransitions_modeTransitionModeParserRuleCall_12_0() { return cTransitions_modeTransitionModeParserRuleCall_12_0; }
+		
+		//transitions_mode+=TransitionMode*
+		public Assignment getTransitions_modeAssignment_13() { return cTransitions_modeAssignment_13; }
+		
+		//TransitionMode
+		public RuleCall getTransitions_modeTransitionModeParserRuleCall_13_0() { return cTransitions_modeTransitionModeParserRuleCall_13_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.State");
@@ -407,20 +417,17 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionsActionParserRuleCall_2_0 = (RuleCall)cActionsAssignment_2.eContents().get(0);
 		private final Assignment cActionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cActionsActionParserRuleCall_3_0 = (RuleCall)cActionsAssignment_3.eContents().get(0);
-		private final Assignment cTransitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTransitionsTransitionParserRuleCall_4_0 = (RuleCall)cTransitionsAssignment_4.eContents().get(0);
-		private final Assignment cTransitionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTransitionsTransitionParserRuleCall_5_0 = (RuleCall)cTransitionsAssignment_5.eContents().get(0);
+		private final Assignment cTransitions_stateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTransitions_stateTransitionStateParserRuleCall_4_0 = (RuleCall)cTransitions_stateAssignment_4.eContents().get(0);
+		private final Assignment cTransitions_stateAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTransitions_stateTransitionStateParserRuleCall_5_0 = (RuleCall)cTransitions_stateAssignment_5.eContents().get(0);
 		
 		//State:
-		//	name=EString ':'
-		//	actions+=Action
-		//	actions+=Action*
-		//	transitions+=Transition
-		//	transitions+=Transition*;
+		//	name=EString ':' actions+=Action actions+=Action* transitions_state+=TransitionState
+		//	transitions_state+=TransitionState*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=EString ':' actions+=Action actions+=Action* transitions+=Transition transitions+=Transition*
+		//name=EString ':' actions+=Action actions+=Action* transitions_state+=TransitionState transitions_state+=TransitionState*
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -444,17 +451,17 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//Action
 		public RuleCall getActionsActionParserRuleCall_3_0() { return cActionsActionParserRuleCall_3_0; }
 		
-		//transitions+=Transition
-		public Assignment getTransitionsAssignment_4() { return cTransitionsAssignment_4; }
+		//transitions_state+=TransitionState
+		public Assignment getTransitions_stateAssignment_4() { return cTransitions_stateAssignment_4; }
 		
-		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_4_0() { return cTransitionsTransitionParserRuleCall_4_0; }
+		//TransitionState
+		public RuleCall getTransitions_stateTransitionStateParserRuleCall_4_0() { return cTransitions_stateTransitionStateParserRuleCall_4_0; }
 		
-		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_5() { return cTransitionsAssignment_5; }
+		//transitions_state+=TransitionState*
+		public Assignment getTransitions_stateAssignment_5() { return cTransitions_stateAssignment_5; }
 		
-		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_5_0() { return cTransitionsTransitionParserRuleCall_5_0; }
+		//TransitionState
+		public RuleCall getTransitions_stateTransitionStateParserRuleCall_5_0() { return cTransitions_stateTransitionStateParserRuleCall_5_0; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.EInt");
@@ -474,8 +481,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cActuatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Actuator:
-		//	{Actuator}
-		//	'Actuator';
+		//	{Actuator} 'Actuator';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Actuator} 'Actuator'
@@ -494,8 +500,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDigitalKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Digital:
-		//	{Digital}
-		//	'Digital';
+		//	{Digital} 'Digital';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Digital} 'Digital'
@@ -514,8 +519,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAnalogKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Analog:
-		//	{Analog}
-		//	'Analog';
+		//	{Analog} 'Analog';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Analog} 'Analog'
@@ -568,6 +572,25 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class TransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Transition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTransitionStateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTransitionModeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Transition:
+		//	TransitionState | TransitionMode;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//TransitionState | TransitionMode
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//TransitionState
+		public RuleCall getTransitionStateParserRuleCall_0() { return cTransitionStateParserRuleCall_0; }
+		
+		//TransitionMode
+		public RuleCall getTransitionModeParserRuleCall_1() { return cTransitionModeParserRuleCall_1; }
+	}
+	public class TransitionStateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.TransitionState");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
@@ -622,29 +645,22 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cThenKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
 		private final Keyword cGoKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cToKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
-		private final Keyword cStateKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cNext_stateAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final CrossReference cNext_stateStateCrossReference_3_0_1_0 = (CrossReference)cNext_stateAssignment_3_0_1.eContents().get(0);
-		private final RuleCall cNext_stateStateEStringParserRuleCall_3_0_1_0_1 = (RuleCall)cNext_stateStateCrossReference_3_0_1_0.eContents().get(1);
-		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cModeKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cNext_modeAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final CrossReference cNext_modeModeCrossReference_3_1_1_0 = (CrossReference)cNext_modeAssignment_3_1_1.eContents().get(0);
-		private final RuleCall cNext_modeModeEStringParserRuleCall_3_1_1_0_1 = (RuleCall)cNext_modeModeCrossReference_3_1_1_0.eContents().get(1);
+		private final Keyword cStateKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNext_stateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cNext_stateStateCrossReference_4_0 = (CrossReference)cNext_stateAssignment_4.eContents().get(0);
+		private final RuleCall cNext_stateStateEStringParserRuleCall_4_0_1 = (RuleCall)cNext_stateStateCrossReference_4_0.eContents().get(1);
 		
-		//Transition:
+		//TransitionState:
 		//	('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
 		//	('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
-		//	('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' ('state'
-		//	next_state=[State|EString] | 'mode' next_mode=[Mode|EString]);
+		//	('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' 'state'
+		//	next_state=[State|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
 		//('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
 		//('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
-		//('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' ('state'
-		//next_state=[State|EString] | 'mode' next_mode=[Mode|EString])
+		//('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' 'state'
+		//next_state=[State|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//'when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
@@ -810,38 +826,266 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'to'
 		public Keyword getToKeyword_2() { return cToKeyword_2; }
 		
-		//'state' next_state=[State|EString] | 'mode' next_mode=[Mode|EString]
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-		
-		//'state' next_state=[State|EString]
-		public Group getGroup_3_0() { return cGroup_3_0; }
-		
 		//'state'
-		public Keyword getStateKeyword_3_0_0() { return cStateKeyword_3_0_0; }
+		public Keyword getStateKeyword_3() { return cStateKeyword_3; }
 		
 		//next_state=[State|EString]
-		public Assignment getNext_stateAssignment_3_0_1() { return cNext_stateAssignment_3_0_1; }
+		public Assignment getNext_stateAssignment_4() { return cNext_stateAssignment_4; }
 		
 		//[State|EString]
-		public CrossReference getNext_stateStateCrossReference_3_0_1_0() { return cNext_stateStateCrossReference_3_0_1_0; }
+		public CrossReference getNext_stateStateCrossReference_4_0() { return cNext_stateStateCrossReference_4_0; }
 		
 		//EString
-		public RuleCall getNext_stateStateEStringParserRuleCall_3_0_1_0_1() { return cNext_stateStateEStringParserRuleCall_3_0_1_0_1; }
+		public RuleCall getNext_stateStateEStringParserRuleCall_4_0_1() { return cNext_stateStateEStringParserRuleCall_4_0_1; }
+	}
+	public class TransitionModeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.TransitionMode");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final Keyword cWhenKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
+		private final Alternatives cAlternatives_0_0_1 = (Alternatives)cGroup_0_0.eContents().get(1);
+		private final Group cGroup_0_0_1_0 = (Group)cAlternatives_0_0_1.eContents().get(0);
+		private final Assignment cDigitalsAssignment_0_0_1_0_0 = (Assignment)cGroup_0_0_1_0.eContents().get(0);
+		private final CrossReference cDigitalsDigitalCrossReference_0_0_1_0_0_0 = (CrossReference)cDigitalsAssignment_0_0_1_0_0.eContents().get(0);
+		private final RuleCall cDigitalsDigitalEStringParserRuleCall_0_0_1_0_0_0_1 = (RuleCall)cDigitalsDigitalCrossReference_0_0_1_0_0_0.eContents().get(1);
+		private final Keyword cIsKeyword_0_0_1_0_1 = (Keyword)cGroup_0_0_1_0.eContents().get(1);
+		private final Assignment cD_valuesAssignment_0_0_1_0_2 = (Assignment)cGroup_0_0_1_0.eContents().get(2);
+		private final RuleCall cD_valuesSignalEnumRuleCall_0_0_1_0_2_0 = (RuleCall)cD_valuesAssignment_0_0_1_0_2.eContents().get(0);
+		private final Group cGroup_0_0_1_1 = (Group)cAlternatives_0_0_1.eContents().get(1);
+		private final Assignment cAnalogsAssignment_0_0_1_1_0 = (Assignment)cGroup_0_0_1_1.eContents().get(0);
+		private final CrossReference cAnalogsAnalogCrossReference_0_0_1_1_0_0 = (CrossReference)cAnalogsAssignment_0_0_1_1_0.eContents().get(0);
+		private final RuleCall cAnalogsAnalogEStringParserRuleCall_0_0_1_1_0_0_1 = (RuleCall)cAnalogsAnalogCrossReference_0_0_1_1_0_0.eContents().get(1);
+		private final Assignment cCompAssignment_0_0_1_1_1 = (Assignment)cGroup_0_0_1_1.eContents().get(1);
+		private final RuleCall cCompCompareEnumRuleCall_0_0_1_1_1_0 = (RuleCall)cCompAssignment_0_0_1_1_1.eContents().get(0);
+		private final Assignment cA_valuesAssignment_0_0_1_1_2 = (Assignment)cGroup_0_0_1_1.eContents().get(2);
+		private final RuleCall cA_valuesEIntParserRuleCall_0_0_1_1_2_0 = (RuleCall)cA_valuesAssignment_0_0_1_1_2.eContents().get(0);
+		private final Group cGroup_0_0_2 = (Group)cGroup_0_0.eContents().get(2);
+		private final Keyword cAndKeyword_0_0_2_0 = (Keyword)cGroup_0_0_2.eContents().get(0);
+		private final Alternatives cAlternatives_0_0_2_1 = (Alternatives)cGroup_0_0_2.eContents().get(1);
+		private final Group cGroup_0_0_2_1_0 = (Group)cAlternatives_0_0_2_1.eContents().get(0);
+		private final Assignment cDigitalsAssignment_0_0_2_1_0_0 = (Assignment)cGroup_0_0_2_1_0.eContents().get(0);
+		private final CrossReference cDigitalsDigitalCrossReference_0_0_2_1_0_0_0 = (CrossReference)cDigitalsAssignment_0_0_2_1_0_0.eContents().get(0);
+		private final RuleCall cDigitalsDigitalEStringParserRuleCall_0_0_2_1_0_0_0_1 = (RuleCall)cDigitalsDigitalCrossReference_0_0_2_1_0_0_0.eContents().get(1);
+		private final Keyword cIsKeyword_0_0_2_1_0_1 = (Keyword)cGroup_0_0_2_1_0.eContents().get(1);
+		private final Assignment cD_valuesAssignment_0_0_2_1_0_2 = (Assignment)cGroup_0_0_2_1_0.eContents().get(2);
+		private final RuleCall cD_valuesSignalEnumRuleCall_0_0_2_1_0_2_0 = (RuleCall)cD_valuesAssignment_0_0_2_1_0_2.eContents().get(0);
+		private final Group cGroup_0_0_2_1_1 = (Group)cAlternatives_0_0_2_1.eContents().get(1);
+		private final Assignment cAnalogsAssignment_0_0_2_1_1_0 = (Assignment)cGroup_0_0_2_1_1.eContents().get(0);
+		private final CrossReference cAnalogsAnalogCrossReference_0_0_2_1_1_0_0 = (CrossReference)cAnalogsAssignment_0_0_2_1_1_0.eContents().get(0);
+		private final RuleCall cAnalogsAnalogEStringParserRuleCall_0_0_2_1_1_0_0_1 = (RuleCall)cAnalogsAnalogCrossReference_0_0_2_1_1_0_0.eContents().get(1);
+		private final Assignment cCompAssignment_0_0_2_1_1_1 = (Assignment)cGroup_0_0_2_1_1.eContents().get(1);
+		private final RuleCall cCompCompareEnumRuleCall_0_0_2_1_1_1_0 = (RuleCall)cCompAssignment_0_0_2_1_1_1.eContents().get(0);
+		private final Assignment cA_valuesAssignment_0_0_2_1_1_2 = (Assignment)cGroup_0_0_2_1_1.eContents().get(2);
+		private final RuleCall cA_valuesEIntParserRuleCall_0_0_2_1_1_2_0 = (RuleCall)cA_valuesAssignment_0_0_2_1_1_2.eContents().get(0);
+		private final Group cGroup_0_0_3 = (Group)cGroup_0_0.eContents().get(3);
+		private final Keyword cWaitKeyword_0_0_3_0 = (Keyword)cGroup_0_0_3.eContents().get(0);
+		private final Assignment cTimeAssignment_0_0_3_1 = (Assignment)cGroup_0_0_3.eContents().get(1);
+		private final RuleCall cTimeEIntParserRuleCall_0_0_3_1_0 = (RuleCall)cTimeAssignment_0_0_3_1.eContents().get(0);
+		private final Assignment cUnitAssignment_0_0_3_2 = (Assignment)cGroup_0_0_3.eContents().get(2);
+		private final RuleCall cUnitTime_unitEnumRuleCall_0_0_3_2_0 = (RuleCall)cUnitAssignment_0_0_3_2.eContents().get(0);
+		private final Keyword cThenKeyword_0_0_3_3 = (Keyword)cGroup_0_0_3.eContents().get(3);
+		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
+		private final Keyword cWaitKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cTimeAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cTimeEIntParserRuleCall_0_1_1_0 = (RuleCall)cTimeAssignment_0_1_1.eContents().get(0);
+		private final Assignment cUnitAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
+		private final RuleCall cUnitTime_unitEnumRuleCall_0_1_2_0 = (RuleCall)cUnitAssignment_0_1_2.eContents().get(0);
+		private final Keyword cThenKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Keyword cGoKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cToKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cModeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNext_modeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cNext_modeModeCrossReference_4_0 = (CrossReference)cNext_modeAssignment_4.eContents().get(0);
+		private final RuleCall cNext_modeModeEStringParserRuleCall_4_0_1 = (RuleCall)cNext_modeModeCrossReference_4_0.eContents().get(1);
 		
-		//'mode' next_mode=[Mode|EString]
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		//TransitionMode:
+		//	('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+		//	('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+		//	('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' 'mode'
+		//	next_mode=[Mode|EString];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+		//('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+		//('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' 'mode'
+		//next_mode=[Mode|EString]
+		public Group getGroup() { return cGroup; }
+		
+		//'when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+		//('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+		//('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+		//('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+		//('wait' time=EInt unit=Time_unit 'then')?
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
+		//'when'
+		public Keyword getWhenKeyword_0_0_0() { return cWhenKeyword_0_0_0; }
+		
+		//digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt
+		public Alternatives getAlternatives_0_0_1() { return cAlternatives_0_0_1; }
+		
+		//digitals+=[Digital|EString] 'is' d_values+=Signal
+		public Group getGroup_0_0_1_0() { return cGroup_0_0_1_0; }
+		
+		//digitals+=[Digital|EString]
+		public Assignment getDigitalsAssignment_0_0_1_0_0() { return cDigitalsAssignment_0_0_1_0_0; }
+		
+		//[Digital|EString]
+		public CrossReference getDigitalsDigitalCrossReference_0_0_1_0_0_0() { return cDigitalsDigitalCrossReference_0_0_1_0_0_0; }
+		
+		//EString
+		public RuleCall getDigitalsDigitalEStringParserRuleCall_0_0_1_0_0_0_1() { return cDigitalsDigitalEStringParserRuleCall_0_0_1_0_0_0_1; }
+		
+		//'is'
+		public Keyword getIsKeyword_0_0_1_0_1() { return cIsKeyword_0_0_1_0_1; }
+		
+		//d_values+=Signal
+		public Assignment getD_valuesAssignment_0_0_1_0_2() { return cD_valuesAssignment_0_0_1_0_2; }
+		
+		//Signal
+		public RuleCall getD_valuesSignalEnumRuleCall_0_0_1_0_2_0() { return cD_valuesSignalEnumRuleCall_0_0_1_0_2_0; }
+		
+		//analogs+=[Analog|EString] comp+=Compare a_values+=EInt
+		public Group getGroup_0_0_1_1() { return cGroup_0_0_1_1; }
+		
+		//analogs+=[Analog|EString]
+		public Assignment getAnalogsAssignment_0_0_1_1_0() { return cAnalogsAssignment_0_0_1_1_0; }
+		
+		//[Analog|EString]
+		public CrossReference getAnalogsAnalogCrossReference_0_0_1_1_0_0() { return cAnalogsAnalogCrossReference_0_0_1_1_0_0; }
+		
+		//EString
+		public RuleCall getAnalogsAnalogEStringParserRuleCall_0_0_1_1_0_0_1() { return cAnalogsAnalogEStringParserRuleCall_0_0_1_1_0_0_1; }
+		
+		//comp+=Compare
+		public Assignment getCompAssignment_0_0_1_1_1() { return cCompAssignment_0_0_1_1_1; }
+		
+		//Compare
+		public RuleCall getCompCompareEnumRuleCall_0_0_1_1_1_0() { return cCompCompareEnumRuleCall_0_0_1_1_1_0; }
+		
+		//a_values+=EInt
+		public Assignment getA_valuesAssignment_0_0_1_1_2() { return cA_valuesAssignment_0_0_1_1_2; }
+		
+		//EInt
+		public RuleCall getA_valuesEIntParserRuleCall_0_0_1_1_2_0() { return cA_valuesEIntParserRuleCall_0_0_1_1_2_0; }
+		
+		//('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+		public Group getGroup_0_0_2() { return cGroup_0_0_2; }
+		
+		//'and'
+		public Keyword getAndKeyword_0_0_2_0() { return cAndKeyword_0_0_2_0; }
+		
+		//digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt
+		public Alternatives getAlternatives_0_0_2_1() { return cAlternatives_0_0_2_1; }
+		
+		//digitals+=[Digital|EString] 'is' d_values+=Signal
+		public Group getGroup_0_0_2_1_0() { return cGroup_0_0_2_1_0; }
+		
+		//digitals+=[Digital|EString]
+		public Assignment getDigitalsAssignment_0_0_2_1_0_0() { return cDigitalsAssignment_0_0_2_1_0_0; }
+		
+		//[Digital|EString]
+		public CrossReference getDigitalsDigitalCrossReference_0_0_2_1_0_0_0() { return cDigitalsDigitalCrossReference_0_0_2_1_0_0_0; }
+		
+		//EString
+		public RuleCall getDigitalsDigitalEStringParserRuleCall_0_0_2_1_0_0_0_1() { return cDigitalsDigitalEStringParserRuleCall_0_0_2_1_0_0_0_1; }
+		
+		//'is'
+		public Keyword getIsKeyword_0_0_2_1_0_1() { return cIsKeyword_0_0_2_1_0_1; }
+		
+		//d_values+=Signal
+		public Assignment getD_valuesAssignment_0_0_2_1_0_2() { return cD_valuesAssignment_0_0_2_1_0_2; }
+		
+		//Signal
+		public RuleCall getD_valuesSignalEnumRuleCall_0_0_2_1_0_2_0() { return cD_valuesSignalEnumRuleCall_0_0_2_1_0_2_0; }
+		
+		//analogs+=[Analog|EString] comp+=Compare a_values+=EInt
+		public Group getGroup_0_0_2_1_1() { return cGroup_0_0_2_1_1; }
+		
+		//analogs+=[Analog|EString]
+		public Assignment getAnalogsAssignment_0_0_2_1_1_0() { return cAnalogsAssignment_0_0_2_1_1_0; }
+		
+		//[Analog|EString]
+		public CrossReference getAnalogsAnalogCrossReference_0_0_2_1_1_0_0() { return cAnalogsAnalogCrossReference_0_0_2_1_1_0_0; }
+		
+		//EString
+		public RuleCall getAnalogsAnalogEStringParserRuleCall_0_0_2_1_1_0_0_1() { return cAnalogsAnalogEStringParserRuleCall_0_0_2_1_1_0_0_1; }
+		
+		//comp+=Compare
+		public Assignment getCompAssignment_0_0_2_1_1_1() { return cCompAssignment_0_0_2_1_1_1; }
+		
+		//Compare
+		public RuleCall getCompCompareEnumRuleCall_0_0_2_1_1_1_0() { return cCompCompareEnumRuleCall_0_0_2_1_1_1_0; }
+		
+		//a_values+=EInt
+		public Assignment getA_valuesAssignment_0_0_2_1_1_2() { return cA_valuesAssignment_0_0_2_1_1_2; }
+		
+		//EInt
+		public RuleCall getA_valuesEIntParserRuleCall_0_0_2_1_1_2_0() { return cA_valuesEIntParserRuleCall_0_0_2_1_1_2_0; }
+		
+		//('wait' time=EInt unit=Time_unit 'then')?
+		public Group getGroup_0_0_3() { return cGroup_0_0_3; }
+		
+		//'wait'
+		public Keyword getWaitKeyword_0_0_3_0() { return cWaitKeyword_0_0_3_0; }
+		
+		//time=EInt
+		public Assignment getTimeAssignment_0_0_3_1() { return cTimeAssignment_0_0_3_1; }
+		
+		//EInt
+		public RuleCall getTimeEIntParserRuleCall_0_0_3_1_0() { return cTimeEIntParserRuleCall_0_0_3_1_0; }
+		
+		//unit=Time_unit
+		public Assignment getUnitAssignment_0_0_3_2() { return cUnitAssignment_0_0_3_2; }
+		
+		//Time_unit
+		public RuleCall getUnitTime_unitEnumRuleCall_0_0_3_2_0() { return cUnitTime_unitEnumRuleCall_0_0_3_2_0; }
+		
+		//'then'
+		public Keyword getThenKeyword_0_0_3_3() { return cThenKeyword_0_0_3_3; }
+		
+		//'wait' time=EInt unit=Time_unit 'then'
+		public Group getGroup_0_1() { return cGroup_0_1; }
+		
+		//'wait'
+		public Keyword getWaitKeyword_0_1_0() { return cWaitKeyword_0_1_0; }
+		
+		//time=EInt
+		public Assignment getTimeAssignment_0_1_1() { return cTimeAssignment_0_1_1; }
+		
+		//EInt
+		public RuleCall getTimeEIntParserRuleCall_0_1_1_0() { return cTimeEIntParserRuleCall_0_1_1_0; }
+		
+		//unit=Time_unit
+		public Assignment getUnitAssignment_0_1_2() { return cUnitAssignment_0_1_2; }
+		
+		//Time_unit
+		public RuleCall getUnitTime_unitEnumRuleCall_0_1_2_0() { return cUnitTime_unitEnumRuleCall_0_1_2_0; }
+		
+		//'then'
+		public Keyword getThenKeyword_0_1_3() { return cThenKeyword_0_1_3; }
+		
+		//'go'
+		public Keyword getGoKeyword_1() { return cGoKeyword_1; }
+		
+		//'to'
+		public Keyword getToKeyword_2() { return cToKeyword_2; }
 		
 		//'mode'
-		public Keyword getModeKeyword_3_1_0() { return cModeKeyword_3_1_0; }
+		public Keyword getModeKeyword_3() { return cModeKeyword_3; }
 		
 		//next_mode=[Mode|EString]
-		public Assignment getNext_modeAssignment_3_1_1() { return cNext_modeAssignment_3_1_1; }
+		public Assignment getNext_modeAssignment_4() { return cNext_modeAssignment_4; }
 		
 		//[Mode|EString]
-		public CrossReference getNext_modeModeCrossReference_3_1_1_0() { return cNext_modeModeCrossReference_3_1_1_0; }
+		public CrossReference getNext_modeModeCrossReference_4_0() { return cNext_modeModeCrossReference_4_0; }
 		
 		//EString
-		public RuleCall getNext_modeModeEStringParserRuleCall_3_1_1_0_1() { return cNext_modeModeEStringParserRuleCall_3_1_1_0_1; }
+		public RuleCall getNext_modeModeEStringParserRuleCall_4_0_1() { return cNext_modeModeEStringParserRuleCall_4_0_1; }
 	}
 	
 	public class SignalElements extends AbstractEnumRuleElementFinder {
@@ -969,6 +1213,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final AnalogElements pAnalog;
 	private final ActionElements pAction;
 	private final TransitionElements pTransition;
+	private final TransitionStateElements pTransitionState;
+	private final TransitionModeElements pTransitionMode;
 	private final SignalElements eSignal;
 	private final Time_unitElements eTime_unit;
 	private final CompareElements eCompare;
@@ -993,6 +1239,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAnalog = new AnalogElements();
 		this.pAction = new ActionElements();
 		this.pTransition = new TransitionElements();
+		this.pTransitionState = new TransitionStateElements();
+		this.pTransitionMode = new TransitionModeElements();
 		this.eSignal = new SignalElements();
 		this.eTime_unit = new Time_unitElements();
 		this.eCompare = new CompareElements();
@@ -1026,19 +1274,9 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//App:
-	//	'app' name=EString 'initial' 'state' initial_state=[State|EString] ':'
-	//	'bricks' ':'
-	//	bricks+=Brick
-	//	bricks+=Brick*
-	//	'states' ':'
-	//	states+=State
-	//	states+=State* | 'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
-	//	'bricks' ':'
-	//	bricks+=Brick
-	//	bricks+=Brick*
-	//	'modes' ':'
-	//	modes+=Mode
-	//	modes+=Mode*;
+	//	'app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick*
+	//	'states' ':' states+=State states+=State* | 'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
+	//	'bricks' ':' bricks+=Brick bricks+=Brick* 'modes' ':' modes+=Mode modes+=Mode*;
 	public AppElements getAppAccess() {
 		return pApp;
 	}
@@ -1068,12 +1306,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Mode:
-	//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':'
-	//	bricks+=Brick
-	//	bricks+=Brick*)?
-	//	'states' ':'
-	//	states+=State
-	//	states+=State*;
+	//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
+	//	states+=State states+=State* 'transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*;
 	public ModeElements getModeAccess() {
 		return pMode;
 	}
@@ -1083,11 +1317,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//State:
-	//	name=EString ':'
-	//	actions+=Action
-	//	actions+=Action*
-	//	transitions+=Transition
-	//	transitions+=Transition*;
+	//	name=EString ':' actions+=Action actions+=Action* transitions_state+=TransitionState
+	//	transitions_state+=TransitionState*;
 	public StateElements getStateAccess() {
 		return pState;
 	}
@@ -1107,8 +1338,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Actuator:
-	//	{Actuator}
-	//	'Actuator';
+	//	{Actuator} 'Actuator';
 	public ActuatorElements getActuatorAccess() {
 		return pActuator;
 	}
@@ -1118,8 +1348,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Digital:
-	//	{Digital}
-	//	'Digital';
+	//	{Digital} 'Digital';
 	public DigitalElements getDigitalAccess() {
 		return pDigital;
 	}
@@ -1129,8 +1358,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Analog:
-	//	{Analog}
-	//	'Analog';
+	//	{Analog} 'Analog';
 	public AnalogElements getAnalogAccess() {
 		return pAnalog;
 	}
@@ -1150,16 +1378,39 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transition:
-	//	('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
-	//	('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
-	//	('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' ('state'
-	//	next_state=[State|EString] | 'mode' next_mode=[Mode|EString]);
+	//	TransitionState | TransitionMode;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
 	
 	public ParserRule getTransitionRule() {
 		return getTransitionAccess().getRule();
+	}
+	
+	//TransitionState:
+	//	('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+	//	('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+	//	('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' 'state'
+	//	next_state=[State|EString];
+	public TransitionStateElements getTransitionStateAccess() {
+		return pTransitionState;
+	}
+	
+	public ParserRule getTransitionStateRule() {
+		return getTransitionStateAccess().getRule();
+	}
+	
+	//TransitionMode:
+	//	('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+	//	('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))*
+	//	('wait' time=EInt unit=Time_unit 'then')? | 'wait' time=EInt unit=Time_unit 'then') 'go' 'to' 'mode'
+	//	next_mode=[Mode|EString];
+	public TransitionModeElements getTransitionModeAccess() {
+		return pTransitionMode;
+	}
+	
+	public ParserRule getTransitionModeRule() {
+		return getTransitionModeAccess().getRule();
 	}
 	
 	//enum Signal:

@@ -5,21 +5,21 @@
   <bricks xsi:type="arduinoML:Digital" name="button" pin="8"/>
   <states name="off">
     <actions value="LOW" actuator="led"/>
-    <transitions next_state="buzz" digitals="button">
+    <transitions_state digitals="button" next_state="buzz">
       <d_values>HIGH</d_values>
-    </transitions>
+    </transitions_state>
   </states>
   <states name="buzz">
     <actions actuator="buzzer"/>
-    <transitions next_state="glow" digitals="button">
+    <transitions_state digitals="button" next_state="glow">
       <d_values>HIGH</d_values>
-    </transitions>
+    </transitions_state>
   </states>
   <states name="glow">
     <actions value="LOW" actuator="buzzer"/>
     <actions actuator="led"/>
-    <transitions next_state="off" digitals="button">
+    <transitions_state digitals="button" next_state="off">
       <d_values>HIGH</d_values>
-    </transitions>
+    </transitions_state>
   </states>
 </arduinoML:App>

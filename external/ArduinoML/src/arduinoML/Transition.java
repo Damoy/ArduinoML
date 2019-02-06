@@ -16,19 +16,16 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link arduinoML.Transition#getD_values <em>Dvalues</em>}</li>
- *   <li>{@link arduinoML.Transition#getNext_state <em>Next state</em>}</li>
  *   <li>{@link arduinoML.Transition#getDigitals <em>Digitals</em>}</li>
- *   <li>{@link arduinoML.Transition#getState <em>State</em>}</li>
  *   <li>{@link arduinoML.Transition#getTime <em>Time</em>}</li>
  *   <li>{@link arduinoML.Transition#getUnit <em>Unit</em>}</li>
  *   <li>{@link arduinoML.Transition#getAnalogs <em>Analogs</em>}</li>
  *   <li>{@link arduinoML.Transition#getA_values <em>Avalues</em>}</li>
  *   <li>{@link arduinoML.Transition#getComp <em>Comp</em>}</li>
- *   <li>{@link arduinoML.Transition#getNext_mode <em>Next mode</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getTransition()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Transition extends EObject {
@@ -51,32 +48,6 @@ public interface Transition extends EObject {
 	EList<Signal> getD_values();
 
 	/**
-	 * Returns the value of the '<em><b>Next state</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next state</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next state</em>' reference.
-	 * @see #setNext_state(State)
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Next_state()
-	 * @model
-	 * @generated
-	 */
-	State getNext_state();
-
-	/**
-	 * Sets the value of the '{@link arduinoML.Transition#getNext_state <em>Next state</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next state</em>' reference.
-	 * @see #getNext_state()
-	 * @generated
-	 */
-	void setNext_state(State value);
-
-	/**
 	 * Returns the value of the '<em><b>Digitals</b></em>' reference list.
 	 * The list contents are of type {@link arduinoML.Digital}.
 	 * <!-- begin-user-doc -->
@@ -91,34 +62,6 @@ public interface Transition extends EObject {
 	 * @generated
 	 */
 	EList<Digital> getDigitals();
-
-	/**
-	 * Returns the value of the '<em><b>State</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link arduinoML.State#getTransitions <em>Transitions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>State</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State</em>' container reference.
-	 * @see #setState(State)
-	 * @see arduinoML.ArduinoMLPackage#getTransition_State()
-	 * @see arduinoML.State#getTransitions
-	 * @model opposite="transitions" required="true" transient="false"
-	 * @generated
-	 */
-	State getState();
-
-	/**
-	 * Sets the value of the '{@link arduinoML.Transition#getState <em>State</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State</em>' container reference.
-	 * @see #getState()
-	 * @generated
-	 */
-	void setState(State value);
 
 	/**
 	 * Returns the value of the '<em><b>Time</b></em>' attribute.
@@ -225,31 +168,5 @@ public interface Transition extends EObject {
 	 * @generated
 	 */
 	EList<Compare> getComp();
-
-	/**
-	 * Returns the value of the '<em><b>Next mode</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next mode</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next mode</em>' reference.
-	 * @see #setNext_mode(Mode)
-	 * @see arduinoML.ArduinoMLPackage#getTransition_Next_mode()
-	 * @model
-	 * @generated
-	 */
-	Mode getNext_mode();
-
-	/**
-	 * Sets the value of the '{@link arduinoML.Transition#getNext_mode <em>Next mode</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next mode</em>' reference.
-	 * @see #getNext_mode()
-	 * @generated
-	 */
-	void setNext_mode(Mode value);
 
 } // Transition

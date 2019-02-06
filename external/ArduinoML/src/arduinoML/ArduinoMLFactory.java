@@ -67,15 +67,6 @@ public interface ArduinoMLFactory extends EFactory {
 	Action createAction();
 
 	/**
-	 * Returns a new object of class '<em>Transition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Transition</em>'.
-	 * @generated
-	 */
-	Transition createTransition();
-
-	/**
 	 * Returns a new object of class '<em>Analog</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +83,24 @@ public interface ArduinoMLFactory extends EFactory {
 	 * @generated
 	 */
 	Mode createMode();
+
+	/**
+	 * Returns a new object of class '<em>Transition State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transition State</em>'.
+	 * @generated
+	 */
+	TransitionState createTransitionState();
+
+	/**
+	 * Returns a new object of class '<em>Transition Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transition Mode</em>'.
+	 * @generated
+	 */
+	TransitionMode createTransitionMode();
 
 	/**
 	 * Returns the package supported by this factory.

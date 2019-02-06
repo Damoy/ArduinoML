@@ -39,14 +39,18 @@ Mode returns Mode:
 		'states' ':'
 		states+=State
 		(states+=State)*
+		
+		'transitions' ':'
+		transitions_mode+=TransitionMode
+		(transitions_mode+=TransitionMode)*
 ;
 
 State returns State:
 	name=EString ':'
 		actions+=Action
 		(actions+=Action)*
-		transitions+=Transition
-		(transitions+=Transition)*
+		transitions_state+=TransitionState
+		(transitions_state+=TransitionState)*
 	;
 
 EInt returns ecore::EInt:
@@ -68,7 +72,18 @@ Action returns Action:
 	'change' actuator=[Actuator|EString] 'to' value=Signal;
 
 Transition returns Transition:
-    (('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt) ('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))* ('wait' time=EInt unit=Time_unit 'then')?) | ('wait' time=EInt unit=Time_unit 'then')) 'go' 'to' (('state' next_state=[State|EString]) | ('mode' next_mode=[Mode|EString]));
+	(TransitionState | TransitionMode);
+
+TransitionState returns TransitionState:
+	(('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+		('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))* ('wait' time=EInt unit=Time_unit 'then')?) |
+			('wait' time=EInt unit=Time_unit 'then')) 'go' 'to' 'state' next_state=[State|EString];
+
+
+TransitionMode returns TransitionMode:
+	(('when' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt)
+		('and' (digitals+=[Digital|EString] 'is' d_values+=Signal | analogs+=[Analog|EString] comp+=Compare a_values+=EInt))* ('wait' time=EInt unit=Time_unit 'then')?) |
+			('wait' time=EInt unit=Time_unit 'then')) 'go' 'to' 'mode' next_mode=[Mode|EString];	
 
 enum Signal returns Signal:
 				HIGH = 'HIGH' | LOW = 'LOW';

@@ -343,13 +343,13 @@ public interface ArduinoMLPackage extends EPackage {
 	int STATE__ACTIONS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Transitions state</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__TRANSITIONS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int STATE__TRANSITIONS_STATE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>State</em>' class.
@@ -435,31 +435,13 @@ public interface ArduinoMLPackage extends EPackage {
 	int TRANSITION__DVALUES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Next state</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSITION__NEXT_STATE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Digitals</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__DIGITALS = 2;
-
-	/**
-	 * The feature id for the '<em><b>State</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSITION__STATE = 3;
+	int TRANSITION__DIGITALS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Time</b></em>' attribute.
@@ -468,7 +450,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TIME = 4;
+	int TRANSITION__TIME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -477,7 +459,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__UNIT = 5;
+	int TRANSITION__UNIT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Analogs</b></em>' reference list.
@@ -486,7 +468,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__ANALOGS = 6;
+	int TRANSITION__ANALOGS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Avalues</b></em>' attribute list.
@@ -495,7 +477,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__AVALUES = 7;
+	int TRANSITION__AVALUES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Comp</b></em>' attribute list.
@@ -504,16 +486,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__COMP = 8;
-
-	/**
-	 * The feature id for the '<em><b>Next mode</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSITION__NEXT_MODE = 9;
+	int TRANSITION__COMP = 6;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -522,7 +495,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = 10;
+	int TRANSITION_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -626,13 +599,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int MODE__INITIAL = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Transitions mode</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__TRANSITIONS_MODE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Mode</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Mode</em>' class.
@@ -644,6 +626,224 @@ public interface ArduinoMLPackage extends EPackage {
 	int MODE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link arduinoML.impl.TransitionStateImpl <em>Transition State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see arduinoML.impl.TransitionStateImpl
+	 * @see arduinoML.impl.ArduinoMLPackageImpl#getTransitionState()
+	 * @generated
+	 */
+	int TRANSITION_STATE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Dvalues</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__DVALUES = TRANSITION__DVALUES;
+
+	/**
+	 * The feature id for the '<em><b>Digitals</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__DIGITALS = TRANSITION__DIGITALS;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__TIME = TRANSITION__TIME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__UNIT = TRANSITION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Analogs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__ANALOGS = TRANSITION__ANALOGS;
+
+	/**
+	 * The feature id for the '<em><b>Avalues</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__AVALUES = TRANSITION__AVALUES;
+
+	/**
+	 * The feature id for the '<em><b>Comp</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__COMP = TRANSITION__COMP;
+
+	/**
+	 * The feature id for the '<em><b>Next state</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__NEXT_STATE = TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE__STATE = TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Transition State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Transition State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_STATE_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link arduinoML.impl.TransitionModeImpl <em>Transition Mode</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see arduinoML.impl.TransitionModeImpl
+	 * @see arduinoML.impl.ArduinoMLPackageImpl#getTransitionMode()
+	 * @generated
+	 */
+	int TRANSITION_MODE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Dvalues</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__DVALUES = TRANSITION__DVALUES;
+
+	/**
+	 * The feature id for the '<em><b>Digitals</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__DIGITALS = TRANSITION__DIGITALS;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__TIME = TRANSITION__TIME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__UNIT = TRANSITION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Analogs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__ANALOGS = TRANSITION__ANALOGS;
+
+	/**
+	 * The feature id for the '<em><b>Avalues</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__AVALUES = TRANSITION__AVALUES;
+
+	/**
+	 * The feature id for the '<em><b>Comp</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__COMP = TRANSITION__COMP;
+
+	/**
+	 * The feature id for the '<em><b>Mode</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__MODE = TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Next mode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE__NEXT_MODE = TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Transition Mode</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Transition Mode</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_MODE_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link arduinoML.Signal <em>Signal</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -651,7 +851,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @see arduinoML.impl.ArduinoMLPackageImpl#getSignal()
 	 * @generated
 	 */
-	int SIGNAL = 10;
+	int SIGNAL = 12;
 
 	/**
 	 * The meta object id for the '{@link arduinoML.Time_unit <em>Time unit</em>}' enum.
@@ -661,7 +861,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @see arduinoML.impl.ArduinoMLPackageImpl#getTime_unit()
 	 * @generated
 	 */
-	int TIME_UNIT = 11;
+	int TIME_UNIT = 13;
 
 	/**
 	 * The meta object id for the '{@link arduinoML.Compare <em>Compare</em>}' enum.
@@ -671,7 +871,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @see arduinoML.impl.ArduinoMLPackageImpl#getCompare()
 	 * @generated
 	 */
-	int COMPARE = 12;
+	int COMPARE = 14;
 
 
 	/**
@@ -802,15 +1002,15 @@ public interface ArduinoMLPackage extends EPackage {
 	EReference getState_Actions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link arduinoML.State#getTransitions <em>Transitions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link arduinoML.State#getTransitions_state <em>Transitions state</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Transitions</em>'.
-	 * @see arduinoML.State#getTransitions()
+	 * @return the meta object for the containment reference list '<em>Transitions state</em>'.
+	 * @see arduinoML.State#getTransitions_state()
 	 * @see #getState()
 	 * @generated
 	 */
-	EReference getState_Transitions();
+	EReference getState_Transitions_state();
 
 	/**
 	 * Returns the meta object for class '{@link arduinoML.Action <em>Action</em>}'.
@@ -866,17 +1066,6 @@ public interface ArduinoMLPackage extends EPackage {
 	EAttribute getTransition_D_values();
 
 	/**
-	 * Returns the meta object for the reference '{@link arduinoML.Transition#getNext_state <em>Next state</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next state</em>'.
-	 * @see arduinoML.Transition#getNext_state()
-	 * @see #getTransition()
-	 * @generated
-	 */
-	EReference getTransition_Next_state();
-
-	/**
 	 * Returns the meta object for the reference list '{@link arduinoML.Transition#getDigitals <em>Digitals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -886,17 +1075,6 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTransition_Digitals();
-
-	/**
-	 * Returns the meta object for the container reference '{@link arduinoML.Transition#getState <em>State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>State</em>'.
-	 * @see arduinoML.Transition#getState()
-	 * @see #getTransition()
-	 * @generated
-	 */
-	EReference getTransition_State();
 
 	/**
 	 * Returns the meta object for the attribute '{@link arduinoML.Transition#getTime <em>Time</em>}'.
@@ -952,17 +1130,6 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransition_Comp();
-
-	/**
-	 * Returns the meta object for the reference '{@link arduinoML.Transition#getNext_mode <em>Next mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next mode</em>'.
-	 * @see arduinoML.Transition#getNext_mode()
-	 * @see #getTransition()
-	 * @generated
-	 */
-	EReference getTransition_Next_mode();
 
 	/**
 	 * Returns the meta object for class '{@link arduinoML.NamedElement <em>Named Element</em>}'.
@@ -1037,6 +1204,81 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMode_Initial();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link arduinoML.Mode#getTransitions_mode <em>Transitions mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Transitions mode</em>'.
+	 * @see arduinoML.Mode#getTransitions_mode()
+	 * @see #getMode()
+	 * @generated
+	 */
+	EReference getMode_Transitions_mode();
+
+	/**
+	 * Returns the meta object for class '{@link arduinoML.TransitionState <em>Transition State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Transition State</em>'.
+	 * @see arduinoML.TransitionState
+	 * @generated
+	 */
+	EClass getTransitionState();
+
+	/**
+	 * Returns the meta object for the reference '{@link arduinoML.TransitionState#getNext_state <em>Next state</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next state</em>'.
+	 * @see arduinoML.TransitionState#getNext_state()
+	 * @see #getTransitionState()
+	 * @generated
+	 */
+	EReference getTransitionState_Next_state();
+
+	/**
+	 * Returns the meta object for the container reference '{@link arduinoML.TransitionState#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>State</em>'.
+	 * @see arduinoML.TransitionState#getState()
+	 * @see #getTransitionState()
+	 * @generated
+	 */
+	EReference getTransitionState_State();
+
+	/**
+	 * Returns the meta object for class '{@link arduinoML.TransitionMode <em>Transition Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Transition Mode</em>'.
+	 * @see arduinoML.TransitionMode
+	 * @generated
+	 */
+	EClass getTransitionMode();
+
+	/**
+	 * Returns the meta object for the container reference '{@link arduinoML.TransitionMode#getMode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Mode</em>'.
+	 * @see arduinoML.TransitionMode#getMode()
+	 * @see #getTransitionMode()
+	 * @generated
+	 */
+	EReference getTransitionMode_Mode();
+
+	/**
+	 * Returns the meta object for the reference '{@link arduinoML.TransitionMode#getNext_mode <em>Next mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next mode</em>'.
+	 * @see arduinoML.TransitionMode#getNext_mode()
+	 * @see #getTransitionMode()
+	 * @generated
+	 */
+	EReference getTransitionMode_Next_mode();
 
 	/**
 	 * Returns the meta object for enum '{@link arduinoML.Signal <em>Signal</em>}'.
@@ -1198,12 +1440,12 @@ public interface ArduinoMLPackage extends EPackage {
 		EReference STATE__ACTIONS = eINSTANCE.getState_Actions();
 
 		/**
-		 * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Transitions state</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__TRANSITIONS = eINSTANCE.getState_Transitions();
+		EReference STATE__TRANSITIONS_STATE = eINSTANCE.getState_Transitions_state();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.ActionImpl <em>Action</em>}' class.
@@ -1250,28 +1492,12 @@ public interface ArduinoMLPackage extends EPackage {
 		EAttribute TRANSITION__DVALUES = eINSTANCE.getTransition_D_values();
 
 		/**
-		 * The meta object literal for the '<em><b>Next state</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSITION__NEXT_STATE = eINSTANCE.getTransition_Next_state();
-
-		/**
 		 * The meta object literal for the '<em><b>Digitals</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference TRANSITION__DIGITALS = eINSTANCE.getTransition_Digitals();
-
-		/**
-		 * The meta object literal for the '<em><b>State</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
 
 		/**
 		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
@@ -1312,14 +1538,6 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSITION__COMP = eINSTANCE.getTransition_Comp();
-
-		/**
-		 * The meta object literal for the '<em><b>Next mode</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRANSITION__NEXT_MODE = eINSTANCE.getTransition_Next_mode();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -1382,6 +1600,66 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODE__INITIAL = eINSTANCE.getMode_Initial();
+
+		/**
+		 * The meta object literal for the '<em><b>Transitions mode</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE__TRANSITIONS_MODE = eINSTANCE.getMode_Transitions_mode();
+
+		/**
+		 * The meta object literal for the '{@link arduinoML.impl.TransitionStateImpl <em>Transition State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see arduinoML.impl.TransitionStateImpl
+		 * @see arduinoML.impl.ArduinoMLPackageImpl#getTransitionState()
+		 * @generated
+		 */
+		EClass TRANSITION_STATE = eINSTANCE.getTransitionState();
+
+		/**
+		 * The meta object literal for the '<em><b>Next state</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSITION_STATE__NEXT_STATE = eINSTANCE.getTransitionState_Next_state();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSITION_STATE__STATE = eINSTANCE.getTransitionState_State();
+
+		/**
+		 * The meta object literal for the '{@link arduinoML.impl.TransitionModeImpl <em>Transition Mode</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see arduinoML.impl.TransitionModeImpl
+		 * @see arduinoML.impl.ArduinoMLPackageImpl#getTransitionMode()
+		 * @generated
+		 */
+		EClass TRANSITION_MODE = eINSTANCE.getTransitionMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSITION_MODE__MODE = eINSTANCE.getTransitionMode_Mode();
+
+		/**
+		 * The meta object literal for the '<em><b>Next mode</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSITION_MODE__NEXT_MODE = eINSTANCE.getTransitionMode_Next_mode();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.Signal <em>Signal</em>}' enum.

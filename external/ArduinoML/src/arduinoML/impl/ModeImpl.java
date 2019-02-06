@@ -7,6 +7,7 @@ import arduinoML.Brick;
 import arduinoML.Mode;
 import arduinoML.State;
 
+import arduinoML.TransitionMode;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link arduinoML.impl.ModeImpl#getBricks <em>Bricks</em>}</li>
  *   <li>{@link arduinoML.impl.ModeImpl#getStates <em>States</em>}</li>
  *   <li>{@link arduinoML.impl.ModeImpl#getInitial <em>Initial</em>}</li>
+ *   <li>{@link arduinoML.impl.ModeImpl#getTransitions_mode <em>Transitions mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +70,16 @@ public class ModeImpl extends NamedElementImpl implements Mode {
 	 * @ordered
 	 */
 	protected State initial;
+
+	/**
+	 * The cached value of the '{@link #getTransitions_mode() <em>Transitions mode</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransitions_mode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TransitionMode> transitions_mode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,12 +172,42 @@ public class ModeImpl extends NamedElementImpl implements Mode {
 	 * @generated
 	 */
 	@Override
+	public EList<TransitionMode> getTransitions_mode() {
+		if (transitions_mode == null) {
+			transitions_mode = new EObjectContainmentWithInverseEList<TransitionMode>(TransitionMode.class, this, ArduinoMLPackage.MODE__TRANSITIONS_MODE, ArduinoMLPackage.TRANSITION_MODE__MODE);
+		}
+		return transitions_mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ArduinoMLPackage.MODE__TRANSITIONS_MODE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTransitions_mode()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ArduinoMLPackage.MODE__BRICKS:
 				return ((InternalEList<?>)getBricks()).basicRemove(otherEnd, msgs);
 			case ArduinoMLPackage.MODE__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
+			case ArduinoMLPackage.MODE__TRANSITIONS_MODE:
+				return ((InternalEList<?>)getTransitions_mode()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -184,6 +227,8 @@ public class ModeImpl extends NamedElementImpl implements Mode {
 			case ArduinoMLPackage.MODE__INITIAL:
 				if (resolve) return getInitial();
 				return basicGetInitial();
+			case ArduinoMLPackage.MODE__TRANSITIONS_MODE:
+				return getTransitions_mode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,6 +253,10 @@ public class ModeImpl extends NamedElementImpl implements Mode {
 			case ArduinoMLPackage.MODE__INITIAL:
 				setInitial((State)newValue);
 				return;
+			case ArduinoMLPackage.MODE__TRANSITIONS_MODE:
+				getTransitions_mode().clear();
+				getTransitions_mode().addAll((Collection<? extends TransitionMode>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -229,6 +278,9 @@ public class ModeImpl extends NamedElementImpl implements Mode {
 			case ArduinoMLPackage.MODE__INITIAL:
 				setInitial((State)null);
 				return;
+			case ArduinoMLPackage.MODE__TRANSITIONS_MODE:
+				getTransitions_mode().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -247,6 +299,8 @@ public class ModeImpl extends NamedElementImpl implements Mode {
 				return states != null && !states.isEmpty();
 			case ArduinoMLPackage.MODE__INITIAL:
 				return initial != null;
+			case ArduinoMLPackage.MODE__TRANSITIONS_MODE:
+				return transitions_mode != null && !transitions_mode.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

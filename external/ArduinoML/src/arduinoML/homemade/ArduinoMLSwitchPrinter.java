@@ -220,13 +220,13 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		
 		sb.append("\tboolean guard = millis() - time > debounce;\n");
 		
-		for(Transition t : object.getTransitions()) {
+		for(Transition t : object.getTransitions_state()) {
 			sb.append(doSwitch(t));
 		}
 		
 		if (if_counter != 0) {
 			sb.append("\telse {\n\t\tstate_"
-					+ object.getTransitions().get(0).getState().getName()
+					+ object.getTransitions_state().get(0).getState().getName()
 					+ "(); \n\t}\n");
 		}
 		
@@ -253,21 +253,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				+");\n");
 		return sb.toString();
 	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * 
-	 */
-	public String caseTransition(Transition object) {
+	
+	public String caseTransitionState(TransitionState object) {
 		StringBuilder sb = new StringBuilder();
-		
 		// if the transition has at least one digital or analog
 		if (!object.getDigitals().isEmpty() || !object.getAnalogs().isEmpty()) {
 			if_counter++;
@@ -329,55 +317,139 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			if(object.getUnit() != null) {
 				sb.append("\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
 			}
-			
-			// if transition has next state
+		}
+		
+		if(!object.getAnalogs().isEmpty() || !object.getDigitals().isEmpty()) {
 			if (object.getNext_state() != null) {
 				sb.append("\t\ttime = millis();\n\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
-			} else {
-				// if transition has no next state but has brick
-				if (hasBrick) {
-					sb.append("\t\treset_" + currentState + "();\n");
-				}
-				sb.append("\t\ttime = millis();\n\t\tmode_" + object.getNext_mode().getName() + "();\n\t}\n");
-			}
-		} else {
-			// transition has no digital nor analogs
-			
-			// if counter has value
+			} else if(hasBrick){
+				sb.append("\t\treset_" + currentState + "();\n");
+			}			
+		}
+		
+		// transition has no digital nor analogs
+		if(object.getDigitals().isEmpty() && object.getAnalogs().isEmpty()) {
 			if(if_counter != 0) {
-				// TODO IF TRUE
 				sb.append("\tif (true) {\n"	+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
 				
-				// if the transition has next state
 				if (object.getNext_state() != null) {
 					sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
-				} else {
-					// if transition has no next state but has brick TODO duplicated code
-					if (hasBrick) {
-						sb.append("\t\treset_" + currentState + "();\n");
-					}
-					sb.append("\t\tmode_" + object.getNext_mode().getName() + "();\n\t}\n");
+				} else if (hasBrick){
+					sb.append("\t\treset_" + currentState + "();\n");
 				}
 			} else {
-				// counter has value
 				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
 				
-				// if the transition has next state
 				if (object.getNext_state() != null) {
 					sb.append("\tstate_" + object.getNext_state().getName() + "();\n");
-				}
-				else {
-					// if transition has no next state but has brick TODO duplicated code
-					if (hasBrick) {
-						sb.append("\t\treset_" + currentState + "();\n");
-					}
-					sb.append("\tmode_" + object.getNext_mode().getName() + "();\n");
+				} else if (hasBrick){
+					sb.append("\t\treset_" + currentState + "();\n");
 				}
 			}
 		}
 		
 		return sb.toString();
 	}
+	
+	public String caseTransition(Transition object) {
+		return "";
+	}
+	
+	public String caseTransitionMode(TransitionMode object) {
+		return "NOUKOUTOU";
+	}
+//	
+//	private void caseTransitionState(StringBuilder sb, TransitionState object) {
+//		// if the transition has at least one digital or analog
+//				if (!object.getDigitals().isEmpty() || !object.getAnalogs().isEmpty()) {
+//					if_counter++;
+//					
+//					// if the transition has at least one digital
+//					if (!object.getDigitals().isEmpty()) {
+//						// write the first one
+//						sb.append("\tif( digitalRead("
+//								+ object.getDigitals().get(0).getPin()
+//								+ ") == "
+//								+ object.getD_values().get(0).getLiteral());
+//						
+//						// if more than one digital, append each remaining
+//						if (object.getDigitals().size() > 1) {
+//							for (int i = 1; i < object.getDigitals().size(); i++) {
+//								sb.append(" && digitalRead("
+//										+ object.getDigitals().get(i).getPin()
+//										+ ") == "
+//										+ object.getD_values().get(i).getLiteral());
+//							}
+//						}
+//						
+//						// if the transition has analogs
+//						if (object.getAnalogs().size() > 0) {
+//							for (int i = 0; i < object.getAnalogs().size(); i++) {
+//								sb.append(" && analogRead("
+//										+ object.getAnalogs().get(i).getPin()
+//										+ ") "
+//										+ comparateur(object.getComp().get(i).getValue())
+//										+ " " + 
+//										object.getA_values().get(i));
+//							}
+//						}
+//					} else {
+//						// transition has no digital
+//						sb.append("\tif( analogRead("
+//								+ object.getAnalogs().get(0).getPin()
+//								+ ") "
+//								+  comparateur(object.getComp().get(0).getValue())
+//								+ " "
+//								+ object.getA_values().get(0));
+//						
+//						// if transition has more than one analog, append remaining
+//						if (object.getAnalogs().size() > 1) {
+//							for (int i = 1; i < object.getAnalogs().size(); i++) {
+//								sb.append(" && analogRead("
+//										+ object.getAnalogs().get(i).getPin()
+//										+ ") "
+//										+ comparateur(object.getComp().get(i).getValue())
+//										+ " "
+//										+ object.getA_values().get(i));
+//							}
+//						}
+//					}
+//					
+//					sb.append(" && guard ) {\n");
+//					
+//					// if transition has delay
+//					if(object.getUnit() != null) {
+//						sb.append("\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+//					}
+//				}
+//				
+//		if(!object.getAnalogs().isEmpty() && !object.getDigitals().isEmpty()) {
+//			if (object.getNext_state() != null) {
+//				sb.append("\t\ttime = millis();\n\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
+//			} else if(hasBrick){
+//				sb.append("\t\treset_" + currentState + "();\n");
+//			}			
+//		}
+//		
+//		// transition has no digital nor analogs
+//		if(object.getDigitals().isEmpty() && object.getAnalogs().isEmpty()) {
+//			if(if_counter != 0) {
+//				sb.append("\tif (true) {\n"	+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+//			} else {
+//				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");	
+//			}
+//				
+//			if (object.getNext_state() != null) {
+//				sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
+//			} else if (hasBrick){
+//				sb.append("\t\treset_" + currentState + "();\n");
+//			}
+//		}
+//	}
+//	
+//	private void caseTransitionMode(StringBuilder sb, TransitionMode transition) {
+//		
+//	}
 	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.

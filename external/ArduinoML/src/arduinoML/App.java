@@ -110,7 +110,7 @@ public interface App extends NamedElement {
 	 * @return the value of the '<em>Initial mode</em>' reference.
 	 * @see #setInitial_mode(Mode)
 	 * @see arduinoML.ArduinoMLPackage#getApp_Initial_mode()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Mode getInitial_mode();

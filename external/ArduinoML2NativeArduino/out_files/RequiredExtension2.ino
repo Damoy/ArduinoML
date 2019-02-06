@@ -20,17 +20,17 @@ void state_off() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
-		time = millis();
-		mode_nuit();
-	}
-	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_on();
-	}
 	else {
 		state_off(); 
 	}
+}
+
+void state_nuit() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button() {
+	boolean guard = millis() - time > debounce;
 }
 
 void state_on() {
@@ -38,23 +38,29 @@ void state_on() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
-		time = millis();
-		mode_nuit();
-	}
-	if( digitalRead(8) == LOW && guard ) {
-		delay(0);
-		time = millis();
-		state_off();
-	}
 	else {
 		state_on(); 
 	}
 }
 
-void mode_nuit() {
-	//setup bricks
-	//initial state
-	state_off2();
+void state_nuit() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_off() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_nuit() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_off2() {
+	boolean guard = millis() - time > debounce;
 }
 
 void state_off2() {
@@ -62,17 +68,17 @@ void state_off2() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
 		delay(0);
-		time = millis();
-		mode_jour();
-	}
-	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_on2();
-	}
 	else {
 		state_off2(); 
 	}
+}
+
+void state_jour() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button() {
+	boolean guard = millis() - time > debounce;
 }
 
 void state_on2() {
@@ -80,17 +86,21 @@ void state_on2() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
 		delay(0);
-		time = millis();
-		mode_jour();
-	}
-	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
-		time = millis();
-		state_off2();
-	}
 	else {
 		state_on2(); 
 	}
+}
+
+void state_jour() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_button() {
+	boolean guard = millis() - time > debounce;
+}
+
+void state_off2() {
+	boolean guard = millis() - time > debounce;
 }
 
 void loop() {mode_jour();} // Entering init mode
