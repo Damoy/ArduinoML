@@ -1,7 +1,7 @@
 app RequiredExtension2 initial mode jour :
 
 	bricks :
-		Analog light : 0
+		Analog light : 1
 		Digital button : 8
 		Actuator led : 12
 	

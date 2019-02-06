@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="ASCII"?>
-<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="VerySimpleAlarm" initial_state="off">
+<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="MultiStateAlarm" initial_state="off">
   <bricks xsi:type="arduinoML:Actuator" name="buzzer" pin="11"/>
   <bricks xsi:type="arduinoML:Actuator" name="led" pin="12"/>
   <bricks xsi:type="arduinoML:Digital" name="button" pin="8"/>
   <states name="off">
-    <actions value="LOW" actuator="buzzer"/>
     <actions value="LOW" actuator="led"/>
-    <transitions next_state="on" digitals="button">
+    <transitions next_state="buzz" digitals="button">
       <d_values>HIGH</d_values>
     </transitions>
   </states>
-  <states name="on">
+  <states name="buzz">
     <actions actuator="buzzer"/>
+    <transitions next_state="glow" digitals="button">
+      <d_values>HIGH</d_values>
+    </transitions>
+  </states>
+  <states name="glow">
+    <actions value="LOW" actuator="buzzer"/>
     <actions actuator="led"/>
     <transitions next_state="off" digitals="button">
-      <d_values>LOW</d_values>
+      <d_values>HIGH</d_values>
     </transitions>
   </states>
 </arduinoML:App>
