@@ -9,13 +9,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="App" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bricks" lowerBound="1"
         upperBound="-1" eType="#//Brick" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
-        eType="#//State" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
-        eType="#//Mode" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initial_state" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initial_mode" lowerBound="1"
-        eType="#//Mode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" lowerBound="1"
@@ -84,6 +77,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mode" lowerBound="1" eType="#//Mode"
         eOpposite="#//Mode/transitions_mode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next_mode" lowerBound="1"
+        eType="#//Mode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppState" eSuperTypes="#//App">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initial_state" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
+        upperBound="-1" eType="#//State" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppMode" eSuperTypes="#//App">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modes" lowerBound="1" upperBound="-1"
+        eType="#//Mode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initial_mode" lowerBound="1"
         eType="#//Mode"/>
   </eClassifiers>
 </ecore:EPackage>

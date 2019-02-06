@@ -116,6 +116,14 @@ public class ArduinoMLAdapterFactory extends AdapterFactoryImpl {
 				return createTransitionModeAdapter();
 			}
 			@Override
+			public Adapter caseAppState(AppState object) {
+				return createAppStateAdapter();
+			}
+			@Override
+			public Adapter caseAppMode(AppMode object) {
+				return createAppModeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +308,34 @@ public class ArduinoMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTransitionModeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link arduinoML.AppState <em>App State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see arduinoML.AppState
+	 * @generated
+	 */
+	public Adapter createAppStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link arduinoML.AppMode <em>App Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see arduinoML.AppMode
+	 * @generated
+	 */
+	public Adapter createAppModeAdapter() {
 		return null;
 	}
 

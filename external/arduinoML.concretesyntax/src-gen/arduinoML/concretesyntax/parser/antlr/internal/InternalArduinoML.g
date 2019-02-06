@@ -77,47 +77,90 @@ ruleApp returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getAppAccess().getAppStateParserRuleCall_0());
+		}
+		this_AppState_0=ruleAppState
+		{
+			$current = $this_AppState_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getAppAccess().getAppModeParserRuleCall_1());
+		}
+		this_AppMode_1=ruleAppMode
+		{
+			$current = $this_AppMode_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleAppState
+entryRuleAppState returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAppStateRule()); }
+	iv_ruleAppState=ruleAppState
+	{ $current=$iv_ruleAppState.current; }
+	EOF;
+
+// Rule AppState
+ruleAppState returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
-			otherlv_0='app'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getAppAccess().getAppKeyword_0_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getAppStateAccess().getAppStateAction_0(),
+					$current);
+			}
+		)
+		(
+			otherlv_1='app'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getAppStateAccess().getAppKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getNameEStringParserRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getAppStateAccess().getNameEStringParserRuleCall_1_1_0());
 					}
-					lv_name_1_0=ruleEString
+					lv_name_2_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppStateRule());
 						}
 						set(
 							$current,
 							"name",
-							lv_name_1_0,
+							lv_name_2_0,
 							"arduinoML.concretesyntax.ArduinoML.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_2='initial'
+			otherlv_3='initial'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getAppAccess().getInitialKeyword_0_2());
+				newLeafNode(otherlv_3, grammarAccess.getAppStateAccess().getInitialKeyword_1_2());
 			}
-			otherlv_3='state'
+			otherlv_4='state'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getAppAccess().getStateKeyword_0_3());
+				newLeafNode(otherlv_4, grammarAccess.getAppStateAccess().getStateKeyword_1_3());
 			}
 			(
 				(
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAppRule());
+							$current = createModelElement(grammarAccess.getAppStateRule());
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getInitial_stateStateCrossReference_0_4_0());
+						newCompositeNode(grammarAccess.getAppStateAccess().getInitial_stateStateCrossReference_1_4_0());
 					}
 					ruleEString
 					{
@@ -125,46 +168,27 @@ ruleApp returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_5=':'
+			otherlv_6=':'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getAppAccess().getColonKeyword_0_5());
+				newLeafNode(otherlv_6, grammarAccess.getAppStateAccess().getColonKeyword_1_5());
 			}
-			otherlv_6='bricks'
+			otherlv_7='bricks'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getAppAccess().getBricksKeyword_0_6());
+				newLeafNode(otherlv_7, grammarAccess.getAppStateAccess().getBricksKeyword_1_6());
 			}
-			otherlv_7=':'
+			otherlv_8=':'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getAppAccess().getColonKeyword_0_7());
+				newLeafNode(otherlv_8, grammarAccess.getAppStateAccess().getColonKeyword_1_7());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_0_8_0());
-					}
-					lv_bricks_8_0=ruleBrick
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
-						}
-						add(
-							$current,
-							"bricks",
-							lv_bricks_8_0,
-							"arduinoML.concretesyntax.ArduinoML.Brick");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_0_9_0());
+						newCompositeNode(grammarAccess.getAppStateAccess().getBricksBrickParserRuleCall_1_8_0());
 					}
 					lv_bricks_9_0=ruleBrick
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppStateRule());
 						}
 						add(
 							$current,
@@ -174,43 +198,43 @@ ruleApp returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)*
-			otherlv_10='states'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getAppAccess().getStatesKeyword_0_10());
-			}
-			otherlv_11=':'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getAppAccess().getColonKeyword_0_11());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_0_12_0());
-					}
-					lv_states_12_0=ruleState
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
-						}
-						add(
-							$current,
-							"states",
-							lv_states_12_0,
-							"arduinoML.concretesyntax.ArduinoML.State");
-						afterParserOrEnumRuleCall();
-					}
-				)
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_0_13_0());
+						newCompositeNode(grammarAccess.getAppStateAccess().getBricksBrickParserRuleCall_1_9_0());
+					}
+					lv_bricks_10_0=ruleBrick
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppStateRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_10_0,
+							"arduinoML.concretesyntax.ArduinoML.Brick");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+			otherlv_11='states'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getAppStateAccess().getStatesKeyword_1_10());
+			}
+			otherlv_12=':'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getAppStateAccess().getColonKeyword_1_11());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAppStateAccess().getStatesStateParserRuleCall_1_12_0());
 					}
 					lv_states_13_0=ruleState
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppStateRule());
 						}
 						add(
 							$current,
@@ -220,50 +244,94 @@ ruleApp returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAppStateAccess().getStatesStateParserRuleCall_1_13_0());
+					}
+					lv_states_14_0=ruleState
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppStateRule());
+						}
+						add(
+							$current,
+							"states",
+							lv_states_14_0,
+							"arduinoML.concretesyntax.ArduinoML.State");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)*
 		)
-		    |
+	)
+;
+
+// Entry rule entryRuleAppMode
+entryRuleAppMode returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAppModeRule()); }
+	iv_ruleAppMode=ruleAppMode
+	{ $current=$iv_ruleAppMode.current; }
+	EOF;
+
+// Rule AppMode
+ruleAppMode returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
-			otherlv_14='app'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getAppAccess().getAppKeyword_1_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getAppModeAccess().getAppModeAction_0(),
+					$current);
+			}
+		)
+		(
+			otherlv_1='app'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getAppModeAccess().getAppKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getNameEStringParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getAppModeAccess().getNameEStringParserRuleCall_1_1_0());
 					}
-					lv_name_15_0=ruleEString
+					lv_name_2_0=ruleEString
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppModeRule());
 						}
 						set(
 							$current,
 							"name",
-							lv_name_15_0,
+							lv_name_2_0,
 							"arduinoML.concretesyntax.ArduinoML.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_16='initial'
+			otherlv_3='initial'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getAppAccess().getInitialKeyword_1_2());
+				newLeafNode(otherlv_3, grammarAccess.getAppModeAccess().getInitialKeyword_1_2());
 			}
-			otherlv_17='mode'
+			otherlv_4='mode'
 			{
-				newLeafNode(otherlv_17, grammarAccess.getAppAccess().getModeKeyword_1_3());
+				newLeafNode(otherlv_4, grammarAccess.getAppModeAccess().getModeKeyword_1_3());
 			}
 			(
 				(
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAppRule());
+							$current = createModelElement(grammarAccess.getAppModeRule());
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getInitial_modeModeCrossReference_1_4_0());
+						newCompositeNode(grammarAccess.getAppModeAccess().getInitial_modeModeCrossReference_1_4_0());
 					}
 					ruleEString
 					{
@@ -271,32 +339,32 @@ ruleApp returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_19=':'
+			otherlv_6=':'
 			{
-				newLeafNode(otherlv_19, grammarAccess.getAppAccess().getColonKeyword_1_5());
+				newLeafNode(otherlv_6, grammarAccess.getAppModeAccess().getColonKeyword_1_5());
 			}
-			otherlv_20='bricks'
+			otherlv_7='bricks'
 			{
-				newLeafNode(otherlv_20, grammarAccess.getAppAccess().getBricksKeyword_1_6());
+				newLeafNode(otherlv_7, grammarAccess.getAppModeAccess().getBricksKeyword_1_6());
 			}
-			otherlv_21=':'
+			otherlv_8=':'
 			{
-				newLeafNode(otherlv_21, grammarAccess.getAppAccess().getColonKeyword_1_7());
+				newLeafNode(otherlv_8, grammarAccess.getAppModeAccess().getColonKeyword_1_7());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_1_8_0());
+						newCompositeNode(grammarAccess.getAppModeAccess().getBricksBrickParserRuleCall_1_8_0());
 					}
-					lv_bricks_22_0=ruleBrick
+					lv_bricks_9_0=ruleBrick
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppModeRule());
 						}
 						add(
 							$current,
 							"bricks",
-							lv_bricks_22_0,
+							lv_bricks_9_0,
 							"arduinoML.concretesyntax.ArduinoML.Brick");
 						afterParserOrEnumRuleCall();
 					}
@@ -305,44 +373,44 @@ ruleApp returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_1_9_0());
+						newCompositeNode(grammarAccess.getAppModeAccess().getBricksBrickParserRuleCall_1_9_0());
 					}
-					lv_bricks_23_0=ruleBrick
+					lv_bricks_10_0=ruleBrick
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppModeRule());
 						}
 						add(
 							$current,
 							"bricks",
-							lv_bricks_23_0,
+							lv_bricks_10_0,
 							"arduinoML.concretesyntax.ArduinoML.Brick");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
-			otherlv_24='modes'
+			otherlv_11='modes'
 			{
-				newLeafNode(otherlv_24, grammarAccess.getAppAccess().getModesKeyword_1_10());
+				newLeafNode(otherlv_11, grammarAccess.getAppModeAccess().getModesKeyword_1_10());
 			}
-			otherlv_25=':'
+			otherlv_12=':'
 			{
-				newLeafNode(otherlv_25, grammarAccess.getAppAccess().getColonKeyword_1_11());
+				newLeafNode(otherlv_12, grammarAccess.getAppModeAccess().getColonKeyword_1_11());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_1_12_0());
+						newCompositeNode(grammarAccess.getAppModeAccess().getModesModeParserRuleCall_1_12_0());
 					}
-					lv_modes_26_0=ruleMode
+					lv_modes_13_0=ruleMode
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppModeRule());
 						}
 						add(
 							$current,
 							"modes",
-							lv_modes_26_0,
+							lv_modes_13_0,
 							"arduinoML.concretesyntax.ArduinoML.Mode");
 						afterParserOrEnumRuleCall();
 					}
@@ -351,17 +419,17 @@ ruleApp returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_1_13_0());
+						newCompositeNode(grammarAccess.getAppModeAccess().getModesModeParserRuleCall_1_13_0());
 					}
-					lv_modes_27_0=ruleMode
+					lv_modes_14_0=ruleMode
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAppRule());
+							$current = createModelElementForParent(grammarAccess.getAppModeRule());
 						}
 						add(
 							$current,
 							"modes",
-							lv_modes_27_0,
+							lv_modes_14_0,
 							"arduinoML.concretesyntax.ArduinoML.Mode");
 						afterParserOrEnumRuleCall();
 					}

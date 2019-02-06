@@ -26,7 +26,7 @@ void state_off() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
-		reset_jour();
+		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
 	else {
 		state_off(); 
 	}
@@ -45,7 +45,7 @@ void state_on() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
-		reset_jour();
+		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
 	else {
 		state_on(); 
 	}
@@ -85,7 +85,7 @@ void state_nuit_off() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
 		delay(0);
-		reset_jour();
+		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
 	else {
 		state_nuit_off(); 
 	}
@@ -104,7 +104,7 @@ void state_nuit_on() {
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
 		delay(0);
-		reset_jour();
+		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
 	else {
 		state_nuit_on(); 
 	}

@@ -19,6 +19,8 @@ class ArduinoMLFormatter extends AbstractFormatter2 {
 		for (brick : app.bricks) {
 			brick.format
 		}
+		
+		// TODO		
 		for (state : app.states) {
 			state.format
 		}

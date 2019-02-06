@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="MultiStateAlarm" initial_state="off">
+<arduinoML:AppState xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="MultiStateAlarm" initial_state="off">
   <bricks xsi:type="arduinoML:Actuator" name="buzzer" pin="11"/>
   <bricks xsi:type="arduinoML:Actuator" name="led" pin="12"/>
   <bricks xsi:type="arduinoML:Digital" name="button" pin="8"/>
@@ -22,4 +22,4 @@
       <d_values>HIGH</d_values>
     </transitions_state>
   </states>
-</arduinoML:App>
+</arduinoML:AppState>

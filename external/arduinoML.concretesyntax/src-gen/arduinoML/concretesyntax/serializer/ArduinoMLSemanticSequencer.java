@@ -5,7 +5,8 @@ package arduinoML.concretesyntax.serializer;
 
 import arduinoML.Actuator;
 import arduinoML.Analog;
-import arduinoML.App;
+import arduinoML.AppMode;
+import arduinoML.AppState;
 import arduinoML.ArduinoMLPackage;
 import arduinoML.Digital;
 import arduinoML.Mode;
@@ -62,8 +63,11 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
-			case ArduinoMLPackage.APP:
-				sequence_App(context, (App) semanticObject); 
+			case ArduinoMLPackage.APP_MODE:
+				sequence_AppMode(context, (AppMode) semanticObject); 
+				return; 
+			case ArduinoMLPackage.APP_STATE:
+				sequence_AppState(context, (AppState) semanticObject); 
 				return; 
 			case ArduinoMLPackage.DIGITAL:
 				if (rule == grammarAccess.getBrickRule()) {
@@ -181,29 +185,40 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     App returns App
+	 *     App returns AppMode
+	 *     AppMode returns AppMode
 	 *
 	 * Constraint:
 	 *     (
-	 *         (
-	 *             name=EString 
-	 *             initial_state=[State|EString] 
-	 *             bricks+=Brick 
-	 *             bricks+=Brick* 
-	 *             states+=State 
-	 *             states+=State*
-	 *         ) | 
-	 *         (
-	 *             name=EString 
-	 *             initial_mode=[Mode|EString] 
-	 *             bricks+=Brick 
-	 *             bricks+=Brick* 
-	 *             modes+=Mode 
-	 *             modes+=Mode*
-	 *         )
+	 *         name=EString 
+	 *         initial_mode=[Mode|EString] 
+	 *         bricks+=Brick 
+	 *         bricks+=Brick* 
+	 *         modes+=Mode 
+	 *         modes+=Mode*
 	 *     )
 	 */
-	protected void sequence_App(ISerializationContext context, App semanticObject) {
+	protected void sequence_AppMode(ISerializationContext context, AppMode semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     App returns AppState
+	 *     AppState returns AppState
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         initial_state=[State|EString] 
+	 *         bricks+=Brick 
+	 *         bricks+=Brick* 
+	 *         states+=State 
+	 *         states+=State*
+	 *     )
+	 */
+	protected void sequence_AppState(ISerializationContext context, AppState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

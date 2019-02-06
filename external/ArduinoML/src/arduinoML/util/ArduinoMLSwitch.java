@@ -150,6 +150,22 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArduinoMLPackage.APP_STATE: {
+				AppState appState = (AppState)theEObject;
+				T result = caseAppState(appState);
+				if (result == null) result = caseApp(appState);
+				if (result == null) result = caseNamedElement(appState);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoMLPackage.APP_MODE: {
+				AppMode appMode = (AppMode)theEObject;
+				T result = caseAppMode(appMode);
+				if (result == null) result = caseApp(appMode);
+				if (result == null) result = caseNamedElement(appMode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -331,6 +347,36 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTransitionMode(TransitionMode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>App State</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>App State</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAppState(AppState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>App Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>App Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAppMode(AppMode object) {
 		return null;
 	}
 

@@ -279,6 +279,52 @@ public class ArduinoMLItemProviderAdapterFactory extends ArduinoMLAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link arduinoML.AppState} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AppStateItemProvider appStateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link arduinoML.AppState}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAppStateAdapter() {
+		if (appStateItemProvider == null) {
+			appStateItemProvider = new AppStateItemProvider(this);
+		}
+
+		return appStateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link arduinoML.AppMode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AppModeItemProvider appModeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link arduinoML.AppMode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAppModeAdapter() {
+		if (appModeItemProvider == null) {
+			appModeItemProvider = new AppModeItemProvider(this);
+		}
+
+		return appModeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +438,8 @@ public class ArduinoMLItemProviderAdapterFactory extends ArduinoMLAdapterFactory
 		if (modeItemProvider != null) modeItemProvider.dispose();
 		if (transitionStateItemProvider != null) transitionStateItemProvider.dispose();
 		if (transitionModeItemProvider != null) transitionModeItemProvider.dispose();
+		if (appStateItemProvider != null) appStateItemProvider.dispose();
+		if (appModeItemProvider != null) appModeItemProvider.dispose();
 	}
 
 }
