@@ -1,38 +1,66 @@
-app ModeScenario1 initial mode jour :
+app ModeScenario1 initial mode mode1:
 
-	bricks :
-		Analog light : 1
-		Actuator led3 : 12
-	
-	modes :
-		jour initial state off :
-			bricks :
-				Digital button : 9
-				Actuator led1 : 10
-			
-			states :
-				off :
-					change led1 to LOW
-					change led3 to LOW
-					when light inf 500 go to mode nuit
-					when button is HIGH go to state on
-				on :
-					change led1 to HIGH
-					when light inf 500 go to mode nuit
-					when button is HIGH go to state off
-					
-		nuit initial state nuit_off :
-			bricks :
-				Digital button2 : 9
-				Actuator led2 : 11
-			
-			states :
-				nuit_off :
-					change led2 to LOW
-					change led3 to HIGH
-					when light esup 500 go to mode jour
-					when button2 is HIGH go to state nuit_on
-				nuit_on :
-					change led2 to HIGH
-					when light esup 500 go to mode jour
-					when button2 is HIGH go to state nuit_off
+    bricks :
+        Analog light : 1
+        Digital boutonM : 13
+        
+    modes :
+        mode1 initial state off :
+            bricks :
+                Digital bouton1 : 9
+                Actuator led1 : 10
+                Actuator led2 : 11
+
+            states :
+                off :
+                    change led1 to LOW
+                      when button1 is HIGH go to state glow1
+            
+                glow1 :
+                    change led2 to HIGH
+                    when button1 is HIGH go to state glow2            
+            
+                glow2 :
+                    change led2 to LOW
+                    change led1 to HIGH
+                    when button1 is HIGH go to state off
+
+            transitions :
+                when light inf 500 go to mode3
+                when buttonM is HIGH go to mode2                    
+
+        mode2 initial state off :
+           bricks :
+                Actuator led1 : 10
+                Digital button1 : 9
+    
+            states :
+                off :
+                    change led1 to LOW
+                    when button1 is HIGH go to state on
+
+                on :
+                    change led1 to HIGH
+                    wait 800ms then go to state off
+           
+            transitions :
+                when light inf 500 go to mode3
+                when buttonM is HIGH go to mode1
+
+        mode3 initial state off:
+
+            bricks :
+                Actuator led2 : 11
+                Analog variat : 12
+    
+            states :
+                off :
+                    change led2 to LOW
+                    when variat is HIGH and button2 is HIGH go to state on
+                on :
+                    change led2 to HIGH
+                    when variat is LOW go to state off
+
+            transitions :
+                when light sup 500 go to mode1
+                when buttonM is HIGH go to mode2

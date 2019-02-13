@@ -2,124 +2,196 @@
 // Structural concepts
 void setup() {
 	pinMode(1, INPUT);
-	pinMode(12, OUTPUT);
+	pinMode(13, INPUT);
 }
 
 //Behavioral concepts
 long time=0; long debounce = 200;
 
-void mode_jour() {
+void mode_mode1() {
 	//setup bricks
 	pinMode(9, INPUT);
 	pinMode(10, OUTPUT);
+	pinMode(11, OUTPUT);
 	//initial state
 	state_off();
 }
 
-void reset_jour() {
+void reset_mode1() {
 	digitalWrite(10, LOW);
+	digitalWrite(11, LOW);
 }
 
-void state_off() {
-	digitalWrite(10, LOW);
-	digitalWrite(12, LOW);
-	boolean guard = millis() - time > debounce;
+void mode_mode1_to_mode3(){
 	if( analogRead(1) < 500 && guard ) {
 		delay(0);
-		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
+		reset_mode1();
+		time = millis();
+		mode_mode3();
+	}
+}
+void mode_mode1_to_mode2(){
+	if( digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		reset_mode1();
+		time = millis();
+		mode_mode2();
+	}
+}
+void state_off() {
+	digitalWrite(10, LOW);
+	boolean guard = millis() - time > debounce;
+	mode_mode1_to_mode3();
+	mode_mode1_to_mode2();
+	if( digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		time = millis();
+		state_glow1();
+	}
 	else {
 		state_off(); 
 	}
 }
 
-void state_nuit() {
+void state_glow1() {
+	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
+	mode_mode1_to_mode3();
+	mode_mode1_to_mode2();
+	if( digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		time = millis();
+		state_glow2();
+	}
+	else {
+		state_glow1(); 
+	}
 }
 
-void state_button() {
+void state_glow2() {
+	digitalWrite(11, LOW);
+	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
+	mode_mode1_to_mode3();
+	mode_mode1_to_mode2();
+	if( digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		time = millis();
+		state_off();
+	}
+	else {
+		state_glow2(); 
+	}
+}
+
+void mode_mode2() {
+	//setup bricks
+	pinMode(10, OUTPUT);
+	pinMode(9, INPUT);
+	//initial state
+	state_off();
+}
+
+void reset_mode2() {
+	digitalWrite(10, LOW);
+}
+
+void mode_mode2_to_mode3(){
+	if( analogRead(1) < 500 && guard ) {
+		delay(0);
+		reset_mode2();
+		time = millis();
+		mode_mode3();
+	}
+}
+void mode_mode2_to_mode1(){
+	if( digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		reset_mode2();
+		time = millis();
+		mode_mode1();
+	}
+}
+void state_off() {
+	digitalWrite(10, LOW);
+	boolean guard = millis() - time > debounce;
+	mode_mode2_to_mode3();
+	mode_mode2_to_mode1();
+	if( digitalRead(9) == HIGH && guard ) {
+		delay(0);
+		time = millis();
+		state_on();
+	}
+	else {
+		state_off(); 
+	}
 }
 
 void state_on() {
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
-	if( analogRead(1) < 500 && guard ) {
+	mode_mode2_to_mode3();
+	mode_mode2_to_mode1();
+	delay(800);
+	state_off();
+}
+
+void mode_mode3() {
+	//setup bricks
+	pinMode(11, OUTPUT);
+	pinMode(12, INPUT);
+	//initial state
+	state_off();
+}
+
+void reset_mode3() {
+	digitalWrite(11, LOW);
+}
+
+void mode_mode3_to_mode1(){
+	if( analogRead(1) > 500 && guard ) {
 		delay(0);
-		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
+		reset_mode3();
+		time = millis();
+		mode_mode1();
+	}
+}
+void mode_mode3_to_mode2(){
+	if( digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		reset_mode3();
+		time = millis();
+		mode_mode2();
+	}
+}
+void state_off() {
+	digitalWrite(11, LOW);
+	boolean guard = millis() - time > debounce;
+	mode_mode3_to_mode1();
+	mode_mode3_to_mode2();
+	if( digitalRead(0) == HIGH && digitalRead(0) == HIGH && guard ) {
+		delay(0);
+		time = millis();
+		state_on();
+	}
+	else {
+		state_off(); 
+	}
+}
+
+void state_on() {
+	digitalWrite(11, HIGH);
+	boolean guard = millis() - time > debounce;
+	mode_mode3_to_mode1();
+	mode_mode3_to_mode2();
+	if( digitalRead(0) == LOW && guard ) {
+		delay(0);
+		time = millis();
+		state_off();
+	}
 	else {
 		state_on(); 
 	}
 }
 
-void state_nuit() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_button() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_off() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_nuit() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_nuit_off() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_button2() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_led2() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_nuit_off() {
-	digitalWrite(0, LOW);
-	digitalWrite(12, HIGH);
-	boolean guard = millis() - time > debounce;
-	if( analogRead(1) >= 500 && guard ) {
-		delay(0);
-		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
-	else {
-		state_nuit_off(); 
-	}
-}
-
-void state_jour() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_button2() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_nuit_on() {
-	digitalWrite(0, HIGH);
-	boolean guard = millis() - time > debounce;
-	if( analogRead(1) >= 500 && guard ) {
-		delay(0);
-		reset_arduinoML.impl.ModeImpl@3276732 (name: jour)();
-	else {
-		state_nuit_on(); 
-	}
-}
-
-void state_jour() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_button2() {
-	boolean guard = millis() - time > debounce;
-}
-
-void state_nuit_off() {
-	boolean guard = millis() - time > debounce;
-}
-
-void loop() {mode_jour();} // Entering init mode
+void loop() {mode_mode1();} // Entering init mode

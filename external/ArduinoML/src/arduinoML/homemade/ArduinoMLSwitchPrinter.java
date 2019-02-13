@@ -40,7 +40,6 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	Boolean hasBrick = false;
 	int if_counter = -1;
 	List<TransitionMode> transitionsModeUtil = new ArrayList<TransitionMode>();
-	boolean appHasModes = false;
 	
 	public ArduinoMLSwitchPrinter() {
 		if (modelPackage == null) {
@@ -249,10 +248,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 							.collect(Collectors.toList());
 				
 				for(TransitionMode tm : transitions) {
-					sb.append("mode_");
-					sb.append(tm.getMode().getName());
+					sb.append("\tmode_");
+					sb.append(tm.getMode().getName().trim());
 					sb.append("_to_");
-					sb.append(tm.getNext_mode().getName()); // must have next mode
+					sb.append(tm.getNext_mode().getName().trim()); // must have next mode
 					sb.append("();\n");
 				}
 			}
@@ -467,10 +466,12 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			
 			sb.append("\t\treset_" + object.getMode().getName() + "();\n");
 			sb.append("\t\ttime = millis();\n");
-			sb.append("\tmode" + object.getNext_mode().getName());
-			sb.append("();\n\t}\n");
+			sb.append("\t\tmode_" + object.getNext_mode().getName());
+			sb.append("();\n");
+			sb.append("\t}\n");
 		}
 		
+		sb.append("}\n");
 		return sb.toString();
 	}
 	
