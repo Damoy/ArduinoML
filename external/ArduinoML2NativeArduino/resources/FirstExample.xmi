@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="ASCII"?>
-<arduinoML:AppState xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="MultiStateAlarm" initial_state="off">
-  <bricks xsi:type="arduinoML:Actuator" name="buzzer" pin="11"/>
-  <bricks xsi:type="arduinoML:Actuator" name="led" pin="12"/>
-  <bricks xsi:type="arduinoML:Digital" name="button" pin="8"/>
-  <states name="off">
-    <actions value="LOW" actuator="led"/>
-    <transitions_state digitals="button" next_state="buzz">
-      <d_values>HIGH</d_values>
-    </transitions_state>
-  </states>
-  <states name="buzz">
-    <actions actuator="buzzer"/>
-    <transitions_state digitals="button" next_state="glow">
-      <d_values>HIGH</d_values>
-    </transitions_state>
-  </states>
-  <states name="glow">
-    <actions value="LOW" actuator="buzzer"/>
-    <actions actuator="led"/>
-    <transitions_state digitals="button" next_state="off">
-      <d_values>HIGH</d_values>
-    </transitions_state>
-  </states>
-</arduinoML:AppState>
+<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML">
+  <modes name="MultiStateAlarm" initial="off">
+    <bricks xsi:type="arduinoML:Actuator" name="buzzer" pin="11"/>
+    <bricks xsi:type="arduinoML:Actuator" name="led" pin="12"/>
+    <bricks xsi:type="arduinoML:Digital" name="button" pin="8"/>
+    <states name="off">
+      <actions value="LOW" actuator="led"/>
+      <transitions_state digitals="button" next_state="buzz">
+        <d_values>HIGH</d_values>
+      </transitions_state>
+    </states>
+    <states name="buzz">
+      <actions actuator="buzzer"/>
+      <transitions_state digitals="button" next_state="glow">
+        <d_values>HIGH</d_values>
+      </transitions_state>
+    </states>
+    <states name="glow">
+      <actions value="LOW" actuator="buzzer"/>
+      <actions actuator="led"/>
+      <transitions_state digitals="button" next_state="off">
+        <d_values>HIGH</d_values>
+      </transitions_state>
+    </states>
+  </modes>
+</arduinoML:App>

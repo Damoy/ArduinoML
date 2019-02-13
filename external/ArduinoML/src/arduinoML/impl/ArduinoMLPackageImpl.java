@@ -6,8 +6,6 @@ import arduinoML.Action;
 import arduinoML.Actuator;
 import arduinoML.Analog;
 import arduinoML.App;
-import arduinoML.AppMode;
-import arduinoML.AppState;
 import arduinoML.ArduinoMLFactory;
 import arduinoML.ArduinoMLPackage;
 import arduinoML.Brick;
@@ -120,20 +118,6 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	private EClass transitionModeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass appStateEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass appModeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,7 +258,27 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 */
 	@Override
 	public EReference getApp_Bricks() {
+		return (EReference)appEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApp_Initial_mode() {
 		return (EReference)appEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApp_Modes() {
+		return (EReference)appEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -563,66 +567,6 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getAppState() {
-		return appStateEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAppState_Initial_state() {
-		return (EReference)appStateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAppState_States() {
-		return (EReference)appStateEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAppMode() {
-		return appModeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAppMode_Modes() {
-		return (EReference)appModeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAppMode_Initial_mode() {
-		return (EReference)appModeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getSignal() {
 		return signalEEnum;
 	}
@@ -684,6 +628,8 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		digitalEClass = createEClass(DIGITAL);
 
 		appEClass = createEClass(APP);
+		createEReference(appEClass, APP__INITIAL_MODE);
+		createEReference(appEClass, APP__MODES);
 		createEReference(appEClass, APP__BRICKS);
 
 		stateEClass = createEClass(STATE);
@@ -721,14 +667,6 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		transitionModeEClass = createEClass(TRANSITION_MODE);
 		createEReference(transitionModeEClass, TRANSITION_MODE__MODE);
 		createEReference(transitionModeEClass, TRANSITION_MODE__NEXT_MODE);
-
-		appStateEClass = createEClass(APP_STATE);
-		createEReference(appStateEClass, APP_STATE__INITIAL_STATE);
-		createEReference(appStateEClass, APP_STATE__STATES);
-
-		appModeEClass = createEClass(APP_MODE);
-		createEReference(appModeEClass, APP_MODE__MODES);
-		createEReference(appModeEClass, APP_MODE__INITIAL_MODE);
 
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
@@ -773,8 +711,6 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		modeEClass.getESuperTypes().add(this.getNamedElement());
 		transitionStateEClass.getESuperTypes().add(this.getTransition());
 		transitionModeEClass.getESuperTypes().add(this.getTransition());
-		appStateEClass.getESuperTypes().add(this.getApp());
-		appModeEClass.getESuperTypes().add(this.getApp());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(brickEClass, Brick.class, "Brick", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -785,6 +721,8 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEClass(digitalEClass, Digital.class, "Digital", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(appEClass, App.class, "App", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getApp_Initial_mode(), this.getMode(), null, "initial_mode", null, 0, 1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApp_Modes(), this.getMode(), null, "modes", null, 1, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApp_Bricks(), this.getBrick(), null, "bricks", null, 1, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -822,14 +760,6 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEClass(transitionModeEClass, TransitionMode.class, "TransitionMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransitionMode_Mode(), this.getMode(), this.getMode_Transitions_mode(), "mode", null, 1, 1, TransitionMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransitionMode_Next_mode(), this.getMode(), null, "next_mode", null, 1, 1, TransitionMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(appStateEClass, AppState.class, "AppState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAppState_Initial_state(), this.getState(), null, "initial_state", null, 1, 1, AppState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAppState_States(), this.getState(), null, "states", null, 1, -1, AppState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(appModeEClass, AppMode.class, "AppMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAppMode_Modes(), this.getMode(), null, "modes", null, 1, -1, AppMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAppMode_Initial_mode(), this.getMode(), null, "initial_mode", null, 1, 1, AppMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(signalEEnum, Signal.class, "Signal");

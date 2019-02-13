@@ -320,10 +320,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:23:7: ( 'state' )
-            // InternalArduinoML.g:23:9: 'state'
+            // InternalArduinoML.g:23:7: ( 'mode' )
+            // InternalArduinoML.g:23:9: 'mode'
             {
-            match("state"); 
+            match("mode"); 
 
 
             }
@@ -382,10 +382,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:26:7: ( 'states' )
-            // InternalArduinoML.g:26:9: 'states'
+            // InternalArduinoML.g:26:7: ( 'modes' )
+            // InternalArduinoML.g:26:9: 'modes'
             {
-            match("states"); 
+            match("modes"); 
 
 
             }
@@ -403,10 +403,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:27:7: ( 'mode' )
-            // InternalArduinoML.g:27:9: 'mode'
+            // InternalArduinoML.g:27:7: ( 'state' )
+            // InternalArduinoML.g:27:9: 'state'
             {
-            match("mode"); 
+            match("state"); 
 
 
             }
@@ -424,10 +424,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:28:7: ( 'modes' )
-            // InternalArduinoML.g:28:9: 'modes'
+            // InternalArduinoML.g:28:7: ( 'states' )
+            // InternalArduinoML.g:28:9: 'states'
             {
-            match("modes"); 
+            match("states"); 
 
 
             }
@@ -697,10 +697,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5237:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalArduinoML.g:5237:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalArduinoML.g:4703:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalArduinoML.g:4703:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalArduinoML.g:5237:11: ( '^' )?
+            // InternalArduinoML.g:4703:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -709,7 +709,7 @@ public class InternalArduinoMLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalArduinoML.g:5237:11: '^'
+                    // InternalArduinoML.g:4703:11: '^'
                     {
                     match('^'); 
 
@@ -727,7 +727,7 @@ public class InternalArduinoMLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalArduinoML.g:5237:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalArduinoML.g:4703:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -776,10 +776,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5239:10: ( ( '0' .. '9' )+ )
-            // InternalArduinoML.g:5239:12: ( '0' .. '9' )+
+            // InternalArduinoML.g:4705:10: ( ( '0' .. '9' )+ )
+            // InternalArduinoML.g:4705:12: ( '0' .. '9' )+
             {
-            // InternalArduinoML.g:5239:12: ( '0' .. '9' )+
+            // InternalArduinoML.g:4705:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -793,7 +793,7 @@ public class InternalArduinoMLLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalArduinoML.g:5239:13: '0' .. '9'
+            	    // InternalArduinoML.g:4705:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -825,10 +825,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5241:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalArduinoML.g:5241:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalArduinoML.g:4707:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalArduinoML.g:4707:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalArduinoML.g:5241:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalArduinoML.g:4707:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -846,10 +846,10 @@ public class InternalArduinoMLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalArduinoML.g:5241:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalArduinoML.g:4707:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalArduinoML.g:5241:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalArduinoML.g:4707:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -865,7 +865,7 @@ public class InternalArduinoMLLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalArduinoML.g:5241:21: '\\\\' .
+                    	    // InternalArduinoML.g:4707:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -873,7 +873,7 @@ public class InternalArduinoMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalArduinoML.g:5241:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalArduinoML.g:4707:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -898,10 +898,10 @@ public class InternalArduinoMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:5241:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalArduinoML.g:4707:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalArduinoML.g:5241:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalArduinoML.g:4707:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -917,7 +917,7 @@ public class InternalArduinoMLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalArduinoML.g:5241:54: '\\\\' .
+                    	    // InternalArduinoML.g:4707:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -925,7 +925,7 @@ public class InternalArduinoMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalArduinoML.g:5241:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalArduinoML.g:4707:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -968,12 +968,12 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5243:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalArduinoML.g:5243:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalArduinoML.g:4709:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalArduinoML.g:4709:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalArduinoML.g:5243:24: ( options {greedy=false; } : . )*
+            // InternalArduinoML.g:4709:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -998,7 +998,7 @@ public class InternalArduinoMLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalArduinoML.g:5243:52: .
+            	    // InternalArduinoML.g:4709:52: .
             	    {
             	    matchAny(); 
 
@@ -1028,12 +1028,12 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5245:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalArduinoML.g:5245:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalArduinoML.g:4711:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalArduinoML.g:4711:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalArduinoML.g:5245:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalArduinoML.g:4711:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1046,7 +1046,7 @@ public class InternalArduinoMLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalArduinoML.g:5245:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalArduinoML.g:4711:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1066,7 +1066,7 @@ public class InternalArduinoMLLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalArduinoML.g:5245:40: ( ( '\\r' )? '\\n' )?
+            // InternalArduinoML.g:4711:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1075,9 +1075,9 @@ public class InternalArduinoMLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalArduinoML.g:5245:41: ( '\\r' )? '\\n'
+                    // InternalArduinoML.g:4711:41: ( '\\r' )? '\\n'
                     {
-                    // InternalArduinoML.g:5245:41: ( '\\r' )?
+                    // InternalArduinoML.g:4711:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1086,7 +1086,7 @@ public class InternalArduinoMLLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalArduinoML.g:5245:41: '\\r'
+                            // InternalArduinoML.g:4711:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1118,10 +1118,10 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5247:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalArduinoML.g:5247:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalArduinoML.g:4713:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalArduinoML.g:4713:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalArduinoML.g:5247:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalArduinoML.g:4713:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1175,8 +1175,8 @@ public class InternalArduinoMLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalArduinoML.g:5249:16: ( . )
-            // InternalArduinoML.g:5249:18: .
+            // InternalArduinoML.g:4715:16: ( . )
+            // InternalArduinoML.g:4715:18: .
             {
             matchAny(); 
 
@@ -1470,7 +1470,7 @@ public class InternalArduinoMLLexer extends Lexer {
     static final String DFA12_maxS =
         "\1\uffff\1\111\1\117\1\163\1\172\2\163\1\160\1\uffff\2\162\1\156\1\151\1\150\1\157\1\150\1\172\2\uffff\2\uffff\1\57\2\uffff\1\107\1\uffff\1\127\1\172\1\156\1\144\1\160\1\141\1\uffff\1\151\1\172\1\156\2\165\1\160\1\144\1\uffff\1\151\1\141\1\172\1\145\1\164\1\141\1\147\1\141\1\172\1\145\1\151\5\uffff\1\110\1\172\1\uffff\1\172\1\145\1\172\1\164\1\172\1\164\1\uffff\1\146\1\141\1\160\2\172\1\143\1\156\1\uffff\1\156\1\165\1\154\1\151\1\156\1\uffff\1\156\1\164\1\172\2\uffff\1\172\1\uffff\1\145\1\uffff\1\151\1\172\1\154\1\172\2\uffff\1\153\1\163\1\172\1\141\1\157\1\164\1\147\2\172\1\uffff\1\172\1\uffff\1\172\1\141\1\uffff\1\172\1\uffff\1\163\1\151\1\uffff\1\164\1\147\1\141\1\145\3\uffff\1\172\1\uffff\1\154\1\uffff\1\172\1\164\1\157\1\172\1\154\1\172\1\uffff\1\172\1\uffff\1\151\1\162\1\uffff\1\172\2\uffff\1\157\1\172\1\uffff\1\156\1\uffff\1\163\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\10\uffff\1\16\10\uffff\1\37\1\40\3\uffff\1\44\1\45\1\uffff\1\37\6\uffff\1\4\7\uffff\1\16\13\uffff\1\40\1\41\1\42\1\43\1\44\2\uffff\1\3\6\uffff\1\33\7\uffff\1\30\5\uffff\1\31\3\uffff\1\2\1\5\1\uffff\1\12\1\uffff\1\6\4\uffff\1\13\1\34\11\uffff\1\1\1\uffff\1\21\2\uffff\1\7\1\uffff\1\11\2\uffff\1\36\4\uffff\1\32\1\35\1\22\1\uffff\1\15\1\uffff\1\10\6\uffff\1\20\1\uffff\1\17\2\uffff\1\26\1\uffff\1\27\1\14\2\uffff\1\25\1\uffff\1\24\2\uffff\1\23";
+        "\10\uffff\1\16\10\uffff\1\37\1\40\3\uffff\1\44\1\45\1\uffff\1\37\6\uffff\1\4\7\uffff\1\16\13\uffff\1\40\1\41\1\42\1\43\1\44\2\uffff\1\3\6\uffff\1\33\7\uffff\1\30\5\uffff\1\31\3\uffff\1\2\1\5\1\uffff\1\12\1\uffff\1\6\4\uffff\1\13\1\34\11\uffff\1\1\1\uffff\1\15\2\uffff\1\7\1\uffff\1\11\2\uffff\1\36\4\uffff\1\32\1\35\1\20\1\uffff\1\21\1\uffff\1\10\6\uffff\1\22\1\uffff\1\17\2\uffff\1\26\1\uffff\1\27\1\14\2\uffff\1\25\1\uffff\1\24\2\uffff\1\23";
     static final String DFA12_specialS =
         "\1\1\22\uffff\1\2\1\0\u0081\uffff}>";
     static final String[] DFA12_transitionS = {

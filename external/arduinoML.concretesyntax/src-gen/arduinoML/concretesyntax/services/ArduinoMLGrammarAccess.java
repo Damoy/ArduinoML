@@ -30,233 +30,120 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	public class AppElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.App");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAppStateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cAppModeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAppKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cInitialKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Keyword cModeKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cInitial_modeAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final CrossReference cInitial_modeModeCrossReference_0_4_0 = (CrossReference)cInitial_modeAssignment_0_4.eContents().get(0);
+		private final RuleCall cInitial_modeModeEStringParserRuleCall_0_4_0_1 = (RuleCall)cInitial_modeModeCrossReference_0_4_0.eContents().get(1);
+		private final Keyword cColonKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
+		private final Keyword cBricksKeyword_0_6 = (Keyword)cGroup_0.eContents().get(6);
+		private final Keyword cColonKeyword_0_7 = (Keyword)cGroup_0.eContents().get(7);
+		private final Assignment cBricksAssignment_0_8 = (Assignment)cGroup_0.eContents().get(8);
+		private final RuleCall cBricksBrickParserRuleCall_0_8_0 = (RuleCall)cBricksAssignment_0_8.eContents().get(0);
+		private final Assignment cBricksAssignment_0_9 = (Assignment)cGroup_0.eContents().get(9);
+		private final RuleCall cBricksBrickParserRuleCall_0_9_0 = (RuleCall)cBricksAssignment_0_9.eContents().get(0);
+		private final Keyword cModesKeyword_0_10 = (Keyword)cGroup_0.eContents().get(10);
+		private final Keyword cColonKeyword_0_11 = (Keyword)cGroup_0.eContents().get(11);
+		private final Assignment cModesAssignment_0_12 = (Assignment)cGroup_0.eContents().get(12);
+		private final RuleCall cModesModeParserRuleCall_0_12_0 = (RuleCall)cModesAssignment_0_12.eContents().get(0);
+		private final Assignment cModesAssignment_0_13 = (Assignment)cGroup_0.eContents().get(13);
+		private final RuleCall cModesModeParserRuleCall_0_13_0 = (RuleCall)cModesAssignment_0_13.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cAppKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cModesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cModesModeParserRuleCall_1_1_0 = (RuleCall)cModesAssignment_1_1.eContents().get(0);
 		
 		//App:
-		//	AppState | AppMode;
+		//	'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
+		//	':' modes+=Mode modes+=Mode* | 'app' modes+=Mode;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AppState | AppMode
+		//'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
+		//':' modes+=Mode modes+=Mode* | 'app' modes+=Mode
 		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//AppState
-		public RuleCall getAppStateParserRuleCall_0() { return cAppStateParserRuleCall_0; }
-		
-		//AppMode
-		public RuleCall getAppModeParserRuleCall_1() { return cAppModeParserRuleCall_1; }
-	}
-	public class AppStateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.AppState");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAppStateAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cAppKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
-		private final Keyword cInitialKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Keyword cStateKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cInitial_stateAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final CrossReference cInitial_stateStateCrossReference_1_4_0 = (CrossReference)cInitial_stateAssignment_1_4.eContents().get(0);
-		private final RuleCall cInitial_stateStateEStringParserRuleCall_1_4_0_1 = (RuleCall)cInitial_stateStateCrossReference_1_4_0.eContents().get(1);
-		private final Keyword cColonKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Keyword cBricksKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
-		private final Keyword cColonKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
-		private final Assignment cBricksAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
-		private final RuleCall cBricksBrickParserRuleCall_1_8_0 = (RuleCall)cBricksAssignment_1_8.eContents().get(0);
-		private final Assignment cBricksAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
-		private final RuleCall cBricksBrickParserRuleCall_1_9_0 = (RuleCall)cBricksAssignment_1_9.eContents().get(0);
-		private final Keyword cStatesKeyword_1_10 = (Keyword)cGroup_1.eContents().get(10);
-		private final Keyword cColonKeyword_1_11 = (Keyword)cGroup_1.eContents().get(11);
-		private final Assignment cStatesAssignment_1_12 = (Assignment)cGroup_1.eContents().get(12);
-		private final RuleCall cStatesStateParserRuleCall_1_12_0 = (RuleCall)cStatesAssignment_1_12.eContents().get(0);
-		private final Assignment cStatesAssignment_1_13 = (Assignment)cGroup_1.eContents().get(13);
-		private final RuleCall cStatesStateParserRuleCall_1_13_0 = (RuleCall)cStatesAssignment_1_13.eContents().get(0);
-		
-		//AppState:
-		//	{AppState} ('app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick
-		//	bricks+=Brick* 'states' ':' states+=State states+=State*);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{AppState} ('app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick
-		//bricks+=Brick* 'states' ':' states+=State states+=State*)
-		public Group getGroup() { return cGroup; }
-		
-		//{AppState}
-		public Action getAppStateAction_0() { return cAppStateAction_0; }
-		
-		//'app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick*
-		//'states' ':' states+=State states+=State*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'app'
-		public Keyword getAppKeyword_1_0() { return cAppKeyword_1_0; }
-		
-		//name=EString
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_1_0() { return cNameEStringParserRuleCall_1_1_0; }
-		
-		//'initial'
-		public Keyword getInitialKeyword_1_2() { return cInitialKeyword_1_2; }
-		
-		//'state'
-		public Keyword getStateKeyword_1_3() { return cStateKeyword_1_3; }
-		
-		//initial_state=[State|EString]
-		public Assignment getInitial_stateAssignment_1_4() { return cInitial_stateAssignment_1_4; }
-		
-		//[State|EString]
-		public CrossReference getInitial_stateStateCrossReference_1_4_0() { return cInitial_stateStateCrossReference_1_4_0; }
-		
-		//EString
-		public RuleCall getInitial_stateStateEStringParserRuleCall_1_4_0_1() { return cInitial_stateStateEStringParserRuleCall_1_4_0_1; }
-		
-		//':'
-		public Keyword getColonKeyword_1_5() { return cColonKeyword_1_5; }
-		
-		//'bricks'
-		public Keyword getBricksKeyword_1_6() { return cBricksKeyword_1_6; }
-		
-		//':'
-		public Keyword getColonKeyword_1_7() { return cColonKeyword_1_7; }
-		
-		//bricks+=Brick
-		public Assignment getBricksAssignment_1_8() { return cBricksAssignment_1_8; }
-		
-		//Brick
-		public RuleCall getBricksBrickParserRuleCall_1_8_0() { return cBricksBrickParserRuleCall_1_8_0; }
-		
-		//bricks+=Brick*
-		public Assignment getBricksAssignment_1_9() { return cBricksAssignment_1_9; }
-		
-		//Brick
-		public RuleCall getBricksBrickParserRuleCall_1_9_0() { return cBricksBrickParserRuleCall_1_9_0; }
-		
-		//'states'
-		public Keyword getStatesKeyword_1_10() { return cStatesKeyword_1_10; }
-		
-		//':'
-		public Keyword getColonKeyword_1_11() { return cColonKeyword_1_11; }
-		
-		//states+=State
-		public Assignment getStatesAssignment_1_12() { return cStatesAssignment_1_12; }
-		
-		//State
-		public RuleCall getStatesStateParserRuleCall_1_12_0() { return cStatesStateParserRuleCall_1_12_0; }
-		
-		//states+=State*
-		public Assignment getStatesAssignment_1_13() { return cStatesAssignment_1_13; }
-		
-		//State
-		public RuleCall getStatesStateParserRuleCall_1_13_0() { return cStatesStateParserRuleCall_1_13_0; }
-	}
-	public class AppModeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.AppMode");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAppModeAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cAppKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
-		private final Keyword cInitialKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Keyword cModeKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cInitial_modeAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final CrossReference cInitial_modeModeCrossReference_1_4_0 = (CrossReference)cInitial_modeAssignment_1_4.eContents().get(0);
-		private final RuleCall cInitial_modeModeEStringParserRuleCall_1_4_0_1 = (RuleCall)cInitial_modeModeCrossReference_1_4_0.eContents().get(1);
-		private final Keyword cColonKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Keyword cBricksKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
-		private final Keyword cColonKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
-		private final Assignment cBricksAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
-		private final RuleCall cBricksBrickParserRuleCall_1_8_0 = (RuleCall)cBricksAssignment_1_8.eContents().get(0);
-		private final Assignment cBricksAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
-		private final RuleCall cBricksBrickParserRuleCall_1_9_0 = (RuleCall)cBricksAssignment_1_9.eContents().get(0);
-		private final Keyword cModesKeyword_1_10 = (Keyword)cGroup_1.eContents().get(10);
-		private final Keyword cColonKeyword_1_11 = (Keyword)cGroup_1.eContents().get(11);
-		private final Assignment cModesAssignment_1_12 = (Assignment)cGroup_1.eContents().get(12);
-		private final RuleCall cModesModeParserRuleCall_1_12_0 = (RuleCall)cModesAssignment_1_12.eContents().get(0);
-		private final Assignment cModesAssignment_1_13 = (Assignment)cGroup_1.eContents().get(13);
-		private final RuleCall cModesModeParserRuleCall_1_13_0 = (RuleCall)cModesAssignment_1_13.eContents().get(0);
-		
-		//AppMode:
-		//	{AppMode} ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick
-		//	bricks+=Brick* 'modes' ':' modes+=Mode modes+=Mode*);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{AppMode} ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick*
-		//'modes' ':' modes+=Mode modes+=Mode*)
-		public Group getGroup() { return cGroup; }
-		
-		//{AppMode}
-		public Action getAppModeAction_0() { return cAppModeAction_0; }
 		
 		//'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
 		//':' modes+=Mode modes+=Mode*
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'app'
+		public Keyword getAppKeyword_0_0() { return cAppKeyword_0_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_0_1_0() { return cNameEStringParserRuleCall_0_1_0; }
+		
+		//'initial'
+		public Keyword getInitialKeyword_0_2() { return cInitialKeyword_0_2; }
+		
+		//'mode'
+		public Keyword getModeKeyword_0_3() { return cModeKeyword_0_3; }
+		
+		//initial_mode=[Mode|EString]
+		public Assignment getInitial_modeAssignment_0_4() { return cInitial_modeAssignment_0_4; }
+		
+		//[Mode|EString]
+		public CrossReference getInitial_modeModeCrossReference_0_4_0() { return cInitial_modeModeCrossReference_0_4_0; }
+		
+		//EString
+		public RuleCall getInitial_modeModeEStringParserRuleCall_0_4_0_1() { return cInitial_modeModeEStringParserRuleCall_0_4_0_1; }
+		
+		//':'
+		public Keyword getColonKeyword_0_5() { return cColonKeyword_0_5; }
+		
+		//'bricks'
+		public Keyword getBricksKeyword_0_6() { return cBricksKeyword_0_6; }
+		
+		//':'
+		public Keyword getColonKeyword_0_7() { return cColonKeyword_0_7; }
+		
+		//bricks+=Brick
+		public Assignment getBricksAssignment_0_8() { return cBricksAssignment_0_8; }
+		
+		//Brick
+		public RuleCall getBricksBrickParserRuleCall_0_8_0() { return cBricksBrickParserRuleCall_0_8_0; }
+		
+		//bricks+=Brick*
+		public Assignment getBricksAssignment_0_9() { return cBricksAssignment_0_9; }
+		
+		//Brick
+		public RuleCall getBricksBrickParserRuleCall_0_9_0() { return cBricksBrickParserRuleCall_0_9_0; }
+		
+		//'modes'
+		public Keyword getModesKeyword_0_10() { return cModesKeyword_0_10; }
+		
+		//':'
+		public Keyword getColonKeyword_0_11() { return cColonKeyword_0_11; }
+		
+		//modes+=Mode
+		public Assignment getModesAssignment_0_12() { return cModesAssignment_0_12; }
+		
+		//Mode
+		public RuleCall getModesModeParserRuleCall_0_12_0() { return cModesModeParserRuleCall_0_12_0; }
+		
+		//modes+=Mode*
+		public Assignment getModesAssignment_0_13() { return cModesAssignment_0_13; }
+		
+		//Mode
+		public RuleCall getModesModeParserRuleCall_0_13_0() { return cModesModeParserRuleCall_0_13_0; }
+		
+		//'app' modes+=Mode
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'app'
 		public Keyword getAppKeyword_1_0() { return cAppKeyword_1_0; }
 		
-		//name=EString
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_1_0() { return cNameEStringParserRuleCall_1_1_0; }
-		
-		//'initial'
-		public Keyword getInitialKeyword_1_2() { return cInitialKeyword_1_2; }
-		
-		//'mode'
-		public Keyword getModeKeyword_1_3() { return cModeKeyword_1_3; }
-		
-		//initial_mode=[Mode|EString]
-		public Assignment getInitial_modeAssignment_1_4() { return cInitial_modeAssignment_1_4; }
-		
-		//[Mode|EString]
-		public CrossReference getInitial_modeModeCrossReference_1_4_0() { return cInitial_modeModeCrossReference_1_4_0; }
-		
-		//EString
-		public RuleCall getInitial_modeModeEStringParserRuleCall_1_4_0_1() { return cInitial_modeModeEStringParserRuleCall_1_4_0_1; }
-		
-		//':'
-		public Keyword getColonKeyword_1_5() { return cColonKeyword_1_5; }
-		
-		//'bricks'
-		public Keyword getBricksKeyword_1_6() { return cBricksKeyword_1_6; }
-		
-		//':'
-		public Keyword getColonKeyword_1_7() { return cColonKeyword_1_7; }
-		
-		//bricks+=Brick
-		public Assignment getBricksAssignment_1_8() { return cBricksAssignment_1_8; }
-		
-		//Brick
-		public RuleCall getBricksBrickParserRuleCall_1_8_0() { return cBricksBrickParserRuleCall_1_8_0; }
-		
-		//bricks+=Brick*
-		public Assignment getBricksAssignment_1_9() { return cBricksAssignment_1_9; }
-		
-		//Brick
-		public RuleCall getBricksBrickParserRuleCall_1_9_0() { return cBricksBrickParserRuleCall_1_9_0; }
-		
-		//'modes'
-		public Keyword getModesKeyword_1_10() { return cModesKeyword_1_10; }
-		
-		//':'
-		public Keyword getColonKeyword_1_11() { return cColonKeyword_1_11; }
-		
 		//modes+=Mode
-		public Assignment getModesAssignment_1_12() { return cModesAssignment_1_12; }
+		public Assignment getModesAssignment_1_1() { return cModesAssignment_1_1; }
 		
 		//Mode
-		public RuleCall getModesModeParserRuleCall_1_12_0() { return cModesModeParserRuleCall_1_12_0; }
-		
-		//modes+=Mode*
-		public Assignment getModesAssignment_1_13() { return cModesAssignment_1_13; }
-		
-		//Mode
-		public RuleCall getModesModeParserRuleCall_1_13_0() { return cModesModeParserRuleCall_1_13_0; }
+		public RuleCall getModesModeParserRuleCall_1_1_0() { return cModesModeParserRuleCall_1_1_0; }
 	}
 	public class BrickElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Brick");
@@ -348,20 +235,21 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatesStateParserRuleCall_8_0 = (RuleCall)cStatesAssignment_8.eContents().get(0);
 		private final Assignment cStatesAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cStatesStateParserRuleCall_9_0 = (RuleCall)cStatesAssignment_9.eContents().get(0);
-		private final Keyword cTransitionsKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cColonKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cTransitions_modeAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_12_0 = (RuleCall)cTransitions_modeAssignment_12.eContents().get(0);
-		private final Assignment cTransitions_modeAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_13_0 = (RuleCall)cTransitions_modeAssignment_13.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cTransitionsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cColonKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cTransitions_modeAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_10_2_0 = (RuleCall)cTransitions_modeAssignment_10_2.eContents().get(0);
+		private final Assignment cTransitions_modeAssignment_10_3 = (Assignment)cGroup_10.eContents().get(3);
+		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_10_3_0 = (RuleCall)cTransitions_modeAssignment_10_3.eContents().get(0);
 		
 		//Mode:
 		//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
-		//	states+=State states+=State* 'transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*;
+		//	states+=State states+=State* ('transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
-		//states+=State states+=State* 'transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*
+		//states+=State states+=State* ('transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -427,23 +315,26 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//State
 		public RuleCall getStatesStateParserRuleCall_9_0() { return cStatesStateParserRuleCall_9_0; }
 		
+		//('transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?
+		public Group getGroup_10() { return cGroup_10; }
+		
 		//'transitions'
-		public Keyword getTransitionsKeyword_10() { return cTransitionsKeyword_10; }
+		public Keyword getTransitionsKeyword_10_0() { return cTransitionsKeyword_10_0; }
 		
 		//':'
-		public Keyword getColonKeyword_11() { return cColonKeyword_11; }
+		public Keyword getColonKeyword_10_1() { return cColonKeyword_10_1; }
 		
 		//transitions_mode+=TransitionMode
-		public Assignment getTransitions_modeAssignment_12() { return cTransitions_modeAssignment_12; }
+		public Assignment getTransitions_modeAssignment_10_2() { return cTransitions_modeAssignment_10_2; }
 		
 		//TransitionMode
-		public RuleCall getTransitions_modeTransitionModeParserRuleCall_12_0() { return cTransitions_modeTransitionModeParserRuleCall_12_0; }
+		public RuleCall getTransitions_modeTransitionModeParserRuleCall_10_2_0() { return cTransitions_modeTransitionModeParserRuleCall_10_2_0; }
 		
 		//transitions_mode+=TransitionMode*
-		public Assignment getTransitions_modeAssignment_13() { return cTransitions_modeAssignment_13; }
+		public Assignment getTransitions_modeAssignment_10_3() { return cTransitions_modeAssignment_10_3; }
 		
 		//TransitionMode
-		public RuleCall getTransitions_modeTransitionModeParserRuleCall_13_0() { return cTransitions_modeTransitionModeParserRuleCall_13_0; }
+		public RuleCall getTransitions_modeTransitionModeParserRuleCall_10_3_0() { return cTransitions_modeTransitionModeParserRuleCall_10_3_0; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.State");
@@ -1241,8 +1132,6 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private final AppElements pApp;
-	private final AppStateElements pAppState;
-	private final AppModeElements pAppMode;
 	private final BrickElements pBrick;
 	private final EStringElements pEString;
 	private final ModeElements pMode;
@@ -1269,8 +1158,6 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pApp = new AppElements();
-		this.pAppState = new AppStateElements();
-		this.pAppMode = new AppModeElements();
 		this.pBrick = new BrickElements();
 		this.pEString = new EStringElements();
 		this.pMode = new ModeElements();
@@ -1316,35 +1203,14 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//App:
-	//	AppState | AppMode;
+	//	'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
+	//	':' modes+=Mode modes+=Mode* | 'app' modes+=Mode;
 	public AppElements getAppAccess() {
 		return pApp;
 	}
 	
 	public ParserRule getAppRule() {
 		return getAppAccess().getRule();
-	}
-	
-	//AppState:
-	//	{AppState} ('app' name=EString 'initial' 'state' initial_state=[State|EString] ':' 'bricks' ':' bricks+=Brick
-	//	bricks+=Brick* 'states' ':' states+=State states+=State*);
-	public AppStateElements getAppStateAccess() {
-		return pAppState;
-	}
-	
-	public ParserRule getAppStateRule() {
-		return getAppStateAccess().getRule();
-	}
-	
-	//AppMode:
-	//	{AppMode} ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick
-	//	bricks+=Brick* 'modes' ':' modes+=Mode modes+=Mode*);
-	public AppModeElements getAppModeAccess() {
-		return pAppMode;
-	}
-	
-	public ParserRule getAppModeRule() {
-		return getAppModeAccess().getRule();
 	}
 	
 	//Brick:
@@ -1369,7 +1235,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Mode:
 	//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
-	//	states+=State states+=State* 'transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*;
+	//	states+=State states+=State* ('transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?;
 	public ModeElements getModeAccess() {
 		return pMode;
 	}

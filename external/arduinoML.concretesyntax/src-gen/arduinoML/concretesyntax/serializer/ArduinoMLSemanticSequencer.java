@@ -5,8 +5,7 @@ package arduinoML.concretesyntax.serializer;
 
 import arduinoML.Actuator;
 import arduinoML.Analog;
-import arduinoML.AppMode;
-import arduinoML.AppState;
+import arduinoML.App;
 import arduinoML.ArduinoMLPackage;
 import arduinoML.Digital;
 import arduinoML.Mode;
@@ -63,11 +62,8 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
-			case ArduinoMLPackage.APP_MODE:
-				sequence_AppMode(context, (AppMode) semanticObject); 
-				return; 
-			case ArduinoMLPackage.APP_STATE:
-				sequence_AppState(context, (AppState) semanticObject); 
+			case ArduinoMLPackage.APP:
+				sequence_App(context, (App) semanticObject); 
 				return; 
 			case ArduinoMLPackage.DIGITAL:
 				if (rule == grammarAccess.getBrickRule()) {
@@ -185,40 +181,22 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     App returns AppMode
-	 *     AppMode returns AppMode
+	 *     App returns App
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
-	 *         initial_mode=[Mode|EString] 
-	 *         bricks+=Brick 
-	 *         bricks+=Brick* 
-	 *         modes+=Mode 
-	 *         modes+=Mode*
+	 *         (
+	 *             name=EString 
+	 *             initial_mode=[Mode|EString] 
+	 *             bricks+=Brick 
+	 *             bricks+=Brick* 
+	 *             modes+=Mode 
+	 *             modes+=Mode*
+	 *         ) | 
+	 *         modes+=Mode
 	 *     )
 	 */
-	protected void sequence_AppMode(ISerializationContext context, AppMode semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     App returns AppState
-	 *     AppState returns AppState
-	 *
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         initial_state=[State|EString] 
-	 *         bricks+=Brick 
-	 *         bricks+=Brick* 
-	 *         states+=State 
-	 *         states+=State*
-	 *     )
-	 */
-	protected void sequence_AppState(ISerializationContext context, AppState semanticObject) {
+	protected void sequence_App(ISerializationContext context, App semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -267,8 +245,7 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         (bricks+=Brick bricks+=Brick*)? 
 	 *         states+=State 
 	 *         states+=State* 
-	 *         transitions_mode+=TransitionMode 
-	 *         transitions_mode+=TransitionMode*
+	 *         (transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?
 	 *     )
 	 */
 	protected void sequence_Mode(ISerializationContext context, Mode semanticObject) {

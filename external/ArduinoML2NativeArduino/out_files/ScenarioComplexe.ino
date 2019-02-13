@@ -11,6 +11,11 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_MultiStateAlarm() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(12, LOW);
 	digitalWrite(11, LOW);
@@ -114,4 +119,4 @@ void state_snooze() {
 	}
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_MultiStateAlarm();} // Entering init mode

@@ -5,6 +5,8 @@ package arduinoML.concretesyntax.formatting2;
 
 import arduinoML.Action;
 import arduinoML.App;
+import arduinoML.Brick;
+import arduinoML.Mode;
 import arduinoML.State;
 import arduinoML.TransitionState;
 import arduinoML.concretesyntax.services.ArduinoMLGrammarAccess;
@@ -24,9 +26,14 @@ public class ArduinoMLFormatter extends AbstractFormatter2 {
   private ArduinoMLGrammarAccess _arduinoMLGrammarAccess;
   
   protected void _format(final App app, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field states is undefined for the type App"
-      + "\nformat cannot be resolved");
+    EList<Brick> _bricks = app.getBricks();
+    for (final Brick brick : _bricks) {
+      document.<Brick>format(brick);
+    }
+    EList<Mode> _modes = app.getModes();
+    for (final Mode mode : _modes) {
+      document.<Mode>format(mode);
+    }
   }
   
   protected void _format(final State state, @Extension final IFormattableDocument document) {

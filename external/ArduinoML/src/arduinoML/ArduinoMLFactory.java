@@ -103,24 +103,6 @@ public interface ArduinoMLFactory extends EFactory {
 	TransitionMode createTransitionMode();
 
 	/**
-	 * Returns a new object of class '<em>App State</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>App State</em>'.
-	 * @generated
-	 */
-	AppState createAppState();
-
-	/**
-	 * Returns a new object of class '<em>App Mode</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>App Mode</em>'.
-	 * @generated
-	 */
-	AppMode createAppMode();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

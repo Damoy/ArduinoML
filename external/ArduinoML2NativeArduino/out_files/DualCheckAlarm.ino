@@ -9,6 +9,11 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_DualCheckAlarm() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(11, LOW);
 	boolean guard = millis() - time > debounce;
@@ -40,4 +45,4 @@ void state_on() {
 	}
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_DualCheckAlarm();} // Entering init mode

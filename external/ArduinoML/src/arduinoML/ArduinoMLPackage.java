@@ -252,13 +252,31 @@ public interface ArduinoMLPackage extends EPackage {
 	int APP__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Initial mode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APP__INITIAL_MODE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Modes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APP__MODES = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Bricks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APP__BRICKS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int APP__BRICKS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>App</em>' class.
@@ -267,7 +285,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APP_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int APP_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>App</em>' class.
@@ -808,134 +826,6 @@ public interface ArduinoMLPackage extends EPackage {
 	int TRANSITION_MODE_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link arduinoML.impl.AppStateImpl <em>App State</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see arduinoML.impl.AppStateImpl
-	 * @see arduinoML.impl.ArduinoMLPackageImpl#getAppState()
-	 * @generated
-	 */
-	int APP_STATE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_STATE__NAME = APP__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Bricks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_STATE__BRICKS = APP__BRICKS;
-
-	/**
-	 * The feature id for the '<em><b>Initial state</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_STATE__INITIAL_STATE = APP_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_STATE__STATES = APP_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>App State</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_STATE_FEATURE_COUNT = APP_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>App State</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_STATE_OPERATION_COUNT = APP_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link arduinoML.impl.AppModeImpl <em>App Mode</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see arduinoML.impl.AppModeImpl
-	 * @see arduinoML.impl.ArduinoMLPackageImpl#getAppMode()
-	 * @generated
-	 */
-	int APP_MODE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_MODE__NAME = APP__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Bricks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_MODE__BRICKS = APP__BRICKS;
-
-	/**
-	 * The feature id for the '<em><b>Modes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_MODE__MODES = APP_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Initial mode</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_MODE__INITIAL_MODE = APP_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>App Mode</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_MODE_FEATURE_COUNT = APP_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>App Mode</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APP_MODE_OPERATION_COUNT = APP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link arduinoML.Signal <em>Signal</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -943,7 +833,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @see arduinoML.impl.ArduinoMLPackageImpl#getSignal()
 	 * @generated
 	 */
-	int SIGNAL = 14;
+	int SIGNAL = 12;
 
 	/**
 	 * The meta object id for the '{@link arduinoML.Time_unit <em>Time unit</em>}' enum.
@@ -953,7 +843,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @see arduinoML.impl.ArduinoMLPackageImpl#getTime_unit()
 	 * @generated
 	 */
-	int TIME_UNIT = 15;
+	int TIME_UNIT = 13;
 
 	/**
 	 * The meta object id for the '{@link arduinoML.Compare <em>Compare</em>}' enum.
@@ -963,7 +853,7 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @see arduinoML.impl.ArduinoMLPackageImpl#getCompare()
 	 * @generated
 	 */
-	int COMPARE = 16;
+	int COMPARE = 14;
 
 
 	/**
@@ -1027,6 +917,28 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getApp_Bricks();
+
+	/**
+	 * Returns the meta object for the reference '{@link arduinoML.App#getInitial_mode <em>Initial mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Initial mode</em>'.
+	 * @see arduinoML.App#getInitial_mode()
+	 * @see #getApp()
+	 * @generated
+	 */
+	EReference getApp_Initial_mode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link arduinoML.App#getModes <em>Modes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Modes</em>'.
+	 * @see arduinoML.App#getModes()
+	 * @see #getApp()
+	 * @generated
+	 */
+	EReference getApp_Modes();
 
 	/**
 	 * Returns the meta object for class '{@link arduinoML.State <em>State</em>}'.
@@ -1329,70 +1241,6 @@ public interface ArduinoMLPackage extends EPackage {
 	EReference getTransitionMode_Next_mode();
 
 	/**
-	 * Returns the meta object for class '{@link arduinoML.AppState <em>App State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>App State</em>'.
-	 * @see arduinoML.AppState
-	 * @generated
-	 */
-	EClass getAppState();
-
-	/**
-	 * Returns the meta object for the reference '{@link arduinoML.AppState#getInitial_state <em>Initial state</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Initial state</em>'.
-	 * @see arduinoML.AppState#getInitial_state()
-	 * @see #getAppState()
-	 * @generated
-	 */
-	EReference getAppState_Initial_state();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link arduinoML.AppState#getStates <em>States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>States</em>'.
-	 * @see arduinoML.AppState#getStates()
-	 * @see #getAppState()
-	 * @generated
-	 */
-	EReference getAppState_States();
-
-	/**
-	 * Returns the meta object for class '{@link arduinoML.AppMode <em>App Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>App Mode</em>'.
-	 * @see arduinoML.AppMode
-	 * @generated
-	 */
-	EClass getAppMode();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link arduinoML.AppMode#getModes <em>Modes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Modes</em>'.
-	 * @see arduinoML.AppMode#getModes()
-	 * @see #getAppMode()
-	 * @generated
-	 */
-	EReference getAppMode_Modes();
-
-	/**
-	 * Returns the meta object for the reference '{@link arduinoML.AppMode#getInitial_mode <em>Initial mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Initial mode</em>'.
-	 * @see arduinoML.AppMode#getInitial_mode()
-	 * @see #getAppMode()
-	 * @generated
-	 */
-	EReference getAppMode_Initial_mode();
-
-	/**
 	 * Returns the meta object for enum '{@link arduinoML.Signal <em>Signal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1500,6 +1348,22 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference APP__BRICKS = eINSTANCE.getApp_Bricks();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial mode</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APP__INITIAL_MODE = eINSTANCE.getApp_Initial_mode();
+
+		/**
+		 * The meta object literal for the '<em><b>Modes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APP__MODES = eINSTANCE.getApp_Modes();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.StateImpl <em>State</em>}' class.
@@ -1740,58 +1604,6 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION_MODE__NEXT_MODE = eINSTANCE.getTransitionMode_Next_mode();
-
-		/**
-		 * The meta object literal for the '{@link arduinoML.impl.AppStateImpl <em>App State</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see arduinoML.impl.AppStateImpl
-		 * @see arduinoML.impl.ArduinoMLPackageImpl#getAppState()
-		 * @generated
-		 */
-		EClass APP_STATE = eINSTANCE.getAppState();
-
-		/**
-		 * The meta object literal for the '<em><b>Initial state</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APP_STATE__INITIAL_STATE = eINSTANCE.getAppState_Initial_state();
-
-		/**
-		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APP_STATE__STATES = eINSTANCE.getAppState_States();
-
-		/**
-		 * The meta object literal for the '{@link arduinoML.impl.AppModeImpl <em>App Mode</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see arduinoML.impl.AppModeImpl
-		 * @see arduinoML.impl.ArduinoMLPackageImpl#getAppMode()
-		 * @generated
-		 */
-		EClass APP_MODE = eINSTANCE.getAppMode();
-
-		/**
-		 * The meta object literal for the '<em><b>Modes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APP_MODE__MODES = eINSTANCE.getAppMode_Modes();
-
-		/**
-		 * The meta object literal for the '<em><b>Initial mode</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APP_MODE__INITIAL_MODE = eINSTANCE.getAppMode_Initial_mode();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.Signal <em>Signal</em>}' enum.

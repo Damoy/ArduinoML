@@ -9,6 +9,11 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_VerySimpleAlarm() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(11, LOW);
 	digitalWrite(12, LOW);
@@ -37,4 +42,4 @@ void state_on() {
 	}
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_VerySimpleAlarm();} // Entering init mode

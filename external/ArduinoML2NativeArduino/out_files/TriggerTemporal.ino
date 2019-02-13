@@ -10,6 +10,11 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_TriggerTemporal() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(10, LOW);
 	digitalWrite(11, LOW);
@@ -43,4 +48,4 @@ void state_on() {
 	}
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_TriggerTemporal();} // Entering init mode

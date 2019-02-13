@@ -9,6 +9,7 @@ import arduinoML.concretesyntax.services.ArduinoMLGrammarAccess
 import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import arduinoML.Mode
 
 class ArduinoMLFormatter extends AbstractFormatter2 {
 	
@@ -21,10 +22,17 @@ class ArduinoMLFormatter extends AbstractFormatter2 {
 		}
 		
 		// TODO		
-		for (state : app.states) {
-			state.format
+		for (mode : app.modes) {
+			mode.format
 		}
 	}
+	
+//	def dispatch void format(Mode mode, extension IFormattableDocument document) {
+//		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+//		for (state : mode.states) {
+//			state.format
+//		}
+//	}
 
 	def dispatch void format(State state, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 

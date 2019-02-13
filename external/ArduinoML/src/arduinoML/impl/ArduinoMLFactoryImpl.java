@@ -66,8 +66,6 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 			case ArduinoMLPackage.MODE: return createMode();
 			case ArduinoMLPackage.TRANSITION_STATE: return createTransitionState();
 			case ArduinoMLPackage.TRANSITION_MODE: return createTransitionMode();
-			case ArduinoMLPackage.APP_STATE: return createAppState();
-			case ArduinoMLPackage.APP_MODE: return createAppMode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -208,28 +206,6 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	public TransitionMode createTransitionMode() {
 		TransitionModeImpl transitionMode = new TransitionModeImpl();
 		return transitionMode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AppState createAppState() {
-		AppStateImpl appState = new AppStateImpl();
-		return appState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AppMode createAppMode() {
-		AppModeImpl appMode = new AppModeImpl();
-		return appMode;
 	}
 
 	/**
