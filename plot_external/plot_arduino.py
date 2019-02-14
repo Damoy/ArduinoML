@@ -28,7 +28,7 @@ def setTimes(start, times):
 def getArduinoLogs(port_serie) :
     arduinoString = str(port_serie.readline())[2:-5]
     dataArray = arduinoString.split(' ')
-    print(arduinoString)
+    #print(arduinoString)
     return dataArray
 
 def custom_plot():
@@ -59,13 +59,13 @@ with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie
 
                         elif  (subData[0] == "modes") :
                             for mode in subData[1].split(",") :
-                                print(mode)
+                                #print(mode)
                                 modes.append(mode)
                         
                         elif  (subData[0] == "states") :
                             list_s = []
                             for s in subData[1].split(",") :
-                                print(s)
+                                #print(s)
                                 list_s.append(s)
                             states.append(list_s)
 
@@ -75,7 +75,7 @@ with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie
                             compt = []
                             y = []
                             times = []
-                            print(titre)
+                            #print(titre)
 
                         elif (subData[0] == "state") :
                             new_state = True
@@ -88,10 +88,12 @@ with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie
                         elif (subData[0] == "analog") :
                             analogs = "\n"
                             for i in range(1, len(subData)):
+                                if ((i - 1) % 3 == 0):
+                                    analogs += "\n"
                                 if (i != 1):
-                                    analogs += ","
+                                    analogs += " | "
                                 analogs += subData[i]
-                                print(subData[i])
+                                #print(subData[i])
 
                 
             except IndexError:
