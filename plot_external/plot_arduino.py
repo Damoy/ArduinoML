@@ -5,13 +5,13 @@ from drawnow import *
 import datetime
 
 plt.ion()
+plt.figure(figsize=(12,7))
 cnt=0
 compt = []
 y = []
 times = []
 modes = []
 states = []
-plt.ylabel('State')
 state = 0
 titre = ""
 actual_mode = 0
@@ -34,6 +34,8 @@ def getArduinoLogs(port_serie) :
 def custom_plot():
     plt.plot(compt, y, label="States")
     plt.title("Mode: " + titre)
+    plt.xlabel('Time [mm:ss]')
+    plt.ylabel('States')
     x_size = max(20, len(y))
     if (len(states) > 0):
         plt.axis((max(0, x_size - 20), max(20, x_size), 0, len(states[actual_mode])))
