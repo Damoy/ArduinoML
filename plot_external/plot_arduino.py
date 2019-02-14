@@ -5,7 +5,6 @@ from drawnow import *
 import datetime
 
 plt.ion()
-plt.figure(figsize=(12,7))
 cnt=0
 compt = []
 y = []
@@ -14,6 +13,7 @@ modes = []
 states = []
 state = 0
 titre = ""
+analogs = ""
 actual_mode = 0
 new_state = False
 
@@ -33,7 +33,7 @@ def getArduinoLogs(port_serie) :
 
 def custom_plot():
     plt.plot(compt, y, label="States")
-    plt.title("Mode: " + titre)
+    plt.title("Mode: " + titre + analogs)
     plt.xlabel('Time [mm:ss]')
     plt.ylabel('States')
     x_size = max(20, len(y))
@@ -53,7 +53,11 @@ with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie
                 if (len(dataArray) != 0) :
                     for data in dataArray :
                         subData = data.split("=")
-                        if  (subData[0] == "modes") :
+                        
+                        if  (subData[0] == "name") :
+                            plt.figure(subData[1], figsize=(12,7))
+
+                        elif  (subData[0] == "modes") :
                             for mode in subData[1].split(",") :
                                 print(mode)
                                 modes.append(mode)
@@ -80,6 +84,14 @@ with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie
                             y.append(state)
                             cnt=cnt+1
                             setTimes(start, times)
+
+                        elif (subData[0] == "analog") :
+                            analogs = "\n"
+                            for i in range(1, len(subData)):
+                                if (i != 1):
+                                    analogs += ","
+                                analogs += subData[i]
+                                print(subData[i])
 
                 
             except IndexError:
