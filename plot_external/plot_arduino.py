@@ -14,35 +14,44 @@ states = []
 state = 0
 titre = ""
 analogs = ""
+temps = ""
+name = ""
 actual_mode = 0
 new_state = False
 
 def setTimes(start, times):
+    global temps
     now = datetime.datetime.now()
     time = now - start
     s = time.seconds
     minutes = s // 60
     seconds = s - (minutes * 60)
-    times.append('{:02}:{:02}'.format(int(minutes), int(seconds)))
+    tmp = '{:02}:{:02}'.format(int(minutes), int(seconds))
+    if tmp != temps:
+        temps = tmp
+    else :
+        tmp = ""
+    times.append(tmp)
 
 def getArduinoLogs(port_serie) :
     arduinoString = str(port_serie.readline())[2:-5]
     dataArray = arduinoString.split(' ')
     #print(arduinoString)
+
     return dataArray
 
 def custom_plot():
     plt.plot(compt, y, label="States")
-    plt.title("Mode: " + titre + analogs)
+    plt.title("Name: " + name + " | Mode: " + titre + analogs)
     plt.xlabel('Time [mm:ss]')
     plt.ylabel('States')
-    x_size = max(20, len(y))
+    x_size = max(50, len(y))
     if (len(states) > 0):
-        plt.axis((max(0, x_size - 20), max(20, x_size), 0, len(states[actual_mode])))
+        plt.axis((max(0, x_size - 50), max(50, x_size), 0, len(states[actual_mode])))
         plt.yticks(numpy.arange(len(states[actual_mode])),  states[actual_mode])
-        plt.xticks(compt[-20:], times[-20:], rotation=45)
+        plt.xticks(compt[-50:], times[-50:], rotation=45)
 
-with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie:
+with Serial(port="COM5", baudrate=38400, timeout=1, writeTimeout=1) as port_serie:
     while (port_serie.inWaiting()==0):
         pass
     if port_serie.isOpen():
@@ -55,7 +64,7 @@ with Serial(port="COM5", baudrate=9600, timeout=1, writeTimeout=1) as port_serie
                         subData = data.split("=")
                         
                         if  (subData[0] == "name") :
-                            plt.figure(subData[1], figsize=(12,7))
+                            name = subData[1]
 
                         elif  (subData[0] == "modes") :
                             for mode in subData[1].split(",") :
