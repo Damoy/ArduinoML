@@ -3,7 +3,7 @@ app ModeCreatures initial mode unicorn :
 	bricks :
 		Analog light : 1
 		Actuator led : 11
-		Digital button : 9
+		Digital button : 8
 	
 	modes :
 		unicorn initial state unicorn_sleeping :
@@ -20,9 +20,6 @@ app ModeCreatures initial mode unicorn :
 				when light esup 666 and light inf 999 go to mode phoenix
 					
 		drake initial state drake_idle :
-			bricks:
-				Digital buttonStopFireUp : 10
-					
 			states :
 				drake_idle :
 					change led to LOW

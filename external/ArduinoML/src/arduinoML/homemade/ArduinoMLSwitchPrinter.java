@@ -193,17 +193,22 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		sb.append("}\n\n");
 		
 		if (hasBrick) {
+			boolean shouldClose = false;
+			
 			if(object.getBricks().parallelStream().anyMatch(a -> a instanceof Actuator)) {
 				sb.append("void reset_" + object.getName() + "() {\n"); 
+				shouldClose = true;
 			}
 			
 			for (Brick b : object.getBricks()) {
 				if(b instanceof Actuator){
-					sb.append("\tdigitalWrite(" + b.getPin() + ", LOW);\n"); 
+					sb.append("\tdigitalWrite(" + b.getPin() + ", LOW);\n");
+					shouldClose = true;
 				}
 			}
 			
-			sb.append("}\n\n");
+			if(shouldClose)
+				sb.append("}\n\n");
 		}
 		
 		// dirty hack..

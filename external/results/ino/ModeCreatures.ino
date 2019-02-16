@@ -3,7 +3,7 @@
 void setup() {
 	pinMode(1, INPUT);
 	pinMode(11, OUTPUT);
-	pinMode(9, INPUT);
+	pinMode(8, INPUT);
 }
 
 //Behavioral concepts
@@ -33,7 +33,7 @@ void state_unicorn_sleeping() {
 	boolean guard = millis() - time > debounce;
 	unicorn_to_drake();
 	unicorn_to_phoenix();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_unicorn_awake();
 	}
@@ -47,7 +47,7 @@ void state_unicorn_awake() {
 	boolean guard = millis() - time > debounce;
 	unicorn_to_drake();
 	unicorn_to_phoenix();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_unicorn_sleeping();
 	}
@@ -57,12 +57,8 @@ void state_unicorn_awake() {
 }
 
 void mode_drake() {
-	//setup bricks
-	pinMode(10, INPUT);
 	//initial state
 	state_drake_idle();
-}
-
 }
 
 void drake_to_unicorn(){
@@ -84,7 +80,7 @@ void state_drake_idle() {
 	boolean guard = millis() - time > debounce;
 	drake_to_unicorn();
 	drake_to_phoenix();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_drake_fireup();
 	}
@@ -100,7 +96,7 @@ void state_drake_fireup_idle() {
 	drake_to_phoenix();
 	delay(1000);
 	state_drake_fireup();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_drake_idle();
 	}
@@ -116,7 +112,7 @@ void state_drake_fireup() {
 	drake_to_phoenix();
 	delay(1000);
 	state_drake_fireup_idle();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_drake_idle();
 	}
@@ -158,7 +154,7 @@ void state_phoenix_idle() {
 	boolean guard = millis() - time > debounce;
 	phoenix_to_unicorn();
 	phoenix_to_drake();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_phoenix_shining();
 	}
@@ -173,7 +169,7 @@ void state_phoenix_shining() {
 	boolean guard = millis() - time > debounce;
 	phoenix_to_unicorn();
 	phoenix_to_drake();
-	if( digitalRead(9) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_phoenix_idle();
 	}
