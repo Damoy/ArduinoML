@@ -40,6 +40,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	Boolean hasBrick = false;
 	int if_counter = -1;
 	List<TransitionMode> transitionsModeUtil = new ArrayList<TransitionMode>();
+	boolean inUniqueModeState = false;
 	
 	public ArduinoMLSwitchPrinter() {
 		if (modelPackage == null) {
@@ -136,12 +137,13 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 
 		List<Brick> objectBricks = object.getBricks();
 		
-		// hack to keep first dsl syntax
+		// hack to keep first dsl syntax, no mode == one mode hidden
 		if(object.getModes().size() ==  1 && object.getInitial_mode() == null) {
 			Mode uniqueMode = object.getModes().get(0);
 			object.setInitial_mode(uniqueMode);
 			objectBricks = new ArrayList<Brick>(uniqueMode.getBricks());
 			uniqueMode.getBricks().clear();
+			inUniqueModeState = true;
 		}
 		
 		for(Brick b : objectBricks) {
@@ -175,6 +177,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 * 
 	 */
 	public String caseMode(Mode object) {
+		System.out.println("object: " + object.toString());
 		StringBuilder sb = new StringBuilder();
 		sb.append("void mode_" + object.getName() + "() {\n");
 		hasBrick = !object.getBricks().isEmpty();
@@ -187,6 +190,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		}
 		
 		sb.append("\t//initial state\n");
+		
+		System.out.println("object initial: " + object.getInitial().toString());
+		
 		sb.append("\tstate_" + object.getInitial().getName() + "();\n");
 		sb.append("}\n\n");
 		
@@ -232,7 +238,14 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	public String caseState(State object) {
 		if_counter = 0;
 		StringBuilder sb = new StringBuilder();
-		sb.append("void state_" + object.getName() + "() {\n");
+		
+		String stateName = object.getName();
+		
+		if(!inUniqueModeState) {
+			stateName = "mode_" + stateName;
+		}
+		
+		sb.append("void state_" + stateName + "() {\n");
 		
 		for(Action a : object.getActions())
 			sb.append(doSwitch(a));
@@ -395,7 +408,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	public String caseTransitionMode(TransitionMode object) {
 		// creating dedicated functions to mode transitions
 		StringBuilder sb = new StringBuilder();
-		sb.append("void mode_");
+		sb.append("void ");
 		sb.append(object.getMode().getName());
 		sb.append("_to_");
 		sb.append(object.getNext_mode().getName()); // must have next mode

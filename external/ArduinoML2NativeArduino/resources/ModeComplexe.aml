@@ -1,0 +1,40 @@
+app ModeComplexe initial mode jour :
+
+	bricks :
+		Analog lumiere : 1
+		Actuator led3 : 12
+	
+	modes :
+		jour initial state jour_off :
+			bricks :
+				Digital button : 9
+				Actuator led1 : 10
+			
+			states :
+				jour_off :
+					change led1 to LOW
+					change led3 to LOW
+					when button is HIGH go to state jour_on
+				jour_on :
+					change led1 to HIGH
+					when button is HIGH go to state jour_off
+					
+			transitions_mode :
+				when lumiere inf 500 go to mode nuit
+					
+		nuit initial state nuit_off :
+			bricks :
+				Digital button2 : 9
+				Actuator led2 : 11
+			
+			states :
+				nuit_off :
+					change led2 to LOW
+					change led3 to HIGH
+					when button2 is HIGH go to state nuit_on
+				nuit_on :
+					change led2 to HIGH
+					when button2 is HIGH go to state nuit_off
+					
+			transitions_mode : 
+				when lumiere esup 500 go to mode jour

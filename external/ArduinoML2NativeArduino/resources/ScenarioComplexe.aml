@@ -1,4 +1,4 @@
-app MultiStateAlarm initial state off :
+app ScenarioComplexe initial state off :
 
 	bricks :
 		Actuator buzzer : 12

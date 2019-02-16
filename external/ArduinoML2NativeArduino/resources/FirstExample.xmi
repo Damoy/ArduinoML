@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML">
-  <modes name="MultiStateAlarm" initial="off">
-    <bricks xsi:type="arduinoML:Actuator" name="buzzer" pin="11"/>
-    <bricks xsi:type="arduinoML:Actuator" name="led" pin="12"/>
-    <bricks xsi:type="arduinoML:Digital" name="button" pin="8"/>
-    <states name="off">
-      <actions value="LOW" actuator="led"/>
-      <transitions_state digitals="button" next_state="buzz">
+<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="ModeComplexe" initial_mode="jour">
+  <modes name="jour" initial="jour_off">
+    <bricks xsi:type="arduinoML:Digital" name="button" pin="9"/>
+    <bricks xsi:type="arduinoML:Actuator" name="led1" pin="10"/>
+    <states name="jour_off">
+      <actions value="LOW" actuator="led1"/>
+      <actions value="LOW" actuator="led3"/>
+      <transitions_state digitals="button" next_state="jour_on">
         <d_values>HIGH</d_values>
       </transitions_state>
     </states>
-    <states name="buzz">
-      <actions actuator="buzzer"/>
-      <transitions_state digitals="button" next_state="glow">
+    <states name="jour_on">
+      <actions actuator="led1"/>
+      <transitions_state digitals="button" next_state="jour_off">
         <d_values>HIGH</d_values>
       </transitions_state>
     </states>
-    <states name="glow">
-      <actions value="LOW" actuator="buzzer"/>
-      <actions actuator="led"/>
-      <transitions_state digitals="button" next_state="off">
-        <d_values>HIGH</d_values>
+    <states name="transitions_mode">
+      <transitions_state analogs="lumiere">
+        <a_values>500</a_values>
+        <comp>inf</comp>
       </transitions_state>
     </states>
   </modes>
+  <modes name="nuit" initial="nuit_off">
+    <bricks xsi:type="arduinoML:Digital" name="button2" pin="9"/>
+    <bricks xsi:type="arduinoML:Actuator" name="led2" pin="11"/>
+    <states name="nuit_off">
+      <actions value="LOW" actuator="led2"/>
+      <actions actuator="led3"/>
+      <transitions_state digitals="button2" next_state="nuit_on">
+        <d_values>HIGH</d_values>
+      </transitions_state>
+    </states>
+    <states name="nuit_on">
+      <actions actuator="led2"/>
+      <transitions_state digitals="button2" next_state="nuit_off">
+        <d_values>HIGH</d_values>
+      </transitions_state>
+    </states>
+    <states name="transitions_mode">
+      <transitions_state analogs="lumiere">
+        <a_values>500</a_values>
+        <comp>esup</comp>
+      </transitions_state>
+    </states>
+  </modes>
+  <modes name="jour"/>
+  <bricks xsi:type="arduinoML:Analog" name="lumiere" pin="1"/>
+  <bricks xsi:type="arduinoML:Actuator" name="led3" pin="12"/>
 </arduinoML:App>

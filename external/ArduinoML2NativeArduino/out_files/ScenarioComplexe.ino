@@ -11,7 +11,7 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
-void mode_MultiStateAlarm() {
+void mode_ScenarioComplexe() {
 	//initial state
 	state_off();
 }
@@ -119,4 +119,4 @@ void state_snooze() {
 	}
 }
 
-void loop() {mode_MultiStateAlarm();} // Entering init mode
+void loop() {mode_ScenarioComplexe();} // Entering init mode
