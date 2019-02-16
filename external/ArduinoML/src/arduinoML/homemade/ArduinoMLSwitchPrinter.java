@@ -177,7 +177,6 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 * 
 	 */
 	public String caseMode(Mode object) {
-		System.out.println("object: " + object.toString());
 		StringBuilder sb = new StringBuilder();
 		sb.append("void mode_" + object.getName() + "() {\n");
 		hasBrick = !object.getBricks().isEmpty();
@@ -190,9 +189,6 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		}
 		
 		sb.append("\t//initial state\n");
-		
-		System.out.println("object initial: " + object.getInitial().toString());
-		
 		sb.append("\tstate_" + object.getInitial().getName() + "();\n");
 		sb.append("}\n\n");
 		
@@ -239,13 +235,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		if_counter = 0;
 		StringBuilder sb = new StringBuilder();
 		
-		String stateName = object.getName();
-		
-		if(!inUniqueModeState) {
-			stateName = "mode_" + stateName;
-		}
-		
-		sb.append("void state_" + stateName + "() {\n");
+		sb.append("void state_" + object.getName() + "() {\n");
 		
 		for(Action a : object.getActions())
 			sb.append(doSwitch(a));
@@ -261,7 +251,7 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 							.collect(Collectors.toList());
 				
 				for(TransitionMode tm : transitions) {
-					sb.append("\tmode_");
+					sb.append("\t");
 					sb.append(tm.getMode().getName().trim());
 					sb.append("_to_");
 					sb.append(tm.getNext_mode().getName().trim()); // must have next mode
@@ -369,7 +359,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			
 			// if transition has delay
 			if(object.getUnit() != null) {
-				sb.append("\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				int delay = Math.abs(object.getTime()) * object.getUnit().getValue();
+				
+				if(delay > 0)
+					sb.append("\t\tdelay(" + delay + ");\n");
 			}
 		}
 		
@@ -384,7 +377,13 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		// transition has no digital nor analogs
 		if(object.getDigitals().isEmpty() && object.getAnalogs().isEmpty()) {
 			if(if_counter != 0) {
-				sb.append("\tif (true) {\n"	+ "\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				sb.append("\tif (true) {\n");
+				int delay = Math.abs(object.getTime()) * object.getUnit().getValue();
+				if(delay > 0) {
+					sb.append("\t\tdelay(" + delay + ");\n");
+				}
+				
+				// sb.append("\tif (true) {\n"	+ "\t\tdelay(" + delay + ");\n");
 				
 				if (object.getNext_state() != null) {
 					sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
@@ -392,7 +391,11 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 					sb.append("\t\treset_" + currentMode + "();\n");
 				}
 			} else {
-				sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				// sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				int delay = Math.abs(object.getTime()) * object.getUnit().getValue();
+				if(delay > 0) {
+					sb.append("\tdelay(" + delay + ");\n");
+				}
 				
 				if (object.getNext_state() != null) {
 					sb.append("\tstate_" + object.getNext_state().getName() + "();\n");
@@ -413,6 +416,8 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		sb.append("_to_");
 		sb.append(object.getNext_mode().getName()); // must have next mode
 		sb.append("(){\n");
+		
+		sb.append("\tboolean guard = millis() - time > debounce;\n");
 		
 		// beginning of if condition
 		// if the transition has at least one digital or analog
@@ -474,7 +479,10 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			
 			// if transition has delay
 			if(object.getUnit() != null) {
-				sb.append("\t\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
+				int delay = Math.abs(object.getTime()) * object.getUnit().getValue();
+				
+				if(delay > 0)
+					sb.append("\t\tdelay(" + delay + ");\n");		
 			}
 			
 			sb.append("\t\treset_" + object.getMode().getName() + "();\n");

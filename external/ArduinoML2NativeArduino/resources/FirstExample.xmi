@@ -16,12 +16,10 @@
         <d_values>HIGH</d_values>
       </transitions_state>
     </states>
-    <states name="transitions_mode">
-      <transitions_state analogs="lumiere">
-        <a_values>500</a_values>
-        <comp>inf</comp>
-      </transitions_state>
-    </states>
+    <transitions_mode analogs="lumiere" next_mode="nuit">
+      <a_values>500</a_values>
+      <comp>inf</comp>
+    </transitions_mode>
   </modes>
   <modes name="nuit" initial="nuit_off">
     <bricks xsi:type="arduinoML:Digital" name="button2" pin="9"/>
@@ -39,14 +37,11 @@
         <d_values>HIGH</d_values>
       </transitions_state>
     </states>
-    <states name="transitions_mode">
-      <transitions_state analogs="lumiere">
-        <a_values>500</a_values>
-        <comp>esup</comp>
-      </transitions_state>
-    </states>
+    <transitions_mode analogs="lumiere" next_mode="jour">
+      <a_values>500</a_values>
+      <comp>esup</comp>
+    </transitions_mode>
   </modes>
-  <modes name="jour"/>
   <bricks xsi:type="arduinoML:Analog" name="lumiere" pin="1"/>
   <bricks xsi:type="arduinoML:Actuator" name="led3" pin="12"/>
 </arduinoML:App>
