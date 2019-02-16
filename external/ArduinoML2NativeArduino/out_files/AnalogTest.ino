@@ -17,7 +17,6 @@ void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
-		delay(0);
 		time = millis();
 		state_on();
 	}
@@ -30,7 +29,6 @@ void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) < 500 && guard ) {
-		delay(0);
 		time = millis();
 		state_off();
 	}

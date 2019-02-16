@@ -193,7 +193,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		sb.append("}\n\n");
 		
 		if (hasBrick) {
-			sb.append("void reset_" + object.getName() + "() {\n"); 
+			if(object.getBricks().parallelStream().anyMatch(a -> a instanceof Actuator)) {
+				sb.append("void reset_" + object.getName() + "() {\n"); 
+			}
 			
 			for (Brick b : object.getBricks()) {
 				if(b instanceof Actuator){
@@ -370,7 +372,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			if (object.getNext_state() != null) {
 				sb.append("\t\ttime = millis();\n\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
 			} else if(hasBrick){
-				sb.append("\t\treset_" + currentMode + "();\n");
+				if(currentMode.getBricks().parallelStream().anyMatch(a -> a instanceof Actuator)) {
+					sb.append("\t\treset_" + currentMode + "();\n");
+				}
 			}			
 		}
 		
@@ -388,7 +392,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				if (object.getNext_state() != null) {
 					sb.append("\t\tstate_" + object.getNext_state().getName() + "();\n\t}\n");
 				} else if (hasBrick){
-					sb.append("\t\treset_" + currentMode + "();\n");
+					if(currentMode.getBricks().parallelStream().anyMatch(a -> a instanceof Actuator)) {
+						sb.append("\t\treset_" + currentMode + "();\n");
+					}
 				}
 			} else {
 				// sb.append("\tdelay(" + Math.abs(object.getTime()) * object.getUnit().getValue() + ");\n");
@@ -400,7 +406,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 				if (object.getNext_state() != null) {
 					sb.append("\tstate_" + object.getNext_state().getName() + "();\n");
 				} else if (hasBrick){
-					sb.append("\t\treset_" + currentMode + "();\n");
+					if(currentMode.getBricks().parallelStream().anyMatch(a -> a instanceof Actuator)) {
+						sb.append("\t\treset_" + currentMode + "();\n");
+					}
 				}
 			}
 		}
@@ -485,7 +493,11 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 					sb.append("\t\tdelay(" + delay + ");\n");		
 			}
 			
-			sb.append("\t\treset_" + object.getMode().getName() + "();\n");
+			// should reset only there is an actuator to reset
+			if(object.getMode().getBricks().parallelStream().anyMatch(a -> a instanceof Actuator)) {
+				sb.append("\t\treset_" + object.getMode().getName() + "();\n");
+			}
+			
 			sb.append("\t\ttime = millis();\n");
 			sb.append("\t\tmode_" + object.getNext_mode().getName());
 			sb.append("();\n");

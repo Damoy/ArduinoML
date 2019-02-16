@@ -18,7 +18,6 @@ void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_buzz();
 	}
@@ -31,7 +30,6 @@ void state_buzz() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_glow();
 	}
@@ -45,7 +43,6 @@ void state_glow() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_off();
 	}
