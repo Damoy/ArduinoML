@@ -8,11 +8,15 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_AnalogTest() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
-		delay(0);
 		time = millis();
 		state_on();
 	}
@@ -25,7 +29,6 @@ void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) < 500 && guard ) {
-		delay(0);
 		time = millis();
 		state_off();
 	}
@@ -34,4 +37,4 @@ void state_on() {
 	}
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_AnalogTest();} // Entering init mode

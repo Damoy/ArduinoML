@@ -13,49 +13,45 @@ void mode_jour() {
 	pinMode(9, INPUT);
 	pinMode(10, OUTPUT);
 	//initial state
-	state_off();
+	state_jour_off();
 }
 
 void reset_jour() {
 	digitalWrite(10, LOW);
 }
 
-void state_off() {
+void jour_to_nuit(){
+	boolean guard = millis() - time > debounce;
+	if( analogRead(1) < 500 && guard ) {
+		reset_jour();
+		time = millis();
+		mode_nuit();
+	}
+}
+void state_jour_off() {
 	digitalWrite(10, LOW);
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
-	if( analogRead(1) < 500 && guard ) {
-		delay(0);
-		reset_jour();
-		time = millis();
-		mode_nuit();
-	}
+	jour_to_nuit();
 	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
-		state_on();
+		state_jour_on();
 	}
 	else {
-		state_off(); 
+		state_jour_off(); 
 	}
 }
 
-void state_on() {
+void state_jour_on() {
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
-	if( analogRead(1) < 500 && guard ) {
-		delay(0);
-		reset_jour();
-		time = millis();
-		mode_nuit();
-	}
+	jour_to_nuit();
 	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
-		state_off();
+		state_jour_off();
 	}
 	else {
-		state_on(); 
+		state_jour_on(); 
 	}
 }
 
@@ -71,18 +67,20 @@ void reset_nuit() {
 	digitalWrite(11, LOW);
 }
 
-void state_nuit_off() {
-	digitalWrite(11, LOW);
-	digitalWrite(12, HIGH);
+void nuit_to_jour(){
 	boolean guard = millis() - time > debounce;
 	if( analogRead(1) >= 500 && guard ) {
-		delay(0);
 		reset_nuit();
 		time = millis();
 		mode_jour();
 	}
+}
+void state_nuit_off() {
+	digitalWrite(11, LOW);
+	digitalWrite(12, HIGH);
+	boolean guard = millis() - time > debounce;
+	nuit_to_jour();
 	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_nuit_on();
 	}
@@ -94,14 +92,8 @@ void state_nuit_off() {
 void state_nuit_on() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
-	if( analogRead(1) >= 500 && guard ) {
-		delay(0);
-		reset_nuit();
-		time = millis();
-		mode_jour();
-	}
+	nuit_to_jour();
 	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_nuit_off();
 	}

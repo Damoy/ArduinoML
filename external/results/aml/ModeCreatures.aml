@@ -1,0 +1,62 @@
+app ModeCreatures initial mode unicorn :
+
+	bricks :
+		Analog light : 1
+		Actuator led : 11
+		Digital button : 9
+	
+	modes :
+		unicorn initial state unicorn_sleeping :
+			states :
+				unicorn_sleeping :
+					change led to LOW
+					when button is HIGH go to state unicorn_awake
+				unicorn_awake :
+					change led to HIGH
+					when button is HIGH go to state unicorn_sleeping
+					
+			transitions :
+				when light esup 333 and light inf 666 go to mode drake
+				when light esup 666 and light inf 999 go to mode phoenix
+					
+		drake initial state drake_idle :
+			bricks:
+				Digital buttonStopFireUp : 10
+					
+			states :
+				drake_idle :
+					change led to LOW
+					when button is HIGH go to state drake_fireup
+					
+				drake_fireup_idle :
+					change led to LOW
+					wait 1s then go to state drake_fireup
+					when button is HIGH go to state drake_idle
+					 
+				drake_fireup :
+					change led to HIGH
+					wait 1s then go to state drake_fireup_idle
+					when button is HIGH go to state drake_idle
+					
+			transitions:
+				when light inf 333 go to mode unicorn
+				when light esup 666 and light inf 999 go to mode phoenix
+				
+		phoenix initial state phoenix_idle :
+			bricks:
+				Actuator led2 : 12
+					
+			states :
+				phoenix_idle :
+					change led to LOW
+					change led2 to LOW
+					when button is HIGH go to state phoenix_shining
+					
+				phoenix_shining :
+					change led to HIGH
+					change led2 to HIGH
+					when button is HIGH go to state phoenix_idle
+					
+			transitions:
+				when light inf 333 go to mode unicorn
+				when light esup 333 and light inf 666 go to mode drake
