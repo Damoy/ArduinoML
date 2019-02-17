@@ -279,13 +279,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int APP__BRICKS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Monitoring</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APP__MONITORING = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>App</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APP_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int APP_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>App</em>' class.
@@ -517,13 +526,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int ANALOG__PIN = BRICK__PIN;
 
 	/**
+	 * The feature id for the '<em><b>Debug</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG__DEBUG = BRICK_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Analog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALOG_FEATURE_COUNT = BRICK_FEATURE_COUNT + 0;
+	int ANALOG_FEATURE_COUNT = BRICK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Analog</em>' class.
@@ -919,6 +937,17 @@ public interface ArduinoMLPackage extends EPackage {
 	EReference getApp_Bricks();
 
 	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.App#isMonitoring <em>Monitoring</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Monitoring</em>'.
+	 * @see arduinoML.App#isMonitoring()
+	 * @see #getApp()
+	 * @generated
+	 */
+	EAttribute getApp_Monitoring();
+
+	/**
 	 * Returns the meta object for the reference '{@link arduinoML.App#getInitial_mode <em>Initial mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1121,6 +1150,17 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAnalog();
+
+	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Analog#isDebug <em>Debug</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Debug</em>'.
+	 * @see arduinoML.Analog#isDebug()
+	 * @see #getAnalog()
+	 * @generated
+	 */
+	EAttribute getAnalog_Debug();
 
 	/**
 	 * Returns the meta object for class '{@link arduinoML.Mode <em>Mode</em>}'.
@@ -1350,6 +1390,14 @@ public interface ArduinoMLPackage extends EPackage {
 		EReference APP__BRICKS = eINSTANCE.getApp_Bricks();
 
 		/**
+		 * The meta object literal for the '<em><b>Monitoring</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APP__MONITORING = eINSTANCE.getApp_Monitoring();
+
+		/**
 		 * The meta object literal for the '<em><b>Initial mode</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1510,6 +1558,14 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ANALOG = eINSTANCE.getAnalog();
+
+		/**
+		 * The meta object literal for the '<em><b>Debug</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALOG__DEBUG = eINSTANCE.getAnalog_Debug();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.ModeImpl <em>Mode</em>}' class.

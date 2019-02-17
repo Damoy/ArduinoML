@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link arduinoML.impl.AppImpl#getInitial_mode <em>Initial mode</em>}</li>
  *   <li>{@link arduinoML.impl.AppImpl#getModes <em>Modes</em>}</li>
  *   <li>{@link arduinoML.impl.AppImpl#getBricks <em>Bricks</em>}</li>
+ *   <li>{@link arduinoML.impl.AppImpl#isMonitoring <em>Monitoring</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +65,25 @@ public class AppImpl extends NamedElementImpl implements App {
 	protected EList<Brick> bricks;
 
 	/**
+	 * The default value of the '{@link #isMonitoring() <em>Monitoring</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMonitoring()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MONITORING_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isMonitoring() <em>Monitoring</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMonitoring()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean monitoring = MONITORING_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -93,6 +113,29 @@ public class AppImpl extends NamedElementImpl implements App {
 			bricks = new EObjectContainmentEList<Brick>(Brick.class, this, ArduinoMLPackage.APP__BRICKS);
 		}
 		return bricks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isMonitoring() {
+		return monitoring;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMonitoring(boolean newMonitoring) {
+		boolean oldMonitoring = monitoring;
+		monitoring = newMonitoring;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.APP__MONITORING, oldMonitoring, monitoring));
 	}
 
 	/**
@@ -179,6 +222,8 @@ public class AppImpl extends NamedElementImpl implements App {
 				return getModes();
 			case ArduinoMLPackage.APP__BRICKS:
 				return getBricks();
+			case ArduinoMLPackage.APP__MONITORING:
+				return isMonitoring();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,6 +248,9 @@ public class AppImpl extends NamedElementImpl implements App {
 				getBricks().clear();
 				getBricks().addAll((Collection<? extends Brick>)newValue);
 				return;
+			case ArduinoMLPackage.APP__MONITORING:
+				setMonitoring((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -224,6 +272,9 @@ public class AppImpl extends NamedElementImpl implements App {
 			case ArduinoMLPackage.APP__BRICKS:
 				getBricks().clear();
 				return;
+			case ArduinoMLPackage.APP__MONITORING:
+				setMonitoring(MONITORING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,8 +293,26 @@ public class AppImpl extends NamedElementImpl implements App {
 				return modes != null && !modes.isEmpty();
 			case ArduinoMLPackage.APP__BRICKS:
 				return bricks != null && !bricks.isEmpty();
+			case ArduinoMLPackage.APP__MONITORING:
+				return monitoring != MONITORING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (monitoring: ");
+		result.append(monitoring);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AppImpl

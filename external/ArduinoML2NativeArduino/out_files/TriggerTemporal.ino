@@ -8,7 +8,9 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
 void mode_TriggerTemporal() {
 	//initial state
@@ -19,6 +21,8 @@ void state_off() {
 	digitalWrite(10, LOW);
 	digitalWrite(11, LOW);
 	boolean guard = millis() - time > debounce;
+	out_TriggerTemporal();
+
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -32,6 +36,8 @@ void state_on() {
 	digitalWrite(10, HIGH);
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_TriggerTemporal();
+
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_off();

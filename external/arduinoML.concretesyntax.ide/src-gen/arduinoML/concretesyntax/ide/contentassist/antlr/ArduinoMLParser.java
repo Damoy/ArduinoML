@@ -32,7 +32,8 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, ArduinoMLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getAppAccess().getAlternatives(), "rule__App__Alternatives");
-			builder.put(grammarAccess.getBrickAccess().getAlternatives_0(), "rule__Brick__Alternatives_0");
+			builder.put(grammarAccess.getBrickAccess().getAlternatives(), "rule__Brick__Alternatives");
+			builder.put(grammarAccess.getBrickAccess().getAlternatives_0_0(), "rule__Brick__Alternatives_0_0");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getTransitionAccess().getAlternatives(), "rule__Transition__Alternatives");
 			builder.put(grammarAccess.getTransitionStateAccess().getAlternatives_0(), "rule__TransitionState__Alternatives_0");
@@ -45,8 +46,12 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTime_unitAccess().getAlternatives(), "rule__Time_unit__Alternatives");
 			builder.put(grammarAccess.getCompareAccess().getAlternatives(), "rule__Compare__Alternatives");
 			builder.put(grammarAccess.getAppAccess().getGroup_0(), "rule__App__Group_0__0");
+			builder.put(grammarAccess.getAppAccess().getGroup_0_0(), "rule__App__Group_0_0__0");
+			builder.put(grammarAccess.getAppAccess().getGroup_0_1(), "rule__App__Group_0_1__0");
 			builder.put(grammarAccess.getAppAccess().getGroup_1(), "rule__App__Group_1__0");
-			builder.put(grammarAccess.getBrickAccess().getGroup(), "rule__Brick__Group__0");
+			builder.put(grammarAccess.getBrickAccess().getGroup_0(), "rule__Brick__Group_0__0");
+			builder.put(grammarAccess.getBrickAccess().getGroup_1(), "rule__Brick__Group_1__0");
+			builder.put(grammarAccess.getBrickAccess().getGroup_1_4(), "rule__Brick__Group_1_4__0");
 			builder.put(grammarAccess.getModeAccess().getGroup(), "rule__Mode__Group__0");
 			builder.put(grammarAccess.getModeAccess().getGroup_5(), "rule__Mode__Group_5__0");
 			builder.put(grammarAccess.getModeAccess().getGroup_10(), "rule__Mode__Group_10__0");
@@ -73,15 +78,19 @@ public class ArduinoMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTransitionModeAccess().getGroup_0_0_2_1_1(), "rule__TransitionMode__Group_0_0_2_1_1__0");
 			builder.put(grammarAccess.getTransitionModeAccess().getGroup_0_0_3(), "rule__TransitionMode__Group_0_0_3__0");
 			builder.put(grammarAccess.getTransitionModeAccess().getGroup_0_1(), "rule__TransitionMode__Group_0_1__0");
-			builder.put(grammarAccess.getAppAccess().getNameAssignment_0_1(), "rule__App__NameAssignment_0_1");
-			builder.put(grammarAccess.getAppAccess().getInitial_modeAssignment_0_4(), "rule__App__Initial_modeAssignment_0_4");
-			builder.put(grammarAccess.getAppAccess().getBricksAssignment_0_8(), "rule__App__BricksAssignment_0_8");
-			builder.put(grammarAccess.getAppAccess().getBricksAssignment_0_9(), "rule__App__BricksAssignment_0_9");
-			builder.put(grammarAccess.getAppAccess().getModesAssignment_0_12(), "rule__App__ModesAssignment_0_12");
-			builder.put(grammarAccess.getAppAccess().getModesAssignment_0_13(), "rule__App__ModesAssignment_0_13");
+			builder.put(grammarAccess.getAppAccess().getMonitoringAssignment_0_0_2(), "rule__App__MonitoringAssignment_0_0_2");
+			builder.put(grammarAccess.getAppAccess().getNameAssignment_0_1_1(), "rule__App__NameAssignment_0_1_1");
+			builder.put(grammarAccess.getAppAccess().getInitial_modeAssignment_0_1_4(), "rule__App__Initial_modeAssignment_0_1_4");
+			builder.put(grammarAccess.getAppAccess().getBricksAssignment_0_1_8(), "rule__App__BricksAssignment_0_1_8");
+			builder.put(grammarAccess.getAppAccess().getBricksAssignment_0_1_9(), "rule__App__BricksAssignment_0_1_9");
+			builder.put(grammarAccess.getAppAccess().getModesAssignment_0_1_12(), "rule__App__ModesAssignment_0_1_12");
+			builder.put(grammarAccess.getAppAccess().getModesAssignment_0_1_13(), "rule__App__ModesAssignment_0_1_13");
 			builder.put(grammarAccess.getAppAccess().getModesAssignment_1_1(), "rule__App__ModesAssignment_1_1");
-			builder.put(grammarAccess.getBrickAccess().getNameAssignment_1(), "rule__Brick__NameAssignment_1");
-			builder.put(grammarAccess.getBrickAccess().getPinAssignment_3(), "rule__Brick__PinAssignment_3");
+			builder.put(grammarAccess.getBrickAccess().getNameAssignment_0_1(), "rule__Brick__NameAssignment_0_1");
+			builder.put(grammarAccess.getBrickAccess().getPinAssignment_0_3(), "rule__Brick__PinAssignment_0_3");
+			builder.put(grammarAccess.getBrickAccess().getNameAssignment_1_1(), "rule__Brick__NameAssignment_1_1");
+			builder.put(grammarAccess.getBrickAccess().getPinAssignment_1_3(), "rule__Brick__PinAssignment_1_3");
+			builder.put(grammarAccess.getBrickAccess().getDebugAssignment_1_4_2(), "rule__Brick__DebugAssignment_1_4_2");
 			builder.put(grammarAccess.getModeAccess().getNameAssignment_0(), "rule__Mode__NameAssignment_0");
 			builder.put(grammarAccess.getModeAccess().getInitialAssignment_3(), "rule__Mode__InitialAssignment_3");
 			builder.put(grammarAccess.getModeAccess().getBricksAssignment_5_2(), "rule__Mode__BricksAssignment_5_2");

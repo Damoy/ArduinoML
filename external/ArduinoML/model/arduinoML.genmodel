@@ -30,6 +30,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/initial_mode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/modes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//App/bricks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//App/monitoring"/>
     </genClasses>
     <genClasses ecoreClass="arduinoML.ecore#//State">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//State/actions"/>
@@ -51,7 +52,9 @@
     <genClasses ecoreClass="arduinoML.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="arduinoML.ecore#//Analog"/>
+    <genClasses ecoreClass="arduinoML.ecore#//Analog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoML.ecore#//Analog/debug"/>
+    </genClasses>
     <genClasses ecoreClass="arduinoML.ecore#//Mode">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Mode/bricks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arduinoML.ecore#//Mode/states"/>

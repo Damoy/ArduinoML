@@ -6,7 +6,9 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
 void mode_jour() {
 	//setup bricks
@@ -32,6 +34,8 @@ void state_jour_off() {
 	digitalWrite(10, LOW);
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
+	out_jour();
+
 	jour_to_nuit();
 	if( digitalRead(9) == HIGH && guard ) {
 		time = millis();
@@ -45,6 +49,8 @@ void state_jour_off() {
 void state_jour_on() {
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_jour();
+
 	jour_to_nuit();
 	if( digitalRead(9) == HIGH && guard ) {
 		time = millis();
@@ -79,6 +85,8 @@ void state_nuit_off() {
 	digitalWrite(11, LOW);
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_nuit();
+
 	nuit_to_jour();
 	if( digitalRead(9) == HIGH && guard ) {
 		time = millis();
@@ -92,6 +100,8 @@ void state_nuit_off() {
 void state_nuit_on() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_nuit();
+
 	nuit_to_jour();
 	if( digitalRead(9) == HIGH && guard ) {
 		time = millis();

@@ -267,6 +267,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getApp_Monitoring() {
+		return (EAttribute)appEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getApp_Initial_mode() {
 		return (EReference)appEClass.getEStructuralFeatures().get(0);
 	}
@@ -457,6 +467,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAnalog_Debug() {
+		return (EAttribute)analogEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMode() {
 		return modeEClass;
 	}
@@ -631,6 +651,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		createEReference(appEClass, APP__INITIAL_MODE);
 		createEReference(appEClass, APP__MODES);
 		createEReference(appEClass, APP__BRICKS);
+		createEAttribute(appEClass, APP__MONITORING);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__ACTIONS);
@@ -653,6 +674,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		analogEClass = createEClass(ANALOG);
+		createEAttribute(analogEClass, ANALOG__DEBUG);
 
 		modeEClass = createEClass(MODE);
 		createEReference(modeEClass, MODE__BRICKS);
@@ -724,6 +746,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEReference(getApp_Initial_mode(), this.getMode(), null, "initial_mode", null, 0, 1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApp_Modes(), this.getMode(), null, "modes", null, 1, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApp_Bricks(), this.getBrick(), null, "bricks", null, 1, -1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApp_Monitoring(), ecorePackage.getEBoolean(), "monitoring", "false", 1, 1, App.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_Actions(), this.getAction(), null, "actions", null, 1, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -746,6 +769,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(analogEClass, Analog.class, "Analog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnalog_Debug(), ecorePackage.getEBoolean(), "debug", "false", 1, 1, Analog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMode_Bricks(), this.getBrick(), null, "bricks", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

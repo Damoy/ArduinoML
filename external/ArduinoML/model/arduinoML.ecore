@@ -12,6 +12,8 @@
         eType="#//Mode" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bricks" lowerBound="1"
         upperBound="-1" eType="#//Brick" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="monitoring" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" lowerBound="1"
@@ -52,7 +54,10 @@
     <eLiterals name="s" value="1000"/>
     <eLiterals name="min" value="60000"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Analog" eSuperTypes="#//Brick"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Analog" eSuperTypes="#//Brick">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="debug" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Compare">
     <eLiterals name="inf"/>
     <eLiterals name="einf" value="1"/>

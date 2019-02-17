@@ -140,8 +140,8 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_0_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_0_3_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	
@@ -163,19 +163,10 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Brick returns Analog
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt)
+	 *     (name=EString pin=EInt debug=EBoolean?)
 	 */
 	protected void sequence_Analog_Brick(ISerializationContext context, Analog semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -186,6 +177,7 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 * Constraint:
 	 *     (
 	 *         (
+	 *             monitoring=EBoolean? 
 	 *             name=EString 
 	 *             initial_mode=[Mode|EString] 
 	 *             bricks+=Brick 
@@ -216,8 +208,8 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_0_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_0_3_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	

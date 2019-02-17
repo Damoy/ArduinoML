@@ -7,7 +7,9 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
 void mode_VerySimpleAlarm() {
 	//initial state
@@ -18,6 +20,8 @@ void state_off() {
 	digitalWrite(11, LOW);
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
+	out_VerySimpleAlarm();
+
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -31,6 +35,8 @@ void state_on() {
 	digitalWrite(11, HIGH);
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_VerySimpleAlarm();
+
 	if( digitalRead(8) == LOW && guard ) {
 		time = millis();
 		state_off();
