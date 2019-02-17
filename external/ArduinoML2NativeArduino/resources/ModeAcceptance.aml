@@ -1,0 +1,32 @@
+app ModeAcceptation initial mode m1 :
+
+    bricks :
+        Analog s1 : 1
+        Actuator led1 : 11
+        Digital b1 : 8
+    
+    modes :
+        m1 initial state m1_off :
+            states :
+                m1_off :
+                    change led1 to LOW
+                    when b1 is HIGH go to state m1_on
+                m1_on :
+                    change led to HIGH
+                    when b1 is LOW go to state m1_off
+                    
+            transitions :
+                when s1 esup 500 go to mode m2
+                    
+        m2 initial state m2_off :
+            states :
+                m2_off 
+                    change led1 to LOW
+                    when b1 is HIGH go to state m2_on
+                    
+                m2_on :
+                    change led1 to HIGH
+                    when b1 is HIGH go to state m2_off
+                    
+            transitions:
+                when s1 inf 500 go to mode m1
