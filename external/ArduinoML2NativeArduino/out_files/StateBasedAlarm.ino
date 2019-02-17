@@ -6,7 +6,9 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
 void mode_StateBasedAlarm() {
 	//initial state
@@ -16,6 +18,8 @@ void mode_StateBasedAlarm() {
 void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
+	out_StateBasedAlarm();
+
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -28,6 +32,8 @@ void state_off() {
 void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_StateBasedAlarm();
+
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_off();

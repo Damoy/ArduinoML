@@ -9,7 +9,9 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
 void mode_ScenarioComplexe() {
 	//initial state
@@ -21,6 +23,8 @@ void state_off() {
 	digitalWrite(11, LOW);
 	digitalWrite(10, LOW);
 	boolean guard = millis() - time > debounce;
+	out_ScenarioComplexe();
+
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
 		time = millis();
 		state_dual_glow();
@@ -41,6 +45,8 @@ void state_off() {
 void state_red_glow() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_ScenarioComplexe();
+
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
 		time = millis();
 		state_dual_glow();
@@ -58,6 +64,8 @@ void state_green_glow() {
 	digitalWrite(11, LOW);
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_ScenarioComplexe();
+
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
 		time = millis();
 		state_dual_glow();
@@ -75,6 +83,8 @@ void state_dual_glow() {
 	digitalWrite(11, HIGH);
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_ScenarioComplexe();
+
 	if( digitalRead(8) == LOW && digitalRead(9) == LOW && guard ) {
 		time = millis();
 		state_bip();
@@ -89,6 +99,8 @@ void state_bip() {
 	digitalWrite(11, LOW);
 	digitalWrite(10, LOW);
 	boolean guard = millis() - time > debounce;
+	out_ScenarioComplexe();
+
 	delay(2000);
 	state_off();
 }
@@ -96,6 +108,8 @@ void state_bip() {
 void state_snooze() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_ScenarioComplexe();
+
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
 		time = millis();
 		state_dual_glow();

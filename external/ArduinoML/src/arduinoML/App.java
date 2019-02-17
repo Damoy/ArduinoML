@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link arduinoML.App#getInitial_mode <em>Initial mode</em>}</li>
  *   <li>{@link arduinoML.App#getModes <em>Modes</em>}</li>
  *   <li>{@link arduinoML.App#getBricks <em>Bricks</em>}</li>
+ *   <li>{@link arduinoML.App#isMonitoring <em>Monitoring</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getApp()
@@ -38,6 +39,33 @@ public interface App extends NamedElement {
 	 * @generated
 	 */
 	EList<Brick> getBricks();
+
+	/**
+	 * Returns the value of the '<em><b>Monitoring</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Monitoring</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Monitoring</em>' attribute.
+	 * @see #setMonitoring(boolean)
+	 * @see arduinoML.ArduinoMLPackage#getApp_Monitoring()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isMonitoring();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.App#isMonitoring <em>Monitoring</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Monitoring</em>' attribute.
+	 * @see #isMonitoring()
+	 * @generated
+	 */
+	void setMonitoring(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Initial mode</b></em>' reference.

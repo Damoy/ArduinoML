@@ -31,107 +31,137 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.App");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cAppKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
-		private final Keyword cInitialKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cModeKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final Assignment cInitial_modeAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
-		private final CrossReference cInitial_modeModeCrossReference_0_4_0 = (CrossReference)cInitial_modeAssignment_0_4.eContents().get(0);
-		private final RuleCall cInitial_modeModeEStringParserRuleCall_0_4_0_1 = (RuleCall)cInitial_modeModeCrossReference_0_4_0.eContents().get(1);
-		private final Keyword cColonKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
-		private final Keyword cBricksKeyword_0_6 = (Keyword)cGroup_0.eContents().get(6);
-		private final Keyword cColonKeyword_0_7 = (Keyword)cGroup_0.eContents().get(7);
-		private final Assignment cBricksAssignment_0_8 = (Assignment)cGroup_0.eContents().get(8);
-		private final RuleCall cBricksBrickParserRuleCall_0_8_0 = (RuleCall)cBricksAssignment_0_8.eContents().get(0);
-		private final Assignment cBricksAssignment_0_9 = (Assignment)cGroup_0.eContents().get(9);
-		private final RuleCall cBricksBrickParserRuleCall_0_9_0 = (RuleCall)cBricksAssignment_0_9.eContents().get(0);
-		private final Keyword cModesKeyword_0_10 = (Keyword)cGroup_0.eContents().get(10);
-		private final Keyword cColonKeyword_0_11 = (Keyword)cGroup_0.eContents().get(11);
-		private final Assignment cModesAssignment_0_12 = (Assignment)cGroup_0.eContents().get(12);
-		private final RuleCall cModesModeParserRuleCall_0_12_0 = (RuleCall)cModesAssignment_0_12.eContents().get(0);
-		private final Assignment cModesAssignment_0_13 = (Assignment)cGroup_0.eContents().get(13);
-		private final RuleCall cModesModeParserRuleCall_0_13_0 = (RuleCall)cModesAssignment_0_13.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cGroup_0.eContents().get(0);
+		private final Keyword cEnableKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
+		private final Keyword cMonitoringKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
+		private final Assignment cMonitoringAssignment_0_0_2 = (Assignment)cGroup_0_0.eContents().get(2);
+		private final RuleCall cMonitoringEBooleanParserRuleCall_0_0_2_0 = (RuleCall)cMonitoringAssignment_0_0_2.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cAppKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_0_1_1_0 = (RuleCall)cNameAssignment_0_1_1.eContents().get(0);
+		private final Keyword cInitialKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
+		private final Keyword cModeKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Assignment cInitial_modeAssignment_0_1_4 = (Assignment)cGroup_0_1.eContents().get(4);
+		private final CrossReference cInitial_modeModeCrossReference_0_1_4_0 = (CrossReference)cInitial_modeAssignment_0_1_4.eContents().get(0);
+		private final RuleCall cInitial_modeModeEStringParserRuleCall_0_1_4_0_1 = (RuleCall)cInitial_modeModeCrossReference_0_1_4_0.eContents().get(1);
+		private final Keyword cColonKeyword_0_1_5 = (Keyword)cGroup_0_1.eContents().get(5);
+		private final Keyword cBricksKeyword_0_1_6 = (Keyword)cGroup_0_1.eContents().get(6);
+		private final Keyword cColonKeyword_0_1_7 = (Keyword)cGroup_0_1.eContents().get(7);
+		private final Assignment cBricksAssignment_0_1_8 = (Assignment)cGroup_0_1.eContents().get(8);
+		private final RuleCall cBricksBrickParserRuleCall_0_1_8_0 = (RuleCall)cBricksAssignment_0_1_8.eContents().get(0);
+		private final Assignment cBricksAssignment_0_1_9 = (Assignment)cGroup_0_1.eContents().get(9);
+		private final RuleCall cBricksBrickParserRuleCall_0_1_9_0 = (RuleCall)cBricksAssignment_0_1_9.eContents().get(0);
+		private final Keyword cModesKeyword_0_1_10 = (Keyword)cGroup_0_1.eContents().get(10);
+		private final Keyword cColonKeyword_0_1_11 = (Keyword)cGroup_0_1.eContents().get(11);
+		private final Assignment cModesAssignment_0_1_12 = (Assignment)cGroup_0_1.eContents().get(12);
+		private final RuleCall cModesModeParserRuleCall_0_1_12_0 = (RuleCall)cModesAssignment_0_1_12.eContents().get(0);
+		private final Assignment cModesAssignment_0_1_13 = (Assignment)cGroup_0_1.eContents().get(13);
+		private final RuleCall cModesModeParserRuleCall_0_1_13_0 = (RuleCall)cModesAssignment_0_1_13.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cAppKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cModesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cModesModeParserRuleCall_1_1_0 = (RuleCall)cModesAssignment_1_1.eContents().get(0);
 		
 		//App:
-		//	'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
-		//	':' modes+=Mode modes+=Mode* | 'app' modes+=Mode;
+		//	('enable' 'monitoring' monitoring=EBoolean)? ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
+		//	'bricks' ':'
+		//	bricks+=Brick
+		//	bricks+=Brick*
+		//	'modes' ':'
+		//	modes+=Mode
+		//	modes+=Mode*) | 'app' modes+=Mode;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
-		//':' modes+=Mode modes+=Mode* | 'app' modes+=Mode
+		//('enable' 'monitoring' monitoring=EBoolean)? ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
+		//'bricks' ':' bricks+=Brick bricks+=Brick* 'modes' ':' modes+=Mode modes+=Mode*) | 'app' modes+=Mode
 		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//('enable' 'monitoring' monitoring=EBoolean)? ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
+		//'bricks' ':' bricks+=Brick bricks+=Brick* 'modes' ':' modes+=Mode modes+=Mode*)
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//('enable' 'monitoring' monitoring=EBoolean)?
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
+		//'enable'
+		public Keyword getEnableKeyword_0_0_0() { return cEnableKeyword_0_0_0; }
+		
+		//'monitoring'
+		public Keyword getMonitoringKeyword_0_0_1() { return cMonitoringKeyword_0_0_1; }
+		
+		//monitoring=EBoolean
+		public Assignment getMonitoringAssignment_0_0_2() { return cMonitoringAssignment_0_0_2; }
+		
+		//EBoolean
+		public RuleCall getMonitoringEBooleanParserRuleCall_0_0_2_0() { return cMonitoringEBooleanParserRuleCall_0_0_2_0; }
 		
 		//'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
 		//':' modes+=Mode modes+=Mode*
-		public Group getGroup_0() { return cGroup_0; }
+		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//'app'
-		public Keyword getAppKeyword_0_0() { return cAppKeyword_0_0; }
+		public Keyword getAppKeyword_0_1_0() { return cAppKeyword_0_1_0; }
 		
 		//name=EString
-		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		public Assignment getNameAssignment_0_1_1() { return cNameAssignment_0_1_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_0_1_0() { return cNameEStringParserRuleCall_0_1_0; }
+		public RuleCall getNameEStringParserRuleCall_0_1_1_0() { return cNameEStringParserRuleCall_0_1_1_0; }
 		
 		//'initial'
-		public Keyword getInitialKeyword_0_2() { return cInitialKeyword_0_2; }
+		public Keyword getInitialKeyword_0_1_2() { return cInitialKeyword_0_1_2; }
 		
 		//'mode'
-		public Keyword getModeKeyword_0_3() { return cModeKeyword_0_3; }
+		public Keyword getModeKeyword_0_1_3() { return cModeKeyword_0_1_3; }
 		
 		//initial_mode=[Mode|EString]
-		public Assignment getInitial_modeAssignment_0_4() { return cInitial_modeAssignment_0_4; }
+		public Assignment getInitial_modeAssignment_0_1_4() { return cInitial_modeAssignment_0_1_4; }
 		
 		//[Mode|EString]
-		public CrossReference getInitial_modeModeCrossReference_0_4_0() { return cInitial_modeModeCrossReference_0_4_0; }
+		public CrossReference getInitial_modeModeCrossReference_0_1_4_0() { return cInitial_modeModeCrossReference_0_1_4_0; }
 		
 		//EString
-		public RuleCall getInitial_modeModeEStringParserRuleCall_0_4_0_1() { return cInitial_modeModeEStringParserRuleCall_0_4_0_1; }
+		public RuleCall getInitial_modeModeEStringParserRuleCall_0_1_4_0_1() { return cInitial_modeModeEStringParserRuleCall_0_1_4_0_1; }
 		
 		//':'
-		public Keyword getColonKeyword_0_5() { return cColonKeyword_0_5; }
+		public Keyword getColonKeyword_0_1_5() { return cColonKeyword_0_1_5; }
 		
 		//'bricks'
-		public Keyword getBricksKeyword_0_6() { return cBricksKeyword_0_6; }
+		public Keyword getBricksKeyword_0_1_6() { return cBricksKeyword_0_1_6; }
 		
 		//':'
-		public Keyword getColonKeyword_0_7() { return cColonKeyword_0_7; }
+		public Keyword getColonKeyword_0_1_7() { return cColonKeyword_0_1_7; }
 		
 		//bricks+=Brick
-		public Assignment getBricksAssignment_0_8() { return cBricksAssignment_0_8; }
+		public Assignment getBricksAssignment_0_1_8() { return cBricksAssignment_0_1_8; }
 		
 		//Brick
-		public RuleCall getBricksBrickParserRuleCall_0_8_0() { return cBricksBrickParserRuleCall_0_8_0; }
+		public RuleCall getBricksBrickParserRuleCall_0_1_8_0() { return cBricksBrickParserRuleCall_0_1_8_0; }
 		
 		//bricks+=Brick*
-		public Assignment getBricksAssignment_0_9() { return cBricksAssignment_0_9; }
+		public Assignment getBricksAssignment_0_1_9() { return cBricksAssignment_0_1_9; }
 		
 		//Brick
-		public RuleCall getBricksBrickParserRuleCall_0_9_0() { return cBricksBrickParserRuleCall_0_9_0; }
+		public RuleCall getBricksBrickParserRuleCall_0_1_9_0() { return cBricksBrickParserRuleCall_0_1_9_0; }
 		
 		//'modes'
-		public Keyword getModesKeyword_0_10() { return cModesKeyword_0_10; }
+		public Keyword getModesKeyword_0_1_10() { return cModesKeyword_0_1_10; }
 		
 		//':'
-		public Keyword getColonKeyword_0_11() { return cColonKeyword_0_11; }
+		public Keyword getColonKeyword_0_1_11() { return cColonKeyword_0_1_11; }
 		
 		//modes+=Mode
-		public Assignment getModesAssignment_0_12() { return cModesAssignment_0_12; }
+		public Assignment getModesAssignment_0_1_12() { return cModesAssignment_0_1_12; }
 		
 		//Mode
-		public RuleCall getModesModeParserRuleCall_0_12_0() { return cModesModeParserRuleCall_0_12_0; }
+		public RuleCall getModesModeParserRuleCall_0_1_12_0() { return cModesModeParserRuleCall_0_1_12_0; }
 		
 		//modes+=Mode*
-		public Assignment getModesAssignment_0_13() { return cModesAssignment_0_13; }
+		public Assignment getModesAssignment_0_1_13() { return cModesAssignment_0_1_13; }
 		
 		//Mode
-		public RuleCall getModesModeParserRuleCall_0_13_0() { return cModesModeParserRuleCall_0_13_0; }
+		public RuleCall getModesModeParserRuleCall_0_1_13_0() { return cModesModeParserRuleCall_0_1_13_0; }
 		
 		//'app' modes+=Mode
 		public Group getGroup_1() { return cGroup_1; }
@@ -147,50 +177,98 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class BrickElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Brick");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cActuatorParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cDigitalParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cAnalogParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Alternatives cAlternatives_0_0 = (Alternatives)cGroup_0.eContents().get(0);
+		private final RuleCall cActuatorParserRuleCall_0_0_0 = (RuleCall)cAlternatives_0_0.eContents().get(0);
+		private final RuleCall cDigitalParserRuleCall_0_0_1 = (RuleCall)cAlternatives_0_0.eContents().get(1);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cColonKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cPinAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cPinEIntParserRuleCall_0_3_0 = (RuleCall)cPinAssignment_0_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cAnalogParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Keyword cColonKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cPinAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cPinEIntParserRuleCall_1_3_0 = (RuleCall)cPinAssignment_1_3.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
+		private final Keyword cWithKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Keyword cDebugKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
+		private final Assignment cDebugAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
+		private final RuleCall cDebugEBooleanParserRuleCall_1_4_2_0 = (RuleCall)cDebugAssignment_1_4_2.eContents().get(0);
 		
 		//Brick:
-		//	(Actuator | Digital | Analog) name=EString ':' pin=EInt;
+		//	(Actuator | Digital) name=EString ':' pin=EInt | Analog name=EString ':' pin=EInt ('with' 'debug' debug=EBoolean)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(Actuator | Digital | Analog) name=EString ':' pin=EInt
-		public Group getGroup() { return cGroup; }
+		//(Actuator | Digital) name=EString ':' pin=EInt | Analog name=EString ':' pin=EInt ('with' 'debug' debug=EBoolean)?
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Actuator | Digital | Analog
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//(Actuator | Digital) name=EString ':' pin=EInt
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//Actuator | Digital
+		public Alternatives getAlternatives_0_0() { return cAlternatives_0_0; }
 		
 		//Actuator
-		public RuleCall getActuatorParserRuleCall_0_0() { return cActuatorParserRuleCall_0_0; }
+		public RuleCall getActuatorParserRuleCall_0_0_0() { return cActuatorParserRuleCall_0_0_0; }
 		
 		//Digital
-		public RuleCall getDigitalParserRuleCall_0_1() { return cDigitalParserRuleCall_0_1; }
-		
-		//Analog
-		public RuleCall getAnalogParserRuleCall_0_2() { return cAnalogParserRuleCall_0_2; }
+		public RuleCall getDigitalParserRuleCall_0_0_1() { return cDigitalParserRuleCall_0_0_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		public RuleCall getNameEStringParserRuleCall_0_1_0() { return cNameEStringParserRuleCall_0_1_0; }
 		
 		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		public Keyword getColonKeyword_0_2() { return cColonKeyword_0_2; }
 		
 		//pin=EInt
-		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
+		public Assignment getPinAssignment_0_3() { return cPinAssignment_0_3; }
 		
 		//EInt
-		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
+		public RuleCall getPinEIntParserRuleCall_0_3_0() { return cPinEIntParserRuleCall_0_3_0; }
+		
+		//Analog name=EString ':' pin=EInt ('with' 'debug' debug=EBoolean)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//Analog
+		public RuleCall getAnalogParserRuleCall_1_0() { return cAnalogParserRuleCall_1_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_1_0() { return cNameEStringParserRuleCall_1_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1_2() { return cColonKeyword_1_2; }
+		
+		//pin=EInt
+		public Assignment getPinAssignment_1_3() { return cPinAssignment_1_3; }
+		
+		//EInt
+		public RuleCall getPinEIntParserRuleCall_1_3_0() { return cPinEIntParserRuleCall_1_3_0; }
+		
+		//('with' 'debug' debug=EBoolean)?
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//'with'
+		public Keyword getWithKeyword_1_4_0() { return cWithKeyword_1_4_0; }
+		
+		//'debug'
+		public Keyword getDebugKeyword_1_4_1() { return cDebugKeyword_1_4_1; }
+		
+		//debug=EBoolean
+		public Assignment getDebugAssignment_1_4_2() { return cDebugAssignment_1_4_2; }
+		
+		//EBoolean
+		public RuleCall getDebugEBooleanParserRuleCall_1_4_2_0() { return cDebugEBooleanParserRuleCall_1_4_2_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.EString");
@@ -210,6 +288,17 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+	}
+	public class EBooleanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.EBoolean");
+		private final RuleCall cBOOLEAN_CONSTANTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//EBoolean ecore::EBoolean:
+		//	BOOLEAN_CONSTANT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//BOOLEAN_CONSTANT
+		public RuleCall getBOOLEAN_CONSTANTTerminalRuleCall() { return cBOOLEAN_CONSTANTTerminalRuleCall; }
 	}
 	public class ModeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Mode");
@@ -244,8 +333,14 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTransitions_modeTransitionModeParserRuleCall_10_3_0 = (RuleCall)cTransitions_modeAssignment_10_3.eContents().get(0);
 		
 		//Mode:
-		//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
-		//	states+=State states+=State* ('transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?;
+		//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':'
+		//	bricks+=Brick
+		//	bricks+=Brick*)?
+		//	'states' ':'
+		//	states+=State
+		//	states+=State* ('transitions' ':'
+		//	transitions_mode+=TransitionMode
+		//	transitions_mode+=TransitionMode*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
@@ -352,7 +447,10 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTransitions_stateTransitionStateParserRuleCall_5_0 = (RuleCall)cTransitions_stateAssignment_5.eContents().get(0);
 		
 		//State:
-		//	name=EString ':' actions+=Action actions+=Action* transitions_state+=TransitionState
+		//	name=EString ':'
+		//	actions+=Action
+		//	actions+=Action*
+		//	transitions_state+=TransitionState
 		//	transitions_state+=TransitionState*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -410,7 +508,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cActuatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Actuator:
-		//	{Actuator} 'Actuator';
+		//	{Actuator}
+		//	'Actuator';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Actuator} 'Actuator'
@@ -429,7 +528,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDigitalKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Digital:
-		//	{Digital} 'Digital';
+		//	{Digital}
+		//	'Digital';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Digital} 'Digital'
@@ -448,7 +548,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAnalogKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Analog:
-		//	{Analog} 'Analog';
+		//	{Analog}
+		//	'Analog';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Analog} 'Analog'
@@ -1134,6 +1235,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final AppElements pApp;
 	private final BrickElements pBrick;
 	private final EStringElements pEString;
+	private final EBooleanElements pEBoolean;
+	private final TerminalRule tBOOLEAN_CONSTANT;
 	private final ModeElements pMode;
 	private final StateElements pState;
 	private final EIntElements pEInt;
@@ -1160,6 +1263,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pApp = new AppElements();
 		this.pBrick = new BrickElements();
 		this.pEString = new EStringElements();
+		this.pEBoolean = new EBooleanElements();
+		this.tBOOLEAN_CONSTANT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.BOOLEAN_CONSTANT");
 		this.pMode = new ModeElements();
 		this.pState = new StateElements();
 		this.pEInt = new EIntElements();
@@ -1203,8 +1308,13 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//App:
-	//	'app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':' 'bricks' ':' bricks+=Brick bricks+=Brick* 'modes'
-	//	':' modes+=Mode modes+=Mode* | 'app' modes+=Mode;
+	//	('enable' 'monitoring' monitoring=EBoolean)? ('app' name=EString 'initial' 'mode' initial_mode=[Mode|EString] ':'
+	//	'bricks' ':'
+	//	bricks+=Brick
+	//	bricks+=Brick*
+	//	'modes' ':'
+	//	modes+=Mode
+	//	modes+=Mode*) | 'app' modes+=Mode;
 	public AppElements getAppAccess() {
 		return pApp;
 	}
@@ -1214,7 +1324,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Brick:
-	//	(Actuator | Digital | Analog) name=EString ':' pin=EInt;
+	//	(Actuator | Digital) name=EString ':' pin=EInt | Analog name=EString ':' pin=EInt ('with' 'debug' debug=EBoolean)?;
 	public BrickElements getBrickAccess() {
 		return pBrick;
 	}
@@ -1233,9 +1343,31 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		return getEStringAccess().getRule();
 	}
 	
+	//EBoolean ecore::EBoolean:
+	//	BOOLEAN_CONSTANT;
+	public EBooleanElements getEBooleanAccess() {
+		return pEBoolean;
+	}
+	
+	public ParserRule getEBooleanRule() {
+		return getEBooleanAccess().getRule();
+	}
+	
+	//terminal BOOLEAN_CONSTANT returns ecore::EBoolean:
+	//	'true' | 'false';
+	public TerminalRule getBOOLEAN_CONSTANTRule() {
+		return tBOOLEAN_CONSTANT;
+	}
+	
 	//Mode:
-	//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':' bricks+=Brick bricks+=Brick*)? 'states' ':'
-	//	states+=State states+=State* ('transitions' ':' transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?;
+	//	name=EString 'initial' 'state' initial=[State|EString] ':' ('bricks' ':'
+	//	bricks+=Brick
+	//	bricks+=Brick*)?
+	//	'states' ':'
+	//	states+=State
+	//	states+=State* ('transitions' ':'
+	//	transitions_mode+=TransitionMode
+	//	transitions_mode+=TransitionMode*)?;
 	public ModeElements getModeAccess() {
 		return pMode;
 	}
@@ -1245,7 +1377,10 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//State:
-	//	name=EString ':' actions+=Action actions+=Action* transitions_state+=TransitionState
+	//	name=EString ':'
+	//	actions+=Action
+	//	actions+=Action*
+	//	transitions_state+=TransitionState
 	//	transitions_state+=TransitionState*;
 	public StateElements getStateAccess() {
 		return pState;
@@ -1266,7 +1401,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Actuator:
-	//	{Actuator} 'Actuator';
+	//	{Actuator}
+	//	'Actuator';
 	public ActuatorElements getActuatorAccess() {
 		return pActuator;
 	}
@@ -1276,7 +1412,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Digital:
-	//	{Digital} 'Digital';
+	//	{Digital}
+	//	'Digital';
 	public DigitalElements getDigitalAccess() {
 		return pDigital;
 	}
@@ -1286,7 +1423,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Analog:
-	//	{Analog} 'Analog';
+	//	{Analog}
+	//	'Analog';
 	public AnalogElements getAnalogAccess() {
 		return pAnalog;
 	}
