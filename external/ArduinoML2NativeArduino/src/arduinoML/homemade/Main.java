@@ -31,6 +31,9 @@ public class Main {
 
 		for (int i = 0; i < listOfFiles.length; i++) {
 			String[] filename = listOfFiles[i].getName().split(Pattern.quote("."));
+			
+//			if(!filename[0].contains("Mode"))
+//				continue;
 
 			if (listOfFiles[i].isFile() && filename[1].equals("aml")) {
 				String modelPath = "resources/" + listOfFiles[i].getName();

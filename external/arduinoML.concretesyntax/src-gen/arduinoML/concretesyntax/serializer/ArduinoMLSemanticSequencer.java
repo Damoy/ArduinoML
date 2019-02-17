@@ -10,7 +10,8 @@ import arduinoML.ArduinoMLPackage;
 import arduinoML.Digital;
 import arduinoML.Mode;
 import arduinoML.State;
-import arduinoML.Transition;
+import arduinoML.TransitionMode;
+import arduinoML.TransitionState;
 import arduinoML.concretesyntax.services.ArduinoMLGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -80,8 +81,11 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case ArduinoMLPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
 				return; 
-			case ArduinoMLPackage.TRANSITION:
-				sequence_Transition(context, (Transition) semanticObject); 
+			case ArduinoMLPackage.TRANSITION_MODE:
+				sequence_TransitionMode(context, (TransitionMode) semanticObject); 
+				return; 
+			case ArduinoMLPackage.TRANSITION_STATE:
+				sequence_TransitionState(context, (TransitionState) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -183,20 +187,13 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (
 	 *         (
 	 *             name=EString 
-	 *             initial_state=[State|EString] 
-	 *             bricks+=Brick 
-	 *             bricks+=Brick* 
-	 *             states+=State 
-	 *             states+=State*
-	 *         ) | 
-	 *         (
-	 *             name=EString 
 	 *             initial_mode=[Mode|EString] 
 	 *             bricks+=Brick 
 	 *             bricks+=Brick* 
 	 *             modes+=Mode 
 	 *             modes+=Mode*
-	 *         )
+	 *         ) | 
+	 *         modes+=Mode
 	 *     )
 	 */
 	protected void sequence_App(ISerializationContext context, App semanticObject) {
@@ -242,7 +239,14 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Mode returns Mode
 	 *
 	 * Constraint:
-	 *     (name=EString initial=[State|EString] (bricks+=Brick bricks+=Brick*)? states+=State states+=State*)
+	 *     (
+	 *         name=EString 
+	 *         initial=[State|EString] 
+	 *         (bricks+=Brick bricks+=Brick*)? 
+	 *         states+=State 
+	 *         states+=State* 
+	 *         (transitions_mode+=TransitionMode transitions_mode+=TransitionMode*)?
+	 *     )
 	 */
 	protected void sequence_Mode(ISerializationContext context, Mode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -254,7 +258,7 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (name=EString actions+=Action actions+=Action* transitions+=Transition transitions+=Transition*)
+	 *     (name=EString actions+=Action actions+=Action* transitions_state+=TransitionState transitions_state+=TransitionState*)
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -263,7 +267,8 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Transition returns Transition
+	 *     Transition returns TransitionMode
+	 *     TransitionMode returns TransitionMode
 	 *
 	 * Constraint:
 	 *     (
@@ -275,10 +280,33 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *             ) | 
 	 *             (time=EInt unit=Time_unit)
 	 *         ) 
-	 *         (next_state=[State|EString] | next_mode=[Mode|EString])
+	 *         next_mode=[Mode|EString]
 	 *     )
 	 */
-	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
+	protected void sequence_TransitionMode(ISerializationContext context, TransitionMode semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Transition returns TransitionState
+	 *     TransitionState returns TransitionState
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             (
+	 *                 ((digitals+=[Digital|EString] d_values+=Signal) | (analogs+=[Analog|EString] comp+=Compare a_values+=EInt)) 
+	 *                 ((digitals+=[Digital|EString] d_values+=Signal)? (analogs+=[Analog|EString] comp+=Compare a_values+=EInt)?)+ 
+	 *                 (time=EInt unit=Time_unit)?
+	 *             ) | 
+	 *             (time=EInt unit=Time_unit)
+	 *         ) 
+	 *         next_state=[State|EString]
+	 *     )
+	 */
+	protected void sequence_TransitionState(ISerializationContext context, TransitionState semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

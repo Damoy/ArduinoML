@@ -11,23 +11,25 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_ScenarioComplexe() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(12, LOW);
 	digitalWrite(11, LOW);
 	digitalWrite(10, LOW);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_dual_glow();
 	}
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_red_glow();
 	}
 	if( digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_snooze();
 	}
@@ -40,12 +42,10 @@ void state_red_glow() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_dual_glow();
 	}
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_green_glow();
 	}
@@ -59,12 +59,10 @@ void state_green_glow() {
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_dual_glow();
 	}
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_off();
 	}
@@ -78,7 +76,6 @@ void state_dual_glow() {
 	digitalWrite(10, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == LOW && digitalRead(9) == LOW && guard ) {
-		delay(0);
 		time = millis();
 		state_bip();
 	}
@@ -100,12 +97,10 @@ void state_snooze() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_dual_glow();
 	}
 	if( digitalRead(9) == LOW && guard ) {
-		delay(0);
 		time = millis();
 		state_off();
 	}
@@ -114,4 +109,4 @@ void state_snooze() {
 	}
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_ScenarioComplexe();} // Entering init mode

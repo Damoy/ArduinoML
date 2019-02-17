@@ -6,8 +6,9 @@ package arduinoML.concretesyntax.formatting2;
 import arduinoML.Action;
 import arduinoML.App;
 import arduinoML.Brick;
+import arduinoML.Mode;
 import arduinoML.State;
-import arduinoML.Transition;
+import arduinoML.TransitionState;
 import arduinoML.concretesyntax.services.ArduinoMLGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Arrays;
@@ -29,9 +30,9 @@ public class ArduinoMLFormatter extends AbstractFormatter2 {
     for (final Brick brick : _bricks) {
       document.<Brick>format(brick);
     }
-    EList<State> _states = app.getStates();
-    for (final State state : _states) {
-      document.<State>format(state);
+    EList<Mode> _modes = app.getModes();
+    for (final Mode mode : _modes) {
+      document.<Mode>format(mode);
     }
   }
   
@@ -40,9 +41,9 @@ public class ArduinoMLFormatter extends AbstractFormatter2 {
     for (final Action action : _actions) {
       document.<Action>format(action);
     }
-    EList<Transition> _transitions = state.getTransitions();
-    for (final Transition transition : _transitions) {
-      document.<Transition>format(transition);
+    EList<TransitionState> _transitions_state = state.getTransitions_state();
+    for (final TransitionState transition : _transitions_state) {
+      document.<TransitionState>format(transition);
     }
   }
   

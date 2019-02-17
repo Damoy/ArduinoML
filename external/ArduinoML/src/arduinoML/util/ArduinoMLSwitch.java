@@ -136,6 +136,20 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArduinoMLPackage.TRANSITION_STATE: {
+				TransitionState transitionState = (TransitionState)theEObject;
+				T result = caseTransitionState(transitionState);
+				if (result == null) result = caseTransition(transitionState);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArduinoMLPackage.TRANSITION_MODE: {
+				TransitionMode transitionMode = (TransitionMode)theEObject;
+				T result = caseTransitionMode(transitionMode);
+				if (result == null) result = caseTransition(transitionMode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -287,6 +301,36 @@ public class ArduinoMLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMode(Mode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transition State</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transition State</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransitionState(TransitionState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transition Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transition Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransitionMode(TransitionMode object) {
 		return null;
 	}
 

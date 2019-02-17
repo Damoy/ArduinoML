@@ -8,11 +8,15 @@ void setup() {
 //Behavioral concepts
 long time=0; long debounce = 200;
 
+void mode_TemporalTransitions() {
+	//initial state
+	state_off();
+}
+
 void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == HIGH && guard ) {
-		delay(0);
 		time = millis();
 		state_on();
 	}
@@ -28,4 +32,4 @@ void state_on() {
 	state_off();
 }
 
-void loop() {state_off();} // Entering init state
+void loop() {mode_TemporalTransitions();} // Entering init mode
