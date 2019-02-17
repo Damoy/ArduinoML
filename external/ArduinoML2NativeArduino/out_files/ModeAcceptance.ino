@@ -35,7 +35,7 @@ void state_m1_off() {
 }
 
 void state_m1_on() {
-	digitalWrite(0, HIGH);
+	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
 	m1_to_m2();
 	if( digitalRead(8) == LOW && guard ) {
