@@ -1,0 +1,61 @@
+enable monitoring true
+app LocalAndGlobalAnalog initial mode unicorn :
+
+	bricks :
+		Analog potentiometre : 1 with debug true
+		Actuator led : 11
+		Digital button : 8
+	
+	modes :
+		unicorn initial state unicorn_sleeping :
+			states :
+				unicorn_sleeping :
+					change led to LOW
+					when button is HIGH go to state unicorn_awake
+				unicorn_awake :
+					change led to HIGH
+					when button is HIGH go to state unicorn_sleeping
+					
+			transitions :
+				when potentiometre esup 333 and potentiometre inf 666 go to mode drake
+				when potentiometre esup 666 and potentiometre inf 999 go to mode phoenix
+					
+		drake initial state drake_idle :
+			states :
+				drake_idle :
+					change led to LOW
+					when button is HIGH go to state drake_fireup
+					
+				drake_fireup_idle :
+					change led to LOW
+					when button is HIGH go to state drake_idle
+					wait 1s then go to state drake_fireup
+					 
+				drake_fireup :
+					change led to HIGH
+					when button is HIGH go to state drake_idle
+					wait 1s then go to state drake_fireup_idle
+					
+			transitions:
+				when potentiometre inf 333 go to mode unicorn
+				when potentiometre esup 666 and potentiometre inf 999 go to mode phoenix
+				
+		phoenix initial state phoenix_idle :
+			bricks:
+				Actuator led2 : 12
+				Analog light : 0 with debug true
+					
+			states :
+				phoenix_idle :
+					change led to LOW
+					change led2 to LOW
+					when light sup 500 go to state phoenix_shining
+					
+				phoenix_shining :
+					change led to HIGH
+					change led2 to HIGH
+					when light inf 500 go to state phoenix_idle
+					
+			transitions:
+				when potentiometre inf 333 go to mode unicorn
+				when potentiometre esup 333 and potentiometre inf 666 go to mode drake

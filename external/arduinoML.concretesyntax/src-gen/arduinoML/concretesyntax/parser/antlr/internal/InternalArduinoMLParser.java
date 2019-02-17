@@ -144,7 +144,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleApp"
-    // InternalArduinoML.g:72:1: ruleApp returns [EObject current=null] : ( ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) ) ;
+    // InternalArduinoML.g:72:1: ruleApp returns [EObject current=null] : ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? ( (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) ) ) ;
     public final EObject ruleApp() throws RecognitionException {
         EObject current = null;
 
@@ -178,34 +178,116 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalArduinoML.g:78:2: ( ( ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) ) )
-            // InternalArduinoML.g:79:2: ( ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) )
+            // InternalArduinoML.g:78:2: ( ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? ( (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) ) ) )
+            // InternalArduinoML.g:79:2: ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? ( (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) ) )
             {
-            // InternalArduinoML.g:79:2: ( ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) )
+            // InternalArduinoML.g:79:2: ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? ( (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) ) )
+            // InternalArduinoML.g:80:3: (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? ( (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) )
+            {
+            // InternalArduinoML.g:80:3: (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0==12) ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // InternalArduinoML.g:81:4: otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) )
+                    {
+                    otherlv_0=(Token)match(input,12,FOLLOW_3); 
+
+                    				newLeafNode(otherlv_0, grammarAccess.getAppAccess().getEnableKeyword_0_0());
+                    			
+                    otherlv_1=(Token)match(input,13,FOLLOW_4); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getAppAccess().getMonitoringKeyword_0_1());
+                    			
+                    // InternalArduinoML.g:89:4: ( (lv_monitoring_2_0= ruleEBoolean ) )
+                    // InternalArduinoML.g:90:5: (lv_monitoring_2_0= ruleEBoolean )
+                    {
+                    // InternalArduinoML.g:90:5: (lv_monitoring_2_0= ruleEBoolean )
+                    // InternalArduinoML.g:91:6: lv_monitoring_2_0= ruleEBoolean
+                    {
+
+                    						newCompositeNode(grammarAccess.getAppAccess().getMonitoringEBooleanParserRuleCall_0_2_0());
+                    					
+                    pushFollow(FOLLOW_5);
+                    lv_monitoring_2_0=ruleEBoolean();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getAppRule());
+                    						}
+                    						set(
+                    							current,
+                    							"monitoring",
+                    							lv_monitoring_2_0,
+                    							"arduinoML.concretesyntax.ArduinoML.EBoolean");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalArduinoML.g:109:3: ( (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) | (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==12) ) {
-                alt4=1;
-            }
-            else if ( (LA4_0==14) ) {
-                int LA4_2 = input.LA(2);
+            if ( (LA4_0==14) ) {
+                int LA4_1 = input.LA(2);
 
-                if ( (LA4_2==RULE_STRING) ) {
-                    int LA4_3 = input.LA(3);
+                if ( (LA4_1==RULE_STRING) ) {
+                    int LA4_2 = input.LA(3);
 
-                    if ( (LA4_3==15) ) {
-                        int LA4_5 = input.LA(4);
+                    if ( (LA4_2==15) ) {
+                        int LA4_4 = input.LA(4);
 
-                        if ( (LA4_5==22) ) {
+                        if ( (LA4_4==22) ) {
                             alt4=2;
                         }
-                        else if ( (LA4_5==16) ) {
+                        else if ( (LA4_4==16) ) {
                             alt4=1;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 4, 5, input);
+                                new NoViableAltException("", 4, 4, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 4, 2, input);
+
+                        throw nvae;
+                    }
+                }
+                else if ( (LA4_1==RULE_ID) ) {
+                    int LA4_3 = input.LA(3);
+
+                    if ( (LA4_3==15) ) {
+                        int LA4_4 = input.LA(4);
+
+                        if ( (LA4_4==22) ) {
+                            alt4=2;
+                        }
+                        else if ( (LA4_4==16) ) {
+                            alt4=1;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 4, 4, input);
 
                             throw nvae;
                         }
@@ -217,35 +299,9 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                         throw nvae;
                     }
                 }
-                else if ( (LA4_2==RULE_ID) ) {
-                    int LA4_4 = input.LA(3);
-
-                    if ( (LA4_4==15) ) {
-                        int LA4_5 = input.LA(4);
-
-                        if ( (LA4_5==22) ) {
-                            alt4=2;
-                        }
-                        else if ( (LA4_5==16) ) {
-                            alt4=1;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 4, 5, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 4, 4, input);
-
-                        throw nvae;
-                    }
-                }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 4, 2, input);
+                        new NoViableAltException("", 4, 1, input);
 
                     throw nvae;
                 }
@@ -258,73 +314,14 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalArduinoML.g:80:3: ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) )
+                    // InternalArduinoML.g:110:4: (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* )
                     {
-                    // InternalArduinoML.g:80:3: ( (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* ) )
-                    // InternalArduinoML.g:81:4: (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )? (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* )
-                    {
-                    // InternalArduinoML.g:81:4: (otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) ) )?
-                    int alt1=2;
-                    int LA1_0 = input.LA(1);
-
-                    if ( (LA1_0==12) ) {
-                        alt1=1;
-                    }
-                    switch (alt1) {
-                        case 1 :
-                            // InternalArduinoML.g:82:5: otherlv_0= 'enable' otherlv_1= 'monitoring' ( (lv_monitoring_2_0= ruleEBoolean ) )
-                            {
-                            otherlv_0=(Token)match(input,12,FOLLOW_3); 
-
-                            					newLeafNode(otherlv_0, grammarAccess.getAppAccess().getEnableKeyword_0_0_0());
-                            				
-                            otherlv_1=(Token)match(input,13,FOLLOW_4); 
-
-                            					newLeafNode(otherlv_1, grammarAccess.getAppAccess().getMonitoringKeyword_0_0_1());
-                            				
-                            // InternalArduinoML.g:90:5: ( (lv_monitoring_2_0= ruleEBoolean ) )
-                            // InternalArduinoML.g:91:6: (lv_monitoring_2_0= ruleEBoolean )
-                            {
-                            // InternalArduinoML.g:91:6: (lv_monitoring_2_0= ruleEBoolean )
-                            // InternalArduinoML.g:92:7: lv_monitoring_2_0= ruleEBoolean
-                            {
-
-                            							newCompositeNode(grammarAccess.getAppAccess().getMonitoringEBooleanParserRuleCall_0_0_2_0());
-                            						
-                            pushFollow(FOLLOW_5);
-                            lv_monitoring_2_0=ruleEBoolean();
-
-                            state._fsp--;
-
-
-                            							if (current==null) {
-                            								current = createModelElementForParent(grammarAccess.getAppRule());
-                            							}
-                            							set(
-                            								current,
-                            								"monitoring",
-                            								lv_monitoring_2_0,
-                            								"arduinoML.concretesyntax.ArduinoML.EBoolean");
-                            							afterParserOrEnumRuleCall();
-                            						
-
-                            }
-
-
-                            }
-
-
-                            }
-                            break;
-
-                    }
-
                     // InternalArduinoML.g:110:4: (otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )* )
                     // InternalArduinoML.g:111:5: otherlv_3= 'app' ( (lv_name_4_0= ruleEString ) ) otherlv_5= 'initial' otherlv_6= 'mode' ( ( ruleEString ) ) otherlv_8= ':' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) ( (lv_bricks_12_0= ruleBrick ) )* otherlv_13= 'modes' otherlv_14= ':' ( (lv_modes_15_0= ruleMode ) ) ( (lv_modes_16_0= ruleMode ) )*
                     {
                     otherlv_3=(Token)match(input,14,FOLLOW_6); 
 
-                    					newLeafNode(otherlv_3, grammarAccess.getAppAccess().getAppKeyword_0_1_0());
+                    					newLeafNode(otherlv_3, grammarAccess.getAppAccess().getAppKeyword_1_0_0());
                     				
                     // InternalArduinoML.g:115:5: ( (lv_name_4_0= ruleEString ) )
                     // InternalArduinoML.g:116:6: (lv_name_4_0= ruleEString )
@@ -333,7 +330,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     // InternalArduinoML.g:117:7: lv_name_4_0= ruleEString
                     {
 
-                    							newCompositeNode(grammarAccess.getAppAccess().getNameEStringParserRuleCall_0_1_1_0());
+                    							newCompositeNode(grammarAccess.getAppAccess().getNameEStringParserRuleCall_1_0_1_0());
                     						
                     pushFollow(FOLLOW_7);
                     lv_name_4_0=ruleEString();
@@ -359,11 +356,11 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     otherlv_5=(Token)match(input,15,FOLLOW_8); 
 
-                    					newLeafNode(otherlv_5, grammarAccess.getAppAccess().getInitialKeyword_0_1_2());
+                    					newLeafNode(otherlv_5, grammarAccess.getAppAccess().getInitialKeyword_1_0_2());
                     				
                     otherlv_6=(Token)match(input,16,FOLLOW_6); 
 
-                    					newLeafNode(otherlv_6, grammarAccess.getAppAccess().getModeKeyword_0_1_3());
+                    					newLeafNode(otherlv_6, grammarAccess.getAppAccess().getModeKeyword_1_0_3());
                     				
                     // InternalArduinoML.g:142:5: ( ( ruleEString ) )
                     // InternalArduinoML.g:143:6: ( ruleEString )
@@ -377,7 +374,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     							}
                     						
 
-                    							newCompositeNode(grammarAccess.getAppAccess().getInitial_modeModeCrossReference_0_1_4_0());
+                    							newCompositeNode(grammarAccess.getAppAccess().getInitial_modeModeCrossReference_1_0_4_0());
                     						
                     pushFollow(FOLLOW_9);
                     ruleEString();
@@ -395,15 +392,15 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     otherlv_8=(Token)match(input,17,FOLLOW_10); 
 
-                    					newLeafNode(otherlv_8, grammarAccess.getAppAccess().getColonKeyword_0_1_5());
+                    					newLeafNode(otherlv_8, grammarAccess.getAppAccess().getColonKeyword_1_0_5());
                     				
                     otherlv_9=(Token)match(input,18,FOLLOW_9); 
 
-                    					newLeafNode(otherlv_9, grammarAccess.getAppAccess().getBricksKeyword_0_1_6());
+                    					newLeafNode(otherlv_9, grammarAccess.getAppAccess().getBricksKeyword_1_0_6());
                     				
                     otherlv_10=(Token)match(input,17,FOLLOW_11); 
 
-                    					newLeafNode(otherlv_10, grammarAccess.getAppAccess().getColonKeyword_0_1_7());
+                    					newLeafNode(otherlv_10, grammarAccess.getAppAccess().getColonKeyword_1_0_7());
                     				
                     // InternalArduinoML.g:170:5: ( (lv_bricks_11_0= ruleBrick ) )
                     // InternalArduinoML.g:171:6: (lv_bricks_11_0= ruleBrick )
@@ -412,7 +409,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     // InternalArduinoML.g:172:7: lv_bricks_11_0= ruleBrick
                     {
 
-                    							newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_0_1_8_0());
+                    							newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_1_0_8_0());
                     						
                     pushFollow(FOLLOW_12);
                     lv_bricks_11_0=ruleBrick();
@@ -455,7 +452,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     	    // InternalArduinoML.g:191:7: lv_bricks_12_0= ruleBrick
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_0_1_9_0());
+                    	    							newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_1_0_9_0());
                     	    						
                     	    pushFollow(FOLLOW_12);
                     	    lv_bricks_12_0=ruleBrick();
@@ -487,11 +484,11 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     otherlv_13=(Token)match(input,19,FOLLOW_9); 
 
-                    					newLeafNode(otherlv_13, grammarAccess.getAppAccess().getModesKeyword_0_1_10());
+                    					newLeafNode(otherlv_13, grammarAccess.getAppAccess().getModesKeyword_1_0_10());
                     				
                     otherlv_14=(Token)match(input,17,FOLLOW_6); 
 
-                    					newLeafNode(otherlv_14, grammarAccess.getAppAccess().getColonKeyword_0_1_11());
+                    					newLeafNode(otherlv_14, grammarAccess.getAppAccess().getColonKeyword_1_0_11());
                     				
                     // InternalArduinoML.g:216:5: ( (lv_modes_15_0= ruleMode ) )
                     // InternalArduinoML.g:217:6: (lv_modes_15_0= ruleMode )
@@ -500,7 +497,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     // InternalArduinoML.g:218:7: lv_modes_15_0= ruleMode
                     {
 
-                    							newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_0_1_12_0());
+                    							newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_1_0_12_0());
                     						
                     pushFollow(FOLLOW_13);
                     lv_modes_15_0=ruleMode();
@@ -543,7 +540,7 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
                     	    // InternalArduinoML.g:237:7: lv_modes_16_0= ruleMode
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_0_1_13_0());
+                    	    							newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_1_0_13_0());
                     	    						
                     	    pushFollow(FOLLOW_13);
                     	    lv_modes_16_0=ruleMode();
@@ -578,45 +575,42 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
 
                     }
-
-
-                    }
                     break;
                 case 2 :
-                    // InternalArduinoML.g:257:3: (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) )
+                    // InternalArduinoML.g:256:4: (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) )
                     {
-                    // InternalArduinoML.g:257:3: (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) )
-                    // InternalArduinoML.g:258:4: otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) )
+                    // InternalArduinoML.g:256:4: (otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) ) )
+                    // InternalArduinoML.g:257:5: otherlv_17= 'app' ( (lv_modes_18_0= ruleMode ) )
                     {
                     otherlv_17=(Token)match(input,14,FOLLOW_6); 
 
-                    				newLeafNode(otherlv_17, grammarAccess.getAppAccess().getAppKeyword_1_0());
-                    			
-                    // InternalArduinoML.g:262:4: ( (lv_modes_18_0= ruleMode ) )
-                    // InternalArduinoML.g:263:5: (lv_modes_18_0= ruleMode )
+                    					newLeafNode(otherlv_17, grammarAccess.getAppAccess().getAppKeyword_1_1_0());
+                    				
+                    // InternalArduinoML.g:261:5: ( (lv_modes_18_0= ruleMode ) )
+                    // InternalArduinoML.g:262:6: (lv_modes_18_0= ruleMode )
                     {
-                    // InternalArduinoML.g:263:5: (lv_modes_18_0= ruleMode )
-                    // InternalArduinoML.g:264:6: lv_modes_18_0= ruleMode
+                    // InternalArduinoML.g:262:6: (lv_modes_18_0= ruleMode )
+                    // InternalArduinoML.g:263:7: lv_modes_18_0= ruleMode
                     {
 
-                    						newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_1_1_0());
-                    					
+                    							newCompositeNode(grammarAccess.getAppAccess().getModesModeParserRuleCall_1_1_1_0());
+                    						
                     pushFollow(FOLLOW_2);
                     lv_modes_18_0=ruleMode();
 
                     state._fsp--;
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getAppRule());
-                    						}
-                    						add(
-                    							current,
-                    							"modes",
-                    							lv_modes_18_0,
-                    							"arduinoML.concretesyntax.ArduinoML.Mode");
-                    						afterParserOrEnumRuleCall();
-                    					
+                    							if (current==null) {
+                    								current = createModelElementForParent(grammarAccess.getAppRule());
+                    							}
+                    							add(
+                    								current,
+                    								"modes",
+                    								lv_modes_18_0,
+                    								"arduinoML.concretesyntax.ArduinoML.Mode");
+                    							afterParserOrEnumRuleCall();
+                    						
 
                     }
 
@@ -629,6 +623,9 @@ public class InternalArduinoMLParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+
+            }
+
 
             }
 

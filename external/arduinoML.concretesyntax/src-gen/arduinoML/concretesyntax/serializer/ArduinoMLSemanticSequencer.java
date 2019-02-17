@@ -176,16 +176,18 @@ public class ArduinoMLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
+	 *         monitoring=EBoolean? 
 	 *         (
-	 *             monitoring=EBoolean? 
-	 *             name=EString 
-	 *             initial_mode=[Mode|EString] 
-	 *             bricks+=Brick 
-	 *             bricks+=Brick* 
-	 *             modes+=Mode 
-	 *             modes+=Mode*
-	 *         ) | 
-	 *         modes+=Mode
+	 *             (
+	 *                 name=EString 
+	 *                 initial_mode=[Mode|EString] 
+	 *                 bricks+=Brick 
+	 *                 bricks+=Brick* 
+	 *                 modes+=Mode 
+	 *                 modes+=Mode*
+	 *             ) | 
+	 *             modes+=Mode
+	 *         )
 	 *     )
 	 */
 	protected void sequence_App(ISerializationContext context, App semanticObject) {

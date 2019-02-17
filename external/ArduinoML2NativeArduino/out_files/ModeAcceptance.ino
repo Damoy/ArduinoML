@@ -7,7 +7,9 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
 void mode_m1() {
 	//initial state
@@ -24,6 +26,8 @@ void m1_to_m2(){
 void state_m1_off() {
 	digitalWrite(11, LOW);
 	boolean guard = millis() - time > debounce;
+	out_m1();
+
 	m1_to_m2();
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
@@ -37,6 +41,8 @@ void state_m1_off() {
 void state_m1_on() {
 	digitalWrite(0, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_m1();
+
 	m1_to_m2();
 	if( digitalRead(8) == LOW && guard ) {
 		time = millis();
@@ -62,6 +68,8 @@ void m2_to_m1(){
 void state_m2_off() {
 	digitalWrite(11, LOW);
 	boolean guard = millis() - time > debounce;
+	out_m2();
+
 	m2_to_m1();
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
@@ -75,6 +83,8 @@ void state_m2_off() {
 void state_m2_on() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
+	out_m2();
+
 	m2_to_m1();
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();

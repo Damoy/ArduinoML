@@ -5,7 +5,7 @@ void setup() {
 	pinMode(11, OUTPUT);
 	pinMode(8, INPUT);
 	Serial.begin(38400);
-	Serial.println("name=ModeCreatures");
+	Serial.println("name=LocalAndGlobalAnalog");
 	Serial.println("modes=unicorn,drake,phoenix");
 	Serial.println("states=unicorn_sleeping,unicorn_awake");
 	Serial.println("states=drake_idle,drake_fireup_idle,drake_fireup");
@@ -170,6 +170,7 @@ void state_drake_fireup() {
 void mode_phoenix() {
 	//setup bricks
 	pinMode(12, OUTPUT);
+	pinMode(0, INPUT);
 	//initial state
 	mode_value = "2";
 	state_value = "0";
@@ -205,7 +206,7 @@ void state_phoenix_idle() {
 
 	phoenix_to_unicorn();
 	phoenix_to_drake();
-	if( digitalRead(8) == HIGH && guard ) {
+	if( analogRead(0) > 500 && guard ) {
 		state_value = "1";
 		out();
 		time = millis();
@@ -224,7 +225,7 @@ void state_phoenix_shining() {
 
 	phoenix_to_unicorn();
 	phoenix_to_drake();
-	if( digitalRead(8) == HIGH && guard ) {
+	if( analogRead(0) < 500 && guard ) {
 		state_value = "0";
 		out();
 		time = millis();
@@ -256,7 +257,7 @@ void out_drake() {
 void out_phoenix() {
 	boolean time_analog = millis() - analog > debounce;
 	if (time_analog) {
-		Serial.println();
+		Serial.println("analog=light->" + String(analogRead(0)));
 		analog = millis();
 	}
 }

@@ -1,3 +1,4 @@
+enable monitoring true
 app ScenarioComplexe initial state off :
 
 	bricks :
