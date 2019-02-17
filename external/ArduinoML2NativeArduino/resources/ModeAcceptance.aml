@@ -12,7 +12,7 @@ app ModeAcceptation initial mode m1 :
                     change led1 to LOW
                     when b1 is HIGH go to state m1_on
                 m1_on :
-                    change led to HIGH
+                    change led1 to HIGH
                     when b1 is LOW go to state m1_off
                     
             transitions :

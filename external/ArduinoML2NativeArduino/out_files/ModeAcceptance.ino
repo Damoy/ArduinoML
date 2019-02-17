@@ -39,7 +39,7 @@ void state_m1_off() {
 }
 
 void state_m1_on() {
-	digitalWrite(0, HIGH);
+	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
 	out_m1();
 
