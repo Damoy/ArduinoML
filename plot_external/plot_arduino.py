@@ -3,6 +3,7 @@ import numpy
 import matplotlib.pyplot as plt
 from drawnow import *
 import datetime
+import sys
 
 plt.ion()
 cnt=0
@@ -51,7 +52,10 @@ def custom_plot():
         plt.yticks(numpy.arange(len(states[actual_mode])),  states[actual_mode])
         plt.xticks(compt[-50:], times[-50:], rotation=45)
 
-with Serial(port="COM5", baudrate=38400, timeout=1, writeTimeout=1) as port_serie:
+thisPort = "COM5"
+if len(sys.argv) > 1:
+    thisPort = "COM" + (str(sys.argv[1]))
+with Serial(port=thisPort, baudrate=38400, timeout=1, writeTimeout=1) as port_serie:
     while (port_serie.inWaiting()==0):
         pass
     if port_serie.isOpen():

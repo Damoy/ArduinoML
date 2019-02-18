@@ -241,7 +241,7 @@ void out() {Serial.println("state=" + state_value);}
 void out_unicorn() {
 	boolean time_analog = millis() - analog > debounce;
 	if (time_analog) {
-		Serial.println();
+		Serial.println("analog=potentiometre->" + String(analogRead(1)));
 		analog = millis();
 	}
 }
@@ -249,7 +249,7 @@ void out_unicorn() {
 void out_drake() {
 	boolean time_analog = millis() - analog > debounce;
 	if (time_analog) {
-		Serial.println();
+		Serial.println("analog=potentiometre->" + String(analogRead(1)));
 		analog = millis();
 	}
 }
@@ -257,7 +257,7 @@ void out_drake() {
 void out_phoenix() {
 	boolean time_analog = millis() - analog > debounce;
 	if (time_analog) {
-		Serial.println("analog=light->" + String(analogRead(0)));
+		Serial.println("analog=potentiometre->" + String(analogRead(1)) + "=light->" + String(analogRead(0)));
 		analog = millis();
 	}
 }
