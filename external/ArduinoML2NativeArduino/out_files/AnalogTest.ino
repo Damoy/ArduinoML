@@ -18,8 +18,6 @@ void mode_AnalogTest() {
 void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
-	out_AnalogTest();
-
 	if( analogRead(1) >= 500 && guard ) {
 		time = millis();
 		state_on();
@@ -32,8 +30,6 @@ void state_off() {
 void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_AnalogTest();
-
 	if( analogRead(1) < 500 && guard ) {
 		time = millis();
 		state_off();

@@ -1,0 +1,74 @@
+enable monitoring true
+app ModePresentation initial mode resterAppuyer :
+
+	bricks :
+		Analog potentiometre : 1 with debug true
+		Actuator led_mode : 10
+		Actuator led_state : 11
+		Digital button_mode : 8
+		Digital button_state : 9
+	
+	modes :
+		resterAppuyer initial state mode1_off :
+			states :
+				mode1_off :
+					change led_mode to LOW
+					change led_state to LOW
+					when button_state is HIGH go to state mode1_on
+				mode1_on :
+					change led_state to HIGH
+					when button_state is LOW go to state mode1_off
+					
+			transitions :
+				when potentiometre esup 500 go to mode transitionTemporelle
+				when button_mode is HIGH go to mode multiEtats
+		
+		transitionTemporelle initial state mode2_off :
+			states :
+				mode2_off :
+					change led_mode to LOW
+					change led_state to LOW
+					when button_state is HIGH go to state mode2_on
+				mode2_on :
+					change led_state to HIGH
+					wait 1s then go to state mode2_off
+					
+			transitions :
+				when potentiometre inf 500 go to mode resterAppuyer
+				when button_mode is HIGH go to mode detectionLumiere
+				
+		multiEtats initial state mode3_off :
+			bricks :
+				Actuator buzzer : 12
+			states :
+				mode3_off :
+					change led_mode to HIGH
+					change buzzer to LOW
+					when button_state is HIGH go to state mode3_on_1
+				mode3_on_1 :
+					change led_state to HIGH
+					when button_state is HIGH go to state mode3_on_2
+				mode3_on_2 :
+					change led_state to LOW
+					change buzzer to HIGH
+					when button_state is HIGH go to state mode3_off
+					
+			transitions :
+				when potentiometre esup 500 go to mode detectionLumiere
+				when button_mode is HIGH go to mode resterAppuyer
+				
+		detectionLumiere initial state mode4_off :
+			bricks :
+				Analog lumiere : 2 with debug true
+			states :
+				mode4_off :
+					change led_mode to HIGH
+					change led_state to LOW
+					when lumiere esup 600 go to state mode4_on
+				mode4_on :
+					change led_state to HIGH
+					when lumiere inf 600 go to state mode4_off
+					
+			transitions :
+				when potentiometre inf 500 go to mode multiEtats
+				when button_mode is HIGH go to mode transitionTemporelle

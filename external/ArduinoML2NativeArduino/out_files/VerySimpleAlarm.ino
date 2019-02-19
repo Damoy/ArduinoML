@@ -20,8 +20,6 @@ void state_off() {
 	digitalWrite(11, LOW);
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
-	out_VerySimpleAlarm();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -35,8 +33,6 @@ void state_on() {
 	digitalWrite(11, HIGH);
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_VerySimpleAlarm();
-
 	if( digitalRead(8) == LOW && guard ) {
 		time = millis();
 		state_off();

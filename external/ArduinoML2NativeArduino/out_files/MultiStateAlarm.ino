@@ -19,8 +19,6 @@ void mode_MultiStateAlarm() {
 void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
-	out_MultiStateAlarm();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_buzz();
@@ -33,8 +31,6 @@ void state_off() {
 void state_buzz() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_MultiStateAlarm();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_glow();
@@ -48,8 +44,6 @@ void state_glow() {
 	digitalWrite(11, LOW);
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_MultiStateAlarm();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_off();

@@ -6,9 +6,11 @@ void setup() {
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
-void mode_StateBasedAlarm() {
+void mode_TemporalTransitions() {
 	//initial state
 	state_off();
 }
@@ -28,13 +30,8 @@ void state_off() {
 void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
-	if( digitalRead(8) == HIGH && guard ) {
-		time = millis();
-		state_off();
-	}
-	else {
-		state_on(); 
-	}
+	delay(800);
+	state_off();
 }
 
-void loop() {mode_StateBasedAlarm();} // Entering init mode
+void loop() {mode_TemporalTransitions();} // Entering init mode

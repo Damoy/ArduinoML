@@ -418,7 +418,9 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 			sb.append(doSwitch(a));
 
 		sb.append("\tboolean guard = millis() - time > debounce;\n");
-		sb.append("\tout_" + currentMode.getName() + "();\n\n");
+		if (monitoring) {
+			sb.append("\tout_" + currentMode.getName() + "();\n\n");
+		}
 		// TODO CHECK
 		if(currentMode != null) {
 			if(!transitionsModeUtil.isEmpty()) {

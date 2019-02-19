@@ -19,8 +19,6 @@ void mode_DualCheckAlarm() {
 void state_off() {
 	digitalWrite(11, LOW);
 	boolean guard = millis() - time > debounce;
-	out_DualCheckAlarm();
-
 	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -33,8 +31,6 @@ void state_off() {
 void state_on() {
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_DualCheckAlarm();
-
 	if( digitalRead(8) == LOW && guard ) {
 		time = millis();
 		state_off();

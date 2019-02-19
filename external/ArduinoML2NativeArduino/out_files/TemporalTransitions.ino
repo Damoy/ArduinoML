@@ -18,8 +18,6 @@ void mode_TemporalTransitions() {
 void state_off() {
 	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
-	out_TemporalTransitions();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -32,8 +30,6 @@ void state_off() {
 void state_on() {
 	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_TemporalTransitions();
-
 	delay(800);
 	state_off();
 }

@@ -1,7 +1,8 @@
+enable monitoring true
 app ModeCreatures initial mode unicorn :
 
 	bricks :
-		Analog light : 1
+		Analog light : 1 with debug
 		Actuator led : 11
 		Digital button : 8
 	
@@ -27,13 +28,13 @@ app ModeCreatures initial mode unicorn :
 					
 				drake_fireup_idle :
 					change led to LOW
-					wait 1s then go to state drake_fireup
 					when button is HIGH go to state drake_idle
+					wait 1s then go to state drake_fireup
 					 
 				drake_fireup :
 					change led to HIGH
-					wait 1s then go to state drake_fireup_idle
 					when button is HIGH go to state drake_idle
+					wait 1s then go to state drake_fireup_idle
 					
 			transitions:
 				when light inf 333 go to mode unicorn

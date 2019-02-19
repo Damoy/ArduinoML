@@ -2,23 +2,24 @@
 // Structural concepts
 void setup() {
 	pinMode(11, OUTPUT);
-	pinMode(12, OUTPUT);
 	pinMode(8, INPUT);
+	pinMode(9, INPUT);
 }
 
 //Behavioral concepts
-long time=0; long debounce = 200;
+long time=0;
+long debounce = 200;
+long analog=0;
 
-void mode_VerySimpleAlarm() {
+void mode_DualCheckAlarm() {
 	//initial state
 	state_off();
 }
 
 void state_off() {
 	digitalWrite(11, LOW);
-	digitalWrite(12, LOW);
 	boolean guard = millis() - time > debounce;
-	if( digitalRead(8) == HIGH && guard ) {
+	if( digitalRead(8) == HIGH && digitalRead(9) == HIGH && guard ) {
 		time = millis();
 		state_on();
 	}
@@ -29,9 +30,12 @@ void state_off() {
 
 void state_on() {
 	digitalWrite(11, HIGH);
-	digitalWrite(12, HIGH);
 	boolean guard = millis() - time > debounce;
 	if( digitalRead(8) == LOW && guard ) {
+		time = millis();
+		state_off();
+	}
+	if( digitalRead(9) == LOW && guard ) {
 		time = millis();
 		state_off();
 	}
@@ -40,4 +44,4 @@ void state_on() {
 	}
 }
 
-void loop() {mode_VerySimpleAlarm();} // Entering init mode
+void loop() {mode_DualCheckAlarm();} // Entering init mode

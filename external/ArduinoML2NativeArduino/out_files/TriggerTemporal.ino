@@ -21,8 +21,6 @@ void state_off() {
 	digitalWrite(10, LOW);
 	digitalWrite(11, LOW);
 	boolean guard = millis() - time > debounce;
-	out_TriggerTemporal();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_on();
@@ -36,8 +34,6 @@ void state_on() {
 	digitalWrite(10, HIGH);
 	digitalWrite(11, HIGH);
 	boolean guard = millis() - time > debounce;
-	out_TriggerTemporal();
-
 	if( digitalRead(8) == HIGH && guard ) {
 		time = millis();
 		state_off();
