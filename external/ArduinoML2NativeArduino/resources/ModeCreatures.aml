@@ -2,7 +2,7 @@ enable monitoring true
 app ModeCreatures initial mode unicorn :
 
 	bricks :
-		Analog light : 1 with debug
+		Analog light : 1
 		Actuator led : 11
 		Digital button : 8
 	
